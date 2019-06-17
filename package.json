@@ -1,11 +1,11 @@
 {
-  "name": "my-app",
-  "description": "Electron + Create React App + Electron Builder",
+  "name": "remotify",
+  "description": " electron app for Remotify",
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Your Name",
-    "email": "your.email@domain.com",
+    "name": "Victory",
+    "email": "vickywane@gmail.com",
     "url": "https://your-website.com"
   },
   "build": {
@@ -26,8 +26,11 @@
   "dependencies": {
     "electron-is-dev": "^1.0.1",
     "react": "^16.8.3",
+    "react-desktop": "^0.3.9",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "styled-components": "^4.3.1",
+    "styled-flex-component": "^3.0.0"
   },
   "homepage": "./",
   "main": "public/electron.js",
