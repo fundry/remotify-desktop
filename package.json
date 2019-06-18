@@ -25,9 +25,11 @@
   },
   "dependencies": {
     "electron-is-dev": "^1.0.1",
+    "esm": "^3.2.25",
     "react": "^16.8.3",
     "react-desktop": "^0.3.9",
     "react-dom": "^16.8.3",
+    "react-native-web-vector-icons": "^4.4.3",
     "react-scripts": "2.1.5",
     "styled-components": "^4.3.1",
     "styled-flex-component": "^3.0.0"

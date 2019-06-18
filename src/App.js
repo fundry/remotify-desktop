@@ -5,7 +5,6 @@ import { Login } from './components/index';
 class App extends Component {
 	render() {
 		const Div = styled.div`
-			background: #2b44ff;
 		`;
 		return (
 			<Div>
