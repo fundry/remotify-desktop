@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Flex from 'styled-flex-component'
 import Internet from '../../internet'
 
+import { Link } from 'react-router-dom'
+ 
 const login = () => {
   const Div = styled.div`
     padding: 1em;
@@ -49,7 +51,7 @@ const login = () => {
           margin: '2%'
         }}
       >
-        <Button> Login </Button>{' '}
+       <Link to="/home">   <Button> Login </Button> </Link>
       </div>{' '}
       <Flex justifyAround>
         <p> Contact Team Admin </p>{' '}
