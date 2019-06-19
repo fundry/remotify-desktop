@@ -1,10 +1,10 @@
 import { app, BrowserWindow } from 'electron'
-// import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+// let loginWindow
 
 const isDevMode = process.execPath.match(/[\\/]electron/)
 
@@ -12,17 +12,23 @@ if (isDevMode) enableLiveReload({ strategy: 'react-hmr' })
 
 const createWindow = async () => {
   // Create the browser window.
+
+  // loginWindow = new BrowserWindow({
+  //   width: 700,
+  //   height: 600
+  // })
+
   mainWindow = new BrowserWindow({
-    width: 700,
-    height: 600
+    width: 1000,
+    height: 770
   })
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/index.html`)
+  // mainWindow.loadURL(`file://${__dirname}/index.html`)
 
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
   // Open the DevTools.
   if (isDevMode) {
-    // await installExtension(REACT_DEVELOPER_TOOLS);
     mainWindow.webContents.openDevTools()
   }
 
@@ -48,6 +54,8 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+console.log('hello')
 
 app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the

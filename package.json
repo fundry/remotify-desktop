@@ -3,7 +3,7 @@
 	"productName": "devify-desktop",
 	"version": "1.0.0",
 	"description": "My Electron application description",
-	"main": "src/index.js",
+	"main": "src/electron.js",
 	"scripts": {
 		"start": "electron-forge start",
 		"package": "electron-forge package",
@@ -17,9 +17,16 @@
 	"config": {
 		"forge": {
 			"make_targets": {
-				"win32": ["squirrel"],
-				"darwin": ["zip"],
-				"linux": ["deb", "rpm"]
+				"win32": [
+					"squirrel"
+				],
+				"darwin": [
+					"zip"
+				],
+				"linux": [
+					"deb",
+					"rpm"
+				]
 			},
 			"electronPackagerConfig": {
 				"packageManager": "yarn"
@@ -46,18 +53,22 @@
 		"husky": "^2.4.1",
 		"react": "^16.8.3",
 		"react-dom": "^16.8.3",
-		"react-hot-loader": "^3.0.0-beta.6",
+		"react-hot-loader": "^4.11.1",
 		"react-kawaii": "^0.14.4",
 		"react-router-dom": "^5.0.1",
 		"semantic-ui-react": "^0.87.2",
 		"styled-components": "^4.3.1",
 		"styled-flex-component": "^3.0.0"
 	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
 	"devDependencies": {
 		"babel-plugin-transform-async-to-generator": "^6.24.1",
 		"babel-plugin-transform-es2015-classes": "^6.24.1",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
+		"electron": "^4.0.6",
 		"electron-forge": "^5.2.4",
 		"electron-prebuilt-compile": "4.0.0",
 		"eslint": "^3",
