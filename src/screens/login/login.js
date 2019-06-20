@@ -1,20 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import Flex from 'styled-flex-component'
-import { Link } from 'react-router-dom'
-import { Stream } from 'react-streams'
-import { of, pipe } from 'rxjs'
-import { delay, startWith } from 'rxjs/operators'
-import { ProgressCircle } from 'react-desktop/windows'
+import React from 'react';
+import styled from 'styled-components';
+import Flex from 'styled-flex-component';
+import { Link } from 'react-router-dom';
+import { Stream } from 'react-streams';
+import { of, pipe } from 'rxjs';
+import { delay, startWith } from 'rxjs/operators';
+import { ProgressCircle } from 'react-desktop/windows';
 
 // import img from '../../../assets/images/worker.jpg';
-import Internet from '../../internet'
+import Internet from '../../components/internet';
 
 const Login = () => {
   const Div = styled.div`
     padding: 1em;
-  `
-  // background-image: url(${img}); .. to be used with styled-comp for adding bckgrnd img
+  `;
+  // background-image: url(${img});
   const Button = styled.button`
     background: #0e2f5a;
     text-align: right;
@@ -29,7 +29,7 @@ const Login = () => {
       color: #0e2f5a;
       background: #fff;
     }
-  `
+  `;
 
   const Help = styled.button`
     background: #0e2f5a;
@@ -45,10 +45,14 @@ const Login = () => {
       color: #0e2f5a;
       background: #fff;
     }
-  `
+  `;
 
   return (
     <Div>
+      <img
+        src={'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'}
+        style={{ maxWidth: '50%', maxheight: '70vh' }}
+      />
       <Flex justifyCenter>
         <input
           type='text'
@@ -72,10 +76,8 @@ const Login = () => {
           margin: '2%'
         }}
       >
-        <Link to="/home">
-          <Button
-          onClick={() => alert('boom')}
-          > Login </Button> 
+        <Link to='/home'>
+          <Button  > Login </Button>
         </Link>
       </div>
       <br /> <br /> <br /> <br />
@@ -85,29 +87,27 @@ const Login = () => {
       </Flex>
       <hr />
       <Internet />
-      <ProgressCircle color='red' size={100}  style={{ textAlign : 'center'}}/>
     </Div>
-  )
-}
+  );
+};
 
 const startWithAndDelay = (message, time) =>
   pipe(
     delay(time),
     startWith({ message })
-  )
+  );
 
-const message$ = of({ any: <Login /> })
+const message$ = of({ any: <Login />  });
 
-const Loader = () => {
-  return <h1> Load Shit </h1>
-}
+// const Loader = () => {
+//   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
+// };
 
 export default () => (
   <div>
-    <h1> welcome and image </h1>
-    <Stream source={message$} pipe={startWithAndDelay('wait small' , 100)}>
+    <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
       {({ any }) => <div>{any}</div>}
     </Stream>
   </div>
-)
+);
 // export default login;
