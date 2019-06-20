@@ -57,7 +57,10 @@
 		"react-dom": "^16.8.3",
 		"react-hot-loader": "^4.11.1",
 		"react-kawaii": "^0.14.4",
+		"react-router": "^5.0.1",
 		"react-router-dom": "^5.0.1",
+		"react-streams": "^13.6.6",
+		"rxjs": "^6.5.2",
 		"semantic-ui-react": "^0.87.2",
 		"styled-components": "^4.3.1",
 		"styled-flex-component": "^3.0.0"
