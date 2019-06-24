@@ -20,7 +20,12 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     width: 1000,
-    height: 770
+    height: 770 , 
+    'minHeight': 310,
+    'minWidth': 310,
+    // frame: process.platform != "win32" ? true : false, 
+    backgroundColor: "#f4f4f5",
+    title: "Remotify"
   })
 
   // and load the index.html of the app.

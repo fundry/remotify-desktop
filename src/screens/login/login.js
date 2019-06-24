@@ -49,10 +49,12 @@ const Login = () => {
 
   return (
     <Div>
+<Flex> 
       <img
         src={'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'}
         style={{ maxWidth: '50%', maxheight: '70vh' }}
       />
+<div>
       <Flex justifyCenter>
         <input
           type='text'
@@ -75,7 +77,7 @@ const Login = () => {
           textAlign: 'center',
           margin: '2%'
         }}
-      >
+      > 
         <Link to='/home'>
           <Button  > Login </Button>
         </Link>
@@ -87,6 +89,8 @@ const Login = () => {
       </Flex>
       <hr />
       <Internet />
+</div>
+</Flex>
     </Div>
   );
 };
