@@ -1,19 +1,18 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import NavBar from '../../components/NavBar';
 
 const Settings = () => {
   const Div = styled.div`
-    padding  : 1em
+    padding  : 0.5em
     background  : transparent
-`
+`;
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <Div>
-        <p style={{ textAlign: 'center' }}> Settings</p>
-      <hr />
+      <NavBar />
+      <p> Settings here </p>
     </Div>
-    // eslint-disable-next-line semi
-  )
-}
-export default Settings
+  );
+};
+export default Settings;

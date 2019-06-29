@@ -8,16 +8,17 @@ import {
 } from 'react-desktop/windows'
 import NavBar from '../../components/NavBar'
 
+
 export default class extends Component {
   render () {
     return (
       <div>
         <NavBar />
-        <MasterDetailsView color='#cc7f29' theme='light'>
+        <MasterDetailsView color='#cc7f29'  >
           {this.renderItem('Item 1', 'Content 1')}
           {this.renderItem('Item 2', 'Content 2')}
           {this.renderItem('Item 3', 'Content 3')}
-        </MasterDetailsView>{' '}
+        </MasterDetailsView> 
       </div>
     )
   }

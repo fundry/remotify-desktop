@@ -11,9 +11,7 @@ import { ProgressCircle } from 'react-desktop/windows';
 import Internet from '../../components/internet';
 
 const Login = () => {
-  const Div = styled.div`
-    padding: 1em;
-  `;
+  const Div = styled.div`padding: 1em;`;
   // background-image: url(${img});
   const Button = styled.button`
     background: #0e2f5a;
@@ -49,59 +47,58 @@ const Login = () => {
 
   return (
     <Div>
-<Flex> 
-      <img
-        src={'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'}
-        style={{ maxWidth: '50%', maxheight: '70vh' }}
-      />
-<div>
-      <Flex justifyCenter>
-        <input
-          type='text'
-          name='code'
-          placeholder=' 0000-0000-0000 '
-          style={{
-            width: '15em',
-            height: '35px',
-            borderRadius: '3px',
-            fontSize: '20px',
-            textAlign: 'center',
-            border: '1.5px solid blue',
-            padding: '5px'
-          }}
+      <Flex>
+        <img
+          src={
+            'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'
+          }
+          style={{ maxWidth: '50%', maxheight: '50vh' , height : '40vh' }}
         />
-        <br />
+        <div>
+          <Flex justifyCenter>
+            <input
+              type="text"
+              name="code"
+              placeholder=" 0000-0000-0000 "
+              style={{
+                width: '15em',
+                height: '35px',
+                borderRadius: '3px',
+                fontSize: '20px',
+                textAlign: 'center',
+                border: '1.5px solid blue',
+                padding: '5px',
+              }}
+            />
+            <br />
+          </Flex>
+          <div
+            style={{
+              textAlign: 'center',
+              margin: '2%',
+            }}
+          >
+            <Link to="/home">
+              <Button> Login </Button>
+            </Link>
+          </div>
+          <br /> <br /> <br /> <br />
+          <Flex justifyCenter>
+            <Help> Support </Help>
+            <Help> Create Team </Help>
+          </Flex>
+          <hr />
+          <Internet />
+        </div>
       </Flex>
-      <div
-        style={{
-          textAlign: 'center',
-          margin: '2%'
-        }}
-      > 
-        <Link to='/home'>
-          <Button  > Login </Button>
-        </Link>
-      </div>
-      <br /> <br /> <br /> <br />
-      <Flex justifyCenter>
-        <Help> Support </Help>
-        <Help> Create Team </Help>
-      </Flex>
-      <hr />
-      <Internet />
-</div>
-</Flex>
     </Div>
   );
 };
 
 const startWithAndDelay = (message, time) =>
-  pipe(
-    delay(time),
-    startWith({ message })
-  );
+  pipe(delay(time), startWith({ message }));
 
-const message$ = of({ any: <Login />  });
+const message$ = of({ any: <Login /> });
 
 // const Loader = () => {
 //   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
