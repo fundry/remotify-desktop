@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../../components/NavBar';
+import VerticalNav from '../../components/VerticalNav';
 
 const Settings = () => {
   const Div = styled.div`
@@ -10,7 +10,7 @@ const Settings = () => {
 
   return (
     <Div>
-      <NavBar />
+      <VerticalNav />
       <p> Settings here </p>
     </Div>
   );
