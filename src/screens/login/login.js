@@ -9,6 +9,11 @@ import { ProgressCircle } from 'react-desktop/windows';
 
 // import img from '../../../assets/images/worker.jpg';
 import Internet from '../../components/internet';
+import { Auth } from '../../state/models/';
+import { observer } from 'mobx-react';
+
+const electron = window.require('electron');
+const ipc = electron.ipcRenderer;
 
 const Login = () => {
   const Div = styled.div`padding: 1em;`;
@@ -52,7 +57,7 @@ const Login = () => {
           src={
             'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'
           }
-          style={{ maxWidth: '50%', maxheight: '50vh' , height : '40vh' }}
+          style={{ maxWidth: '50%', maxheight: '50vh', height: '40vh' }}
         />
         <div>
           <Flex justifyCenter>
@@ -78,7 +83,15 @@ const Login = () => {
               margin: '2%',
             }}
           >
-              <Button> Login </Button>
+            <Button
+              onClick={() => {
+                Auth.login_user 
+                console.log();
+                ipc.send('authenticated');
+              }}
+            >
+              Login
+            </Button>
           </div>
           <br /> <br /> <br /> <br />
           <Flex justifyCenter>
@@ -93,20 +106,21 @@ const Login = () => {
   );
 };
 
-const startWithAndDelay = (message, time) =>
-  pipe(delay(time), startWith({ message }));
+// const startWithAndDelay = (message, time) =>
+//   pipe(delay(time), startWith({ message }));
 
-const message$ = of({ any: <Login /> });
+// const message$ = of({ any: <Login /> });
 
-// const Loader = () => {
-//   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
-// };
+// // const Loader = () => {
+// //   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
+// // };
 
-export default () => (
-  <div>
-    <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
-      {({ any }) => <div>{any}</div>}
-    </Stream>
-  </div>
-);
-// export default login;
+// export default () => (
+//   <div>
+//     <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
+//       {({ any }) => <div>{any}</div>}
+//     </Stream>
+//   </div>
+// );
+
+export default observer(Login);

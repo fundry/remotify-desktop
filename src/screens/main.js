@@ -5,8 +5,12 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Routes from './routes';
 
+import { Auth } from '../state/models/';
+
+// electron auth logic
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
+const auth = Auth;
 
 class NavBar extends Component {
   constructor(props) {
@@ -19,8 +23,8 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    if (this.state.loggedIn === false) {
-      ipc.send('authenticate-user');
+    {
+      auth ? ipc.send('authenticate-user') : console.log('authenticateds');
     }
   }
 
