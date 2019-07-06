@@ -78,9 +78,7 @@ const Login = () => {
               margin: '2%',
             }}
           >
-            <Link to="/home">
               <Button> Login </Button>
-            </Link>
           </div>
           <br /> <br /> <br /> <br />
           <Flex justifyCenter>

@@ -24,10 +24,10 @@ class NavBar extends Component {
       <Div>
         <Flex>
           <div>
-            <p> Home </p>
+              <p> Home </p>
+              <p> Settings </p>
           </div>
 
-          <Routes />
         </Flex>
       </Div>
     );
