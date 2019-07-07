@@ -19,30 +19,17 @@
 
         <ul>
           <li> <img src="./assets/btn-min.svg" id="min" (click)="minimizewindow()"> </li>
-          <li> <img src="./assets/btn-close.svg" (click)="closeWindow()"> </li>
+          <li> <img src="./assets/btn-close.svg" id="close" (click)="closeWindow()"> </li>
         </ul>
 
       </nav>
     </header>
-    <div>
-      <div id="root"></div>
+  </div>
+  <div id="root"></div>
 
-      <script type="text/javascript" >
-        const electron = window.require('electron');
-        const ipc = electron.remote.getCurrentWindow();
+  <script type="text/javascript" src="./app.js">
 
-
-
-        function closeWindow() {
-          ipc.window.close()
-        }
-
-        function minimizeWindow() {
-          ipc.window.close()
-        }
-
-
-      </script>
+  </script>
 </body>
 
 </html>
