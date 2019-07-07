@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import Routes from './routes';
 
+import Routes from './routes';
+import Home from './home/home'
 import { Auth } from '../state/models/';
 
 // electron auth logic
@@ -36,12 +37,7 @@ class NavBar extends Component {
 
     return (
       <Div>
-        <Flex>
-          <div>
-            <p> Home </p>
-            <p> Settings </p>
-          </div>
-        </Flex>
+        <Home />
       </Div>
     );
   }
