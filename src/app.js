@@ -1,7 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import Index from './screens/index'
+import Main from './screens/main';
  
-
-ReactDOM.render(<Index />, document.getElementById('root'))
+ReactDOM.render(
+  <div>
+    <Main />
+  </div>,
+  document.getElementById('root')
+);

@@ -1,0 +1,45 @@
+.container {
+    display: grid;
+    grid-template-rows: 34px auto auto;
+  }
+  .container header {
+    display: grid;
+    grid-template-columns: 85% auto;
+    padding: 8px;
+    background-color: #3a3a3a;
+  }
+  .container header strong {
+    -webkit-app-region: drag;
+    color: #fff;
+  }
+  .container header strong span {
+    justify-self: left;
+    color: red;
+  }
+  
+  .container header nav ul {
+    list-style-type: none; 
+    justify-self: right;
+    margin: 0;
+    padding: 0;
+  }
+  .container header nav ul li {
+    float: left;
+    margin-left: 8px;
+  }
+  .container header nav ul li img {
+    width: 12px;
+    cursor: pointer;
+  }
+  .container header nav ul li img#min {
+    padding: 10px;
+  }
+  .container input {
+    background-color: #dbdbdb;
+    border: 0;
+    padding: 12px;
+    color: gray;
+    font-family: 'Montserrat';
+    outline: none;
+  }
+  

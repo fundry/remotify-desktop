@@ -85,7 +85,7 @@ const Login = () => {
           >
             <Button
               onClick={() => {
-                Auth.login_user 
+                Auth.login_user;
                 console.log();
                 ipc.send('authenticated');
               }}
