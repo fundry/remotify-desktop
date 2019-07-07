@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
-
+import styled from 'styled-components' 
 import Login from './screens/login/login';
 
 const electron = window.require('electron');

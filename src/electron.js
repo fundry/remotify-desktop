@@ -29,7 +29,7 @@ const createWindow = async () => {
     show: false,
     minHeight: 310,
     minWidth: 310,
-    frame: process.platform != "win32" ? true : false,
+    frame: true , 
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
   });
