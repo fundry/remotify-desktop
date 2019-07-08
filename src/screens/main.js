@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
+import { Stream } from 'react-streams';
+import { of, pipe } from 'rxjs';
+import { delay, startWith } from 'rxjs/operators';
 
 import Home from './home/home';
 import { Auth } from '../state/models/';
@@ -22,7 +24,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     {
-      auth ? ipc.send('authenticate-user') : console.log('authenticateds');
+      !auth ? ipc.send('authenticate-user') : console.log('authenticateds');
     }
   }
 
@@ -40,4 +42,17 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const startWithAndDelay = (message, time) =>
+  pipe(delay(time), startWith({ message }));
+
+const message$ = of({ any: <NavBar /> });
+
+const main = () => (
+  <div>
+    <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
+      {({ any }) => <div>{any}</div>}
+    </Stream>
+  </div>
+);
+
+export default main;

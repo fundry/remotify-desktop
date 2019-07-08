@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
-import styled from 'styled-components' 
+import styled from 'styled-components';
 import Login from './screens/login/login';
+import Bottom from './components/bottom';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -24,17 +25,13 @@ expand.addEventListener('click', function expWindow() {
   console.log('expand - window');
 });
 
-const Bottom = styled.div`
-  background-color: #ccc;
-  padding: 0.5em;
-`;
+
 
 ReactDOM.render(
   <div>
-    <Login /> 
-    <Bottom>
-      <h6 style={{ textAlign: 'center' }}>{moment().format('LT')} </h6>
-    </Bottom> 
+    <Login />
+
+    <Bottom />
   </div>,
   document.getElementById('root')
 );

@@ -9,13 +9,12 @@ import { ProgressCircle } from 'react-desktop/windows';
 import { onPatch } from 'mobx-state-tree';
 
 // import img from '../../../assets/images/worker.jpg';
-import Bottom from '../../components/bottom';
 import { Auth } from '../../state/models/';
 import { observer } from 'mobx-react';
 
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
-const auth = Auth.create({ is_loggedIn : undefined  }) // experimental to try Onptach
+const auth = Auth.create({ is_loggedIn: undefined }); // experimental to try Onptach
 
 onPatch(auth, (patch) => {
   console.log(patch);
@@ -105,28 +104,27 @@ const Login = () => {
             <Help> Create Team </Help>
           </Flex>
           <hr />
-          <Bottom />
         </div>
       </Flex>
     </Div>
   );
 };
 
-// const startWithAndDelay = (message, time) =>
-//   pipe(delay(time), startWith({ message }));
+const startWithAndDelay = (message, time) =>
+  pipe(delay(time), startWith({ message }));
 
-// const message$ = of({ any: <Login /> });
+const message$ = of({ any: <Login /> });
 
-// // const Loader = () => {
-// //   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
-// // };
+// const Loader = () => {
+//   return <ProgressCircle color='red' size={100} style={{ textAlign: 'center' }} />;
+// };
 
-// export default () => (
-//   <div>
-//     <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
-//       {({ any }) => <div>{any}</div>}
-//     </Stream>
-//   </div>
-// );
+const main = () => (
+  <div>
+    <Stream source={message$} pipe={startWithAndDelay('.', 7000)}>
+      {({ any }) => <div>{any}</div>}
+    </Stream>
+  </div>
+);
 
-export default observer(Login);
+export default observer(main);

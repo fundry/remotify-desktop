@@ -21,29 +21,24 @@ class NavBar extends Component {
 
   render() {
     const Div = styled.div`
-    padding  : 0.7em
-    background  : transparent 
+    background  : #cdd 
+    width   : 100%
+    padding   : 1.5em
 `;
-
-    const today = this.state.currentDate;
-    const day = moment(today).format('dddd');
-    const date = moment(today).format('MMMM D, YYYY');
 
     return (
       <Div>
         <Flex justifyBetween>
           <div>
-            <FiMenu style={{ fontSize: '25px', padding: '0.5em' }} />
+            <FiMenu style={{ fontSize: '2.5em'  }} />
           </div>
 
           <div>
             <Link to="/settings">
-              <FiSettings style={{ fontSize: '25px', padding: '0.5em' }} />
+              <FiSettings style={{ fontSize: '2.5em'  }} />
             </Link>
           </div>
         </Flex>
-
-        <hr />
       </Div>
     );
   }

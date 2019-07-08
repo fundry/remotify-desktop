@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
 
 import Clock from '../../components/clock';
-import VerticalNavBar from '../../components/VerticalNav';
+import Head from '../../components/head';
 import Perf from './user/performance/performance';
 
 export default class extends Component {
@@ -37,7 +37,7 @@ export default class extends Component {
 
     return (
       <div>
-        <VerticalNavBar />
+        <Head />
         <Modal
           show={this.state.showModal}
           onHide={() => this.setState({ showModal: false, blur: false })}
