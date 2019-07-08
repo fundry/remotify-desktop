@@ -8,7 +8,7 @@ import { delay, startWith } from 'rxjs/operators';
 import { ProgressCircle } from 'react-desktop/windows';
 
 // import img from '../../../assets/images/worker.jpg';
-import Internet from '../../components/internet';
+import Bottom from '../../components/bottom';
 import { Auth } from '../../state/models/';
 import { observer } from 'mobx-react';
 
@@ -99,7 +99,7 @@ const Login = () => {
             <Help> Create Team </Help>
           </Flex>
           <hr />
-          <Internet />
+          <Bottom />
         </div>
       </Flex>
     </Div>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import { FiMenu, FiSettings } from 'react-icons/fi';
 
 class NavBar extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class NavBar extends Component {
   render() {
     const Div = styled.div`
     padding  : 0.7em
-    background  : transparent
+    background  : transparent 
 `;
 
     const today = this.state.currentDate;
@@ -32,17 +33,12 @@ class NavBar extends Component {
       <Div>
         <Flex justifyBetween>
           <div>
-            <p style={{ textAlign: 'center' }}> Menu </p>
+            <FiMenu style={{ fontSize: '25px', padding: '0.5em' }} />
           </div>
-          <div>
-            <div style={{ marginLeft: 15 }}>
-              <h5 style={{ fontSize: 14, color: 'black' }}>{day}</h5>
-              <h5 style={{ fontSize: 18, color: 'black' }}>{date}</h5>
-            </div>
-          </div>
+
           <div>
             <Link to="/settings">
-              <p style={{ textAlign: 'center' }}> Settings</p>
+              <FiSettings style={{ fontSize: '25px', padding: '0.5em' }} />
             </Link>
           </div>
         </Flex>

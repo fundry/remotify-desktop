@@ -1,11 +1,4 @@
 import React, { Component } from 'react';
-import {
-  MasterDetailsView,
-  MasterDetailsViewItem,
-  MasterDetailsViewItemMaster,
-  MasterDetailsViewItemDetails,
-  Text,
-} from 'react-desktop/windows';
 import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
@@ -44,23 +37,34 @@ export default class extends Component {
     return (
       <div>
         <VerticalNavBar />
+        <Modal
+          show={this.state.showModal}
+          onHide={() => this.setState({ showModal: false, blur: false })}
+          style={{ paddingTop: '10%', padding: '5%', backgroundColor: 'red' }}
+        >
+          <Perf />
+        </Modal>
 
-        <Flex justifyCenter>
-          <Button
-            onClick={() => this.setState({ showModal: true, blur: true })}
-          >
-            Performance
-          </Button>
+        <Flex justifyBetween>
+          <div>
+            <h4> BIG CLOCK </h4>
+          </div>
+
+          <Flex column>
+            <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
+            <Button
+              onClick={() => this.setState({ showModal: true, blur: true })}
+            >
+              Performance
+            </Button>
+          </Flex>
+
+          <Flex column>
+            <h2> Creatella </h2>
+            <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
+          </Flex>
         </Flex>
-        <div>
-          <Modal
-            show={this.state.showModal}
-            onHide={() => this.setState({ showModal: false, blur: false })}
-            style={{ paddingTop: '15%', padding: '5%', backgroundColor: 'red' }}
-          >
-            <Perf />
-          </Modal>
-        </div>
+        <div />
       </div>
     );
   }

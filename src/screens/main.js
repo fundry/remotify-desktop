@@ -25,7 +25,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     {
-      auth ? ipc.send('authenticate-user') : console.log('authenticateds');
+      !auth ? ipc.send('authenticate-user') : console.log('authenticateds');
     }
   }
 
