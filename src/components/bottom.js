@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import moment from 'moment';
 import { ipcRenderer } from 'electron';
+import { FiClock, FiCloud } from 'react-icons/fi';
 
 const Bottom = styled.div`
   background-color: #ccc;
-  padding: 0.5em;
+  padding: 0.2em;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 const updateOnlineStatus = () => {
@@ -23,22 +26,38 @@ const bottom = () => {
     <Bottom>
       <Flex justifyBetween>
         <div>
-          <h3> Something </h3>
+          <h6> Something </h6>
         </div>
 
-        <div>
+        <Flex>
+          <FiClock
+            style={{
+              fontSize: '1.3em',
+              paddingTop: '20px',
+              paddingRight: '10px',
+            }}
+          />
           <h6>{moment().format('LT')} </h6>
-        </div>
-      
-    <div>
+        </Flex>
+
+        <Flex>
           <h6>
             {navigator.onLine ? (
-              'Online , Connection established.'
+              <div>
+                <FiCloud
+                  style={{
+                    fontSize: '1.3em',
+                    paddingTop: '15px',
+                    paddingRight: '10px',
+                  }}
+                />
+                <span> Online </span>
+              </div>
             ) : (
               <span> offline , check your Connection </span>
             )}
           </h6>
-        </div>
+        </Flex>
       </Flex>
     </Bottom>
   );

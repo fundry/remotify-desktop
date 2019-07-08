@@ -3,11 +3,12 @@ import { types } from 'mobx-state-tree';
 
 const Auth = types
   .model('Auth', {
-    is_loggedIn: true, // change to false later
+    is_loggedIn: false, // change to false later
   })
   .actions((self) => ({
     login_user() {
-      self.is_loggedIn = true;
+      self.is_loggedIn = true;   
+      ipc.send('authenticated');
     },
   }));
 

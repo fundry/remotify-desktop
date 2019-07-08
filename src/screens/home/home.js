@@ -4,6 +4,7 @@ import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
 
+import Clock from '../../components/clock';
 import VerticalNavBar from '../../components/VerticalNav';
 import Perf from './user/performance/performance';
 
@@ -47,7 +48,7 @@ export default class extends Component {
 
         <Flex justifyBetween>
           <div>
-            <h4> BIG CLOCK </h4>
+            <Clock />
           </div>
 
           <Flex column>
