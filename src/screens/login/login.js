@@ -5,22 +5,16 @@ import { Link } from 'react-router-dom';
 import { Stream } from 'react-streams';
 import { of, pipe } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
-import { ProgressCircle } from 'react-desktop/windows';
 import { onPatch } from 'mobx-state-tree';
 
 // import img from '../../../assets/images/worker.jpg';
 import { Auth } from '../../state/models/';
 import { observer } from 'mobx-react';
 
-const electron = window.require('electron');
-const ipc = electron.ipcRenderer;
-const auth = Auth.create({ is_loggedIn: undefined }); // experimental to try Onptach
 
-onPatch(auth, (patch) => {
-  console.log(patch);
-});
 
 const Login = () => {
+  const auth = Auth.create({   }); // experimental to try Onptach
   const Div = styled.div`padding: 1em;`;
   // background-image: url(${img});
   const Button = styled.button`
@@ -90,9 +84,9 @@ const Login = () => {
           >
             <Button
               onClick={() => {
-                Auth.login_user;
+                auth.login_user();
 
-                ipc.send('authenticated');
+                console.log(auth.is_loggedIn);
               }}
             >
               Login

@@ -1,5 +1,7 @@
 import { types } from 'mobx-state-tree';
 
+const electron = window.require('electron');
+const ipc = electron.ipcRenderer;
 
 const Auth = types
   .model('Auth', {
@@ -7,7 +9,7 @@ const Auth = types
   })
   .actions((self) => ({
     login_user() {
-      self.is_loggedIn = true;   
+      self.is_loggedIn = true;
       ipc.send('authenticated');
     },
   }));

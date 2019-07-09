@@ -11,7 +11,7 @@ import { Auth } from '../state/models/';
 // electron auth logic
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
-const auth = Auth;
+const auth = Auth.create();
 
 class NavBar extends Component {
   constructor(props) {
@@ -24,8 +24,11 @@ class NavBar extends Component {
 
   componentDidMount() {
     {
-      !auth ? ipc.send('authenticate-user') : console.log('authenticateds');
+      auth.is_loggedIn
+        ? ipc.send('authenticate-user')
+        : console.log('authenticateds');
     }
+    console.log(auth.is_loggedIn);
   }
 
   render() {

@@ -70,7 +70,7 @@ const Header = () => {
               />
             </div>
             <div>
-              {' '}
+           
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-close.svg'}
