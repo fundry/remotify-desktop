@@ -47,6 +47,7 @@
 		}
 	},
 	"dependencies": {
+		"@trendmicro/react-sidenav": "^0.4.5",
 		"electron-compile": "^6.4.4",
 		"electron-devtools-installer": "^2.1.0",
 		"electron-squirrel-startup": "^1.0.0",
@@ -66,6 +67,7 @@
 		"react-mobx": "^0.0.4",
 		"react-router": "^5.0.1",
 		"react-router-dom": "^5.0.1",
+		"react-sidenav": "^4.0.3",
 		"react-streams": "^13.6.6",
 		"rxjs": "^6.5.2",
 		"semantic-ui-react": "^0.87.2",

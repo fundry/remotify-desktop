@@ -39,33 +39,55 @@ export default class extends Component {
       <div>
         <Head />
         <Modal
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
           show={this.state.showModal}
           onHide={() => this.setState({ showModal: false, blur: false })}
-          style={{ paddingTop: '10%', padding: '5%', backgroundColor: 'red' }}
+          style={{ paddingTop: '10%', padding: '5%',  }}
         >
           <Perf />
         </Modal>
 
-        <Flex justifyBetween>
+        <div style={{ paddingBottom: '10px', paddingTop: '10px' }}>
+          <Flex justifyBetween>
+            <div>
+              <Clock />
+            </div>
+
+            <Flex column>
+              <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
+              <Button
+                onClick={() => this.setState({ showModal: true, blur: true })}
+              >
+                Performance
+              </Button>
+            </Flex>
+
+            <Flex column>
+              <h2> Creatella </h2>
+              <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
+            </Flex>
+          </Flex>
+
           <div>
-            <Clock />
+            <Link to="/files">
+              <Button> files </Button>
+            </Link>
+            <Link>
+              <Button> Code </Button>
+            </Link>
+            <Link>
+              <Button> Integrations </Button>
+            </Link>
+            <Link>
+              <Button> Music </Button>
+            </Link>
+            <Link>
+              <Button> Something </Button>
+            </Link>
           </div>
-
-          <Flex column>
-            <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
-            <Button
-              onClick={() => this.setState({ showModal: true, blur: true })}
-            >
-              Performance
-            </Button>
-          </Flex>
-
-          <Flex column>
-            <h2> Creatella </h2>
-            <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
-          </Flex>
-        </Flex>
-        <div />
+        </div>
       </div>
     );
   }

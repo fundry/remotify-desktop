@@ -26,28 +26,28 @@ const Header = () => {
     ipc.maximize();
   };
 
-  const Nav = styled.div`
-
-    background :  #3a3a3a
-  `;
+  const Nav = styled.div`background: #3a3a3a;`;
 
   const Btn = styled.div`
     &:hover {
       cursor: pointer;
     }
   `;
+
   return (
-    <Nav>
+    <Nav draggable>
       <Flex justifyBetween>
-        <p
+        <div
           style={{
             color: 'white',
-            fontSize: '0.85em',
-            paddingTop: '10px',
+            fontSize: '1em',
+            paddingTop: '15px',
+            paddingLeft: '15px',
+            MozWindowDragging: 'drag',
           }}
         >
-          Remotify
-        </p>
+          <p>Remotify</p>
+        </div>
 
         <div style={{ marginRight: '50px' }}>
           <Flex>
