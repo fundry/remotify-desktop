@@ -19,7 +19,7 @@ const createWindow = async () => {
     minHeight: 310,
     minWidth: 310,
     show: false,
-    frame: true,
+    frame: false,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
   });
@@ -43,9 +43,9 @@ const createWindow = async () => {
 
   authWindow.loadURL(`file://${__dirname}/login.html`);
   // Open the DevTools.
-  if (isDevMode) {
-    mainWindow.webContents.openDevTools();
-  }
+  // if (isDevMode) {
+  //   mainWindow.webContents.openDevTools();
+  // }
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
@@ -95,7 +95,7 @@ ipcMain.on('authenticated', (event, arg) => {
 
 ipcMain.on('create-tray', (event) => {
   const icon = process.platform === 'win32' ? 'win.png' : 'win.png';
-  const iconPath = path.join(__dirname/assets/images, icon);
+  const iconPath = path.join(__dirname, icon);
   appIcon = new Tray(iconPath);
 
   const contextMenu = Menu.buildFromTemplate([

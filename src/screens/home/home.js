@@ -74,24 +74,6 @@ const Home = () => {
             <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
           </Flex>
         </Flex>
-
-        <div>
-          <Link to="/files">
-            <Button> files </Button>
-          </Link>
-          <Link>
-            <Button> Code </Button>
-          </Link>
-          <Link>
-            <Button> Integrations </Button>
-          </Link>
-          <Link>
-            <Button onClick={openMusic}> Music </Button>
-          </Link>
-          <Link>
-            <Button> Something </Button>
-          </Link>
-        </div>
       </div>
     </div>
   );
