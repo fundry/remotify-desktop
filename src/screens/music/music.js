@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Music } from '../../state/models/';
 import { observer } from 'mobx-react';
-import { FiMusic, FiX, FiSettings, FiPlus } from 'react-icons/fi';
+import { FiMusic, FiX, FiSettings, FiPlus, FiSearch } from 'react-icons/fi';
 import { WiTime9 } from 'react-icons/wi';
 
 import List from './music.list';
@@ -100,6 +100,16 @@ const music = () => {
                   }}
                 />
               </Btn>
+              <Btn>
+                <FiSearch
+                  style={{
+                    fontSize: '2em',
+                    color: 'white',
+                    paddingLeft: '5px',
+                    paddingTop: '5px',
+                  }}
+                />
+              </Btn>
             </Flex>
           </div>
           <Btn>
@@ -112,7 +122,7 @@ const music = () => {
                     paddingRight: '5px',
                   }}
                 />
-                <p style={{ color: 'white' , paddingTop : '3px' }}> Source </p>
+                <p style={{ color: 'white', paddingTop: '3px' }}> Source </p>
               </Flex>
             </div>
           </Btn>

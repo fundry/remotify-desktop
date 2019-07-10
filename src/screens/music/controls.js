@@ -19,6 +19,7 @@ const Btn = styled.div`
   }
 `;
 
+
 const controls = () => {
   return (
     <Div>
@@ -65,7 +66,7 @@ const controls = () => {
               <Btn>
                 <FiVolume2 style={{ fontSize: '1.7em', color: 'black' }} />
               </Btn>
-            </div> 
+            </div>
           </Flex>
         </div>
       </Flex>
