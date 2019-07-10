@@ -7,8 +7,8 @@ import { FiClock, FiCloud } from 'react-icons/fi';
 
 const Bottom = styled.div`
   background-color: #ccc;
-  padding: 0.2em;
   padding-left: 10px;
+  padding-top: 10px;
   padding-right: 10px;
 `;
 
@@ -27,7 +27,7 @@ const bottom = () => {
       <Flex justifyBetween>
         <div>
           <h6> Something </h6>
-        </div>
+        </div> 
 
         <Flex>
           <FiClock

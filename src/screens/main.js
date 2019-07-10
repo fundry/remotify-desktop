@@ -32,15 +32,11 @@ class NavBar extends Component {
   }
 
   render() {
-    const Div = styled.div`
-      padding  : 0.7em
-      background  : transparent
-    `;
-
+ 
     return (
-      <Div>
+      <div>
         <Home />
-      </Div>
+      </div>
     );
   }
 }

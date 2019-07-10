@@ -23,19 +23,19 @@ class NavBar extends Component {
     const Div = styled.div`
     background  : #cdd 
     width   : 100%
-    padding   : 1.5em
+    padding   : 1em
 `;
 
     return (
       <Div>
         <Flex justifyBetween>
           <div>
-            <FiMenu style={{ fontSize: '2.5em'  }} />
+            <FiMenu style={{ fontSize: '1.5em'  }} />
           </div>
 
           <div>
             <Link to="/settings">
-              <FiSettings style={{ fontSize: '2.5em'  }} />
+              <FiSettings style={{ fontSize: '1.5em'  }} />
             </Link>
           </div>
         </Flex>
