@@ -3,15 +3,21 @@ import styled from 'styled-components';
 import { Stream } from 'react-streams';
 import { of, pipe } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
-
+import { TiChevronRightOutline } from 'react-icons/ti';
 import { Auth } from '../state/models/';
-
+import { FiHome, FiMessageSquare, FiSettings, FiMusic } from 'react-icons/fi';
+import { GiTeamIdea } from 'react-icons/gi';
+import { DiGoogleDrive } from 'react-icons/di';
 //   ===== seperate  components =====
-import Login from './login/login';
-import Home from './home/home';
-import Settings from './setting/settings';
-import Perfomance from '../screens/home/user/performance/performance';
-import Files from '../screens/files/files';
+import {
+  Home,
+  Files,
+  Integrations,
+  Message,
+  Music,
+  Setting,
+  Team,
+} from './index';
 //=======================
 
 import { Route, NavLink } from 'react-router-dom';
@@ -24,13 +30,12 @@ const ipc = electron.ipcRenderer;
 const auth = Auth.create();
 
 // ====== styles=====
-
 const Sidebar = styled.div`
   width: 150px;
   position: fixed;
   background: #eee;
   height: 100vh;
-  padding: 2em 0 2em 1em;
+  padding: 0.7em 0 2em 1em;
   box-sizing: border-box;
   overflow: auto;
 `;
@@ -38,7 +43,6 @@ const Sidebar = styled.div`
 const NavLinks = styled.ul`
   list-style: none;
   padding: 0;
-  margin-top: 2em;
   color: #000;
 `;
 
@@ -46,47 +50,125 @@ const Components = styled.div`margin-left: 150px;`;
 
 const Link = styled.li`
   display: block;
-  padding: .5em;
+  padding: 0.8em;
   color: black;
   text-decoration: none;
 `;
-
 //  ==============
 
 const history = createHashHistory({});
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expanded: false,
+    };
+  }
+
   componentDidMount() {
     {
       auth.is_loggedIn
         ? ipc.send('authenticate-user')
         : console.log('authenticateds');
     }
-    console.log(auth.is_loggedIn);
   }
 
   render() {
     return (
       <Router history={history}>
         <Sidebar>
-          <header> Remotify </header>
+          <div
+            onClick={() => {
+              this.setState({ expanded: true });
+            }}
+          >
+            <TiChevronRightOutline style={{}} />
+          </div>
 
-          <NavLinks>
-            <Link>
-              <NavLink to="/" exact={true}>
-                Home
-              </NavLink>
-            </Link>
-            <Link>
-              <NavLink to="/perf">Perfomance</NavLink>{' '}
-            </Link>
-            <Link>
-              <NavLink to="/files">Files</NavLink>{' '}
-            </Link>
-            <Link>
-              <NavLink to="/settings">Settings</NavLink>
-            </Link>
-          </NavLinks>
+          {this.state.expanded ? (
+            <NavLinks>
+              <Link>
+                <NavLink to="/" exact={true}>
+                  Home
+                </NavLink>
+              </Link>
+
+              <br />
+
+              <Link>
+                <NavLink to="/team"> Team </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/message"> Messages </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/integration"> Integrations </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/files"> Storage </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/music"> Music </NavLink>
+              </Link>
+
+              <div style={{ position: 'bottom' }}>
+                <Link>
+                  <NavLink to="/settings">Settings</NavLink>
+                </Link>
+              </div>
+            </NavLinks>
+          ) : (
+            <NavLinks>
+              <Link>
+                <NavLink to="/" exact={true}>
+                  <FiHome />
+                </NavLink>
+              </Link>
+
+              <br />
+
+              <Link>
+                <NavLink to="/team">
+                  <GiTeamIdea />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/message">
+                  <FiMessageSquare />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/integration"> Integrations </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/files">
+                  <DiGoogleDrive />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/music">
+                  <FiMusic />
+                </NavLink>
+              </Link>
+
+              <div style={{ position: 'bottom' }}>
+                <Link>
+                  <NavLink to="/settings">
+                    <FiSettings />
+                  </NavLink>
+                </Link>
+              </div>
+            </NavLinks>
+          )}
         </Sidebar>
 
         <Components>
@@ -95,16 +177,28 @@ class NavBar extends Component {
               <Home />
             </Route>
 
-            <Route path="/perf">
-              <Perfomance />
+            <Route path="/message">
+              <Message />
+            </Route>
+
+            <Route path="/team">
+              <Team />
             </Route>
 
             <Route path="/files">
               <Files />
             </Route>
 
+            <Route path="/integration">
+              <Integrations />
+            </Route>
+
+            <Route path="/music">
+              <Music />
+            </Route>
+
             <Route path="/settings">
-              <Settings />
+              <Setting />
             </Route>
           </Switch>
         </Components>

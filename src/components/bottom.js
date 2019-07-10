@@ -7,7 +7,7 @@ import { FiClock, FiCloud } from 'react-icons/fi';
 
 const Bottom = styled.div`
   background-color: #ccc;
-  padding-left: 10px;
+  padding-left: 165px;
   padding-top: 10px;
   padding-right: 10px;
 `;
