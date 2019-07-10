@@ -1,16 +1,18 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, Tray, Menu } from 'electron';
 import { enableLiveReload } from 'electron-compile';
+import path from 'path'
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-
+let appIcon = null;
 let authWindow;
 const isDevMode = process.execPath.match(/[\\/]electron/);
 
 if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
-const createWindow = async () => { 
+const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 770,
@@ -89,4 +91,26 @@ ipcMain.on('authenticate-user', (event, arg) => {
 ipcMain.on('authenticated', (event, arg) => {
   authWindow.hide();
   mainWindow.show();
+});
+
+ipcMain.on('create-tray', (event) => {
+  const icon = process.platform === 'win32' ? 'win.png' : 'win.png';
+  const iconPath = path.join(__dirname/assets/images, icon);
+  appIcon = new Tray(iconPath);
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Remove',
+      click: () => {
+        event.sender.send('remove-tray');
+      },
+    },
+  ]);
+
+  appIcon.setToolTip('Remotify');
+  appIcon.setContextMenu(contextMenu);
+});
+
+ipcMain.on('delete-tray', (event, arg) => {
+  appIcon.destroy();
 });

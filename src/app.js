@@ -8,6 +8,8 @@ import Flex from 'styled-flex-component';
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
 
+const Renderer = require('electron').ipcRenderer;
+
 //nav buttons functions  here
 
 const Header = () => {
@@ -24,6 +26,10 @@ const Header = () => {
   const maximize = () => {
     console.log(ipc);
     ipc.maximize();
+  };
+
+  const tray = () => {
+    Renderer.send('create-tray');
   };
 
   const Nav = styled.div`background: #3a3a3a;`;
@@ -56,7 +62,7 @@ const Header = () => {
               src={'./assets/btn-min.svg'}
               alt={'min'}
               onClick={() => {
-                minimize();
+                tray();
               }}
             />
             <div>
@@ -70,7 +76,6 @@ const Header = () => {
               />
             </div>
             <div>
-           
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-close.svg'}
