@@ -4,10 +4,17 @@ import { Stream } from 'react-streams';
 import { of, pipe } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
 import { TiChevronRightOutline } from 'react-icons/ti';
-import { Auth } from '../state/models/';
-import { FiHome, FiMessageSquare, FiSettings, FiMusic } from 'react-icons/fi';
+import {
+  FiHome,
+  FiMessageSquare,
+  FiSettings,
+  FiPackage,
+  FiMusic,
+} from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
+
+import { Auth, Nav_State } from '../state/models/';
 //   ===== seperate  components =====
 import {
   Home,
@@ -23,11 +30,13 @@ import {
 import { Route, NavLink } from 'react-router-dom';
 import { Router, Switch } from 'react-router';
 import { createHashHistory } from 'history';
+import { observer } from 'mobx-react';
 
 // electron auth logic
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
 const auth = Auth.create();
+const nav = Nav_State.create({ text: 'bla bla text', expanded: true });
 
 // ====== styles=====
 const Sidebar = styled.div`
@@ -59,13 +68,6 @@ const Link = styled.li`
 const history = createHashHistory({});
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false,
-    };
-  }
-
   componentDidMount() {
     {
       auth.is_loggedIn
@@ -75,18 +77,78 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(nav.expanded);
+
+    const expand = () => {
+      nav.expand();
+      console.log(nav.expanded);
+    };
+
     return (
       <Router history={history}>
         <Sidebar>
           <div
             onClick={() => {
-              this.setState({ expanded: true });
+              expand();
             }}
           >
             <TiChevronRightOutline style={{}} />
           </div>
 
-          {this.state.expanded ? (
+          {nav.expanded ? (
+            <NavLinks>
+              <Link>
+                <NavLink to="/" exact={true}>
+                  <FiHome style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+                                                         
+              <br />
+
+              <Link>
+                <NavLink to="/team">
+                  <GiTeamIdea style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/message">
+                  <FiMessageSquare style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/integration">
+                  <FiPackage style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/files">
+                  <DiGoogleDrive style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+
+              <Link>
+                <NavLink to="/music">
+                  <FiMusic style={{ fontSize: '2em' }} />
+                </NavLink>
+              </Link>
+
+              <br />
+              <br />
+              <br />
+              <br />
+
+              <div style={{ position: 'bottom' }}>
+                <Link>
+                  <NavLink to="/settings">
+                    <FiSettings style={{ fontSize: '2em' }} />
+                  </NavLink>
+                </Link>
+              </div>
+            </NavLinks>
+          ) : (
             <NavLinks>
               <Link>
                 <NavLink to="/" exact={true}>
@@ -119,52 +181,6 @@ class NavBar extends Component {
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">Settings</NavLink>
-                </Link>
-              </div>
-            </NavLinks>
-          ) : (
-            <NavLinks>
-              <Link>
-                <NavLink to="/" exact={true}>
-                  <FiHome />
-                </NavLink>
-              </Link>
-
-              <br />
-
-              <Link>
-                <NavLink to="/team">
-                  <GiTeamIdea />
-                </NavLink>
-              </Link>
-
-              <Link>
-                <NavLink to="/message">
-                  <FiMessageSquare />
-                </NavLink>
-              </Link>
-
-              <Link>
-                <NavLink to="/integration"> Integrations </NavLink>
-              </Link>
-
-              <Link>
-                <NavLink to="/files">
-                  <DiGoogleDrive />
-                </NavLink>
-              </Link>
-
-              <Link>
-                <NavLink to="/music">
-                  <FiMusic />
-                </NavLink>
-              </Link>
-
-              <div style={{ position: 'bottom' }}>
-                <Link>
-                  <NavLink to="/settings">
-                    <FiSettings />
-                  </NavLink>
                 </Link>
               </div>
             </NavLinks>
@@ -220,4 +236,6 @@ const main = () => (
   </div>
 );
 
-export default main;
+// export default main;
+
+export default observer(NavBar);

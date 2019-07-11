@@ -44,7 +44,7 @@ const Home = () => {
     <div>
       <Head />
 
-      <div style={{ paddingBottom: '10px', paddingTop: '10px' }}>
+      <div style={{ paddingBottom: '10px', paddingTop: '10px'  , padding: '1em' }}>
         <Modal
           centered
           show={m.active}
@@ -54,7 +54,7 @@ const Home = () => {
           style={{ paddingTop: '10%', padding: '5%' }}
         >
           <Music />
-        </Modal>
+        </Modal> 
         <Flex justifyBetween>
           <div>
             <Clock />
@@ -78,5 +78,5 @@ const Home = () => {
     </div>
   );
 };
-
+ 
 export default observer(Home);
