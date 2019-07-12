@@ -43,7 +43,7 @@ const bottom = (props) => {
             }}
           />
           <h6>
-            {moment().format('LT')} , {size}
+            {moment().format('LT')}  
           </h6>
         </Flex>
 
