@@ -12,7 +12,7 @@ import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
 import { onPatch } from 'mobx-state-tree';
 
-const Home = () => {
+const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
   const Button = styled.button`
     background: #0e2f5a;
@@ -42,9 +42,11 @@ const Home = () => {
 
   return (
     <div>
-      <Head />
+      <Head state={props.state} />
 
-      <div style={{ paddingBottom: '10px', paddingTop: '10px'  , padding: '1em' }}>
+      <div
+        style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
+      >
         <Modal
           centered
           show={m.active}
@@ -54,7 +56,7 @@ const Home = () => {
           style={{ paddingTop: '10%', padding: '5%' }}
         >
           <Music />
-        </Modal> 
+        </Modal>
         <Flex justifyBetween>
           <div>
             <Clock />
@@ -78,5 +80,5 @@ const Home = () => {
     </div>
   );
 };
- 
+
 export default observer(Home);

@@ -18,6 +18,7 @@ import { DiGoogleDrive } from 'react-icons/di';
 import { Auth, Nav_State } from '../state/models/';
 
 //   ===== seperate  components =====
+import Bottom from '../components/bottom';
 import {
   Home,
   Files,
@@ -27,7 +28,6 @@ import {
   Setting,
   Team,
 } from './index';
-
 //=======================
 
 import { Route, NavLink } from 'react-router-dom';
@@ -43,19 +43,18 @@ const ipc = electron.ipcRenderer;
 const auth = Auth.create();
 const nav = Nav_State.create({
   expanded: true,
-  expandedwidth: '30px',
-  collapsedwidth: '15px',
+  expandedwidth: '2em',
+  collapsedwidth: '0.2em',
 });
 
 const collapsed = nav.collapsedwidth;
 const expanded = nav.expandedwidth;
-
 // ====== styles=====
 const Sidebar = styled.div`
   position: fixed;
-  background: #eee;
+  background: #ccc;
   height: 100vh;
-  padding: 0.7em 0 2em 1em;
+  padding-top : 0em
   box-sizing: border-box;
   overflow: auto;
 `;
@@ -66,7 +65,6 @@ const NavLinks = styled.ul`
   color: #000;
 `;
 
-const Components = styled.div`margin-left: 150px;`;
 
 const Link = styled.li`
   display: block;
@@ -74,6 +72,23 @@ const Link = styled.li`
   color: black;
   text-decoration: none;
 `;
+
+const BtnOpen = styled.div`
+  padding-left : 50px
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const BtnClose = styled.div`
+  text-align : right
+  position : absolute
+  padding-left : 100px
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 //  ==============
 
 const history = createHashHistory({});
@@ -99,23 +114,25 @@ class NavBar extends Component {
     return (
       <Router history={history}>
         <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
-          <div>
-            {nav.expanded ? (
+          {nav.expanded ? (
+            <BtnOpen>
               <FiChevronsRight
-                style={{ fontSize: '1.5em' }}
+                style={{ fontSize: '1.8em', color: 'pavioletred' }}
                 onClick={() => {
                   expand();
                 }}
               />
-            ) : (
+            </BtnOpen>
+          ) : (
+            <BtnClose>
               <FiChevronsLeft
-                style={{ fontSize: '1.5em' }}
+                style={{ fontSize: '1.8em', color: 'pavioletred' }}
                 onClick={() => {
                   collapse();
                 }}
               />
-            )}
-          </div>
+            </BtnClose>
+          )}
 
           {nav.expanded ? (
             <NavLinks>
@@ -209,10 +226,10 @@ class NavBar extends Component {
           )}
         </Sidebar>
 
-        <Components>
+        <div style={{ paddingLeft: nav.expanded ? '5.7em' : '10.5em' }}>
           <Switch>
             <Route path="/" exact={true}>
-              <Home />
+              <Home state={nav.expanded} />
             </Route>
 
             <Route path="/message">
@@ -239,7 +256,9 @@ class NavBar extends Component {
               <Setting />
             </Route>
           </Switch>
-        </Components>
+        </div>
+
+        <Bottom width={nav.expanded ? '6.5em' : '11.5em'} />
       </Router>
     );
   }
@@ -248,7 +267,7 @@ class NavBar extends Component {
 const startWithAndDelay = (message, time) =>
   pipe(delay(time), startWith({ message }));
 
-const message$ = of({ any: <NavBar /> });
+const message$ = of({ any: observer(NavBar) });
 
 const main = () => (
   <div>
@@ -258,6 +277,5 @@ const main = () => (
   </div>
 );
 
-// export default main;
-
+// add the main component to make this reactive when the @observer works
 export default observer(NavBar);

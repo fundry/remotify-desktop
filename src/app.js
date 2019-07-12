@@ -96,7 +96,6 @@ ReactDOM.render(
   <div>
     <Header />
     <Routes />
-    <Bottom />
   </div>,
   document.getElementById('root')
 );

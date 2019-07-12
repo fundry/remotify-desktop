@@ -5,12 +5,7 @@ import moment from 'moment';
 import { ipcRenderer } from 'electron';
 import { FiClock, FiCloud } from 'react-icons/fi';
 
-const Bottom = styled.div`
-  background-color: #ccc;
-  padding-left: 165px;
-  padding-top: 10px;
-  padding-right: 10px;
-`;
+import { observer } from 'mobx-react'
 
 const updateOnlineStatus = () => {
   ipcRenderer.send(
@@ -19,15 +14,25 @@ const updateOnlineStatus = () => {
   );
 };
 
-const bottom = () => {
+const bottom = (props) => {
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);
+
+  const size = props.width;
+
+  const Bottom = {
+    backgroundColor: ' #ccc',
+    paddingLeft: `${size}`,
+    paddingTop: '10px',
+    paddingRight: '10px',
+  };
+
   return (
-    <Bottom>
+    <div style={Bottom}>
       <Flex justifyBetween>
         <div>
           <h6> Something </h6>
-        </div> 
+        </div>
 
         <Flex>
           <FiClock
@@ -37,7 +42,9 @@ const bottom = () => {
               paddingRight: '10px',
             }}
           />
-          <h6>{moment().format('LT')} </h6>
+          <h6>
+            {moment().format('LT')} , {size}
+          </h6>
         </Flex>
 
         <Flex>
@@ -59,7 +66,7 @@ const bottom = () => {
           </h6>
         </Flex>
       </Flex>
-    </Bottom>
+    </div>
   );
 };
 export default bottom;

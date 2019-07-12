@@ -20,26 +20,28 @@ class NavBar extends Component {
   }
 
   render() {
-    const Div = styled.div`
-    background  : #cdd 
-    width   : 100%
-    padding   : 1em
-`;
+    const padding = this.props.state ? '6.5em' : '11.5em';
+    const Div = {
+      background: ' #cdd ',
+      width: '140%',
+      padding: '1em',
+    };
+    console.log(this.props.state);
 
     return (
-      <Div>
+      <div style={Div}>
         <Flex justifyBetween>
           <div>
-            <FiMenu style={{ fontSize: '1.5em'  }} />
+            <FiMenu style={{ fontSize: '1.5em' }} />
           </div>
 
           <div>
             <Link to="/settings">
-              <FiSettings style={{ fontSize: '1.5em'  }} />
+              <FiSettings style={{ fontSize: '1.5em' }} />
             </Link>
           </div>
         </Flex>
-      </Div>
+      </div>
     );
   }
 }
