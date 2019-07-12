@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import { Stream } from 'react-streams';
 import { of, pipe } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
-import { TiChevronRightOutline } from 'react-icons/ti';
 import {
   FiHome,
   FiMessageSquare,
   FiSettings,
   FiPackage,
   FiMusic,
+  FiChevronsLeft,
+  FiChevronsRight,
 } from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
 
 import { Auth, Nav_State } from '../state/models/';
+
 //   ===== seperate  components =====
 import {
   Home,
@@ -25,6 +27,7 @@ import {
   Setting,
   Team,
 } from './index';
+
 //=======================
 
 import { Route, NavLink } from 'react-router-dom';
@@ -35,12 +38,20 @@ import { observer } from 'mobx-react';
 // electron auth logic
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
+
+// MST here
 const auth = Auth.create();
-const nav = Nav_State.create({ text: 'bla bla text', expanded: true });
+const nav = Nav_State.create({
+  expanded: true,
+  expandedwidth: '30px',
+  collapsedwidth: '15px',
+});
+
+const collapsed = nav.collapsedwidth;
+const expanded = nav.expandedwidth;
 
 // ====== styles=====
 const Sidebar = styled.div`
-  width: 150px;
   position: fixed;
   background: #eee;
   height: 100vh;
@@ -77,22 +88,33 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(nav.expanded);
-
     const expand = () => {
       nav.expand();
-      console.log(nav.expanded);
+    };
+
+    const collapse = () => {
+      nav.collapse();
     };
 
     return (
       <Router history={history}>
-        <Sidebar>
-          <div
-            onClick={() => {
-              expand();
-            }}
-          >
-            <TiChevronRightOutline style={{}} />
+        <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
+          <div>
+            {nav.expanded ? (
+              <FiChevronsRight
+                style={{ fontSize: '1.5em' }}
+                onClick={() => {
+                  expand();
+                }}
+              />
+            ) : (
+              <FiChevronsLeft
+                style={{ fontSize: '1.5em' }}
+                onClick={() => {
+                  collapse();
+                }}
+              />
+            )}
           </div>
 
           {nav.expanded ? (
@@ -102,7 +124,7 @@ class NavBar extends Component {
                   <FiHome style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-                                                         
+
               <br />
 
               <Link>
