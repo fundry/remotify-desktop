@@ -69,6 +69,7 @@
 		"react-router-dom": "^5.0.1",
 		"react-sidenav": "^4.0.3",
 		"react-streams": "^13.6.6",
+		"react-window": "^1.8.5",
 		"rxjs": "^6.5.2",
 		"semantic-ui-react": "^0.87.2",
 		"styled-components": "^4.3.1",

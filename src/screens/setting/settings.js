@@ -3,31 +3,12 @@ import styled from 'styled-components';
 import Head from '../../components/head';
 import Flex from 'styled-flex-component';
 import { FiUser, FiLoader, FiToggleLeft } from 'react-icons/fi';
+import { FixedSizeList as List } from 'react-window';
 
 const Settings = () => {
-  const Body = styled.div`
-    padding  : 1em
-    background  : transparent
-`;
-
-  const Search = styled.input`  
-    width : 80%
-    height : 6.5vh
-    padding-left : 15px
-  `;
-           
-  return (
-    <div>
-      <Head />
+  const Setting = () => {
+    return (
       <div>
-        <br />
-        <Flex justifyCenter>
-          <Search placeholder="Search Settings" />
-        </Flex>
-        <hr />
-      </div>
-
-      <Body>
         <div>
           <Flex>
             <FiUser style={{ fontSize: '2em' }} />
@@ -58,7 +39,6 @@ const Settings = () => {
             </Flex>
           </div>
         </div>
-        <br />
         <div>
           <Flex>
             <FiUser style={{ fontSize: '2em' }} />
@@ -74,7 +54,6 @@ const Settings = () => {
             </Flex>
           </div>
         </div>
-        <br />
         <div>
           <Flex>
             <FiUser style={{ fontSize: '2em' }} />
@@ -90,6 +69,36 @@ const Settings = () => {
             </Flex>
           </div>
         </div>
+      </div>
+    );
+  };
+
+  const Body = styled.div`
+    padding  : 1em
+    background  : transparent
+`;
+
+  const Search = styled.input`  
+    width : 80%
+    height : 6.5vh
+    padding-left : 15px
+  `;
+
+  return (
+    <div>
+      <Head />
+      <div>
+        <br />
+        <Flex justifyCenter>
+          <Search placeholder="Search Settings" />
+        </Flex>
+        <hr />
+      </div>
+
+      <Body>
+        <List height={430} itemSize={50} itemCount={4} width="100%">
+          {() => <Setting />}
+        </List>
       </Body>
     </div>
   );
