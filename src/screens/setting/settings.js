@@ -4,8 +4,10 @@ import Head from '../../components/head';
 import Flex from 'styled-flex-component';
 import { FiUser, FiLoader, FiToggleLeft } from 'react-icons/fi';
 import { FixedSizeList as List } from 'react-window';
+import useWindowWidth from '../../styles/hook_style';
 
 const Settings = () => {
+  // virtaulized window here
   const Setting = () => {
     return (
       <div>
@@ -78,27 +80,59 @@ const Settings = () => {
     background  : transparent
 `;
 
-  const Search = styled.input`  
-    width : 80%
-    height : 6.5vh
-    padding-left : 15px
-  `;
+  const hooks = useWindowWidth();
 
   return (
     <div>
-      <Head />
-      <div>
-        <br />
-        <Flex justifyCenter>
-          <Search placeholder="Search Settings" />
-        </Flex>
-        <hr />
-      </div>
+      <Head screens={'setting'} />
 
       <Body>
-        <List height={430} itemSize={50} itemCount={4} width="100%">
-          {() => <Setting />}
-        </List>
+        {hooks >= 700 ? (
+          <div>
+            {' '}
+            <List height={460} itemSize={50} itemCount={4} width="100%">
+              {() => <Setting />}
+            </List>{' '}
+          </div>
+        ) : (
+          <div>
+            <div style={{ marginLeft: '2em', marginRight: '2em' }}>
+              <Flex justifyBetween>
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Account
+                  </h6>
+                </Flex>
+
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Account
+                  </h6>
+                </Flex>
+
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Account
+                  </h6>
+                </Flex>
+
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Account
+                  </h6>
+                </Flex>
+              </Flex>
+            </div>
+            <hr />
+            <List height={460} itemSize={50} itemCount={4} width="100%">
+              {() => <Setting />}
+            </List>{' '}
+          </div>
+        )}
       </Body>
     </div>
   );
