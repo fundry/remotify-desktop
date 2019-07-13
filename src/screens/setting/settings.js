@@ -84,7 +84,7 @@ const Settings = () => {
 
   return (
     <div>
-      <Head screens={'setting'} />
+      <Head screens = "setting"  />
 
       <Body>
         {hooks >= 700 ? (

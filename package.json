@@ -1,8 +1,8 @@
 {
-	"name": "devify-desktop",
-	"productName": "devify-desktop",
+	"name": "remotify-desktop",
+	"productName": "remotify-desktop",
 	"version": "1.0.0",
-	"description": "My Electron application description",
+	"description": "Remotify Desktop",
 	"main": "src/electron.js",
 	"scripts": {
 		"start": "electron-forge start",
@@ -32,7 +32,7 @@
 				"packageManager": "yarn"
 			},
 			"electronWinstallerConfig": {
-				"name": "devify_desktop"
+				"name": "remotify_desktop"
 			},
 			"electronInstallerDebian": {},
 			"electronInstallerRedhat": {},
@@ -42,12 +42,11 @@
 			},
 			"windowsStoreConfig": {
 				"packageName": "",
-				"name": "devifydesktop"
+				"name": "remotifydesktop"
 			}
 		}
 	},
 	"dependencies": {
-		"@trendmicro/react-sidenav": "^0.4.5",
 		"electron-compile": "^6.4.4",
 		"electron-devtools-installer": "^2.1.0",
 		"electron-squirrel-startup": "^1.0.0",
@@ -79,6 +78,7 @@
 		"extends": "react-app"
 	},
 	"devDependencies": {
+		"@babel/parser": "^7.5.0",
 		"@babel/plugin-proposal-class-properties": "^7.5.0",
 		"@babel/plugin-proposal-decorators": "^7.4.4",
 		"babel-plugin-transform-async-to-generator": "^6.24.1",

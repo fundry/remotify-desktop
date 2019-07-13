@@ -1,7 +1,9 @@
 import React from 'react';
 import Header from '../../components/head';
-import styled  from 'styled-components'
-import Flex from  'styled-flex-component'
+import styled from 'styled-components';
+import Flex from 'styled-flex-component';
+
+import { observer, inject } from 'mobx-react';
 
 const files = () => {
   return (
@@ -12,4 +14,6 @@ const files = () => {
   );
 };
 
-export default files;
+// export default inject('Teststore')(observer(files));
+
+export default files

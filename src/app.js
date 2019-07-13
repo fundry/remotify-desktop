@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './screens/routes';
-import Bottom from './components/bottom';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
+
+import { Provider } from 'mobx-react';
+import { Test } from './state/stores/';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -93,9 +95,11 @@ const Header = () => {
 };
 
 ReactDOM.render(
-  <div>
-    <Header />
-    <Routes />
-  </div>,
+  <Provider store={Test}>
+    <div>
+      <Header />
+      <Routes />
+    </div>
+  </Provider>,
   document.getElementById('root')
 );

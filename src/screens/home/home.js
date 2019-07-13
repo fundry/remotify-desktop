@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
+import { FiActivity } from 'react-icons/fi';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -67,7 +68,10 @@ const Home = (props) => {
             <Button
               onClick={() => this.setState({ showModal: true, blur: true })}
             >
-              Performance
+              <Flex>
+                <FiActivity style={{ fontSize: '1.7em' }} />
+                <p  style={{fontSize : '1em' , paddingLeft  : '7px'}}> Performance </p>
+              </Flex>
             </Button>
           </Flex>
 
