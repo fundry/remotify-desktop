@@ -1,7 +1,6 @@
 import { app, BrowserWindow, ipcMain, Tray, Menu } from 'electron';
 import { enableLiveReload } from 'electron-compile';
-import path from 'path'
-
+import path from 'path';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -28,7 +27,7 @@ const createWindow = async () => {
     width: 700,
     height: 500,
     show: true,
-    minHeight: 310,                                 
+    minHeight: 310,
     minWidth: 310,
     frame: false,
     backgroundColor: '#f4f4f5',

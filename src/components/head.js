@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiSettings } from 'react-icons/fi';
+import { FiMenu, FiSettings, FiSearch } from 'react-icons/fi';
 
 const SettingNav = (props) => {
   const Search = styled.input`  
@@ -10,8 +10,8 @@ const SettingNav = (props) => {
     height : 5.2vh
     padding-left : 15px
     background : transparent
-    border  :  0.5px solid blue 
-    border-radius : 5px
+    border  :  0.6px solid blue 
+    border-radius : 3px
   `;
 
   const Div = {
@@ -31,15 +31,19 @@ const SettingNav = (props) => {
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
 
-            <div style={{ marginRight: '20px' }}>
-              <Search placeholder="Search Settings" />
-            </div>
+            <form>
+              <Flex>
+                <div style={{ marginRight: '20px' }}>
+                  <Search placeholder="Search Settings" />
+                </div>
 
-            <div>
-              <Link to="/settings">
-                <FiSettings style={{ fontSize: '1.5em' }} />
-              </Link>
-            </div>
+                <div>
+                  <Link to="/settings">
+                    <FiSearch style={{ fontSize: '1.5em' }} />
+                  </Link>
+                </div>
+              </Flex>
+            </form>
           </Flex>
         ) : (
           <Flex justifyBetween>
@@ -47,7 +51,7 @@ const SettingNav = (props) => {
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
 
-            <div  style={{paddingRight : '18em'}}>
+            <div style={{ paddingRight: '18em' }}>
               <Link to="/settings">
                 <FiSettings style={{ fontSize: '1.5em' }} />
               </Link>
