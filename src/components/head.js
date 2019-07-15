@@ -16,11 +16,9 @@ const SettingNav = (props) => {
 
   const Div = {
     background: ' #cdd ',
-    width: '140%',
     padding: '1em',
+    boxShadow: '0px 1px 2px rgba(0,0,0,0.1)',
   };
-
-  console.log(props);
 
   return (
     <div style={Div}>
@@ -51,7 +49,7 @@ const SettingNav = (props) => {
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
 
-            <div style={{ paddingRight: '18em' }}>
+            <div style={{ paddingRight: '2em' }}>
               <Link to="/settings">
                 <FiSettings style={{ fontSize: '1.5em' }} />
               </Link>

@@ -30,7 +30,7 @@ const bottom = (props) => {
   return (
     <div style={Bottom}>
       <Flex justifyBetween>
-        <div>
+        <div style={{paddingLeft : '10px'}} >
           <h6> Something </h6>
         </div>
 

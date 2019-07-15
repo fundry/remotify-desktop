@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
-import { FiActivity } from 'react-icons/fi';
+import { FiActivity, FiX } from 'react-icons/fi';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -41,6 +41,9 @@ const Home = (props) => {
     console.log(m.active);
   };
 
+  const [Perfscreen, setPerfscreen] = useState(false);
+
+  console.log(Perfscreen);
   return (
     <div>
       <Head state={props.state} />
@@ -48,16 +51,36 @@ const Home = (props) => {
       <div
         style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
       >
-        <Modal
-          centered
-          show={m.active}
-          onHide={() => {
-            closeMusic();
-          }}
-          style={{ paddingTop: '10%', padding: '5%' }}
-        >
-          <Music />
-        </Modal>
+        <Flex justifyCenter>
+          <Modal
+            show={Perfscreen}
+            onHide={() => {
+              closeMusic();
+            }}
+            style={{ paddingTop: '10%', padding: '5%' }}
+          >
+            <Modal.Header
+              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
+            >
+              <div
+                style={{ textAlign: 'right', float: 'right' }}
+                onClick={() => setPerfscreen(false)}
+              >
+                <FiX
+                  style={{
+                    fontSize: '2em',
+                    textAlign: 'right',
+                    position: 'relative',
+                    float: 'right',
+                  }}
+                />
+              </div>
+            </Modal.Header>
+            <Modal.Body>
+              <Perf />
+            </Modal.Body>
+          </Modal>{' '}
+        </Flex>
         <Flex justifyBetween>
           <div>
             <Clock />
@@ -66,11 +89,15 @@ const Home = (props) => {
           <Flex column>
             <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
             <Button
-              onClick={() => this.setState({ showModal: true, blur: true })}
+              onClick={() => {
+                setPerfscreen(true);
+              }}
             >
               <Flex>
                 <FiActivity style={{ fontSize: '1.7em' }} />
-                <p  style={{fontSize : '1em' , paddingLeft  : '7px'}}> Performance </p>
+                <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
+                  Performance{' '}
+                </p>
               </Flex>
             </Button>
           </Flex>

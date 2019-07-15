@@ -11,10 +11,8 @@ import { onPatch } from 'mobx-state-tree';
 import { Auth } from '../../state/models/';
 import { observer } from 'mobx-react';
 
-
-
 const Login = () => {
-  const auth = Auth.create({   }); // experimental to try Onptach
+  const auth = Auth.create({}); // experimental to try Onptach
   const Div = styled.div`padding: 1em;`;
   // background-image: url(${img});
   const Button = styled.button`
@@ -41,7 +39,7 @@ const Login = () => {
     border: 1px solid #0e2f5a;
     color: #fff;
     margin: 0 3em;
-    padding: 0.25em 2em;
+    padding: 0.25em 3em;
     font-size: 1em;
     &:hover {
       color: #0e2f5a;
@@ -51,31 +49,27 @@ const Login = () => {
 
   return (
     <Div>
-      <Flex>
-        <img
-          src={
-            'https://res.cloudinary.com/dkfptto8m/image/upload/v1561061164/Fundry/worker.jpg'
-          }
-          style={{ maxWidth: '50%', maxheight: '50vh', height: '40vh' }}
-        />
-        <div>
-          <Flex justifyCenter>
-            <input
-              type="text"
-              name="code"
-              placeholder=" 0000-0000-0000 "
-              style={{
-                width: '15em',
-                height: '35px',
-                borderRadius: '3px',
-                fontSize: '20px',
-                textAlign: 'center',
-                border: '1.5px solid blue',
-                padding: '5px',
-              }}
-            />
-            <br />
-          </Flex>
+      <Flex justifyCenter>
+        <form>
+          <br />
+          <br />
+          <br />
+          <input
+            type="text"
+            name="code"
+            placeholder=" 0000-0000-0000 "
+            style={{
+              width: '15em',
+              height: '40px',
+              borderRadius: '3px',
+              fontSize: '20px',
+              textAlign: 'center',
+              border: '1px solid blue',
+              padding: '5px',
+            }}
+          />
+          <br />
+          <br />
           <div
             style={{
               textAlign: 'center',
@@ -92,14 +86,22 @@ const Login = () => {
               Login
             </Button>
           </div>
-          <br /> <br /> <br /> <br />
-          <Flex justifyCenter>
-            <Help> Support </Help>
-            <Help> Create Team </Help>
-          </Flex>
-          <hr />
-        </div>
+          <br />
+          <br />
+          <br />
+          <br />
+        </form>
       </Flex>
+      <hr />
+
+      <div>
+        <Flex justifyBetween>
+          <div style={{ paddingTop: '10px' , color : '#0e2f5a;' }}>
+            <a href="/"> Troubleshoot </a>
+          </div>
+          <Help> Create Team </Help>
+        </Flex>
+      </div>  
     </Div>
   );
 };
@@ -115,7 +117,7 @@ const message$ = of({ any: <Login /> });
 
 const main = () => (
   <div>
-    <Stream source={message$} pipe={startWithAndDelay('.', 7000)}>
+    <Stream source={message$} pipe={startWithAndDelay('loading now ', 2000)}>
       {({ any }) => <div>{any}</div>}
     </Stream>
   </div>
