@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiSettings, FiSearch } from 'react-icons/fi';
+import { FiMenu, FiSettings, FiSearch, FiMusic } from 'react-icons/fi';
 
 const SettingNav = (props) => {
   const Search = styled.input`  
@@ -17,14 +17,14 @@ const SettingNav = (props) => {
   const Div = {
     background: ' #cdd ',
     padding: '1em',
-    boxShadow: '0px 1px 2px rgba(0,0,0,0.1)',
+    boxShadow: '0px 1px 1px rgba(0,0,0,0.1)',
   };
 
   return (
     <div style={Div}>
       <div>
         {props.screens == 'setting' ? (
-          <Flex>
+          <Flex justifyBetween>
             <div>
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
@@ -35,9 +35,9 @@ const SettingNav = (props) => {
                   <Search placeholder="Search Settings" />
                 </div>
 
-                <div>
+                <div style={{ paddingTop: '10px' }}>
                   <Link to="/settings">
-                    <FiSearch style={{ fontSize: '1.5em' }} />
+                    <FiSearch style={{ fontSize: '1.7em' }} />
                   </Link>
                 </div>
               </Flex>
@@ -49,11 +49,19 @@ const SettingNav = (props) => {
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
 
-            <div style={{ paddingRight: '2em' }}>
-              <Link to="/settings">
-                <FiSettings style={{ fontSize: '1.5em' }} />
-              </Link>
-            </div>
+            <Flex>
+              <div style={{ paddingRight: '1em' }}>
+                <Link to="/music">
+                  <FiMusic style={{ fontSize: '1.5em' }} />
+                </Link>
+              </div>
+
+              <div style={{ paddingRight: '1.5em' }}>
+                <Link to="/settings">
+                  <FiSettings style={{ fontSize: '1.5em' }} />
+                </Link>
+              </div>
+            </Flex>
           </Flex>
         )}
       </div>

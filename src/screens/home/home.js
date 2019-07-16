@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
-import { FiActivity, FiX } from 'react-icons/fi';
+import { FiActivity, FiX, FiFolder } from 'react-icons/fi';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -96,7 +96,7 @@ const Home = (props) => {
               <Flex>
                 <FiActivity style={{ fontSize: '1.7em' }} />
                 <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
-                  Performance{' '}
+                  Performancaae{' '}
                 </p>
               </Flex>
             </Button>
@@ -107,6 +107,12 @@ const Home = (props) => {
             <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
           </Flex>
         </Flex>
+
+        <div>
+          <Link to="/files">
+            <FiFolder style={{ fontSize: '2em' }} />
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { observer, inject } from 'mobx-react';
 const files = () => {
   return (
     <div>
-      <Header />
+      <Header screen="files"/>
       <h1> USER FILES SCREEN </h1>
     </div>
   );
