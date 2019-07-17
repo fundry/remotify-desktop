@@ -7,17 +7,16 @@ import { FiMenu, FiSettings, FiSearch, FiMusic } from 'react-icons/fi';
 const SettingNav = (props) => {
   const Search = styled.input`  
     width : 23em
-    height : 5.2vh
+    height : 4.5vh
     padding-left : 15px
     background : transparent
-    border  :  0.6px solid blue 
+    border  :  0px
     border-radius : 3px
   `;
 
   const Div = {
     background: ' #cdd ',
-    padding: '1em',
-    boxShadow: '0px 1px 1px rgba(0,0,0,0.1)',
+    padding: '0.5em',
   };
 
   return (
@@ -29,15 +28,21 @@ const SettingNav = (props) => {
               <FiMenu style={{ fontSize: '1.5em' }} />
             </div>
 
-            <form>
+            <form
+              style={{
+                border: '1px solid black',
+                padding: '0.2em',
+                borderRadius: '5px',
+                paddingRight: '10px',
+                marginRight: '15px',
+              }}
+            >
               <Flex>
-                <div style={{ marginRight: '20px' }}>
-                  <Search placeholder="Search Settings" />
-                </div>
+                <Search placeholder="Search Settings" />
 
-                <div style={{ paddingTop: '10px' }}>
+                <div style={{ paddingTop: '5px' }}>
                   <Link to="/settings">
-                    <FiSearch style={{ fontSize: '1.7em' }} />
+                    <FiSearch style={{ fontSize: '1.5em' }} />
                   </Link>
                 </div>
               </Flex>

@@ -27,6 +27,7 @@ import {
   Music,
   Setting,
   Team,
+  Office,
 } from './index';
 //=======================
 
@@ -64,7 +65,6 @@ const NavLinks = styled.ul`
   padding: 0;
   color: #000;
 `;
-
 
 const Link = styled.li`
   display: block;
@@ -157,7 +157,7 @@ class NavBar extends Component {
               </Link>
 
               <Link>
-                <NavLink to="/integration">
+                <NavLink to="/office">
                   <FiPackage style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
@@ -206,7 +206,7 @@ class NavBar extends Component {
               </Link>
 
               <Link>
-                <NavLink to="/integration"> Integrations </NavLink>
+                <NavLink to="/office"> Office </NavLink>
               </Link>
 
               <Link>
@@ -244,8 +244,8 @@ class NavBar extends Component {
               <Files />
             </Route>
 
-            <Route path="/integration">
-              <Integrations />
+            <Route path="/office">
+              <Office />
             </Route>
 
             <Route path="/music">
