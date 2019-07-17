@@ -9,11 +9,13 @@ import {
   FiSettings,
   FiPackage,
   FiMusic,
+  FiHelpCircle,
   FiChevronsLeft,
   FiChevronsRight,
 } from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
+import { Modal } from 'react-bootstrap';
 
 import { Auth, Nav_State } from '../state/models/';
 
@@ -22,12 +24,13 @@ import Bottom from '../components/bottom';
 import {
   Home,
   Files,
-  Integrations,
+  Help,
   Message,
   Music,
   Setting,
   Team,
   Office,
+  Shortcut,
 } from './index';
 //=======================
 
@@ -50,6 +53,7 @@ const nav = Nav_State.create({
 
 const collapsed = nav.collapsedwidth;
 const expanded = nav.expandedwidth;
+
 // ====== styles=====
 const Sidebar = styled.div`
   position: fixed;
@@ -88,12 +92,18 @@ const BtnClose = styled.div`
     cursor: pointer;
   }
 `;
-
 //  ==============
 
 const history = createHashHistory({});
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+    };
+  }
+
   componentDidMount() {
     {
       auth.is_loggedIn
@@ -141,44 +151,51 @@ class NavBar extends Component {
                   <FiHome style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <br />
-
               <Link>
                 <NavLink to="/team">
                   <GiTeamIdea style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <Link>
                 <NavLink to="/message">
                   <FiMessageSquare style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <Link>
                 <NavLink to="/office">
                   <FiPackage style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <Link>
                 <NavLink to="/files">
                   <DiGoogleDrive style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <Link>
                 <NavLink to="/music">
                   <FiMusic style={{ fontSize: '2em' }} />
                 </NavLink>
               </Link>
-
               <br />
               <br />
+              <br />{' '}
+              <div style={{ position: 'bottom' }}>
+                <Link>
+                  <NavLink to="/help">
+                    <FiHelpCircle style={{ fontSize: '2em' }} />
+                  </NavLink>
+                </Link>
+              </div>
               <br />
-              <br />
-
+              <div
+                onClick={() => {
+                  this.setState({ modal: true });
+                }}
+                style={{ position: 'bottom' }}
+              >
+                <FiHelpCircle style={{ fontSize: '2em' }} />
+              </div>
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">
@@ -214,6 +231,10 @@ class NavBar extends Component {
               </Link>
 
               <Link>
+                <NavLink to="/help"> Storage </NavLink>
+              </Link>
+
+              <Link>
                 <NavLink to="/music"> Music </NavLink>
               </Link>
 
@@ -227,6 +248,27 @@ class NavBar extends Component {
         </Sidebar>
 
         <div style={{ paddingLeft: nav.expanded ? '5.7em' : '10.5em' }}>
+          <Modal
+            show={this.state.modal}
+            onHide={() => {
+              alert('hi');
+            }}
+            style={{ paddingTop: '10%', padding: '5%' }}
+          >
+            <Modal.Header
+              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
+            >
+              <div
+                style={{ textAlign: 'right', float: 'right' }}
+                onClick={() => setPerfscreen(false)}
+              >
+                <p> close </p>
+              </div>
+            </Modal.Header>
+            <Modal.Body>
+              <p> modal here </p>
+            </Modal.Body>
+          </Modal>{' '}
           <Switch>
             <Route path="/" exact={true}>
               <Home state={nav.expanded} />
@@ -250,6 +292,10 @@ class NavBar extends Component {
 
             <Route path="/music">
               <Music />
+            </Route>
+
+            <Route path="/help">
+              <Help />
             </Route>
 
             <Route path="/settings">
