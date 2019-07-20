@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
 import { Provider } from 'mobx-react';
-import { Test } from './state/stores/';
+import store from './state/stores/test-store';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -95,7 +95,7 @@ const Header = () => {
 };
 
 ReactDOM.render(
-  <Provider store={Test}>
+  <Provider Teststore={store}>
     <div>
       <Header />
       <Routes />

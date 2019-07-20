@@ -1,17 +1,14 @@
-// //this is a test store to test my raw mobx setup
+//this is a test store to test my raw mobx setup
 
-// import { decorate, action, observable } from 'mobx';
+import { decorate, action, observable } from 'mobx';
 
-// class Teststore {
-//   details = {
-//     name  : 'victory'
-//   }
-// }
+class Teststore {
+}
 
-// decorate(Teststore, {
-//   details: observable,
-// });
+decorate(Teststore, {
+  details: observable,
+});
 
-// const store = new Teststore();
+const store = new Teststore();
 
-// export default  store
+export default store;

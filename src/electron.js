@@ -25,7 +25,7 @@ const createWindow = async () => {
 
   authWindow = new BrowserWindow({
     width: 550,
-    height: 450,
+    height: 450,    
     show: true,
     minHeight: 310,
     minWidth: 310,

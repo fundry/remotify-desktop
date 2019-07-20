@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { Modal } from 'react-bootstrap';
+import { Modal, Dropdown } from 'react-bootstrap';
 import { FiActivity, FiX, FiFolder } from 'react-icons/fi';
 
 import Clock from '../../components/clock';
@@ -12,6 +12,7 @@ import Music from '../music/music';
 import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
 import { onPatch } from 'mobx-state-tree';
+import Shortcuts from '../help/shortcuts';
 
 const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
@@ -31,19 +32,14 @@ const Home = (props) => {
     }
   `;
 
-  const openMusic = () => {
-    m.start();
-    console.log(m.active);
-  };
-
   const closeMusic = () => {
     m.stop();
     console.log(m.active);
   };
 
   const [Perfscreen, setPerfscreen] = useState(false);
+  const [Shortcut, setShortcut] = useState(true);
 
-  console.log(Perfscreen);
   return (
     <div>
       <Head state={props.state} />
@@ -53,10 +49,9 @@ const Home = (props) => {
       >
         <Flex justifyCenter>
           <Modal
+            size="lg"
             show={Perfscreen}
-            onHide={() => {
-              closeMusic();
-            }}
+            onHide={() => setPerfscreen(false)}
             style={{ paddingTop: '10%', padding: '5%' }}
           >
             <Modal.Header
@@ -79,8 +74,23 @@ const Home = (props) => {
             <Modal.Body>
               <Perf />
             </Modal.Body>
-          </Modal>{' '}
+          </Modal>
         </Flex>
+        <br />
+        <Modal
+          show={Shortcut}
+          onHide={() => setShortcut(false)}
+          style={{
+            paddingTop: '10%',
+            padding: '5%',
+            boxShadow: '0px 2px 5px #05156b',
+          }}
+        >
+          <Modal.Body>
+            <Shortcuts />
+          </Modal.Body>
+        </Modal>
+
         <Flex justifyBetween>
           <div>
             <Clock />
@@ -96,7 +106,7 @@ const Home = (props) => {
               <Flex>
                 <FiActivity style={{ fontSize: '1.7em' }} />
                 <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
-                  Performancaae{' '}
+                  Performancaae
                 </p>
               </Flex>
             </Button>
@@ -107,11 +117,14 @@ const Home = (props) => {
             <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
           </Flex>
         </Flex>
-
         <div>
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
           </Link>
+
+          <div onClick={() => setShortcut(true)}>
+            <Button> Shortcuts </Button>
+          </div>
         </div>
       </div>
     </div>
