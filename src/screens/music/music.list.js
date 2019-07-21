@@ -13,7 +13,7 @@ const player = () => {
       <Flex justifyBetween>
         <Flex column>
           <Song> Halleluyah </Song> <Author> Johnny Driller </Author>
-        </Flex>{' '}
+        </Flex> 
         <Duration> 3 00 </Duration>  
       </Flex>
     </Div>

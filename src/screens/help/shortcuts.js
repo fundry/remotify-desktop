@@ -21,16 +21,16 @@ const shortcuts = () => {
           <Flex justifyBetween>
             <Details> Start Music Player</Details>
             <Key> Ctrl + M</Key>
-          </Flex>{' '}
+          </Flex> 
           <Flex justifyBetween>
             <Details> Stop Music Player</Details>
             <Key> Ctrl + S</Key>
-          </Flex>{' '}
+          </Flex> 
           <Flex justifyBetween>
             <Details> Exit Music Player</Details>
             <Key> Ctrl + E</Key>
           </Flex>
-        </Body>{' '}
+        </Body> 
         <Body>
           <Title> Picture </Title>
 
@@ -38,7 +38,7 @@ const shortcuts = () => {
             <Details> ScreenShot View</Details>
             <Key> Ctrl + S + S</Key>
           </Flex>
-        </Body>{' '}
+        </Body> 
         <Body>
           <Title> Music </Title>
 
@@ -46,7 +46,7 @@ const shortcuts = () => {
             <Details> Start Music Player</Details>
             <Key> Ctrl + M</Key>
           </Flex>
-        </Body>{' '}
+        </Body> 
         <Body>
           <Title> Music </Title>
 
@@ -58,11 +58,6 @@ const shortcuts = () => {
       </div>
     );
   };
-
-  const Head = styled.h4`
-        text-align : center
-        color  : #0e2f5a
-    `;
 
   const Search = styled.input`  
     width : 23em
@@ -84,7 +79,6 @@ const shortcuts = () => {
   const Title = styled.p`color: grey;`;
   return (
     <div>
-      <Head> Shortcuts </Head>
       <Flex justifyCenter>
         <div
           style={{
@@ -101,13 +95,13 @@ const shortcuts = () => {
               </div>
               <Search placeholder="Search Shortcuts " />
             </Flex>
-          </Form>{' '}
+          </Form> 
         </div>
       </Flex>
       <hr />
       <List height={400} itemSize={10} itemCount={4} width="100%">
         {() => <Window />}
-      </List>{' '}
+      </List> 
     </div>
   );
 };

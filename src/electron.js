@@ -14,7 +14,7 @@ if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
     width: 1000,
-    height: 770,
+    height: 780,
     minHeight: 600,
     minWidth: 600,
     show: false,
@@ -25,7 +25,7 @@ const createWindow = async () => {
 
   authWindow = new BrowserWindow({
     width: 550,
-    height: 450,    
+    height: 480,    
     show: true,
     minHeight: 310,
     minWidth: 310,

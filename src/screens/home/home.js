@@ -8,11 +8,9 @@ import { FiActivity, FiX, FiFolder } from 'react-icons/fi';
 import Clock from '../../components/clock';
 import Head from '../../components/head';
 import Perf from './user/performance/performance';
-import Music from '../music/music';
 import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
-import { onPatch } from 'mobx-state-tree';
-import Shortcuts from '../help/shortcuts';
+import { Todo as Todos } from '../../components/index';
 
 const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
@@ -37,9 +35,12 @@ const Home = (props) => {
     console.log(m.active);
   };
 
-  const [Perfscreen, setPerfscreen] = useState(false);
-  const [Shortcut, setShortcut] = useState(true);
+  // this should be controlled externally by MST later
+  const [allTodo, addTodo] = useState(false);
+  const [Todo, setTodo] = useState(false);
+  // ==
 
+  const [Perfscreen, setPerfscreen] = useState(false);
   return (
     <div>
       <Head state={props.state} />
@@ -76,21 +77,41 @@ const Home = (props) => {
             </Modal.Body>
           </Modal>
         </Flex>
-        <br />
-        <Modal
-          show={Shortcut}
-          onHide={() => setShortcut(false)}
-          style={{
-            paddingTop: '10%',
-            padding: '5%',
-            boxShadow: '0px 2px 5px #05156b',
-          }}
-        >
-          <Modal.Body>
-            <Shortcuts />
-          </Modal.Body>
-        </Modal>
 
+        <div>
+          <Modal
+            show={Todo}
+            onHide={() => setTodo(false)}
+            style={{ paddingTop: '10%', padding: '5%' }}
+          >
+            <div style={{ padding: '1em' }}>
+              <Flex justifyBetween>
+                <div
+                  style={{ textAlign: 'right', float: 'right' }}
+                  onClick={() => setTodo(false)}
+                >
+                  <FiX
+                    style={{
+                      fontSize: '2em',
+                      textAlign: 'right',
+                      position: 'relative',
+                      float: 'right',
+                    }}
+                  />
+                </div>
+
+                <h5> Todo </h5>
+
+                <Button onClick={() => addTodo(true)}> Add </Button>
+              </Flex>
+            </div>
+
+            <div>
+              <Todos add={allTodo} />
+            </div>
+          </Modal>
+        </div>
+        <br />
         <Flex justifyBetween>
           <div>
             <Clock />
@@ -106,7 +127,7 @@ const Home = (props) => {
               <Flex>
                 <FiActivity style={{ fontSize: '1.7em' }} />
                 <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
-                  Performancaae
+                  Performancae
                 </p>
               </Flex>
             </Button>
@@ -120,10 +141,15 @@ const Home = (props) => {
         <div>
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
-          </Link>
-
-          <div onClick={() => setShortcut(true)}>
-            <Button> Shortcuts </Button>
+          </Link> 
+          <div>
+            <Button
+              onClick={() => {
+                setTodo(true);
+              }}
+            >
+              Todo
+            </Button> 
           </div>
         </div>
       </div>

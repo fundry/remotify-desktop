@@ -16,11 +16,13 @@ import {
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
 import { Modal } from 'react-bootstrap';
+import Flex from 'styled-flex-component';
 
 import { Auth, Nav_State } from '../state/models/';
 
 //   ===== seperate  components =====
 import Bottom from '../components/bottom';
+import { Todo } from '../components/index';
 import {
   Home,
   Files,
@@ -43,7 +45,7 @@ import { observer } from 'mobx-react';
 const electron = window.require('electron');
 const ipc = electron.ipcRenderer;
 
-// MST here
+// MST here  && auth logic
 const auth = Auth.create();
 const nav = Nav_State.create({
   expanded: true,
@@ -92,6 +94,36 @@ const BtnClose = styled.div`
     cursor: pointer;
   }
 `;
+
+// modal styles
+const Head = styled.h5`
+padding-right : 15px
+color  : #0e2f5a
+`;
+
+const Hover = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Button = styled.button`
+  background: #0e2f5a;
+  text-align: right;
+  border-radius: 5px;
+  height: 37px;
+  border: 1px solid #0e2f5a;
+  color: #fff;
+  margin: 0 1em;
+  padding: 0.25em 1.7em;
+  font-size: 1em;
+  &:hover {
+    color: #0e2f5a;
+    background: #fff;
+  }
+`;
+
+const Header = styled.div`padding: 0.5em;`;
 //  ==============
 
 const history = createHashHistory({});
@@ -101,6 +133,7 @@ class NavBar extends Component {
     super(props);
     this.state = {
       modal: false,
+      Shortcutmodal: false,
     };
   }
 
@@ -123,6 +156,29 @@ class NavBar extends Component {
 
     return (
       <Router history={history}>
+        <Modal
+          show={this.state.Shortcutmodal}
+          onHide={() => this.setState({ Shortcutmodal: false })}
+          style={{
+            paddingTop: '10%',
+            padding: '5%',
+            boxShadow: '0px 2px 5px grey',
+          }}
+        >
+          <Header>
+            <Flex justifyBetween>
+              <Button onClick={() => this.setState({ Shortcutmodal: false })}>
+                Close
+              </Button>
+
+              <Head> Shortcuts </Head>
+            </Flex>
+          </Header>
+
+          <Modal.Body>
+            <Shortcut />
+          </Modal.Body>
+        </Modal>
         <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
           {nav.expanded ? (
             <BtnOpen>
@@ -179,23 +235,13 @@ class NavBar extends Component {
               </Link>
               <br />
               <br />
-              <br />{' '}
-              <div style={{ position: 'bottom' }}>
-                <Link>
-                  <NavLink to="/help">
-                    <FiHelpCircle style={{ fontSize: '2em' }} />
-                  </NavLink>
-                </Link>
-              </div>
               <br />
-              <div
-                onClick={() => {
-                  this.setState({ modal: true });
-                }}
-                style={{ position: 'bottom' }}
-              >
-                <FiHelpCircle style={{ fontSize: '2em' }} />
-              </div>
+              <Link>
+                <Hover onClick={() => this.setState({ Shortcutmodal: true })}>
+                  <FiHelpCircle style={{ fontSize: '2em' }} />
+                </Hover>
+              </Link>
+              <br />
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">
@@ -246,7 +292,6 @@ class NavBar extends Component {
             </NavLinks>
           )}
         </Sidebar>
-
         <div style={{ paddingLeft: nav.expanded ? '5.7em' : '10.5em' }}>
           <Modal
             show={this.state.modal}
@@ -268,7 +313,7 @@ class NavBar extends Component {
             <Modal.Body>
               <p> modal here </p>
             </Modal.Body>
-          </Modal>{' '}
+          </Modal> 
           <Switch>
             <Route path="/" exact={true}>
               <Home state={nav.expanded} />
@@ -303,7 +348,6 @@ class NavBar extends Component {
             </Route>
           </Switch>
         </div>
-
         <Bottom width={nav.expanded ? '6.5em' : '11.5em'} />
       </Router>
     );

@@ -4,11 +4,33 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Modal } from 'react-bootstrap';
 import Integrations from './integrations/integration';
-import { FiMusic, FiX, FiSettings, FiPlus, FiSearch } from 'react-icons/fi';
+import { FiX, FiPlus, FiSearch } from 'react-icons/fi';
 
 const office = () => {
+  const Search = styled.input`  
+    width : 18em
+    height : 4vh
+    padding-left : 15px
+    border  :  0px  
+    border-radius : 3px
+  `;
+
+  const Form = styled.form`
+    padding: '0.2em',
+    border-radius: '5px',
+    padding-right: '10px',
+    margin-right: '10px', 
+`;
+
+  const Btn = styled.div`
+    &:hover {
+      cursor: pointer;
+    }
+  `;
+
   const [Tools, setTools] = useState(false);
-  console.log('tools' + Tools);
+  const [expand, expanded] = useState(false);
+
   return (
     <div>
       <Header />
@@ -16,37 +38,65 @@ const office = () => {
         <Modal
           show={Tools}
           onHide={() => {
-            closeMusic();
+            setTools(false);
+            expanded(false);
           }}
-          style={{ paddingTop: '10%', padding: '5%' }}
+          style={{ paddingTop: '20%', padding: '5%' }}
         >
-          <Modal.Header
-            style={{ padding: '1em', textAlign: 'right', float: 'right' }}
-          >
-            <div
-              style={{ textAlign: 'right', float: 'right' }}
-              onClick={() => setTools(false)}
-            >
-              <FiX
-                style={{
-                  fontSize: '2em',
-                  textAlign: 'right',
-                  position: 'relative',
-                  float: 'right',
+          <div style={{ padding: '1em' }}>
+            <Flex justifyBetween>
+              <Btn
+                onClick={() => {
+                  setTools(false), expanded(false);
                 }}
-              />
-            </div>
-          </Modal.Header>
-          <Modal.Body>
+              >
+                <FiX
+                  style={{
+                    fontSize: '2em',
+                  }}
+                />
+              </Btn>
+
+              {expand ? (
+                <div
+                  style={{
+                    padding: '0.4em',
+                    border: '1px solid blue ',
+                    borderRadius: '5px',
+                    width: '20em',
+                  }}
+                >
+                  <Form>
+                    <Flex>
+                      <Btn style={{ paddingTop: '5px' }}>
+                        <FiSearch style={{ fontSize: '1.3em' }} />
+                      </Btn>
+                      <Search placeholder="Search Shortcuts " />
+                    </Flex>
+                  </Form> 
+                </div>
+              ) : (
+                <Btn
+                  onClick={() => {
+                    expanded(true);
+                  }}
+                >
+                  <FiSearch style={{ fontSize: '1.3em' }} /> 
+                </Btn>
+              )}
+            </Flex>
+          </div>
+
+          <div style={{ padding: '1em' }}>
             <Integrations />
-          </Modal.Body>
-        </Modal>{' '}
+          </div>
+        </Modal>
       </Flex>
 
       <div>
         <div style={{ textAlign: 'right ' }}>
           <Flex>
-            <div
+            <Btn
               onClick={() => {
                 setTools(true);
               }}
@@ -58,7 +108,7 @@ const office = () => {
                   float: 'right',
                 }}
               />
-            </div>
+            </Btn>
             <p style={{ paddingTop: '7px' }}> Add Tool </p>
           </Flex>
         </div>

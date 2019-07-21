@@ -89,10 +89,10 @@ const Settings = () => {
       <Body>
         {hooks >= 700 ? (
           <div>
-            {' '}
+             
             <List height={460} itemSize={50} itemCount={4} width="100%">
               {() => <Setting />}
-            </List>{' '}
+            </List> 
           </div>
         ) : (
           <div>
@@ -130,7 +130,7 @@ const Settings = () => {
             <hr />
             <List height={460} itemSize={50} itemCount={4} width="100%">
               {() => <Setting />}
-            </List>{' '}
+            </List> 
           </div>
         )}
       </Body>
