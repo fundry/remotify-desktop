@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
-import { FiSend } from 'react-icons/fi';
+import { FiSend, FiClock, FiArrowLeft } from 'react-icons/fi';
 
 const todo = (props) => {
   const Search = styled.input`  
             width : 23em
             height : 5.2vh
             padding-left : 15px
-            border  :  1px  solid blue
+            border  : 0px
             border-radius : 3px
     `;
 
@@ -25,23 +25,64 @@ const todo = (props) => {
     }
   `;
 
-  //   const [Edit, Editing] = useState(false);
+  const Contain = styled.div`
+  padding : 0.5em
+  border : 1px solid blue 
+  border-radius  : 5px
+  `;
 
+  const [theTime, settheTime] = useState(false);
+
+  console.log('setTime' + settheTime, 'Time' + theTime);
   return (
     <div>
       {props.add ? (
-        <Flex justifyCenter>
-          <Form>
-            <Flex>
-              <Search placeholder="Add Todo" />
-              <div style={{ paddingLeft: '10px' , paddingTop :  '10px'}}>
-                <Hover>
-                  <FiSend style={{ fontSize: '1.5em'  }} />
-                </Hover>
-              </div>
+        <div>
+          {!theTime ? (
+            <Flex justifyCenter>
+              <Form>
+                <Flex>
+                  <Contain>
+                    <Flex>
+                      <Search placeholder="Add Todo" />
+                      <Hover
+                        style={{ paddingTop: '10px', paddingLeft: '5px' }}
+                        onClick={() => {
+                          settheTime(true);
+                        }}
+                      >
+                        <FiClock style={{ fontSize: '1.7em' }} />
+                      </Hover>
+                    </Flex>
+                  </Contain>
+
+                  <div style={{ paddingLeft: '10px', paddingTop: '20px' }}>
+                    <Hover>
+                      <FiSend style={{ fontSize: '2em' }} />
+                    </Hover>
+                  </div>
+                </Flex>
+              </Form>
             </Flex>
-          </Form>
-        </Flex>
+          ) : (
+            <div style={{padding : '1em'}} >
+              <Flex justifyBetween>
+                <Hover
+                  onClick={() => {
+                    settheTime(false);
+                  }}
+                >
+                  <FiArrowLeft style={{ fontSize: '1.7em' }} />
+                </Hover>
+                <Flex>
+                  <p> Remind me in -------------- </p>
+                </Flex>
+
+                <p>Priority</p>
+              </Flex>
+            </div>
+          )}
+        </div>
       ) : null}
 
       <div>

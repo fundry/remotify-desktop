@@ -89,7 +89,6 @@ const Login = () => {
           <br />
           <br />
           <br />
-          <br />
         </form>
       </Flex>
       <hr />
