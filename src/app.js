@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
 import { Provider } from 'mobx-react';
-import store from './state/stores/test-store';
+import { TodoStore } from './state/stores/index';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -93,11 +93,13 @@ const Header = () => {
     </Nav>
   );
 };
-console.log('gg')
-ReactDOM.render(
-    <div>
-        <Header /> 
-       <Routes />
-    </div> , 
-  document.getElementById('root')
-);
+
+const App = () => {
+  return (
+    <Provider TodoStore={TodoStore}>
+      <Routes />
+    </Provider>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { FiSend, FiClock, FiArrowLeft } from 'react-icons/fi';
+import List from './todo.list';
 
 const todo = (props) => {
-  const Search = styled.input`  
+  const Input = styled.input`  
             width : 23em
             height : 5.2vh
             padding-left : 15px
@@ -44,7 +45,7 @@ const todo = (props) => {
                 <Flex>
                   <Contain>
                     <Flex>
-                      <Search placeholder="Add Todo" />
+                      <Input placeholder="Add Todo" />
                       <Hover
                         style={{ paddingTop: '10px', paddingLeft: '5px' }}
                         onClick={() => {
@@ -65,7 +66,7 @@ const todo = (props) => {
               </Form>
             </Flex>
           ) : (
-            <div style={{padding : '1em'}} >
+            <div style={{ padding: '1em' }}>
               <Flex justifyBetween>
                 <Hover
                   onClick={() => {
@@ -86,7 +87,7 @@ const todo = (props) => {
       ) : null}
 
       <div>
-        <p> Some Todo Here </p>
+        <List />
       </div>
     </div>
   );

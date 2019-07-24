@@ -25,7 +25,7 @@ const SettingNav = (props) => {
         {props.screens == 'setting' ? (
           <Flex justifyBetween>
             <div>
-              <FiMenu style={{ fontSize: '1.5em' }} />
+              <FiMenu style={{ fontSize: '1.7em' }} />
             </div>
 
             <form

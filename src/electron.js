@@ -7,9 +7,9 @@ import path from 'path';
 let mainWindow;
 let appIcon = null;
 let authWindow;
-const isDevMode = process.execPath.match(/[\\/]electron/);
+// const isDevMode = process.execPath.match(/[\\/]electron/);
 
-if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
+// if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
@@ -25,7 +25,7 @@ const createWindow = async () => {
 
   // authWindow = new BrowserWindow({
   //   width: 550,
-  //   height: 480,    
+  //   height: 480,
   //   show: false,
   //   minHeight: 310,
   //   minWidth: 310,
