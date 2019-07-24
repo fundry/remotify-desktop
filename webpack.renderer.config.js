@@ -6,7 +6,7 @@ const base = require("./webpack.base.config");
 const buildPath = path.resolve(__dirname, "./dist");
 
 const renderer = merge(base, {
-  entry: "./src/electron.js",
+  entry: "./src/app.js",
   output: {
     filename: "renderer.js",
     path: buildPath

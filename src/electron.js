@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain, Tray, Menu } from 'electron';
-import { enableLiveReload } from 'electron-compile';
+// import { enableLiveReload } from 'electron-compile';
 import path from 'path';
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -17,30 +17,30 @@ const createWindow = async () => {
     height: 780,
     minHeight: 600,
     minWidth: 600,
-    show: false,
+    show: true,
     frame: true,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
   });
 
-  authWindow = new BrowserWindow({
-    width: 550,
-    height: 480,    
-    show: true,
-    minHeight: 310,
-    minWidth: 310,
-    frame: false,
-    backgroundColor: '#f4f4f5',
-    title: 'Remotify',
-  });
+  // authWindow = new BrowserWindow({
+  //   width: 550,
+  //   height: 480,    
+  //   show: false,
+  //   minHeight: 310,
+  //   minWidth: 310,
+  //   frame: false,
+  //   backgroundColor: '#f4f4f5',
+  //   title: 'Remotify',
+  // });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   // Open the DevTools.
-  if (isDevMode) {
-    mainWindow.webContents.openDevTools();
-  }
+  // if (isDevMode) {
+  //   mainWindow.webContents.openDevTools();
+  // }
 
-  authWindow.loadURL(`file://${__dirname}/login.html`);
+  // authWindow.loadURL(`file://${__dirname}/login.html`);
   // Open the DevTools.
   // if (isDevMode) {
   //   mainWindow.webContents.openDevTools();

@@ -93,13 +93,11 @@ const Header = () => {
     </Nav>
   );
 };
-
+console.log('gg')
 ReactDOM.render(
-  <Provider Teststore={store}>
     <div>
-      <Header />
-      <Routes />
-    </div>
-  </Provider>,
+        <Header /> 
+       <Routes />
+    </div> , 
   document.getElementById('root')
 );

@@ -3,6 +3,7 @@
 import { decorate, action, observable } from 'mobx';
 
 class Teststore {
+  test = false;
 }
 
 decorate(Teststore, {

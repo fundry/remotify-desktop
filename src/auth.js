@@ -10,6 +10,11 @@ const ipc = electron.remote.getCurrentWindow();
 
 //nav buttons functions  here
 
+class test {
+old = false 
+}
+
+console.log (test)
 const Header = () => {
   const close = () => {
     ipc.minimize();

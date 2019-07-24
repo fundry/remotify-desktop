@@ -16,7 +16,7 @@ const todo = (props) => {
             padding: '0.2em',
             border-radius: '5px',
             padding-right: '10px',
-            margin-right: '15px', 
+            margin-righ '15px't:, 
     `;
 
   const Hover = styled.div`
