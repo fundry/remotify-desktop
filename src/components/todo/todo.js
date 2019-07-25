@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { FiSend, FiClock, FiArrowLeft } from 'react-icons/fi';
 import List from './todo.list';
+import { observer, inject } from 'mobx-react';
 
 const todo = (props) => {
+  // const {todos } = props.TodoStore.Todo
+
+  console.log(props.TodoStore.todos.title);
   const Input = styled.input`  
             width : 23em
             height : 5.2vh
@@ -34,7 +38,15 @@ const todo = (props) => {
 
   const [theTime, settheTime] = useState(false);
 
-  console.log('setTime' + settheTime, 'Time' + theTime);
+  const handleTodo = (event) => {
+    const { value } = event.target;
+
+    console.log(value)
+    addTodoValue(value)
+  };
+
+  const [todo, addTodoValue] = useState('')
+  console.log(todo);
   return (
     <div>
       {props.add ? (
@@ -45,7 +57,12 @@ const todo = (props) => {
                 <Flex>
                   <Contain>
                     <Flex>
-                      <Input placeholder="Add Todo" />
+                      <Input
+                        placeholder="Add Todo"
+                        type="text"
+                        value=""
+                        onChange={handleTodo(event)}
+                      />
                       <Hover
                         style={{ paddingTop: '10px', paddingLeft: '5px' }}
                         onClick={() => {
@@ -87,10 +104,12 @@ const todo = (props) => {
       ) : null}
 
       <div>
-        <List />
+        {props.TodoStore.todos.map((index, todo) => (
+          <List todo={todo} key={index} />
+        ))}
       </div>
     </div>
   );
 };
 
-export default todo;
+export default inject('TodoStore')(observer(todo));

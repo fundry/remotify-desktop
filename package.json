@@ -7,14 +7,14 @@
 	"scripts": {
 		"build": "webpack --mode development",
 		"build:watch": "npm run build -- --watch",
-		  "start": "npm run electron",
-        "electron-toolkit": "electron ./node_modules/electron-toolkit" , 
+		"start": "npm run electron",
+		"electron-toolkit": "electron ./node_modules/electron-toolkit",
 		"forge": "electron-forge start",
 		"package": "electron-forge package",
 		"make": "electron-forge make",
 		"publish": "electron-forge publish",
-		"lint": "eslint --cache --color --ext .jsx,.js src"   , 
-		"electron": "electron dist/main.js" 
+		"lint": "eslint --cache --color --ext .jsx,.js src",
+		"electron": "electron dist/main.js"
 	},
 	"keywords": [],
 	"author": "Iamnwani",
@@ -56,6 +56,7 @@
 		"electron-devtools-installer": "^2.2.4",
 		"electron-squirrel-startup": "^1.0.0",
 		"esm": "^3.2.25",
+		"formik": "^1.5.8",
 		"history": "^4.9.0",
 		"husky": "^2.4.1",
 		"mobx": "^5.11.0",
