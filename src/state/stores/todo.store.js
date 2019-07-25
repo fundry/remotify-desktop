@@ -1,12 +1,11 @@
-// this store controls the todo feature 
-
+// this store controls the todo feature
+import React from 'react';
 import { observable, decorate, action } from 'mobx';
 
 class TodoStore {
   testing = true;
 
-  name = 'victory';
-
+  todoInput = React.createRef();
   todos = [
     {
       id: 1,
@@ -17,12 +16,12 @@ class TodoStore {
       id: 2,
       title: 'second  todo for test',
       completed: false,
-      },
-      {
-        id: 3,
-        title: 'third todo for test',
-        completed: false,
-      },
+    },
+    {
+      id: 3,
+      title: 'third todo for test',
+      completed: false,
+    },
   ];
 
   addTodo = (event) => {
@@ -48,6 +47,7 @@ class TodoStore {
 }
 
 decorate(TodoStore, {
+  todoInput: observable,
   todos: observable,
   addTodo: action,
   removeTodo: action,

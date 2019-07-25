@@ -6,7 +6,7 @@ import Flex from 'styled-flex-component';
 const team = () => {
   return (
     <div>
-      <Header />
+      <Header screens = "team"/>
       <h1> Team screen </h1>
     </div>
   );

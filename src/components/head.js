@@ -1,8 +1,10 @@
+// this contain multile ifs which would later be written as Switchs
 import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiSettings, FiSearch, FiMusic } from 'react-icons/fi';
+import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
 
 const SettingNav = (props) => {
   const Search = styled.input`  
@@ -21,55 +23,139 @@ const SettingNav = (props) => {
 
   return (
     <div style={Div}>
-      <div>
-        {props.screens == 'setting' ? (
-          <Flex justifyBetween>
-            <div>
-              <FiMenu style={{ fontSize: '1.7em' }} />
-            </div>
+      {props.screens == 'setting' ? (
+        <Flex justifyBetween>
+          <div>
+            <FiMenu style={{ fontSize: '1.7em' }} />
+          </div>
 
-            <form
-              style={{
-                border: '1px solid black',
-                padding: '0.2em',
-                borderRadius: '5px',
-                paddingRight: '10px',
-                marginRight: '15px',
-              }}
-            >
-              <Flex>
-                <Search placeholder="Search Settings" />
-
-                <div style={{ paddingTop: '5px' }}>
-                  <Link to="/settings">
-                    <FiSearch style={{ fontSize: '1.5em' }} />
-                  </Link>
-                </div>
-              </Flex>
-            </form>
-          </Flex>
-        ) : (
-          <Flex justifyBetween>
-            <div>
-              <FiMenu style={{ fontSize: '1.5em' }} />
-            </div>
-
+          <form
+            style={{
+              border: '1px solid black',
+              padding: '0.2em',
+              borderRadius: '5px',
+              paddingRight: '10px',
+              marginRight: '15px',
+            }}
+          >
             <Flex>
-              <div style={{ paddingRight: '1em' }}>
-                <Link to="/music">
-                  <FiMusic style={{ fontSize: '1.5em' }} />
+              <Search placeholder="Search Settings" />
+
+              <div style={{ paddingTop: '5px' }}>
+                <Link to="/settings">
+                  <FiSearch style={{ fontSize: '1.5em' }} />
                 </Link>
               </div>
+            </Flex>
+          </form>
+        </Flex>
+      ) : null}
+      {props.screens == 'team' ? (
+        <Flex justifyBetween>
+          <div>
+            <FiMenu style={{ fontSize: '1.7em' }} />
+          </div>
 
-              <div style={{ paddingRight: '1.5em' }}>
+          <form
+            style={{
+              border: '1px solid black',
+              padding: '0.2em',
+              borderRadius: '5px',
+              paddingRight: '10px',
+              marginRight: '15px',
+            }}
+          >
+            <Flex>
+              <div style={{ paddingTop: '5px' }}>
+                <Link to="/settings">
+                  <IoIosCall style={{ fontSize: '1.5em' }} />
+                </Link>
+
+                <Link to="/settings">
+                  <IoMdVideocam style={{ fontSize: '1.5em' }} />
+                </Link>
+              </div>
+            </Flex>
+          </form>
+        </Flex>
+      ) : null}
+      {props.screens == 'files' ? (
+        <Flex justifyBetween>
+          <div style={{paddingTop : '5px'}}>
+            <Link to="/home">
+              <IoMdArrowBack style={{ fontSize: '1.7em' }} />
+            </Link>
+          </div>
+
+          <form
+            style={{
+              border: '1px solid black',
+              padding: '0.2em',
+              borderRadius: '5px',
+              paddingRight: '10px',
+              marginRight: '15px',
+            }}
+          >
+            <Flex>
+              <div style={{ paddingTop: '5px' }}>
                 <Link to="/settings">
                   <FiSettings style={{ fontSize: '1.5em' }} />
                 </Link>
               </div>
             </Flex>
+          </form>
+        </Flex>
+      ) : null}
+      {props.screens == 'messages' ? (
+        <Flex justifyBetween>
+          <div>
+            <FiMenu style={{ fontSize: '1.7em' }} />
+          </div>
+
+          <form
+            style={{
+              border: '1px solid black',
+              padding: '0.2em',
+              borderRadius: '5px',
+              paddingRight: '10px',
+              marginRight: '15px',
+            }}
+          >
+            <Flex>
+              <div style={{ paddingTop: '5px' }}>
+                <Link to="/settings">
+                  <IoIosCall style={{ fontSize: '1.5em' }} />
+                </Link>
+
+                <Link to="/settings">
+                  <FiSearch style={{ fontSize: '1.5em' }} />
+                </Link>
+              </div>
+            </Flex>
+          </form>
+        </Flex>
+      ) : null}
+      {props.screens == 'none' ? (
+        <Flex justifyBetween>
+          <div>
+            <FiMenu style={{ fontSize: '1.5em' }} />
+          </div>
+
+          <Flex>
+            <div style={{ paddingRight: '1em' }}>
+              <Link to="/music">
+                <FiMusic style={{ fontSize: '1.5em' }} />
+              </Link>
+            </div>
+
+            <div style={{ paddingRight: '1.5em' }}>
+              <Link to="/settings">
+                <FiSettings style={{ fontSize: '1.5em' }} />
+              </Link>
+            </div>
           </Flex>
-        )}
-      </div>
+        </Flex>
+      ) : null}
     </div>
   );
 };

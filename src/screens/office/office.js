@@ -5,6 +5,7 @@ import Flex from 'styled-flex-component';
 import { Modal } from 'react-bootstrap';
 import Integrations from './integrations/integration';
 import { FiX, FiPlus, FiSearch } from 'react-icons/fi';
+import Workspace from './workspace'
 
 const office = () => {
   const Search = styled.input`  
@@ -33,7 +34,7 @@ const office = () => {
 
   return (
     <div>
-      <Header />
+      <Header screens ="none"/>
       <Flex justifyCenter>
         <Modal
           show={Tools}
@@ -114,7 +115,7 @@ const office = () => {
         </div>
 
         <div>
-          <h3> User Office here </h3>
+          <Workspace />
         </div>
       </div>
     </div>

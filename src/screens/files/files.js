@@ -8,12 +8,12 @@ import { observer, inject } from 'mobx-react';
 const files = () => {
   return (
     <div>
-      <Header screen="files" />
+      <Header screens="files" />
       <h1> USER FILES SCREEN </h1>
     </div>
   );
 };
 
-export default inject('Teststore')(observer(files));
+export default files;
 
 // export default files

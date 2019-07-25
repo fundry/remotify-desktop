@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal, Dropdown } from 'react-bootstrap';
-import { FiActivity, FiX, FiFolder } from 'react-icons/fi';
+import { FiActivity, FiX, FiFolder  , FiCalendar} from 'react-icons/fi';
+import { IoMdAlarm } from 'react-icons/io';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -43,7 +44,7 @@ const Home = (props) => {
   const [Perfscreen, setPerfscreen] = useState(false);
   return (
     <div>
-      <Head state={props.state} />
+      <Head screens = "none" />
 
       <div
         style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
@@ -141,7 +142,7 @@ const Home = (props) => {
         <div>
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
-          </Link> 
+          </Link>
           <div>
             <Button
               onClick={() => {
@@ -149,7 +150,21 @@ const Home = (props) => {
               }}
             >
               Todo
-            </Button> 
+            </Button>
+          </div>
+
+          <div style={{ padding: '2em'  , width : '70%' }}>
+            <Flex justifyCenter>
+              <Flex justifyAround>
+                <div>
+                <FiCalendar style={{ fontSize: '3em' }}  />
+                </div>                
+
+                <div>
+                <IoMdAlarm style={{ fontSize: '3em' }} />
+                  </div>
+              </Flex>
+            </Flex>
           </div>
         </div>
       </div>

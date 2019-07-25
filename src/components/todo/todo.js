@@ -37,16 +37,14 @@ const todo = (props) => {
   `;
 
   const [theTime, settheTime] = useState(false);
+  // const [todo, addTodoValue] = useState('');
 
-  const handleTodo = (event) => {
-    const { value } = event.target;
+  // const handleTodo = (event) => {
+  //   const { value } = event.target;
 
-    console.log(value)
-    addTodoValue(value)
-  };
-
-  const [todo, addTodoValue] = useState('')
-  console.log(todo);
+  //   console.log(value);
+  //   addTodoValue(value)
+  // };
   return (
     <div>
       {props.add ? (
@@ -58,10 +56,9 @@ const todo = (props) => {
                   <Contain>
                     <Flex>
                       <Input
-                        placeholder="Add Todo"
+                        placeholder="Add Todos"
                         type="text"
-                        value=""
-                        onChange={handleTodo(event)}
+                        ref={props.TodoStore.todoInput}
                       />
                       <Hover
                         style={{ paddingTop: '10px', paddingLeft: '5px' }}
@@ -75,7 +72,11 @@ const todo = (props) => {
                   </Contain>
 
                   <div style={{ paddingLeft: '10px', paddingTop: '20px' }}>
-                    <Hover>
+                    <Hover
+                      onClick={() => {
+                        alert(props.TodoStore.todoInput);
+                      }}
+                    >
                       <FiSend style={{ fontSize: '2em' }} />
                     </Hover>
                   </div>

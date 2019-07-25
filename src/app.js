@@ -48,8 +48,8 @@ const Header = () => {
         <div
           style={{
             color: 'white',
-            fontSize: '1em',
-            paddingTop: '15px',
+            fontSize: '1.1em',
+            paddingTop: '7px',
             paddingLeft: '15px',
             MozWindowDragging: 'drag',
           }}
@@ -57,17 +57,32 @@ const Header = () => {
           <p>Remotify</p>
         </div>
 
-        <div style={{ marginRight: '50px' }}>
+
+        <div style={{ marginRight: '15px ', marginTop: '5px' }}>
           <Flex>
-            <img
-              style={{ maxWidth: '1.2em' }}
-              src={'./assets/btn-min.svg'}
-              alt={'min'}
-              onClick={() => {
-                tray();
-              }}
-            />
-            <div>
+          <div style={{paddingRight : '40px'}} >
+          <img
+            style={{ maxWidth: '1.2em' }}
+            src={'./assets/btn-min.svg'}
+            alt={'dock'}
+            onClick={() => {
+              tray();
+            }}
+          />{' '}
+        </div>
+            
+            
+            <div style={{paddingRight : '12px'}} >
+              <img
+                style={{ maxWidth: '1.2em' }}
+                src={'./assets/btn-min.svg'}
+                alt={'min'}
+                onClick={() => {
+                  tray();
+                }}
+              />{' '}
+            </div>
+            <div   style={{paddingRight : '12px'}} >
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-min.svg'}
@@ -102,4 +117,10 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <div>
+    <Header />
+    <App />
+  </div>,
+  document.getElementById('root')
+);
