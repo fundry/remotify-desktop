@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal, Dropdown } from 'react-bootstrap';
-import { FiActivity, FiX, FiFolder  , FiCalendar} from 'react-icons/fi';
-import { IoMdAlarm } from 'react-icons/io';
+import { FiActivity, FiX, FiFolder, FiCalendar } from 'react-icons/fi';
+import { IoMdAlarm, IoIosClipboard, IoMdBook } from 'react-icons/io';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -44,7 +44,7 @@ const Home = (props) => {
   const [Perfscreen, setPerfscreen] = useState(false);
   return (
     <div>
-      <Head screens = "none" />
+      <Head screens="none" />
 
       <div
         style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
@@ -153,19 +153,26 @@ const Home = (props) => {
             </Button>
           </div>
 
-          <div style={{ padding: '2em'  , width : '70%' }}>
-            <Flex justifyCenter>
-              <Flex justifyAround>
+          <Flex justifyCenter>
+            <div style={{ padding: '2em', width: '70%' }}>
+              <Flex justifyBetween>
                 <div>
-                <FiCalendar style={{ fontSize: '3em' }}  />
-                </div>                
+                  <FiCalendar style={{ fontSize: '3em' }} />
+                </div>
+                <div>
+                  <IoIosClipboard style={{ fontSize: '3em' }} />
+                </div>
 
                 <div>
-                <IoMdAlarm style={{ fontSize: '3em' }} />
-                  </div>
+                  <IoMdAlarm style={{ fontSize: '3em' }} />
+                </div>
+
+                <div>
+                  <IoMdBook style={{ fontSize: '3em' }} />
+                </div>
               </Flex>
-            </Flex>
-          </div>
+            </div>
+          </Flex>
         </div>
       </div>
     </div>

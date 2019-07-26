@@ -1,14 +1,17 @@
-// this contain multile ifs which would later be written as Switchs
+// this contain many ifs which would later be written as Switchs
 import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiSettings, FiSearch, FiMusic } from 'react-icons/fi';
 import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
+import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
+  console.log(props.ModalStore.MusicModal);
+
   const Search = styled.input`  
-    width : 23em
+    width : 23em'
     height : 4.5vh
     padding-left : 15px
     background : transparent
@@ -81,8 +84,8 @@ const SettingNav = (props) => {
       ) : null}
       {props.screens == 'files' ? (
         <Flex justifyBetween>
-          <div style={{paddingTop : '5px'}}>
-            <Link to="/home">
+          <div style={{ paddingTop: '5px' }}>
+            <Link to="/">
               <IoMdArrowBack style={{ fontSize: '1.7em' }} />
             </Link>
           </div>
@@ -160,4 +163,4 @@ const SettingNav = (props) => {
   );
 };
 
-export default SettingNav;
+export default inject('ModalStore')(observer(SettingNav));

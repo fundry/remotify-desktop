@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
 import { Provider } from 'mobx-react';
-import { TodoStore } from './state/stores/index';
+import { TodoStore, ModalStore } from './state/stores/index';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -57,22 +57,20 @@ const Header = () => {
           <p>Remotify</p>
         </div>
 
-
         <div style={{ marginRight: '15px ', marginTop: '5px' }}>
           <Flex>
-          <div style={{paddingRight : '40px'}} >
-          <img
-            style={{ maxWidth: '1.2em' }}
-            src={'./assets/btn-min.svg'}
-            alt={'dock'}
-            onClick={() => {
-              tray();
-            }}
-          />{' '}
-        </div>
-            
-            
-            <div style={{paddingRight : '12px'}} >
+            <div style={{ paddingRight: '40px' }}>
+              <img
+                style={{ maxWidth: '1.2em' }}
+                src={'./assets/btn-min.svg'}
+                alt={'dock'}
+                onClick={() => {
+                  tray();
+                }}
+              />{' '}
+            </div>
+
+            <div style={{ paddingRight: '12px' }}>
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-min.svg'}
@@ -82,7 +80,7 @@ const Header = () => {
                 }}
               />{' '}
             </div>
-            <div   style={{paddingRight : '12px'}} >
+            <div style={{ paddingRight: '12px' }}>
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-min.svg'}
@@ -111,7 +109,7 @@ const Header = () => {
 
 const App = () => {
   return (
-    <Provider TodoStore={TodoStore}>
+    <Provider TodoStore={TodoStore} ModalStore={ModalStore}>
       <Routes />
     </Provider>
   );

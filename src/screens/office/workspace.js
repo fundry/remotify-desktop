@@ -5,24 +5,39 @@ import { DiTrello, DiSublime, DiWordpress, DiGithub } from 'react-icons/di';
 
 const workspace = () => {
   const Body = styled.div`padding: 0.7em;`;
+  const Contain = styled.div`
+  padding: 1em
+   width: 80%
+   border-radius : 5px 
+    background  : #ffe
+    border : 1px grey
+  ;`;
+
   return (
     <Body>
       <div>
-        <p> user workspace panel </p>
-        <Flex justifyBetween>
-          <div>
-            <DiGithub style={{ fontSize: '2em' }} />
-          </div>
-          <div>
-            <DiTrello style={{ fontSize: '2em' }} />
-          </div>
-          <div>
-            <DiSublime style={{ fontSize: '2em' }} />
-          </div>
-          <div>
-            <DiWordpress style={{ fontSize: '2em' }} />
-          </div>
-        </Flex>
+        <p style={{ textAlign: 'center' }}> Workspace </p>
+
+        <Contain
+          style={{
+            boxShadow: '0px 2px 5px grey',
+          }}
+        >
+          <Flex justifyBetween>
+            <div>
+              <DiGithub style={{ fontSize: '2em' }} />
+            </div>
+            <div>
+              <DiTrello style={{ fontSize: '2em' }} />
+            </div>
+            <div>
+              <DiSublime style={{ fontSize: '2em' }} />
+            </div>
+            <div>
+              <DiWordpress style={{ fontSize: '2em' }} />
+            </div>
+          </Flex>
+        </Contain>
       </div>
     </Body>
   );

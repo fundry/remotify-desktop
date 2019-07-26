@@ -14,7 +14,8 @@
 		"make": "electron-forge make",
 		"publish": "electron-forge publish",
 		"lint": "eslint --cache --color --ext .jsx,.js src",
-		"electron": "electron dist/main.js"
+		"electron": "electron dist/main.js",
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "Iamnwani",
@@ -54,6 +55,7 @@
 	"dependencies": {
 		"electron-compile": "^6.4.4",
 		"electron-devtools-installer": "^2.2.4",
+		"electron-json-storage": "^4.1.6",
 		"electron-squirrel-startup": "^1.0.0",
 		"esm": "^3.2.25",
 		"formik": "^1.5.8",

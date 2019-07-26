@@ -32,8 +32,8 @@ import {
   Setting,
   Team,
   Office,
-  Shortcut,
 } from './index';
+import { Shortcut } from '../modals/';
 //=======================
 
 import { Route, NavLink } from 'react-router-dom';
@@ -156,29 +156,7 @@ class NavBar extends Component {
 
     return (
       <Router history={history}>
-        <Modal
-          show={this.state.Shortcutmodal}
-          onHide={() => this.setState({ Shortcutmodal: false })}
-          style={{
-            paddingTop: '10%',
-            padding: '5%',
-            boxShadow: '0px 2px 5px grey',
-          }}
-        >
-          <Header>
-            <Flex justifyBetween>
-              <Button onClick={() => this.setState({ Shortcutmodal: false })}>
-                Close
-              </Button>
-
-              <Head> Shortcuts </Head>
-            </Flex>
-          </Header>
-
-          <Modal.Body>
-            <Shortcut />
-          </Modal.Body>
-        </Modal>
+        <Shortcut visiblilty={this.state.Shortcutmodal} />
         <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
           {nav.expanded ? (
             <BtnOpen>
@@ -313,7 +291,7 @@ class NavBar extends Component {
             <Modal.Body>
               <p> modal here </p>
             </Modal.Body>
-          </Modal> 
+          </Modal>
           <Switch>
             <Route path="/" exact={true}>
               <Home state={nav.expanded} />

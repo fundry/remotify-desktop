@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Head from '../../components/head';
 import Flex from 'styled-flex-component';
 import { FiUser, FiLoader, FiToggleLeft } from 'react-icons/fi';
 import { FixedSizeList as List } from 'react-window';
 import useWindowWidth from '../../styles/hook_style';
+
+const electron = window.require('electron');
+const ipc = electron.ipcRenderer;
 
 const Settings = () => {
   // virtaulized window here
@@ -81,18 +84,42 @@ const Settings = () => {
 `;
 
   const hooks = useWindowWidth();
+  const [text, setText] = useState('');
 
   return (
     <div>
-      <Head screens = "setting"  />
+      <Head screens="setting" />
+
+      <Flex>
+        <input
+          placeholder="name"
+          type="text"
+          onChange={(e) => setText(e.target.value)}
+        />
+
+        <button
+          onClick={() => {
+            ipc.send('test-storage', text);
+          }}
+        >
+          {' '}
+          SEND TEST TEXT{' '}
+        </button>
+        <button
+          onClick={() => {
+            ipc.send('retrieve-storage', text);
+          }}
+        >
+          READ FROM STORAGE
+        </button>
+      </Flex>
 
       <Body>
         {hooks >= 700 ? (
           <div>
-             
             <List height={460} itemSize={50} itemCount={4} width="100%">
               {() => <Setting />}
-            </List> 
+            </List>
           </div>
         ) : (
           <div>
@@ -130,7 +157,7 @@ const Settings = () => {
             <hr />
             <List height={460} itemSize={50} itemCount={4} width="100%">
               {() => <Setting />}
-            </List> 
+            </List>
           </div>
         )}
       </Body>

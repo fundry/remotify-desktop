@@ -1,9 +1,8 @@
 import { app, BrowserWindow, ipcMain, Tray, Menu } from 'electron';
 // import { enableLiveReload } from 'electron-compile';
 import path from 'path';
+import storage from 'electron-json-storage';
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 let appIcon = null;
 let authWindow;
@@ -16,7 +15,7 @@ const createWindow = async () => {
     width: 1000,
     height: 780,
     minHeight: 650,
-    minWidth: 750,
+    minWidth: 670,
     show: true,
     frame: true,
     backgroundColor: '#f4f4f5',
@@ -46,41 +45,45 @@ const createWindow = async () => {
   //   mainWindow.webContents.openDevTools();
   // }
 
-  // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null;
   });
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
-// Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
-// console.log('hello');
-
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow();
   }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+ipcMain.on('test-storage', (event, arg) => {
+  const data = arg;
+
+  console.log('data ' + data);
+  storage.set('settings', { name: data }, function(error) {
+    if (error) {
+      console.log(error);
+    }
+  });
+});
+
+ipcMain.on('retrieve-storage', () => {
+  storage.get('settings', function(error, data) {
+    try {
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+});
 
 ipcMain.on('authenticate-user', (event, arg) => {
   authWindow.show();
