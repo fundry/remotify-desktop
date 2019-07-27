@@ -1,14 +1,15 @@
-// this contain many ifs which would later be written as Switchs
+// this contain many if statements which would later be written as Switches
 import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiSettings, FiSearch, FiMusic } from 'react-icons/fi';
+import { FiMenu, FiSettings, FiSearch, FiMusic, FiPlus } from 'react-icons/fi';
 import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
   console.log(props.ModalStore.MusicModal);
+  console.log(props.ModalStore.toolsModal);
 
   const Search = styled.input`  
     width : 23em'
@@ -86,7 +87,7 @@ const SettingNav = (props) => {
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
             <Link to="/">
-              <IoMdArrowBack style={{ fontSize: '1.7em' }} />
+              <FiMenu style={{ fontSize: '1.7em' }} />
             </Link>
           </div>
 
@@ -106,6 +107,37 @@ const SettingNav = (props) => {
                 </Link>
               </div>
             </Flex>
+          </form>
+        </Flex>
+      ) : null}
+      {props.screens == 'office' ? (
+        <Flex justifyBetween>
+          <div style={{ paddingTop: '5px' }}>
+            <Link to="/">
+              <IoMdArrowBack style={{ fontSize: '1.7em' }} />
+            </Link>
+          </div>
+
+          <form
+            style={{
+              border: '1px solid black',
+              padding: '0.2em',
+              borderRadius: '5px',
+              paddingRight: '10px',
+              marginRight: '15px',
+            }}
+          >
+            <div style={{ paddingTop: '5px' }}>
+              <Flex>
+                <Link to="/settings">
+                  <FiPlus style={{ fontSize: '1.5em' }} />
+                </Link>
+
+                <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+                  <p>Add Tool </p>
+                </div>
+              </Flex>
+            </div>
           </form>
         </Flex>
       ) : null}

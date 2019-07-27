@@ -155,7 +155,7 @@ const Settings = () => {
               </Flex>
             </div>
             <hr />
-            <List height={460} itemSize={50} itemCount={4} width="100%">
+            <List height={480}   itemSize={60} itemCount={4} width="100%">
               {() => <Setting />}
             </List>
           </div>

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import Header from '../../components/head';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Modal } from 'react-bootstrap';
-import Integrations from './integrations/integration';
+import { observer, inject } from 'mobx-react';
 import { FiX, FiPlus, FiSearch } from 'react-icons/fi';
-import Workspace from './workspace'
 
-const office = () => {
+import Header from '../../components/head';
+import Workspace from './workspace';
+import { Tools } from '../../modals/index';
+
+const office = (props) => {
   const Search = styled.input`  
     width : 18em
     height : 4vh
@@ -29,77 +31,18 @@ const office = () => {
     }
   `;
 
-  const [Tools, setTools] = useState(false);
-  const [expand, expanded] = useState(false);
-
   return (
     <div>
-      <Header screens ="none"/>
-      <Flex justifyCenter>
-        <Modal
-          show={Tools}
-          onHide={() => {
-            setTools(false);
-            expanded(false);
-          }}
-          style={{ paddingTop: '20%', padding: '5%' }}
-        >
-          <div style={{ padding: '1em' }}>
-            <Flex justifyBetween>
-              <Btn
-                onClick={() => {
-                  setTools(false), expanded(false);
-                }}
-              >
-                <FiX
-                  style={{
-                    fontSize: '2em',
-                  }}
-                />
-              </Btn>
+      <Header screens="office" />
 
-              {expand ? (
-                <div
-                  style={{
-                    padding: '0.4em',
-                    border: '1px solid blue ',
-                    borderRadius: '5px',
-                    width: '20em',
-                  }}
-                >
-                  <Form>
-                    <Flex>
-                      <Btn style={{ paddingTop: '5px' }}>
-                        <FiSearch style={{ fontSize: '1.3em' }} />
-                      </Btn>
-                      <Search placeholder="Search Shortcuts " />
-                    </Flex>
-                  </Form> 
-                </div>
-              ) : (
-                <Btn
-                  onClick={() => {
-                    expanded(true);
-                  }}
-                >
-                  <FiSearch style={{ fontSize: '1.3em' }} /> 
-                </Btn>
-              )}
-            </Flex>
-          </div>
-
-          <div style={{ padding: '1em' }}>
-            <Integrations />
-          </div>
-        </Modal>
-      </Flex>
+      <Tools visibility={props.ModalStore.toolsModal} />
 
       <div>
         <div style={{ textAlign: 'right ' }}>
           <Flex>
             <Btn
               onClick={() => {
-                setTools(true);
+                alert('true');
               }}
             >
               <FiPlus
@@ -122,4 +65,4 @@ const office = () => {
   );
 };
 
-export default office;
+export default inject('ModalStore')(observer(office));

@@ -39,7 +39,7 @@ import { Shortcut } from '../modals/';
 import { Route, NavLink } from 'react-router-dom';
 import { Router, Switch } from 'react-router';
 import { createHashHistory } from 'history';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 // electron auth logic
 const electron = window.require('electron');
@@ -128,7 +128,7 @@ const Header = styled.div`padding: 0.5em;`;
 
 const history = createHashHistory({});
 
-class NavBar extends Component {
+class Routes extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -153,10 +153,10 @@ class NavBar extends Component {
     const collapse = () => {
       nav.collapse();
     };
-
+    console.log(this.props.ModalStore.ShortcutModal);
     return (
       <Router history={history}>
-        <Shortcut visiblilty={this.state.Shortcutmodal} />
+        <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
         <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
           {nav.expanded ? (
             <BtnOpen>
@@ -335,7 +335,7 @@ class NavBar extends Component {
 const startWithAndDelay = (message, time) =>
   pipe(delay(time), startWith({ message }));
 
-const message$ = of({ any: observer(NavBar) });
+const message$ = of({ any: <Routes /> });
 
 const main = () => (
   <div>
@@ -346,4 +346,4 @@ const main = () => (
 );
 
 // add the main component to make this reactive when the @observer works
-export default observer(NavBar);
+export default inject('ModalStore')(observer(Routes));

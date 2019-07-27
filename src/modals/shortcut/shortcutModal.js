@@ -3,6 +3,7 @@ import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
+import ShorcutBody from './shortcuts';
 
 const Shortcut = (props) => {
   const Header = styled.div`padding: 0.5em;`;
@@ -26,12 +27,11 @@ const Shortcut = (props) => {
   color  : #0e2f5a
   `;
 
-  const { ShortcutModal } = props.ModalStore;
-
+  console.log(props.visiblilty, 'ShortcutModal comp');
   return (
     <div>
       <Modal
-        show={props.visibility}
+        show={props.visiblilty}
         onHide={() => {}}
         style={{
           paddingTop: '10%',
@@ -42,17 +42,17 @@ const Shortcut = (props) => {
         <Header>
           <Flex justifyBetween>
             <Button onClick={() => {}}>Close</Button>
-            <p> {ShortcutModal} </p>
+            <p> {props.visiblilty} </p>
             <Head> Shortcuts </Head>
           </Flex>
         </Header>
 
         <Modal.Body>
-          <Shortcut />
+          <ShorcutBody />
         </Modal.Body>
       </Modal>
     </div>
   );
 };
 
-export default inject('ModalStore')(observer(Shortcut));
+export default Shortcut;

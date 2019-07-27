@@ -10,34 +10,50 @@ const workspace = () => {
    width: 80%
    border-radius : 5px 
     background  : #ffe
-    border : 1px grey
+    border : 1px grey 
   ;`;
+
+  const Btn = styled.div`
+    &:hover {
+      cursor: pointer;
+    }
+  `;
 
   return (
     <Body>
       <div>
         <p style={{ textAlign: 'center' }}> Workspace </p>
 
-        <Contain
-          style={{
-            boxShadow: '0px 2px 5px grey',
-          }}
-        >
-          <Flex justifyBetween>
-            <div>
-              <DiGithub style={{ fontSize: '2em' }} />
-            </div>
-            <div>
-              <DiTrello style={{ fontSize: '2em' }} />
-            </div>
-            <div>
-              <DiSublime style={{ fontSize: '2em' }} />
-            </div>
-            <div>
-              <DiWordpress style={{ fontSize: '2em' }} />
-            </div>
-          </Flex>
-        </Contain>
+        <Flex justifyCenter>
+          <Contain
+            style={{
+              boxShadow: '0px 2px 5px grey',
+            }}
+          >
+            <Flex justifyBetween>
+              <Btn>
+                <div>
+                  <DiGithub style={{ fontSize: '2em' }} />
+                </div>
+              </Btn>
+              <Btn>
+                <div>
+                  <DiTrello style={{ fontSize: '2em' }} />
+                </div>
+              </Btn>
+              <Btn>
+                <div>
+                  <DiSublime style={{ fontSize: '2em' }} />
+                </div>
+              </Btn>
+              <Btn>
+                <div>
+                  <DiWordpress style={{ fontSize: '2em' }} />
+                </div>
+              </Btn>
+            </Flex>
+          </Contain>
+        </Flex>
       </div>
     </Body>
   );
