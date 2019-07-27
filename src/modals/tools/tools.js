@@ -13,7 +13,7 @@ const autoGrid = (minColumnWidth = 250, gridGap = 0) => ({
 
 const Cards = styled.div({
   ...autoGrid(350, 20),
-  padding: '6em',
+  padding: '5em',
 });
 
 const Card = styled.div`padding: 1em;`;
@@ -25,7 +25,7 @@ const Btn = styled.div`
 `;
 
 const tools = () => {
-  const toolList = () => {
+  const ToolList = () => {
     return (
       <Cards>
         <Card style={{ boxShadow: '0px 2px 5px grey' }}>
@@ -136,12 +136,12 @@ const tools = () => {
 
   return (
     <div>
-      <p style={{ paddingLeft: '10px', textAlign: 'center' }}>
+      <p style={{ textAlign: 'center' }}>
         Based on your <b> FrontEnd </b> Role
       </p>
 
-      <List height={350} itemSize={10} itemCount={6} width="100%">
-        {() => <toolList />}
+      <List height={350} itemSize={50} itemCount={6} width="100%">
+        {() => <ToolList />}
       </List>
     </div>
   );

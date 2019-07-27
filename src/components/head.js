@@ -3,7 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiSettings, FiSearch, FiMusic, FiPlus } from 'react-icons/fi';
+import {
+  FiMenu,
+  FiSettings,
+  FiSearch,
+  FiMusic,
+  FiPlus,
+  FiArrowLeft,
+} from 'react-icons/fi';
 import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { observer, inject } from 'mobx-react';
 
@@ -73,7 +80,7 @@ const SettingNav = (props) => {
               <div style={{ paddingTop: '5px' }}>
                 <Link to="/settings">
                   <IoIosCall style={{ fontSize: '1.5em' }} />
-                </Link>
+                </Link> 
 
                 <Link to="/settings">
                   <IoMdVideocam style={{ fontSize: '1.5em' }} />
@@ -87,7 +94,7 @@ const SettingNav = (props) => {
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
             <Link to="/">
-              <FiMenu style={{ fontSize: '1.7em' }} />
+              <FiArrowLeft style={{ fontSize: '1.7em' }} />
             </Link>
           </div>
 

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Modal, Dropdown } from 'react-bootstrap';
 import { FiActivity, FiX, FiFolder, FiCalendar } from 'react-icons/fi';
 import { IoMdAlarm, IoIosClipboard, IoMdBook } from 'react-icons/io';
+import { GoRepo } from 'react-icons/go';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -28,6 +29,12 @@ const Home = (props) => {
     &:hover {
       color: #0e2f5a;
       background: #fff;
+    }
+  `;
+
+  const Hover = styled.div`
+    &:hover {
+      cursor: pointer;
     }
   `;
 
@@ -143,33 +150,29 @@ const Home = (props) => {
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
           </Link>
-          <div>
-            <Button
-              onClick={() => {
-                setTodo(true);
-              }}
-            >
-              Todo
-            </Button>
-          </div>
+          <div />
 
           <Flex justifyCenter>
             <div style={{ padding: '2em', width: '70%' }}>
               <Flex justifyBetween>
-                <div>
+                <Hover
+                  onClick={() => {
+                    setTodo(true);
+                  }}
+                >
                   <FiCalendar style={{ fontSize: '3em' }} />
-                </div>
-                <div>
+                </Hover>
+                <Hover>
                   <IoIosClipboard style={{ fontSize: '3em' }} />
-                </div>
+                </Hover>
 
-                <div>
+                <Hover>
                   <IoMdAlarm style={{ fontSize: '3em' }} />
-                </div>
+                </Hover>
 
-                <div>
+                <Hover>
                   <IoMdBook style={{ fontSize: '3em' }} />
-                </div>
+                </Hover>
               </Flex>
             </div>
           </Flex>

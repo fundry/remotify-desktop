@@ -6,7 +6,7 @@ class ModalStore {
   PerformanceModal = false;
   MusicModal = false;
   ShortcutModal = false;
-  toolsModal = true;
+  toolsModal = false;
   hideShortcut = () => {};
 }
 
