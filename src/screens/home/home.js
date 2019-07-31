@@ -6,6 +6,7 @@ import { Modal, Dropdown } from 'react-bootstrap';
 import { FiActivity, FiX, FiFolder, FiCalendar } from 'react-icons/fi';
 import { IoMdAlarm, IoIosClipboard, IoMdBook } from 'react-icons/io';
 import { GoRepo } from 'react-icons/go';
+import { Query } from 'react-apollo';
 
 import Clock from '../../components/clock';
 import Head from '../../components/head';
@@ -13,6 +14,7 @@ import Perf from './user/performance/performance';
 import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
 import { Todo as Todos } from '../../components/index';
+import { TEST } from '../../data/queries';
 
 const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
@@ -46,6 +48,8 @@ const Home = (props) => {
   // this should be controlled externally by MST later
   const [allTodo, addTodo] = useState(false);
   const [Todo, setTodo] = useState(false);
+
+  const [error, setError] = useState('');
   // ==
 
   const [Perfscreen, setPerfscreen] = useState(false);
@@ -176,6 +180,15 @@ const Home = (props) => {
               </Flex>
             </div>
           </Flex>
+
+          <Query query={TEST}>
+            {({ loading, error, data: { info } }) => {
+              if (loading) return <p> loading </p>;
+              if (error) return <p> error </p>;
+
+              return <p> {info} </p>;
+            }}
+          </Query>
         </div>
       </div>
     </div>

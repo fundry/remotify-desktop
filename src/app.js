@@ -4,8 +4,11 @@ import Routes from './screens/routes';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
+import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react';
+
 import { TodoStore, ModalStore } from './state/stores/index';
+import client from './data/config';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -109,9 +112,11 @@ const Header = () => {
 
 const App = () => {
   return (
-    <Provider TodoStore={TodoStore} ModalStore={ModalStore}>
-      <Routes />
-    </Provider>
+    <ApolloProvider client={client}>
+      <Provider TodoStore={TodoStore} ModalStore={ModalStore}>
+        <Routes />
+      </Provider>
+    </ApolloProvider>
   );
 };
 
