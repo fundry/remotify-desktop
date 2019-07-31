@@ -22,16 +22,16 @@ const createWindow = async () => {
     title: 'Remotify',
   });
 
-  // authWindow = new BrowserWindow({
-  //   width: 550,
-  //   height: 480,
-  //   show: false,
-  //   minHeight: 310,
-  //   minWidth: 310,
-  //   frame: false,
-  //   backgroundColor: '#f4f4f5',
-  //   title: 'Remotify',
-  // });
+  authWindow = new BrowserWindow({
+    width: 550,
+    height: 480,
+    show: false,
+    minHeight: 310,
+    minWidth: 310,
+    frame: true,
+    backgroundColor: '#f4f4f5',
+    title: 'Remotify',
+  });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
   // Open the DevTools.
@@ -39,14 +39,18 @@ const createWindow = async () => {
   //   mainWindow.webContents.openDevTools();
   // }
 
-  // authWindow.loadURL(`file://${__dirname}/login.html`);
-  // Open the DevTools.
-  // if (isDevMode) {
-  //   mainWindow.webContents.openDevTools();
-  // }
+  authWindow.loadURL(`file://${__dirname}/login.html`);
+  // // Open the DevTools.
+  // // if (isDevMode) {
+  // //   mainWindow.webContents.openDevTools();
+  // // }
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  authWindow.on('closed', () => {
+    authWindow = null;
   });
 };
 
@@ -60,6 +64,12 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (mainWindow === null) {
+    createWindow();
+  }
+});
+
+app.on('activate', () => {
+  if (authWindow === null) {
     createWindow();
   }
 });

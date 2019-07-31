@@ -6,9 +6,9 @@ const base = require('./webpack.base.config');
 const buildPath = path.resolve(__dirname, './dist');
 
 const renderer = merge(base, {
-  entry: './src/app.js',
+  entry: { mainRenderer: './src/app.js', authRenderer: './src/auth.js' },
   output: {
-    filename: 'renderer.js',
+    filename: '[name].js',
     path: buildPath,
   },
   module: {
@@ -27,6 +27,20 @@ const renderer = merge(base, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      cache: true,
+      hash: true,
+      minify: {
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeTagWhitespace: true,
+        removeRedundantAttributes: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/login.html',
       cache: true,
       hash: true,
       minify: {

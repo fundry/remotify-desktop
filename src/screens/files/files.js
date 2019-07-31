@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../components/head';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Dropdown } from 'react-bootstrap';
 
-import { FiSearch, FiImage } from 'react-icons/fi';
+import { FiSearch, FiImage, FiUploadCloud, FiX } from 'react-icons/fi';
 import { GoFile } from 'react-icons/go';
 import { MdVideoLibrary } from 'react-icons/md';
 
@@ -46,12 +46,26 @@ const files = () => {
 
   const Div = styled.div`padding: 0.7em;`;
 
-  const Button = styled.button`
-    background: #0e2f5a;
+  const Upload = styled.button`
+    background: #1a1c28;
     text-align: right;
-    border-radius: 3px;
+    border-radius: 30px;
     height: 40px;
-    border: 1px solid #0e2f5a;
+    color: #fff;
+    margin: 0 1em;
+    padding: 0.25em 2em;
+    font-size: 1em;
+    &:hover {
+      color: #0e2f5a;
+      background: #fff;
+    }
+  `;
+
+  const Button = styled.button`
+    background: #850909;
+    text-align: right;
+    border-radius: 10px;
+    height: 40px;
     color: #fff;
     margin: 0 1em;
     padding: 0.25em 2em;
@@ -79,12 +93,8 @@ const files = () => {
     width : 50em    
   `;
 
-  const statsBar = styled.div`
-      background :  #000
-      padding : 0.15em 
-      color : #fff
-    `;
-
+  const [upload, uploading] = useState(false);
+  console.log(upload);
   return (
     <div>
       <Header screens="files" />
@@ -98,24 +108,50 @@ const files = () => {
               <Search placeholder=" Search Files  " />
               <div style={{ paddingTop: '5px' }}>
                 <FiSearch style={{ fontSize: '1.5em' }} />
-              </div> 
+              </div>
             </Flex>
           </Form>
         </Flex>
       </div>
 
       <Div>
-        <p> FILES DOWN HERE </p>
-      </Div>
+        <div>
+          {upload ? (
+            <div style={{ textAlign: 'center' }}>
+              <Button
+                onClick={() => {
+                  uploading(false);
+                }}
+              >
+                <Flex>
+                  <FiX style={{ fontSize: '1.7em' }} />
+                  <p style={{ paddingLeft: '15px' }}> Cancel</p>
+                </Flex>
+              </Button>
 
-      <statsBar>
-        <Flex justifyCenter>
-          <p style={{ paddingLeft: '10px', fontSize: '0.85em' }}> 20gb Used </p>
-          <p style={{ paddingLeft: '15px', fontSize: '0.85em' }}>
-            30gb Available
-          </p>
-        </Flex>
-      </statsBar>
+              <div>
+                <p> SELECT OR DRAG FILES TO UPLOAD </p>{' '}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <p> FILES HERE </p>
+            </div>
+          )}
+        </div>
+
+        {!upload ? (
+          <Upload
+            style={{ float: 'right' }}
+            onClick={() => {
+              uploading(true);
+            }}
+            style={{ boxShadow: '0px 2px 5px grey' }}
+          >
+            <FiUploadCloud style={{ fontSize: '1.5em' }} />
+          </Upload>
+        ) : null}
+      </Div>
     </div>
   );
 };

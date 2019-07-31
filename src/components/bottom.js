@@ -4,8 +4,8 @@ import Flex from 'styled-flex-component';
 import moment from 'moment';
 import { ipcRenderer } from 'electron';
 import { FiClock, FiCloud } from 'react-icons/fi';
-
-import { observer } from 'mobx-react'
+import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 const updateOnlineStatus = () => {
   ipcRenderer.send(
@@ -30,9 +30,9 @@ const bottom = (props) => {
   return (
     <div style={Bottom}>
       <Flex justifyBetween>
-        <div style={{paddingLeft : '10px'}} >
-          <h6> Something </h6>
-        </div>
+          <div style={{ paddingLeft: '10px' }}>
+            <h6> 30gb Available </h6>
+          </div>
 
         <Flex>
           <FiClock
@@ -42,9 +42,7 @@ const bottom = (props) => {
               paddingRight: '10px',
             }}
           />
-          <h6>
-            {moment().format('LT')}  
-          </h6>
+          <h6>{moment().format('LT')}</h6>
         </Flex>
 
         <Flex>

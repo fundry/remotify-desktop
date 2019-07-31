@@ -6,7 +6,7 @@
 	"main": "src/entry.js",
 	"scripts": {
 		"build": "webpack --mode development",
-		"build:watch": "npm run build -- --watch",
+		"watch": "npm run build -- --watch",
 		"start": "npm run electron",
 		"electron-toolkit": "electron ./node_modules/electron-toolkit",
 		"forge": "electron-forge start",
