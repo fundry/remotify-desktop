@@ -1,3 +1,4 @@
+// this file is long and spaghetti . Touch with caution
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Stream } from 'react-streams';
@@ -33,6 +34,7 @@ import {
   Team,
   Office,
 } from './index';
+import { CodeSandbox } from '../extensions/index';
 import { Shortcut } from '../modals/';
 //=======================
 
@@ -49,8 +51,8 @@ const ipc = electron.ipcRenderer;
 const auth = Auth.create();
 const nav = Nav_State.create({
   expanded: true,
-  expandedwidth: '2em',
-  collapsedwidth: '0.2em',
+  expandedwidth: '1.7em',
+  collapsedwidth: '0.05em',
 });
 
 const collapsed = nav.collapsedwidth;
@@ -96,10 +98,6 @@ const BtnClose = styled.div`
 `;
 
 // modal styles
-const Head = styled.h5`
-padding-right : 15px
-color  : #0e2f5a
-`;
 
 const Hover = styled.div`
   &:hover {
@@ -123,7 +121,6 @@ const Button = styled.button`
   }
 `;
 
-const Header = styled.div`padding: 0.5em;`;
 //  ==============
 
 const history = createHashHistory({});
@@ -153,7 +150,6 @@ class Routes extends Component {
     const collapse = () => {
       nav.collapse();
     };
-    console.log(this.props.ModalStore.ShortcutModal);
     return (
       <Router history={history}>
         <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
@@ -255,10 +251,6 @@ class Routes extends Component {
               </Link>
 
               <Link>
-                <NavLink to="/help"> Storage </NavLink>
-              </Link>
-
-              <Link>
                 <NavLink to="/music"> Music </NavLink>
               </Link>
 
@@ -270,7 +262,7 @@ class Routes extends Component {
             </NavLinks>
           )}
         </Sidebar>
-        <div style={{ paddingLeft: nav.expanded ? '5.7em' : '10.5em' }}>
+        <div style={{ paddingLeft: nav.expanded ? '5.2em' : '10em' }}>
           <Modal
             show={this.state.modal}
             onHide={() => {
@@ -321,12 +313,16 @@ class Routes extends Component {
               <Help />
             </Route>
 
+            <Route path="/sandbox">
+              <CodeSandbox />
+            </Route>
+
             <Route path="/settings">
               <Setting />
             </Route>
           </Switch>
         </div>
-        <Bottom width={nav.expanded ? '6.5em' : '11.5em'} />
+        <Bottom width={nav.expanded ? '6.3em' : '11.3em'} />
       </Router>
     );
   }

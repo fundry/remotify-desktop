@@ -15,6 +15,20 @@ import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
 import { Todo as Todos } from '../../components/index';
 import { TEST } from '../../data/queries';
+import { Welcome } from '../../modals/';
+
+/* 
+ sample  gql query 
+    <Query query={TEST}>
+            {({ loading, error, data: { info } }) => {
+              if (loading) return <p> loading </p>;
+              if (error) return <p> error </p>;
+
+              return <p> {info} </p>;
+            }}
+          </Query>
+
+*/
 
 const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
@@ -122,6 +136,8 @@ const Home = (props) => {
               <Todos add={allTodo} />
             </div>
           </Modal>
+
+          <Welcome />
         </div>
         <br />
         <Flex justifyBetween>
@@ -180,15 +196,6 @@ const Home = (props) => {
               </Flex>
             </div>
           </Flex>
-
-          <Query query={TEST}>
-            {({ loading, error, data: { info } }) => {
-              if (loading) return <p> loading </p>;
-              if (error) return <p> error </p>;
-
-              return <p> {info} </p>;
-            }}
-          </Query>
         </div>
       </div>
     </div>

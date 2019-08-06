@@ -7,6 +7,7 @@ class ModalStore {
   MusicModal = false;
   ShortcutModal = false;
   toolsModal = false;
+  welcomeModal = false;
   hideShortcut = () => {};
 }
 
@@ -17,6 +18,7 @@ decorate(ModalStore, {
   MusicModal: observable,
   ShortcutModal: observable,
   toolsModal: observable,
+  welcomeModal: observable,
 
   //actions here
   hideShortcut: action,

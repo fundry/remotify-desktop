@@ -119,22 +119,22 @@ const SettingNav = (props) => {
       ) : null}
       {props.screens == 'office' ? (
         <Flex justifyBetween>
-          <div style={{ paddingTop: '5px' }}>
+          <div style={{ paddingTop: '2px' }}>
             <Link to="/">
-              <IoMdArrowBack style={{ fontSize: '1.7em' }} />
+              <IoMdArrowBack style={{ fontSize: '1.5em' }} />
             </Link>
           </div>
 
           <form
             style={{
               border: '1px solid black',
-              padding: '0.2em',
+              padding: '0.1em',
               borderRadius: '5px',
               paddingRight: '10px',
               marginRight: '15px',
             }}
           >
-            <div style={{ paddingTop: '5px' }}>
+            <div style={{ paddingTop: '2px' }}>
               <Flex>
                 <Link to="/settings">
                   <FiPlus style={{ fontSize: '1.5em' }} />
