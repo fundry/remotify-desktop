@@ -89,11 +89,13 @@
 		"react-sidenav": "^4.0.3",
 		"react-streams": "^13.6.6",
 		"react-tabs": "^3.0.0",
+		"react-vis": "^1.11.7",
 		"react-window": "^1.8.5",
 		"rxjs": "^6.5.2",
 		"semantic-ui-react": "^0.87.2",
 		"styled-components": "^4.3.1",
-		"styled-flex-component": "^3.0.0"
+		"styled-flex-component": "^3.0.0",
+		"zoomus-jssdk": "^1.5.0"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
