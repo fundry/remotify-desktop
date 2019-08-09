@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Modal } from 'react-bootstrap';
@@ -28,10 +28,12 @@ const Button = styled.button`
 const Body = styled.div`padding: 1em;`;
 
 const Login = () => {
+  const [Welcome, setWelcome] = useState(true);
+
   return (
     <Flex justifyCenter>
       <Modal
-        show={true}
+        show={Welcome}
         style={{
           boxShadow: '0px 2px 5px grey',
           padding: '2em',
@@ -85,14 +87,21 @@ const Login = () => {
         <Flex justifyCenter>
           <div>
             <p> Sign in inorder to use your tools </p>
-            <Button>
+            <Button
+              onClick={() => {
+                setWelcome(false);
+              }}
+            >
               <Flex>
                 <div style={{ padding: '2px' }}>
                   <DiGithub
                     style={{ fontSize: '2.5em', paddingBottom: '7px' }}
                   />
                 </div>
-                <p style={{ fontSize: '0.9em'  , paddingTop: '5px' }}> Sign in With Github </p>
+                <p style={{ fontSize: '0.9em', paddingTop: '5px' }}>
+                  {' '}
+                  Sign in With Github{' '}
+                </p>
               </Flex>
             </Button>
           </div>

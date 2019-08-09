@@ -3,6 +3,7 @@ import Flex from 'styled-Flex-component';
 import styled from 'styled-components';
 import { DiTrello, DiSublime, DiWordpress, DiGithub } from 'react-icons/di';
 import { Link } from 'react-router-dom';
+import Breakpoint from './breakpoint';
 
 const workspace = () => {
   const Body = styled.div`padding: 0.7em;`;
@@ -34,18 +35,67 @@ const workspace = () => {
   return (
     <Body>
       <div>
-        <p style={{ textAlign: 'center' }}> Workspace </p>
-
         <div>
           {Bar ? (
-            <Flex justifyCenter>
-              <ContainFlat
+            <div>
+              <Breakpoint />
+
+              <Flex justifyCenter>
+                <ContainFlat
+                  style={{
+                    boxShadow: '0px 2px 5px grey',
+                  }}
+                >
+                  <Flex justifyBetween>
+                    <Btn>
+                      <Link to="/sandbox">
+                        <Btn>
+                          <div>
+                            <DiGithub style={{ fontSize: '2em' }} />
+                          </div>
+                        </Btn>
+                      </Link>
+                    </Btn>
+                    <Btn>
+                      <div>
+                        <DiTrello style={{ fontSize: '2em' }} />
+                      </div>
+                    </Btn>
+                    <Btn>
+                      <div>
+                        <DiSublime style={{ fontSize: '2em' }} />
+                      </div>
+                    </Btn>
+                    <Btn>
+                      <div>
+                        <DiWordpress style={{ fontSize: '2em' }} />
+                      </div>
+                    </Btn>
+
+                    <p
+                      onClick={() => {
+                        setBar(false);
+                      }}
+                    >
+                      stand{' '}
+                    </p>
+                  </Flex>
+                </ContainFlat>
+              </Flex>
+            </div>
+          ) : (
+            <Flex justifyBetween>
+              <Breakpoint />
+
+              <ContainBar
                 style={{
                   boxShadow: '0px 2px 5px grey',
+                  paddingRght: '5em',
+                  paddingTop: '1.5em',
                 }}
               >
-                <Flex justifyBetween>
-                  <Btn>
+                <Flex column>
+                  <List>
                     <Link to="/sandbox">
                       <Btn>
                         <div>
@@ -53,84 +103,41 @@ const workspace = () => {
                         </div>
                       </Btn>
                     </Link>
-                  </Btn>
-                  <Btn>
-                    <div>
-                      <DiTrello style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
-                  <Btn>
-                    <div>
-                      <DiSublime style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
-                  <Btn>
-                    <div>
-                      <DiWordpress style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
 
-                  <p
-                    onClick={() => {
-                      setBar(false);
-                    }}
-                  >
-                    stand{' '}
-                  </p>
-                </Flex>
-              </ContainFlat>
-            </Flex>
-          ) : (
-            <ContainBar
-              style={{
-                boxShadow: '0px 2px 5px grey',
-                float: 'right',
-                paddingRght: '20px',
-              }}
-            >
-              <Flex column>
-                <List>
-                  <Link to="/sandbox">
+                    <br />
+
                     <Btn>
                       <div>
-                        <DiGithub style={{ fontSize: '2em' }} />
+                        <DiTrello style={{ fontSize: '2em' }} />
                       </div>
                     </Btn>
-                  </Link>
+                    <br />
 
-                  <br />
+                    <Btn>
+                      <div>
+                        <DiSublime style={{ fontSize: '2em' }} />
+                      </div>
+                    </Btn>
+                    <br />
 
-                  <Btn>
-                    <div>
-                      <DiTrello style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
-                  <br />
+                    <Btn>
+                      <div>
+                        <DiWordpress style={{ fontSize: '2em' }} />
+                      </div>
+                    </Btn>
+                    <br />
 
-                  <Btn>
-                    <div>
-                      <DiSublime style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
-                  <br />
-
-                  <Btn>
-                    <div>
-                      <DiWordpress style={{ fontSize: '2em' }} />
-                    </div>
-                  </Btn>
-                  <br />
-
-                  <p
-                    onClick={() => {
-                      setBar(true);
-                    }}
-                  >
-                    sleep
-                  </p>
-                </List>
-              </Flex>
-            </ContainBar>
+                    <p
+                      onClick={() => {
+                        setBar(true);
+                      }}
+                    >
+                      sleep
+                    </p>
+                  </List>
+                </Flex>
+              </ContainBar>
+            </Flex>
           )}
         </div>
       </div>

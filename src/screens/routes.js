@@ -150,6 +150,9 @@ class Routes extends Component {
     const collapse = () => {
       nav.collapse();
     };
+
+    console.log('routes', this.props.ModalStore.ShortcutModal);
+
     return (
       <Router history={history}>
         <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
@@ -211,7 +214,7 @@ class Routes extends Component {
               <br />
               <br />
               <Link>
-                <Hover onClick={() => this.setState({ Shortcutmodal: true })}>
+                <Hover onClick={() => this.props.ModalStore.hideShortcut}>
                   <FiHelpCircle style={{ fontSize: '2em' }} />
                 </Hover>
               </Link>
