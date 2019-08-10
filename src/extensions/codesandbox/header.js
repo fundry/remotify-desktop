@@ -14,48 +14,48 @@ import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
-  const Search = styled.input`  
-    width : 23em'
-    height : 4.5vh
-    padding-left : 15px
-    background : transparent
-    border  :  0px
-    border-radius : 3px
-  `;
-
   const Div = {
     background: ' #cdd ',
-    padding: '0.5em',
+    padding: '0.3em',
   };
+
+  const Collaborate = styled.div`
+    background: #0e2f5a;
+    text-align: right;
+    border-radius: 3px;
+    height: 40px;
+    border: 1px solid #0e2f5a;
+    color: #fff;
+    margin: 0 1em;
+    padding: 0.25em 2em;
+    font-size: 1em;
+    &:hover {
+      color: #0e2f5a;
+      background: #fff;
+    }
+  `;
+
+  const Title = styled.p`
+    padding-top  :  10px
+    padding-left  :  10px
+  `;
 
   return (
     <div style={Div}>
       <Flex justifyBetween>
-        <div>
-          <FiMenu style={{ fontSize: '1.7em' }} />
-        </div>
+        <Title> CodeSandBox </Title>
 
-        <form
-          style={{
-            border: '1px solid black',
-            padding: '0.2em',
-            borderRadius: '5px',
-            paddingRight: '10px',
-            marginRight: '15px',
-          }}
-        >
-          <Flex>
-            <div style={{ paddingTop: '5px' }}>
-              <Link to="/settings">
-                <IoIosCall style={{ fontSize: '1.5em' }} />
-              </Link>
+        <Flex>
+          <Collaborate> Collaborate </Collaborate>
 
-              <Link to="/settings">
-                <IoMdVideocam style={{ fontSize: '1.5em' }} />
-              </Link>
-            </div>
-          </Flex>
-        </form>
+          <Link to="/settings">
+            <IoIosCall style={{ fontSize: '1.5em' }} />
+          </Link>
+
+          <Link to="/settings">
+            <IoMdVideocam style={{ fontSize: '1.5em' }} />
+          </Link>
+        </Flex>
       </Flex>
     </div>
   );

@@ -29,8 +29,8 @@ const SettingNav = (props) => {
 
   const Div = {
     background: ' #cdd ',
-    padding: '0.3em',
-    boxShadow: '0px 2px 5px grey',
+    padding: '0.5em',
+    boxShadow: '0px 2px 3px grey',
   };
 
   const Screen = styled.h5`

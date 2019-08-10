@@ -4,7 +4,7 @@ import { FiClock } from 'react-icons/fi';
 const clock = () => {
   return (
     <div>
-      <FiClock style={{ fontSize: '7em ' }} />
+      <FiClock style={{ fontSize: '11em ' }} />
     </div>
   );
 };

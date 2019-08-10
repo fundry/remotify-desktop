@@ -18,18 +18,19 @@ const breakpoint = () => {
     <Div>
       <Greet>Good Morning Victory.</Greet>
 
-      <Body>
-        <Break> Your last breakpoints </Break>
-        <div>
-          <ol>
-            <ul> Drink Tea </ul>
-            <ul> Drink Tea </ul>
-            <ul> Drink Tea </ul>
-            <ul> Drink Tea </ul>
-            <ul> Drink Tea </ul>
-          </ol>
-        </div>
-      </Body>
+      <Flex justifyCenter>
+        <Body>
+          <Break> Your last breakpoints </Break>
+          <div>
+              <ul> Drink A very Black Tea </ul>
+              <ul> Drink A very Black Tea </ul>
+              <ul> Drink A very Black Tea </ul>
+              <ul> Drink A very Black Tea </ul>
+              <ul> Drink A very Black Tea </ul>
+              <ul> Drink A very Black Tea </ul>
+          </div>
+        </Body>
+      </Flex>
     </Div>
   );
 };
