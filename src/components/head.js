@@ -29,17 +29,29 @@ const SettingNav = (props) => {
 
   const Div = {
     background: ' #cdd ',
-    padding: '0.5em',
+    padding: '0.3em',
+    boxShadow: '0px 2px 5px grey',
   };
+
+  const Screen = styled.h5`
+  padding-top : 15px
+  padding-left: 15px
+  ;
+  `;
+
+  const IconBody = styled.div`
+    border: 0.5px solid black
+    padding: 0.5em
+    border-radius: 2.5px
+    padding-right: 5px
+    margin-right : 15px
+  `;
 
   return (
     <div style={Div}>
       {props.screens == 'setting' ? (
         <Flex justifyBetween>
-          <div>
-            <FiMenu style={{ fontSize: '1.7em' }} />
-          </div>
-
+          <Screen> Setting</Screen>
           <form
             style={{
               border: '1px solid black',
@@ -56,40 +68,32 @@ const SettingNav = (props) => {
                 <Link to="/settings">
                   <FiSearch style={{ fontSize: '1.5em' }} />
                 </Link>
+                
               </div>
             </Flex>
           </form>
         </Flex>
       ) : null}
+
       {props.screens == 'team' ? (
         <Flex justifyBetween>
-          <div>
-            <FiMenu style={{ fontSize: '1.7em' }} />
-          </div>
-
-          <form
-            style={{
-              border: '1px solid black',
-              padding: '0.2em',
-              borderRadius: '5px',
-              paddingRight: '10px',
-              marginRight: '15px',
-            }}
-          >
+          <Screen> Team </Screen>
+          <IconBody>
             <Flex>
               <div style={{ paddingTop: '5px' }}>
                 <Link to="/settings">
                   <IoIosCall style={{ fontSize: '1.5em' }} />
-                </Link> 
+                </Link>
 
                 <Link to="/settings">
                   <IoMdVideocam style={{ fontSize: '1.5em' }} />
                 </Link>
               </div>
             </Flex>
-          </form>
+          </IconBody>
         </Flex>
       ) : null}
+
       {props.screens == 'files' ? (
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
@@ -98,15 +102,9 @@ const SettingNav = (props) => {
             </Link>
           </div>
 
-          <form
-            style={{
-              border: '1px solid black',
-              padding: '0.2em',
-              borderRadius: '5px',
-              paddingRight: '10px',
-              marginRight: '15px',
-            }}
-          >
+          <Screen> Files </Screen>
+
+          <IconBody>
             <Flex>
               <div style={{ paddingTop: '5px' }}>
                 <Link to="/settings">
@@ -114,27 +112,16 @@ const SettingNav = (props) => {
                 </Link>
               </div>
             </Flex>
-          </form>
+          </IconBody>
         </Flex>
       ) : null}
+
       {props.screens == 'office' ? (
         <Flex justifyBetween>
-          <div style={{ paddingTop: '2px' }}>
-            <Link to="/">
-              <IoMdArrowBack style={{ fontSize: '1.5em' }} />
-            </Link>
-          </div>
+          <Screen>WorkSpace</Screen>
 
-          <form
-            style={{
-              border: '1px solid black',
-              padding: '0.1em',
-              borderRadius: '5px',
-              paddingRight: '10px',
-              marginRight: '15px',
-            }}
-          >
-            <div style={{ paddingTop: '2px' }}>
+          <IconBody>
+            <div>
               <Flex>
                 <Link to="/settings">
                   <FiPlus style={{ fontSize: '1.5em' }} />
@@ -145,24 +132,15 @@ const SettingNav = (props) => {
                 </div>
               </Flex>
             </div>
-          </form>
+          </IconBody>
         </Flex>
       ) : null}
+
       {props.screens == 'messages' ? (
         <Flex justifyBetween>
-          <div>
-            <FiMenu style={{ fontSize: '1.7em' }} />
-          </div>
+          <Screen> Messages </Screen>
 
-          <form
-            style={{
-              border: '1px solid black',
-              padding: '0.2em',
-              borderRadius: '5px',
-              paddingRight: '10px',
-              marginRight: '15px',
-            }}
-          >
+          <IconBody>
             <Flex>
               <div style={{ paddingTop: '5px' }}>
                 <Link to="/settings">
@@ -174,9 +152,10 @@ const SettingNav = (props) => {
                 </Link>
               </div>
             </Flex>
-          </form>
+          </IconBody>
         </Flex>
       ) : null}
+
       {props.screens == 'none' ? (
         <Flex justifyBetween>
           <div>

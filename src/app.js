@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './screens/routes';
 import styled from 'styled-components';
@@ -95,7 +95,7 @@ const Header = () => {
             </div>
             <div>
               <img
-                style={{ maxWidth: '1.2em' }}
+                style={{ maxWidth: '1.1em' , paddingRight : '10px' }}
                 src={'./assets/btn-close.svg'}
                 alt={'close'}
                 onClick={() => {
@@ -114,7 +114,9 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Provider TodoStore={TodoStore} ModalStore={ModalStore}>
-        <Routes />
+        <Suspense fallback={'i am loading here '}>
+          <Routes />
+        </Suspense>
       </Provider>
     </ApolloProvider>
   );

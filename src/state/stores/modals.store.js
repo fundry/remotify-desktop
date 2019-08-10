@@ -8,10 +8,11 @@ class ModalStore {
   ShortcutModal = false;
   toolsModal = false;
   welcomeModal = false;
-  hideShortcut = () => {
+
+  hideShortcut() {
     console.log('i am hit ');
     this.ShortcutModal = true;
-  };
+  }
 }
 
 decorate(ModalStore, {

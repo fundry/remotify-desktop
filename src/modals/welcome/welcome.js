@@ -13,12 +13,11 @@ const Head = styled.div`
 const Button = styled.button`
   background: #0e2f5a;
   text-align: center;
-  border-radius: 2px;
-  height: 40px;
+  border-radius: 3px;
+  height: 43px;
   border: 1px solid #0e2f5a;
   color: #fff;
-  margin: 0 1em;
-  padding: 0.50em 1.5em;
+  padding: 0.5em 1.7em;
   &:hover {
     color: #0e2f5a;
     background: #fff;
@@ -27,8 +26,13 @@ const Button = styled.button`
 
 const Body = styled.div`padding: 1em;`;
 
+const IconRole = styled.div`
+padding-right : 25px
+padding-left : 25px
+`;
+
 const Login = () => {
-  const [Welcome, setWelcome] = useState(true);
+  const [Welcome, setWelcome] = useState(false);
 
   return (
     <Flex justifyCenter>
@@ -65,24 +69,31 @@ const Login = () => {
         <div style={{ padding: '1em' }}>
           <div>
             <p> Default enabled Tools </p>
-            <Flex justifyBetween>
-              <DiGithub style={{ fontSize: '2em' }} />
-              <DiTrello style={{ fontSize: '2em' }} />
-              <DiSublime style={{ fontSize: '2em' }} />
-              <DiWordpress style={{ fontSize: '2em' }} />
-            </Flex>
+            <IconRole>
+              <Flex justifyBetween>
+                <DiGithub style={{ fontSize: '2em' }} />
+                <DiTrello style={{ fontSize: '2em' }} />
+                <DiSublime style={{ fontSize: '2em' }} />
+                <DiWordpress style={{ fontSize: '2em' }} />
+              </Flex>
+            </IconRole>
           </div>
+
+          <br />
 
           <div>
             <p> Role Based Tools </p>
-            <Flex justifyBetween>
-              <DiGithub style={{ fontSize: '2em' }} />
-              <DiTrello style={{ fontSize: '2em' }} />
-              <DiSublime style={{ fontSize: '2em' }} />
-              <DiWordpress style={{ fontSize: '2em' }} />
-            </Flex>
+            <IconRole>
+              <Flex justifyBetween>
+                <DiGithub style={{ fontSize: '2em' }} />
+                <DiTrello style={{ fontSize: '2em' }} />
+                <DiSublime style={{ fontSize: '2em' }} />
+                <DiWordpress style={{ fontSize: '2em' }} />
+              </Flex>
+            </IconRole>
           </div>
         </div>
+        <br />
 
         <Flex justifyCenter>
           <div>
@@ -92,16 +103,11 @@ const Login = () => {
                 setWelcome(false);
               }}
             >
-              <Flex>
-                <div style={{ padding: '2px' }}>
-                  <DiGithub
-                    style={{ fontSize: '2.5em', paddingBottom: '7px' }}
-                  />
+              <Flex justifyBetween>
+                <div>
+                  <DiGithub style={{ fontSize: '2.5em' }} />
                 </div>
-                <p style={{ fontSize: '0.9em', paddingTop: '5px' }}>
-                  {' '}
-                  Sign in With Github{' '}
-                </p>
+                <p style={{ fontSize: '0.97em' }}>Sign in With Github </p>
               </Flex>
             </Button>
           </div>

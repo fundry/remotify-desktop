@@ -86,9 +86,8 @@ const Settings = () => {
   const hooks = useWindowWidth();
   const [text, setText] = useState('');
 
-  return (
-    <div>
-      <Head screens="setting" />
+  /*
+using local storage ================>>>>
 
       <Flex>
         <input
@@ -102,7 +101,6 @@ const Settings = () => {
             ipc.send('test-storage', text);
           }}
         >
-          {' '}
           SEND TEST TEXT{' '}
         </button>
         <button
@@ -113,6 +111,12 @@ const Settings = () => {
           READ FROM STORAGE
         </button>
       </Flex>
+using local storage ================>>>>
+*/
+
+  return (
+    <div>
+      <Head screens="setting" />
 
       <Body>
         {hooks >= 700 ? (
@@ -155,7 +159,7 @@ const Settings = () => {
               </Flex>
             </div>
             <hr />
-            <List height={480}   itemSize={60} itemCount={4} width="100%">
+            <List height={480} itemSize={60} itemCount={4} width="100%">
               {() => <Setting />}
             </List>
           </div>
