@@ -51,8 +51,8 @@ const ipc = electron.ipcRenderer;
 const auth = Auth.create();
 const nav = Nav_State.create({
   expanded: true,
-  expandedwidth: '1.7em',
-  collapsedwidth: '0.05em',
+  expandedwidth: '1.5em',
+  collapsedwidth: '0.02em',
 });
 
 const collapsed = nav.collapsedwidth;
@@ -63,9 +63,7 @@ const Sidebar = styled.div`
   position: fixed;
   background: #ccc;
   height: 100vh;
-  padding-top : 0em
-  box-sizing: border-box;
-  overflow: auto;
+  padding-top: 0em;
 `;
 
 const NavLinks = styled.ul`
@@ -82,7 +80,7 @@ const Link = styled.li`
 `;
 
 const BtnOpen = styled.div`
-  padding-left : 50px
+  padding-left : 20px
   &:hover {
     cursor: pointer;
   }
@@ -91,7 +89,7 @@ const BtnOpen = styled.div`
 const BtnClose = styled.div`
   text-align : right
   position : absolute
-  padding-left : 100px
+  padding-left : 70px
   &:hover {
     cursor: pointer;
   }
@@ -102,22 +100,6 @@ const BtnClose = styled.div`
 const Hover = styled.div`
   &:hover {
     cursor: pointer;
-  }
-`;
-
-const Button = styled.button`
-  background: #0e2f5a;
-  text-align: right;
-  border-radius: 5px;
-  height: 37px;
-  border: 1px solid #0e2f5a;
-  color: #fff;
-  margin: 0 1em;
-  padding: 0.25em 1.7em;
-  font-size: 1em;
-  &:hover {
-    color: #0e2f5a;
-    background: #fff;
   }
 `;
 
@@ -156,7 +138,12 @@ class Routes extends Component {
     return (
       <Router history={history}>
         <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
-        <Sidebar style={{ padding: nav.expanded ? collapsed : expanded }}>
+        <Sidebar
+          style={{
+            boxShadow: '0px 0px 0px  1.2px black',
+            padding: nav.expanded ? collapsed : expanded,
+          }}
+        >
           {nav.expanded ? (
             <BtnOpen>
               <FiChevronsRight
@@ -181,33 +168,33 @@ class Routes extends Component {
             <NavLinks>
               <Link>
                 <NavLink to="/" exact={true}>
-                  <FiHome style={{ fontSize: '2em' }} />
+                  <FiHome style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <br />
               <Link>
                 <NavLink to="/team">
-                  <GiTeamIdea style={{ fontSize: '2em' }} />
+                  <GiTeamIdea style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <Link>
                 <NavLink to="/message">
-                  <FiMessageSquare style={{ fontSize: '2em' }} />
+                  <FiMessageSquare style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <Link>
                 <NavLink to="/office">
-                  <FiPackage style={{ fontSize: '2em' }} />
+                  <FiPackage style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <Link>
                 <NavLink to="/files">
-                  <DiGoogleDrive style={{ fontSize: '2em' }} />
+                  <DiGoogleDrive style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <Link>
                 <NavLink to="/music">
-                  <FiMusic style={{ fontSize: '2em' }} />
+                  <FiMusic style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
               <br />
@@ -215,14 +202,14 @@ class Routes extends Component {
               <br />
               <Link>
                 <Hover onClick={() => this.props.ModalStore.hideShortcut}>
-                  <FiHelpCircle style={{ fontSize: '2em' }} />
+                  <FiHelpCircle style={{ fontSize: '1.7em' }} />
                 </Hover>
               </Link>
               <br />
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">
-                    <FiSettings style={{ fontSize: '2em' }} />
+                    <FiSettings style={{ fontSize: '1.7em' }} />
                   </NavLink>
                 </Link>
               </div>
@@ -325,7 +312,7 @@ class Routes extends Component {
             </Route>
           </Switch>
         </div>
-        <Bottom width={nav.expanded ? '6.3em' : '11.3em'} />
+        <Bottom width={nav.expanded ? '4.5em' : '9.7em'} />
       </Router>
     );
   }

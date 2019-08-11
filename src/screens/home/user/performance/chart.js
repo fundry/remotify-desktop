@@ -10,7 +10,7 @@ import {
 
 const Chart = (props) => {
   return (
-    <XYPlot width={300} height={300}>
+    <XYPlot width={670} height={300}>
       <VerticalGridLines />
       <HorizontalGridLines />
       <XAxis />

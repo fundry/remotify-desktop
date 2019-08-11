@@ -14,15 +14,15 @@ import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
-  const Div = {
-    background: ' #cdd ',
-    padding: '0.3em',
-  };
+  const Header = styled.div` 
+    background:  #cdd  
+    padding: 0.3em 
+  `;
 
   const Collaborate = styled.div`
     background: #0e2f5a;
     text-align: right;
-    border-radius: 3px;
+    border-radius: 7px;
     height: 40px;
     border: 1px solid #0e2f5a;
     color: #fff;
@@ -40,23 +40,35 @@ const SettingNav = (props) => {
     padding-left  :  10px
   `;
 
+  const Actions = styled.div`  
+  background:  #000
+  background:  #fff
+  padding: 0.3em 
+  `;
+
   return (
-    <div style={Div}>
-      <Flex justifyBetween>
-        <Title> CodeSandBox </Title>
+    <div>
+      <Header>
+        <Flex justifyBetween>
+          <Title> CodeSandBox </Title>
 
-        <Flex>
-          <Collaborate> Collaborate </Collaborate>
+          <Flex>
+            <Collaborate> Collaborate </Collaborate>
 
-          <Link to="/settings">
-            <IoIosCall style={{ fontSize: '1.5em' }} />
-          </Link>
+            <Link to="/settings">
+              <IoIosCall style={{ fontSize: '1.5em' }} />
+            </Link>
 
-          <Link to="/settings">
-            <IoMdVideocam style={{ fontSize: '1.5em' }} />
-          </Link>
+            <Link to="/settings">
+              <IoMdVideocam style={{ fontSize: '1.5em' }} />
+            </Link>
+          </Flex>
         </Flex>
-      </Flex>
+      </Header>
+
+      <Actions> 
+      Some shit here 
+      </Actions>
     </div>
   );
 };

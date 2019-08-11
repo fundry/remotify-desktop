@@ -1,4 +1,5 @@
-import { app, BrowserWindow, ipcMain, Tray, Menu } from 'electron';
+// i need to split this file later 
+import { app, BrowserWindow, ipcMain, Tray, Menu, dialog } from 'electron';
 // import { enableLiveReload } from 'electron-compile';
 import path from 'path';
 import storage from 'electron-json-storage';
@@ -74,6 +75,23 @@ app.on('activate', () => {
   }
 });
 
+
+// to select user files in file  component
+ipcMain.on('open-file-dialog', (event, arg) => {
+  dialog.showOpenDialog(
+    {
+      properties: ['openFile', 'openDirectory'],
+    },
+    (files) => {
+      if (files) {
+        event.sender.send('selected-directory', files);
+      }
+    }
+  );
+});
+
+
+// testing local-json-storage
 ipcMain.on('test-storage', (event, arg) => {
   const data = arg;
 

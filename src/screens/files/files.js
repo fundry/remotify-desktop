@@ -12,6 +12,12 @@ import { MdVideoLibrary } from 'react-icons/md';
 // import Documents from './documents';
 // import Images from './images';
 
+// electron to trigger native file path
+const Renderer = require('electron').ipcRenderer;
+Renderer.on('selectred-directory', (event, path) => {
+  console.log(path);
+});
+
 const files = () => {
   const FileType = () => {
     return (
@@ -65,6 +71,21 @@ const files = () => {
     background: #850909;
     text-align: right;
     border-radius: 10px;
+    height: 40px;
+    color: #fff;
+    margin: 0 1em;
+    padding: 0.25em 2em;
+    font-size: 1em;
+    &:hover {
+      color: #0e2f5a;
+      background: #fff;
+    }
+  `;
+
+  const Browse = styled.button`
+    background: #1a1c28;
+    text-align: right;
+    border-radius: 30px;
     height: 40px;
     color: #fff;
     margin: 0 1em;
@@ -132,6 +153,14 @@ const files = () => {
               <div>
                 <p> SELECT OR DRAG FILES TO UPLOAD </p>{' '}
               </div>
+
+              <Browse
+                onClick={() => {
+                  Renderer.send('open-file-dialog');
+                }}
+              >
+                Browse local files
+              </Browse>
             </div>
           ) : (
             <div>
