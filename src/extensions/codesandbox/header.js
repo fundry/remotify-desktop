@@ -31,7 +31,7 @@ const SettingNav = (props) => {
     font-size: 1em;
     &:hover {
       color: #0e2f5a;
-      background: #fff;
+      background: #fff; 
     }
   `;
 

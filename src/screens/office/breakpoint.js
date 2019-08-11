@@ -20,14 +20,14 @@ const breakpoint = () => {
 
       <Flex justifyCenter>
         <Body>
-          <Break> Your last breakpoints </Break>
+          <Break> Your Reminders </Break>
           <div>
-              <ul> Drink A very Black Tea </ul>
-              <ul> Drink A very Black Tea </ul>
-              <ul> Drink A very Black Tea </ul>
-              <ul> Drink A very Black Tea </ul>
-              <ul> Drink A very Black Tea </ul>
-              <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
+            <ul> Drink A very Black Tea </ul>
           </div>
         </Body>
       </Flex>
