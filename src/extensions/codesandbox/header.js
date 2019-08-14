@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import {
-  FiMenu,
-  FiSettings,
-  FiSearch,
-  FiMusic,
-  FiPlus,
-  FiArrowLeft,
-} from 'react-icons/fi';
 import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
-import { observer, inject } from 'mobx-react';
+import { Modal } from 'react-bootstrap';
 
-const SettingNav = (props) => {
+import Colabs from './colabModal';
+
+const Header = (props) => {
   const Header = styled.div` 
     background:  #cdd  
-    padding: 0.3em 
+    padding: 0.2em 
   `;
 
   const Collaborate = styled.div`
@@ -27,33 +21,52 @@ const SettingNav = (props) => {
     border: 1px solid #0e2f5a;
     color: #fff;
     margin: 0 1em;
-    padding: 0.25em 2em;
+    padding: 0.20em 1.6em;
     font-size: 1em;
     &:hover {
       color: #0e2f5a;
-      background: #fff; 
+      background: #fff;
     }
   `;
 
   const Title = styled.p`
+  font-size : 1.15em
     padding-top  :  10px
     padding-left  :  10px
   `;
 
   const Actions = styled.div`  
   background:  #000
-  background:  #fff
-  padding: 0.3em 
+  color:  #fff
+  padding: 0.2em 
   `;
+
+  const [Colab, setColab] = useState(false);
 
   return (
     <div>
+      <Modal style={{ textAlign: 'right', paddingTop: '7%' }} show={Colab}>
+        <div>
+          <p
+            onClick={() => {
+              setColab(false);
+            }}
+          >
+            Close{' '}
+          </p>
+        </div>
+
+        <Colabs />
+      </Modal>
+
       <Header>
         <Flex justifyBetween>
           <Title> CodeSandBox </Title>
 
           <Flex>
-            <Collaborate> Collaborate </Collaborate>
+            <Collaborate onClick={() => setColab(true)}>
+              Collaborate{' '}
+            </Collaborate>
 
             <Link to="/settings">
               <IoIosCall style={{ fontSize: '1.5em' }} />
@@ -66,11 +79,9 @@ const SettingNav = (props) => {
         </Flex>
       </Header>
 
-      <Actions> 
-      Some shit here 
-      </Actions>
+      <Actions>Some shit here</Actions>
     </div>
   );
 };
 
-export default inject('ModalStore')(observer(SettingNav));
+export default Header;

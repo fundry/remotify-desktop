@@ -51,7 +51,7 @@ const Header = () => {
         <div
           style={{
             color: 'white',
-            fontSize: '1.1em',
+            fontSize: '1em',
             paddingTop: '7px',
             paddingLeft: '15px',
             MozWindowDragging: 'drag',
@@ -60,9 +60,9 @@ const Header = () => {
           <p>Remotify</p>
         </div>
 
-        <div style={{ marginRight: '15px ', marginTop: '5px' }}>
+        <div style={{ paddingRight: '7px ' }}>
           <Flex>
-            <div style={{ paddingRight: '40px' }}>
+            <div style={{ paddingRight: '50px' }}>
               <img
                 style={{ maxWidth: '1.2em' }}
                 src={'./assets/btn-min.svg'}
@@ -73,35 +73,39 @@ const Header = () => {
               />{' '}
             </div>
 
-            <div style={{ paddingRight: '12px' }}>
-              <img
-                style={{ maxWidth: '1.2em' }}
-                src={'./assets/btn-min.svg'}
-                alt={'min'}
-                onClick={() => {
-                  tray();
-                }}
-              />{' '}
-            </div>
-            <div style={{ paddingRight: '12px' }}>
-              <img
-                style={{ maxWidth: '1.2em' }}
-                src={'./assets/btn-min.svg'}
-                alt={'min'}
-                onClick={() => {
-                  maximize();
-                }}
-              />
-            </div>
-            <div>
-              <img
-                style={{ maxWidth: '1.1em' , paddingRight : '10px' }}
-                src={'./assets/btn-close.svg'}
-                alt={'close'}
-                onClick={() => {
-                  close();
-                }}
-              />
+            <div style={{ paddingRight: '5px' }}>
+              <Flex>
+                <div style={{ paddingRight: '12px' }}>
+                  <img
+                    style={{ maxWidth: '1.2em' }}
+                    src={'./assets/btn-min.svg'}
+                    alt={'min'}
+                    onClick={() => {
+                      tray();
+                    }}
+                  />{' '}
+                </div>
+                <div style={{ paddingRight: '12px' }}>
+                  <img
+                    style={{ maxWidth: '1.2em' }}
+                    src={'./assets/btn-min.svg'}
+                    alt={'max'}
+                    onClick={() => {
+                      maximize();
+                    }}
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ maxWidth: '1.1em', paddingRight: '10px' }}
+                    src={'./assets/btn-close.svg'}
+                    alt={'clos'}
+                    onClick={() => {
+                      close();
+                    }}
+                  />
+                </div>
+              </Flex>
             </div>
           </Flex>
         </div>

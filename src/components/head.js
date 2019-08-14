@@ -30,6 +30,7 @@ const SettingNav = (props) => {
   const Div = {
     background: ' #cdd ',
     padding: '0.5em',
+    width: '100%',
     boxShadow: '0px 2px 3px grey',
   };
 
@@ -68,7 +69,6 @@ const SettingNav = (props) => {
                 <Link to="/settings">
                   <FiSearch style={{ fontSize: '1.5em' }} />
                 </Link>
-                
               </div>
             </Flex>
           </form>
@@ -121,17 +121,15 @@ const SettingNav = (props) => {
           <Screen>WorkSpace</Screen>
 
           <IconBody>
-            <div>
-              <Flex>
-                <Link to="/settings">
-                  <FiPlus style={{ fontSize: '1.5em' }} />
-                </Link>
+            <Flex>
+              <Link to="/settings">
+                <FiPlus style={{ fontSize: '1.5em' }} />
+              </Link>
 
-                <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-                  <p>Add Tool </p>
-                </div>
-              </Flex>
-            </div>
+              <div style={{ paddingRight: '10px' }}>
+                <p>Add Tool </p>
+              </div>
+            </Flex>
           </IconBody>
         </Flex>
       ) : null}

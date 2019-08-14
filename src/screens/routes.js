@@ -141,7 +141,6 @@ class Routes extends Component {
         <Sidebar
           style={{
             boxShadow: '0px 0px 0px  1.2px black',
-            padding: nav.expanded ? collapsed : expanded,
           }}
         >
           {nav.expanded ? (
