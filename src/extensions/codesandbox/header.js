@@ -45,7 +45,7 @@ const Header = (props) => {
 
   return (
     <div>
-      <Modal style={{ textAlign: 'right', paddingTop: '7%' }} show={Colab}>
+      <Modal style={{ textAlign: 'right', paddingTop: '5%' }} show={Colab}>
         <div>
           <p
             onClick={() => {
@@ -79,7 +79,15 @@ const Header = (props) => {
         </Flex>
       </Header>
 
-      <Actions>Some shit here</Actions>
+      <Actions>
+        <Flex justifyBetween>
+          <div>Some shit here 1</div>
+          <div>
+            <h6> Sandbox name / project name </h6>
+          </div>
+          <div>Some shit here 3</div>
+        </Flex>
+      </Actions>
     </div>
   );
 };
