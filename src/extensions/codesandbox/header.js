@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Link } from 'react-router-dom';
-import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
+import { IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { Modal } from 'react-bootstrap';
+import { FiX } from 'react-icons/fi';
 
 import Colabs from './colabModal';
 
-const Header = (props) => {
+const Header = () => {
   const Header = styled.div` 
     background:  #cdd  
     padding: 0.2em 
+    padding-right: 10px 
   `;
 
   const Collaborate = styled.div`
     background: #0e2f5a;
     text-align: right;
-    border-radius: 7px;
-    height: 40px;
+    border-radius: 3px;
     border: 1px solid #0e2f5a;
     color: #fff;
+    height : 33px
     margin: 0 1em;
-    padding: 0.20em 1.6em;
-    font-size: 1em;
+    padding: 0.10em 1.2em;
+    font-size: 0.9em;
     &:hover {
       color: #0e2f5a;
       background: #fff;
@@ -30,51 +32,75 @@ const Header = (props) => {
   `;
 
   const Title = styled.p`
-  font-size : 1.15em
-    padding-top  :  10px
+    font-size : 1.1em
+    padding-top  :  5px
     padding-left  :  10px
   `;
 
   const Actions = styled.div`  
   background:  #000
   color:  #fff
-  padding: 0.2em 
+  padding: 0.4em 
   `;
 
   const [Colab, setColab] = useState(false);
 
+  const Head = styled.div`
+    padding: 0.5em
+    background : #000
+    color : #fff
+  `;
+
+  const Avatar = styled.div`
+    background : grey
+  height: 4vh,
+  width: 15em,
+  border-radius: 60px,
+  border  : 1px solid #fff,
+  padding : 0.5em
+  &:hover {
+      cursor: pointer;
+    }
+  `;
+
   return (
     <div>
-      <Modal style={{ textAlign: 'right', paddingTop: '5%' }} show={Colab}>
-        <div>
-          <p
-            onClick={() => {
-              setColab(false);
-            }}
-          >
-            Close{' '}
-          </p>
-        </div>
+      <Modal
+        style={{ paddingTop: '4%' }}
+        show={Colab}
+        onHide={() => {
+          setColab(false);
+        }}
+      >
+        <Head>
+          <Flex justifyBetween>
+            <p style={{ paddingLeft: '15px' }}> Collaborate </p>
+
+            <div
+              onClick={() => {
+                setColab(false);
+              }}
+            >
+              <FiX style={{ fontSize: '1.5em' }} />
+            </div>
+          </Flex>
+        </Head>
 
         <Colabs />
       </Modal>
 
       <Header>
         <Flex justifyBetween>
-          <Title> CodeSandBox </Title>
+          <Title> CodeSand-Box </Title>
 
           <Flex>
             <Collaborate onClick={() => setColab(true)}>
-              Collaborate{' '}
+              Collaborate
             </Collaborate>
 
-            <Link to="/settings">
-              <IoIosCall style={{ fontSize: '1.5em' }} />
-            </Link>
-
-            <Link to="/settings">
-              <IoMdVideocam style={{ fontSize: '1.5em' }} />
-            </Link>
+            <Avatar>
+              <p> V </p>
+            </Avatar>
           </Flex>
         </Flex>
       </Header>

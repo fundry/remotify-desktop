@@ -98,11 +98,33 @@ const SettingNav = (props) => {
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
             <Link to="/">
-              <FiArrowLeft style={{ fontSize: '1.7em' }} />
+              <FiArrowLeft style={{ fontSize: '1.5em' }} />
             </Link>
           </div>
 
           <Screen> Files </Screen>
+
+          <IconBody>
+            <Flex>
+              <div style={{ paddingTop: '5px' }}>
+                <Link to="/settings">
+                  <FiSettings style={{ fontSize: '1.5em' }} />
+                </Link>
+              </div>
+            </Flex>
+          </IconBody>
+        </Flex>
+      ) : null}
+
+      {props.screens == 'performance' ? (
+        <Flex justifyBetween>
+          <div style={{ paddingTop: '5px' }}>
+            <Link to="/">
+              <FiArrowLeft style={{ fontSize: '1.5em' }} />
+            </Link>
+          </div>
+
+          <Screen> Performance | Nwani Victory </Screen>
 
           <IconBody>
             <Flex>

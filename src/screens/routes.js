@@ -1,4 +1,4 @@
-// this file is long and spaghetti . Touch with caution
+// this file is long and spaghetti . Touch with caution !!
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Stream } from 'react-streams';
@@ -17,7 +17,6 @@ import {
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
 import { Modal } from 'react-bootstrap';
-import Flex from 'styled-flex-component';
 
 import { Auth, Nav_State } from '../state/models/';
 
@@ -33,6 +32,7 @@ import {
   Setting,
   Team,
   Office,
+  Performance,
 } from './index';
 import { CodeSandbox } from '../extensions/index';
 import { Shortcut } from '../modals/';
@@ -51,7 +51,7 @@ const ipc = electron.ipcRenderer;
 const auth = Auth.create();
 const nav = Nav_State.create({
   expanded: true,
-  expandedwidth: '1.5em',
+  expandedwidth: '2em',
   collapsedwidth: '0.02em',
 });
 
@@ -251,7 +251,7 @@ class Routes extends Component {
             </NavLinks>
           )}
         </Sidebar>
-        <div style={{ paddingLeft: nav.expanded ? '5.2em' : '10em' }}>
+        <div style={{ paddingLeft: nav.expanded ? '3.5em' : '9.5em' }}>
           <Modal
             show={this.state.modal}
             onHide={() => {
@@ -308,6 +308,10 @@ class Routes extends Component {
 
             <Route path="/settings">
               <Setting />
+            </Route>
+
+            <Route path="/performance">
+              <Performance />
             </Route>
           </Switch>
         </div>

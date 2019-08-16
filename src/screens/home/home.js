@@ -147,18 +147,16 @@ const Home = (props) => {
 
           <Flex column>
             <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
-            <Button
-              onClick={() => {
-                setPerfscreen(true);
-              }}
-            >
-              <Flex>
-                <FiActivity style={{ fontSize: '1.7em' }} />
-                <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
-                  Performancae
-                </p>
-              </Flex>
-            </Button>
+            <Link to="performance">
+              <Button>
+                <Flex>
+                  <FiActivity style={{ fontSize: '1.7em' }} />
+                  <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
+                    Performancae
+                  </p>
+                </Flex>
+              </Button>
+            </Link>
           </Flex>
 
           <Flex column>

@@ -8,3 +8,4 @@ export { default as Integrations } from './office/integrations/integration';
 export { default as Office } from './office/office';
 export { default as Team } from './team/team';
 export { default as Help } from './help/troubleshoot';
+export { default as Performance } from './home/user/performance/performance';

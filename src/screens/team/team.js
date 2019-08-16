@@ -8,6 +8,7 @@ const team = () => {
     <div>
       <Header screens = "team"/>
       <h1> Team screen </h1>
+      <h1> Trello would  be here </h1>
     </div>
   );
 };
