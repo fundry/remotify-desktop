@@ -42,6 +42,7 @@ const Home = (props) => {
     margin: 0 1em;
     padding: 0.25em 2em;
     font-size: 1em;
+    outline: none;
     &:hover {
       color: #0e2f5a;
       background: #fff;

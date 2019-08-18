@@ -41,7 +41,7 @@ const Header = () => {
 
   const Btn = styled.div`
     &:hover {
-      cursor: pointer;
+      cursor: pointeyarn watfb  
     }
   `;
 

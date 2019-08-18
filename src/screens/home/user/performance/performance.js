@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
-import { Dropdown } from 'semantic-ui-react';
 import Chart from './chart';
 import Head from '../../../../components/head';
 
@@ -28,7 +27,7 @@ const Performance = () => {
           <Flex justifyBetween>
             <Flex>
               <h5> During </h5>
-              <Dropdown />
+           <p> drop </p>
             </Flex>
 
             <Flex column>
