@@ -10,13 +10,21 @@ import {
   FiMusic,
   FiPlus,
   FiArrowLeft,
+  FiX,
 } from 'react-icons/fi';
-import { IoMdArrowBack, IoMdVideocam, IoIosCall } from 'react-icons/io';
+import { IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
   console.log(props.ModalStore.MusicModal);
   console.log(props.ModalStore.toolsModal);
+
+
+  const Btn = styled.div`
+    &:hover {
+      cursor: pointer;
+    }
+  `;
 
   const Search = styled.input`  
     width : 23em'
@@ -25,6 +33,11 @@ const SettingNav = (props) => {
     background : transparent
     border  :  0px
     border-radius : 3px
+  `;
+
+  const MusicHeader = styled.div`
+    background: #3a3a3a;
+    padding: 0.7em;
   `;
 
   const Div = {
@@ -73,6 +86,78 @@ const SettingNav = (props) => {
             </Flex>
           </form>
         </Flex>
+      ) : null}
+
+      {props.screens == 'music' ? (
+        <MusicHeader>
+          <Flex justifyBetween>
+            <div>
+              <Flex>
+                <FiMusic
+                  style={{
+                    fontSize: '2.2em',
+                    color: 'white',
+                    paddingRight: '5px',
+                  }}
+                />
+                <h5
+                  style={{
+                    color: 'white',
+                    paddingTop: '5px',
+                  }}
+                >
+                  Music
+                </h5>
+              </Flex>
+            </div>
+
+            <div
+              onClick={() => {
+                close();
+              }}
+            >
+              <Btn>
+                <FiSettings style={{ fontSize: '2em', color: 'white' }} />
+              </Btn>
+            </div>
+          </Flex>
+        </MusicHeader>
+      ) : null}
+
+      {props.screens == 'musicModal' ? (
+        <musicHead>
+          <Flex justifyBetween>
+            <div>
+              <Flex>
+                <FiMusic
+                  style={{
+                    fontSize: '2.2em',
+                    color: 'white',
+                    paddingRight: '5px',
+                  }}
+                />
+                <h5
+                  style={{
+                    color: 'white',
+                    paddingTop: '5px',
+                  }}
+                >
+                  Music
+                </h5>
+              </Flex>
+            </div>
+
+            <div
+              onClick={() => {
+                close();
+              }}
+            >
+              <Btn>
+                <FiX style={{ fontSize: '2em', color: 'white' }} />
+              </Btn>
+            </div>
+          </Flex>
+        </musicHead>
       ) : null}
 
       {props.screens == 'team' ? (

@@ -140,7 +140,7 @@ class Routes extends Component {
         <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
         <Sidebar
           style={{
-            boxShadow: '0px 0px 0px  1.2px black',
+            boxShadow: '0px 0px 0px  1px black',
           }}
         >
           {nav.expanded ? (
@@ -155,7 +155,11 @@ class Routes extends Component {
           ) : (
             <BtnClose>
               <FiChevronsLeft
-                style={{ fontSize: '1.8em', color: 'pavioletred' }}
+                style={{
+                  fontSize: '1.8em',
+                  color: 'pavioletred',
+                  paddingLeft: '20px',
+                }}
                 onClick={() => {
                   collapse();
                 }}
@@ -170,6 +174,7 @@ class Routes extends Component {
                   <FiHome style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
+              <br />
               <br />
               <Link>
                 <NavLink to="/team">
@@ -199,12 +204,12 @@ class Routes extends Component {
               <br />
               <br />
               <br />
+              <br />
               <Link>
                 <Hover onClick={() => this.props.ModalStore.hideShortcut}>
                   <FiHelpCircle style={{ fontSize: '1.7em' }} />
                 </Hover>
               </Link>
-              <br />
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">
@@ -251,7 +256,7 @@ class Routes extends Component {
             </NavLinks>
           )}
         </Sidebar>
-        <div style={{ paddingLeft: nav.expanded ? '3.5em' : '9.5em' }}>
+        <div style={{ paddingLeft: nav.expanded ? '3.2em' : '8.5em' }}>
           <Modal
             show={this.state.modal}
             onHide={() => {

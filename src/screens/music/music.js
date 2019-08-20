@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Music } from '../../state/models/';
 import { observer } from 'mobx-react';
-import { FiMusic, FiX, FiSettings, FiPlus, FiSearch } from 'react-icons/fi';
+import { FiSettings, FiPlus, FiSearch } from 'react-icons/fi';
 import { WiTime9 } from 'react-icons/wi';
+import Header from '../../components/head';
 
 import List from './music.list';
 import Controls from './controls';
@@ -25,11 +26,6 @@ const music = () => {
       padding-top  :1em
   `;
 
-  const Head = styled.div`
-    background: #3a3a3a;
-    padding: 0.7em;
-  `;
-
   const Option = styled.div`
     background: #333;
     padding: 0.5em;
@@ -43,53 +39,12 @@ const music = () => {
 
   return (
     <Div style={{ boxShadow: '' }}>
-      <Head>
-        <Flex justifyBetween>
-          <div>
-            <Flex>
-              <FiMusic
-                style={{
-                  fontSize: '2.2em',
-                  color: 'white',
-                  paddingRight: '5px',
-                }}
-              />
-              <h5
-                style={{
-                  color: 'white',
-                  paddingTop: '5px',
-                }}
-              >
-                Music
-              </h5>
-            </Flex>
-          </div>
+      <Header screens="music" />
 
-          <div
-            onClick={() => {
-              close();
-            }}
-          >
-            <Btn>
-              <FiX style={{ fontSize: '2em', color: 'white' }} />
-            </Btn>
-          </div>
-        </Flex>
-      </Head>
       <Option>
         <Flex justifyBetween>
           <div>
             <Flex>
-              <Btn>
-                <FiSettings
-                  style={{
-                    fontSize: '2em',
-                    color: 'white',
-                    paddingRight: '10px',
-                    paddingTop: '3px',
-                  }}
-                />
-              </Btn>
               <Btn>
                 <WiTime9
                   style={{
