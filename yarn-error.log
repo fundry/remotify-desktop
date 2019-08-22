@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-tiling
+  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add preact preact-compat
 
 PATH: 
-  C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NoteBook FanControl\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\php;C:\Go\bin;C:\Users\Iamnwani\Desktop\Cmder;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\;C:\Users\Iamnwani\AppData\Local\Microsoft\WindowsApps;C:\Users\Iamnwani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\platform-tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\emulator;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Oracle\VirtualBox;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib;C:\Users\Iamnwani\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2019.1\bin;C:\Users\Iamnwani\go\bin;C:\Program Files\heroku\bin
+  C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NoteBook FanControl\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\php;C:\Go\bin;C:\Users\Iamnwani\Desktop\Cmder;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\;C:\Users\Iamnwani\AppData\Local\Microsoft\WindowsApps;C:\Users\Iamnwani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\platform-tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\emulator;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Oracle\VirtualBox;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib;C:\Users\Iamnwani\AppData\Roaming\npm;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\WebStorm 2019.1\bin;;C:\Users\Iamnwani\go\bin;C:\Program Files\heroku\bin;C:\Users\Iamnwani\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin
 
 Yarn version: 
   1.12.3
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-tiling: Not found
-      at Request.params.callback [as _callback] (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65894:18)
-      at Request.self.callback (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129018:22)
-      at Request.emit (events.js:182:13)
-      at Request.<anonymous> (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129990:10)
-      at Request.emit (events.js:182:13)
-      at IncomingMessage.<anonymous> (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129912:12)
-      at Object.onceWrapper (events.js:273:13)
-      at IncomingMessage.emit (events.js:187:15)
-      at endReadableNT (_stream_readable.js:1094:12)
-      at process._tickCallback (internal/process/next_tick.js:63:19)
+  Error: EBUSY: resource busy or locked, unlink 'C:\Users\Iamnwani\Desktop\ROJECT\devify-desktop\node_modules\electron-prebuilt-compile\node_modules\electron\dist\icudtl.dat'
 
 npm manifest: 
   {
@@ -112,16 +102,14 @@ npm manifest:
   		"react-icons": "^3.7.0",
   		"react-kawaii": "^0.14.4",
   		"react-mobx": "^0.0.4",
+  		"react-mosaic-component": "^3.2.0",
   		"react-pose": "^4.0.8",
   		"react-router": "^5.0.1",
   		"react-router-dom": "^5.0.1",
-  		"react-sidenav": "^4.0.3",
   		"react-streams": "^13.6.6",
-  		"react-tabs": "^3.0.0",
   		"react-vis": "^1.11.7",
   		"react-window": "^1.8.5",
   		"rxjs": "^6.5.2",
-  		"semantic-ui-react": "^0.87.2",
   		"styled-components": "^4.3.1",
   		"styled-flex-component": "^3.0.0",
   		"zoomus-jssdk": "^1.5.0"
@@ -1261,14 +1249,6 @@ Lockfile:
     dependencies:
       any-observable "^0.3.0"
   
-  "@semantic-ui-react/event-stack@^3.1.0":
-    version "3.1.0"
-    resolved "https://registry.yarnpkg.com/@semantic-ui-react/event-stack/-/event-stack-3.1.0.tgz#aadbe4a28b0dd7703c5f451640d0fefe66dd9208"
-    integrity sha512-WHtU9wutZByZtFZxzj4BVEk+rvWldZpZhRcyv6d84+XLSolm83zLHYJLTACGuSl6Xa/xpgVXquvm9GyMudkJYg==
-    dependencies:
-      exenv "^1.2.2"
-      prop-types "^15.6.2"
-  
   "@types/babel__core@^7.1.0":
     version "7.1.2"
     resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"
@@ -1315,6 +1295,14 @@ Lockfile:
       "@types/events" "*"
       "@types/minimatch" "*"
       "@types/node" "*"
+  
+  "@types/hoist-non-react-statics@^3.3.1":
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+    integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
+    dependencies:
+      "@types/react" "*"
+      hoist-non-react-statics "^3.3.0"
   
   "@types/invariant@^2.2.29":
     version "2.2.30"
@@ -1370,6 +1358,19 @@ Lockfile:
     version "2.4.0"
     resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
     integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
+  
+  "@types/prop-types@*":
+    version "15.7.1"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
+    integrity sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
+  
+  "@types/react@*":
+    version "16.9.1"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.1.tgz#862c83b4c9d5cd116e42fd9a4f3694843cd2c051"
+    integrity sha512-jGM2x8F7m7/r+81N/BOaUKVwbC5Cdw6ExlWEUpr77XPwVeNvAppnPEnMMLMfxRDYL8FPEX8MHjwtD2NQMJ0yyQ==
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^2.2.0"
   
   "@types/stack-utils@^1.0.1":
     version "1.0.1"
@@ -2000,15 +2001,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
     integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
   
+  asap@^2.0.6, asap@~2.0.3:
+    version "2.0.6"
+    resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
+    integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
+  
   asap@~1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/asap/-/asap-1.0.0.tgz#b2a45da5fdfa20b0496fc3768cc27c12fa916a7d"
     integrity sha1-sqRdpf36ILBJb8N2jMJ8EvqRan0=
-  
-  asap@~2.0.3:
-    version "2.0.6"
-    resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
-    integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   
   asar@^0.11.0:
     version "0.11.0"
@@ -3545,7 +3546,7 @@ Lockfile:
       isobject "^3.0.0"
       static-extend "^0.1.1"
   
-  classnames@^2.2.0, classnames@^2.2.6:
+  classnames@^2.2.6:
     version "2.2.6"
     resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
     integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -4208,6 +4209,11 @@ Lockfile:
     dependencies:
       cssom "0.3.x"
   
+  csstype@^2.2.0:
+    version "2.6.6"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.6.tgz#c34f8226a94bbb10c32cc0d714afdf942291fc41"
+    integrity sha512-RpFbQGUE74iyPgvr46U9t1xoQBM8T4BL8SxrN66Le2xYAPSaDJJKeztV3awugusb3g3G9iL8StmkBBXhcbbXhg==
+  
   cuint@^0.2.1, cuint@^0.2.2:
     version "0.2.2"
     resolved "https://registry.yarnpkg.com/cuint/-/cuint-0.2.2.tgz#408086d409550c2631155619e9fa7bcadc3b991b"
@@ -4590,6 +4596,20 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/discontinuous-range/-/discontinuous-range-1.0.0.tgz#e38331f0844bba49b9a9cb71c771585aab1bc65a"
     integrity sha1-44Mx8IRLukm5qctxx3FYWqsbxlo=
+  
+  dnd-core@^7.4.4, dnd-core@^7.7.0:
+    version "7.7.0"
+    resolved "https://registry.yarnpkg.com/dnd-core/-/dnd-core-7.7.0.tgz#3166aefc8c5b85ca4ade4ae836712a3108975fab"
+    integrity sha512-+YqwflWEY1MEAEl2QiEiRaglYkCwIZryyQwximQGuTOm/ns7fS6Lg/i7OCkrtjM10D5FhArf/VUHIL4ZaRBK0g==
+    dependencies:
+      asap "^2.0.6"
+      invariant "^2.2.4"
+      redux "^4.0.1"
+  
+  dnd-multi-backend@^3.2.1:
+    version "3.2.1"
+    resolved "https://registry.yarnpkg.com/dnd-multi-backend/-/dnd-multi-backend-3.2.1.tgz#528c7624b831d1c23512cbed191b34fb506dcf93"
+    integrity sha512-A783JbrONpeufxX+jDMHOxR2AWh+gFv5Z/lLpDB3vdON6t0bb2fHSh8fKH2h8gOLRAJGD08m9xYXAJIWreTI5A==
   
   doctrine@1.5.0:
     version "1.5.0"
@@ -5712,7 +5732,7 @@ Lockfile:
       signal-exit "^3.0.0"
       strip-eof "^1.0.0"
   
-  exenv@^1.2.1, exenv@^1.2.2:
+  exenv@^1.2.1:
     version "1.2.2"
     resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
     integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
@@ -6987,6 +7007,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
     integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
   
+  immutability-helper@^3.0.1:
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-3.0.1.tgz#4f609c5afbf8d78cb297970e8af2fba8b0eda1d6"
+    integrity sha512-U92ROQQt7XkIwrdqCByUI118TQM1hXdKnRQpvKeA0HRyGSnJipu9IWHe4UD8zCN00O8UnQjQzPCgZ1CC3yBzHA==
+    dependencies:
+      invariant "^2.2.4"
+  
   import-fresh@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-2.0.0.tgz#d81355c15612d386c61f9ddd3922d4304822a546"
@@ -7149,7 +7176,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
     integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
   
-  invariant@^2.2.2, invariant@^2.2.4:
+  invariant@^2.1.0, invariant@^2.2.2, invariant@^2.2.4:
     version "2.2.4"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
     integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -8223,11 +8250,6 @@ Lockfile:
     integrity sha512-yDGDG2DS4JcqhA6blsuYbtsT09xL8AoLuUR2Gb5exrw7UEM19sBcOTq+YBBhrNbl0PUC4R4LnFu+dHg2HKeVvA==
     dependencies:
       array-includes "^3.0.3"
-  
-  keyboard-key@^1.0.4:
-    version "1.0.4"
-    resolved "https://registry.yarnpkg.com/keyboard-key/-/keyboard-key-1.0.4.tgz#52d8fa07b7e17757072aa22a67fb4ae85e4c46b0"
-    integrity sha512-my04dE6BCwPpwoe4KYKfPxWiwgDYQOHrVmtzn1CfzmoEsGG/ef4oZGaXCzi1+iFhG7CN5JkOuxmei5OABY8/ag==
   
   keycode@^2.2.0:
     version "2.2.0"
@@ -10711,7 +10733,7 @@ Lockfile:
       react-is "^16.3.2"
       warning "^3.0.0"
   
-  prop-types@^15.5.0, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+  prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
     version "15.7.2"
     resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
     integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10946,6 +10968,48 @@ Lockfile:
     dependencies:
       radium "=0.19.6"
   
+  react-dnd-html5-backend@7.7.0:
+    version "7.7.0"
+    resolved "https://registry.yarnpkg.com/react-dnd-html5-backend/-/react-dnd-html5-backend-7.7.0.tgz#e2b8ea61a1bc34ba743b89cafcda6213b006c06a"
+    integrity sha512-JgKmWOxqorFyfGPeWV+SAPhVGFe6+LrOR24jETE9rrYZU5hCppzwK9ujjS508kWibeDvbfEgi9j5qC2wB1/MoQ==
+    dependencies:
+      dnd-core "^7.7.0"
+  
+  react-dnd-multi-backend@^3.2.1:
+    version "3.2.2"
+    resolved "https://registry.yarnpkg.com/react-dnd-multi-backend/-/react-dnd-multi-backend-3.2.2.tgz#4ecb20ccdfc753fa8a1e457a4df04606251d8f8f"
+    integrity sha512-94lBSZ8acVLeV2nyBLNwILcWcEGAcGrMzNRLIVeUI1yC0Uq1SaRM+5rdEyrElR9GMDjn0U41jVBlfS+usccZTA==
+    dependencies:
+      dnd-multi-backend "^3.2.1"
+      prop-types "^15.6.2"
+      react-dnd-preview "^3.2.2"
+  
+  react-dnd-preview@^3.2.2:
+    version "3.2.2"
+    resolved "https://registry.yarnpkg.com/react-dnd-preview/-/react-dnd-preview-3.2.2.tgz#194d620f7bebaec9bd2cd38672abc7b24fa1474a"
+    integrity sha512-IuuU9X4cX7b0xahnbOcj+Ec2VGBlPJHogZXUCtfp/JfVdvoW8M1M/jA8rx28BlIJ7BAc0YY24TxHk5Rm4faExQ==
+    dependencies:
+      prop-types "^15.6.2"
+  
+  react-dnd-touch-backend@^0.8.3:
+    version "0.8.3"
+    resolved "https://registry.yarnpkg.com/react-dnd-touch-backend/-/react-dnd-touch-backend-0.8.3.tgz#85d961ec8578dc9efa5b78000ea904d37e01e60f"
+    integrity sha512-LLJlpeJftRreP9ixm3yfd1JEXf+6BeKo5dkfJFHvNSOEOu+FDSwNl5l8uAG0FeD4z2ZVi7RDQ/jUxdjkBV3zBg==
+    dependencies:
+      dnd-core "^7.4.4"
+      invariant "^2.2.4"
+  
+  react-dnd@7.7.0:
+    version "7.7.0"
+    resolved "https://registry.yarnpkg.com/react-dnd/-/react-dnd-7.7.0.tgz#9d983331ecf87ba33d058d861e6ca9adb8253a2e"
+    integrity sha512-anpJDKMgdXE6kXvtBFmIAe1fuaexpVy7meUyNjiTfCnjQ1mRvnttGTVvcW9fMKijsUQYadiyvzd3BRxteFuVXg==
+    dependencies:
+      "@types/hoist-non-react-statics" "^3.3.1"
+      dnd-core "^7.7.0"
+      hoist-non-react-statics "^3.3.0"
+      invariant "^2.1.0"
+      shallowequal "^1.1.0"
+  
   react-dom@16.8.6, react-dom@^16.2.0, react-dom@^16.8.3:
     version "16.8.6"
     resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
@@ -11010,6 +11074,21 @@ Lockfile:
       react "^16.2.0"
       react-dom "^16.2.0"
   
+  react-mosaic-component@^3.2.0:
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/react-mosaic-component/-/react-mosaic-component-3.2.0.tgz#b06d10d28e5d4e24a5aa8218aca73e964d8edbea"
+    integrity sha512-jIQSxlSoHNpSqeHLksVptPfoVTbZZ8nb4ocAfkQQbw63KnNq7lNsi5KQLaj1Lkc7dGPnXwlBVlEHjehqIignnw==
+    dependencies:
+      classnames "^2.2.6"
+      immutability-helper "^3.0.1"
+      lodash "^4.17.11"
+      prop-types "^15.7.2"
+      react-dnd "7.7.0"
+      react-dnd-html5-backend "7.7.0"
+      react-dnd-multi-backend "^3.2.1"
+      react-dnd-touch-backend "^0.8.3"
+      uuid "^3.3.2"
+  
   react-motion@^0.5.2:
     version "0.5.2"
     resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.2.tgz#0dd3a69e411316567927917c6626551ba0607316"
@@ -11033,7 +11112,7 @@ Lockfile:
       uncontrollable "^6.0.0"
       warning "^4.0.2"
   
-  react-popper@^1.3.2, react-popper@^1.3.3:
+  react-popper@^1.3.2:
     version "1.3.3"
     resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.3.tgz#2c6cef7515a991256b4f0536cd4bdcb58a7b6af6"
     integrity sha512-ynMZBPkXONPc5K4P5yFWgZx5JGAUIP3pGGLNs58cfAPgK67olx7fmLp+AdpZ0+GoQ+ieFDa/z4cdV6u7sioH6w==
@@ -11096,23 +11175,10 @@ Lockfile:
       tiny-invariant "^1.0.2"
       tiny-warning "^1.0.0"
   
-  react-sidenav@^4.0.3:
-    version "4.0.3"
-    resolved "https://registry.yarnpkg.com/react-sidenav/-/react-sidenav-4.0.3.tgz#7750b27631ae214fa26e89692834d6f9cd603d71"
-    integrity sha512-XMC/FNu4wz7KQzxgDsOinwgKyjJ+hULVuhl4nFaGsJlbmYQf+rhnN6bzDG9moIfqwT5lcbpV84tE0gzF3DBdtg==
-  
   react-streams@^13.6.6:
     version "13.6.6"
     resolved "https://registry.yarnpkg.com/react-streams/-/react-streams-13.6.6.tgz#505f43bb5821b07b6699284222924df27f7d6b69"
     integrity sha512-l7DkjJP77uEmv6i+/T8Bh6h6dzHr9QfytjcXS3MTzZtUzpII/mAPM3YNVjN+r6qZxFA3eA4M059WaLvrJHPsKQ==
-  
-  react-tabs@^3.0.0:
-    version "3.0.0"
-    resolved "https://registry.yarnpkg.com/react-tabs/-/react-tabs-3.0.0.tgz#60311a17c755eb6aa9b3310123e67db421605127"
-    integrity sha512-z90cDIb+5V7MzjXFHq1VLxYiMH7dDQWan7mXSw6BWQtw+9pYAnq/fEDvsPaXNyevYitvLetdW87C61uu27JVMA==
-    dependencies:
-      classnames "^2.2.0"
-      prop-types "^15.5.0"
   
   react-test-renderer@^16.0.0-0:
     version "16.8.6"
@@ -11373,6 +11439,14 @@ Lockfile:
       lodash-es "^4.2.1"
       loose-envify "^1.1.0"
       symbol-observable "^1.0.3"
+  
+  redux@^4.0.1:
+    version "4.0.4"
+    resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
+    integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
+    dependencies:
+      loose-envify "^1.4.0"
+      symbol-observable "^1.2.0"
   
   reflect.ownkeys@^0.2.0:
     version "0.2.0"
@@ -11931,21 +12005,6 @@ Lockfile:
     dependencies:
       ajv "^6.1.0"
       ajv-keywords "^3.1.0"
-  
-  semantic-ui-react@^0.87.2:
-    version "0.87.2"
-    resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.87.2.tgz#b312a5a1f7395b3ff871507c59c0557fae54c984"
-    integrity sha512-VusWdtK4IPWOgBYx/pHh1/nzMnBHa5Kt4FmIRR/AA9klzvfvNTqKSKodK7IY3DG4CSBn/sTUMc5igGQq2SzaRQ==
-    dependencies:
-      "@babel/runtime" "^7.1.2"
-      "@semantic-ui-react/event-stack" "^3.1.0"
-      classnames "^2.2.6"
-      keyboard-key "^1.0.4"
-      lodash "^4.17.11"
-      prop-types "^15.6.2"
-      react-is "^16.7.0"
-      react-popper "^1.3.3"
-      shallowequal "^1.1.0"
   
   semver-compare@^1.0.0:
     version "1.0.0"
@@ -12687,7 +12746,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
     integrity sha1-g0D8RwLDEi310iKI+IKD9RPT/dQ=
   
-  symbol-observable@^1.0.2, symbol-observable@^1.0.3, symbol-observable@^1.1.0:
+  symbol-observable@^1.0.2, symbol-observable@^1.0.3, symbol-observable@^1.1.0, symbol-observable@^1.2.0:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
     integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==

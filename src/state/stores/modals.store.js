@@ -4,7 +4,8 @@ import { observable, decorate, action } from 'mobx';
 class ModalStore {
   TodoModal = false;
   PerformanceModal = false;
-  MusicModal = false;
+  miniMusic = false;
+  musicSource = false;
   ShortcutModal = false;
   toolsModal = false;
   welcomeModal = false;
@@ -19,7 +20,8 @@ decorate(ModalStore, {
   //observables here
   TodoModal: observable,
   PerformanceModal: observable,
-  MusicModal: observable,
+  miniMusic: observable,
+  musicSource: observable,
   ShortcutModal: observable,
   toolsModal: observable,
   welcomeModal: observable,

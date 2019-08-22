@@ -1,34 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
-import { Music } from '../../state/models/';
-import { observer } from 'mobx-react';
-import { FiSettings, FiPlus, FiSearch } from 'react-icons/fi';
-import { WiTime9 } from 'react-icons/wi';
-import Header from '../../components/head';
+import { FiPlus, FiSearch } from 'react-icons/fi';
+import { observer, inject } from 'mobx-react';
 
+import Header from '../../components/head';
 import List from './music.list';
 import Controls from './controls';
 
 const music = () => {
-  const music = Music.create({ anything: 'my mula' });
-
-  const close = () => {
-    music.stop();
-    console.log(music.active);
-  };
-
   const Div = styled.div``;
 
   const Body = styled.div`
       padding: 1em;
-      padding-bottom  :1em
-      padding-top  :1em
+      padding-bottom : 0.5em
+      padding-top : 0.5em
   `;
 
   const Option = styled.div`
     background: #333;
-    padding: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   `;
 
   const Btn = styled.div`
@@ -38,51 +30,39 @@ const music = () => {
   `;
 
   return (
-    <Div style={{ boxShadow: '' }}>
+    <Div>
       <Header screens="music" />
 
       <Option>
         <Flex justifyBetween>
-          <div>
-            <Flex>
-              <Btn>
-                <WiTime9
-                  style={{
-                    fontSize: '2em',
-                    color: 'white',
-                    paddingRight: '5px',
-                    paddingTop: '5px',
-                  }}
-                />
-              </Btn>
-              <Btn>
-                <FiSearch
-                  style={{
-                    fontSize: '2em',
-                    color: 'white',
-                    paddingLeft: '5px',
-                    paddingTop: '5px',
-                  }}
-                />
-              </Btn>
-            </Flex>
-          </div>
           <Btn>
-            <div>
-              <Flex>
-                <FiPlus
-                  style={{
-                    fontSize: '1.7em',
-                    color: 'white',
-                    paddingRight: '5px',
-                  }}
-                />
-                <p style={{ color: 'white', paddingTop: '3px' }}> Source </p>
-              </Flex>
-            </div>
+            <Flex>
+              <FiPlus
+                style={{
+                  fontSize: '1.7em',
+                  color: 'white',
+                  paddingRight: '5px',
+                }}
+              />
+              <p style={{ color: 'white', paddingTop: '2px' }}> Source </p>
+            </Flex>
           </Btn>
+
+          <Flex>
+            <Btn>
+              <FiSearch
+                style={{
+                  fontSize: '1.6em',
+                  color: 'white',
+                  paddingLeft: '5px',
+                  paddingTop: '5px',
+                }}
+              />
+            </Btn>
+          </Flex>
         </Flex>
       </Option>
+
       <Body>
         <List />
       </Body>
@@ -92,4 +72,4 @@ const music = () => {
   );
 };
 
-export default observer(music);
+export default inject('MusicStore')(observer(music));

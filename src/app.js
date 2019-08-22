@@ -7,7 +7,7 @@ import Flex from 'styled-flex-component';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react';
 
-import { TodoStore, ModalStore } from './state/stores/index';
+import { TodoStore, ModalStore, MusicStore } from './state/stores/index';
 import client from './data/config';
 
 const electron = window.require('electron');
@@ -41,7 +41,7 @@ const Header = () => {
 
   const Btn = styled.div`
     &:hover {
-      cursor: pointeyarn watfb  
+      cursor: pointeyarn watfb;
     }
   `;
 
@@ -117,7 +117,11 @@ const Header = () => {
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <Provider TodoStore={TodoStore} ModalStore={ModalStore}>
+      <Provider
+        TodoStore={TodoStore}
+        ModalStore={ModalStore}
+        MusicStore={MusicStore}
+      >
         <Suspense fallback={'i am loading here '}>
           <Routes />
         </Suspense>

@@ -51,13 +51,11 @@ const Header = () => {
     color : #fff
   `;
 
-  const Avatar = styled.div`
-    background : grey
-  height: 4vh,
-  width: 15em,
-  border-radius: 60px,
-  border  : 1px solid #fff,
-  padding : 0.5em
+  const Avatar = styled.circle`
+    fill  : grey
+    stroke  : black
+    stroke-width  : 5px 
+    fill-opacity  : 0.5
   &:hover {
       cursor: pointer;
     }
@@ -72,7 +70,8 @@ const Header = () => {
           setColab(false);
         }}
       >
-        <Head>
+        <Head 
+        >
           <Flex justifyBetween>
             <p style={{ paddingLeft: '15px' }}> Collaborate </p>
 

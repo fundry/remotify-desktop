@@ -19,7 +19,6 @@ const SettingNav = (props) => {
   console.log(props.ModalStore.MusicModal);
   console.log(props.ModalStore.toolsModal);
 
-
   const Btn = styled.div`
     &:hover {
       cursor: pointer;
@@ -34,12 +33,7 @@ const SettingNav = (props) => {
     border  :  0px
     border-radius : 3px
   `;
-
-  const MusicHeader = styled.div`
-    background: #3a3a3a;
-    padding: 0.7em;
-  `;
-
+ 
   const Div = {
     background: ' #cdd ',
     padding: '0.5em',
@@ -89,75 +83,63 @@ const SettingNav = (props) => {
       ) : null}
 
       {props.screens == 'music' ? (
-        <MusicHeader>
-          <Flex justifyBetween>
-            <div>
-              <Flex>
-                <FiMusic
-                  style={{
-                    fontSize: '2.2em',
-                    color: 'white',
-                    paddingRight: '5px',
-                  }}
-                />
-                <h5
-                  style={{
-                    color: 'white',
-                    paddingTop: '5px',
-                  }}
-                >
-                  Music
-                </h5>
-              </Flex>
-            </div>
+        <Flex justifyBetween>
+          <div style={{ color: 'blue' }}>
+            <Flex>
+              <FiMusic
+                style={{
+                  fontSize: '1.8em',
+                  paddingRight: '5px',
+                }}
+              />
+              <h6
+                style={{
+                  paddingTop: '5px',
+                }}
+              >
+                Music
+              </h6>
+            </Flex>
+          </div>
 
-            <div
-              onClick={() => {
-                close();
-              }}
-            >
-              <Btn>
-                <FiSettings style={{ fontSize: '2em', color: 'white' }} />
-              </Btn>
-            </div>
-          </Flex>
-        </MusicHeader>
+          <Btn>
+            <FiSettings style={{ fontSize: '1.8em', color: 'blue' }} />
+          </Btn>
+        </Flex>
       ) : null}
 
       {props.screens == 'musicModal' ? (
-        <musicHead>
-          <Flex justifyBetween>
-            <div>
-              <Flex>
-                <FiMusic
-                  style={{
-                    fontSize: '2.2em',
-                    color: 'white',
-                    paddingRight: '5px',
-                  }}
-                />
-                <h5
-                  style={{
-                    color: 'white',
-                    paddingTop: '5px',
-                  }}
-                >
-                  Music
-                </h5>
-              </Flex>
-            </div>
+        <Flex justifyBetween>
+          <div>
+            <Flex>
+              <FiMusic
+                style={{
+                  fontSize: '2.2em',
+                  color: 'white',
+                  paddingRight: '5px',
+                }}
+              />
+              <h5
+                style={{
+                  color: 'white',
+                  paddingTop: '5px',
+                }}
+              >
+                Music
+              </h5>
+            </Flex>
+          </div>
 
-            <div
-              onClick={() => {
-                close();
-              }}
-            >
-              <Btn>
-                <FiX style={{ fontSize: '2em', color: 'white' }} />
-              </Btn>
-            </div>
-          </Flex>
-        </musicHead>
+          <div
+            onClick={() => {
+              close();
+            }}
+          >
+            <Btn>
+              <FiX style={{ fontSize: '2em', color: 'white' }} />
+            </Btn>
+          </div>
+        </Flex>
       ) : null}
 
       {props.screens == 'team' ? (
