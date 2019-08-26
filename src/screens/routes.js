@@ -133,11 +133,15 @@ class Routes extends Component {
       nav.collapse();
     };
 
-    console.log('routes', this.props.ModalStore.ShortcutModal);
+    const modalVisibility = this.props.ModalStore.ShortcutModal.show;
+    const count = this.props.ModalStore.count;
+
+    console.log('routes', modalVisibility);
+    console.log(count);
 
     return (
       <Router history={history}>
-        <Shortcut visiblilty={this.props.ModalStore.ShortcutModal} />
+        <Shortcut visiblilty={modalVisibility} />
         <Sidebar
           style={{
             boxShadow: '0px 0px 0px  1px black',
@@ -205,11 +209,18 @@ class Routes extends Component {
               <br />
               <br />
               <br />
+
               <Link>
-                <Hover onClick={() => this.props.ModalStore.hideShortcut}>
+                <Hover
+                  onClick={() => {
+                    this.props.ModalStore.controlShortcut;
+                    console.log('clicked');
+                  }}
+                >
                   <FiHelpCircle style={{ fontSize: '1.7em' }} />
                 </Hover>
               </Link>
+
               <div style={{ position: 'bottom' }}>
                 <Link>
                   <NavLink to="/settings">
@@ -340,4 +351,4 @@ const main = () => (
 );
 
 // add the main component to make this reactive when the @observer works
-export default inject('ModalStore')(observer(Routes));
+export default inject("ModalStore")(observer(Routes));

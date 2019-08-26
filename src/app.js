@@ -10,12 +10,21 @@ import { Provider } from 'mobx-react';
 import { TodoStore, ModalStore, MusicStore } from './state/stores/index';
 import client from './data/config';
 
+import Icon from './assets/btn-min.svg';
+
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
 
 const Renderer = require('electron').ipcRenderer;
 
 //nav buttons functions  here
+
+// const div = document.getElementById('home');
+
+// const BarImg = new Image();
+
+// BarImg.src = Icon;
+// div.appendChild(BarImg);
 
 const Header = () => {
   const close = () => {
@@ -38,6 +47,10 @@ const Header = () => {
   };
 
   const Nav = styled.div`background: #3a3a3a;`;
+
+  const Hover = styled.div({
+    cursor: 'pointer',
+  });
 
   const Btn = styled.div`
     &:hover {
@@ -62,49 +75,49 @@ const Header = () => {
 
         <div style={{ paddingRight: '7px ' }}>
           <Flex>
-            <div style={{ paddingRight: '50px' }}>
+            <Hover style={{ paddingRight: '50px' }}>
               <img
                 style={{ maxWidth: '1.2em' }}
-                src={'./assets/btn-min.svg'}
+                src={Icon}
                 alt={'dock'}
                 onClick={() => {
                   tray();
                 }}
               />{' '}
-            </div>
+            </Hover>
 
             <div style={{ paddingRight: '5px' }}>
               <Flex>
-                <div style={{ paddingRight: '12px' }}>
+                <Hover style={{ paddingRight: '12px' }}>
                   <img
                     style={{ maxWidth: '1.2em' }}
-                    src={'./assets/btn-min.svg'}
+                    src={Icon}
                     alt={'min'}
                     onClick={() => {
                       tray();
                     }}
                   />{' '}
-                </div>
-                <div style={{ paddingRight: '12px' }}>
+                </Hover>
+                <Hover style={{ paddingRight: '12px' }}>
                   <img
                     style={{ maxWidth: '1.2em' }}
-                    src={'./assets/btn-min.svg'}
+                    src={Icon}
                     alt={'max'}
                     onClick={() => {
                       maximize();
                     }}
                   />
-                </div>
-                <div>
+                </Hover>
+                <Hover>
                   <img
                     style={{ maxWidth: '1.1em', paddingRight: '10px' }}
-                    src={'./assets/btn-close.svg'}
+                    src={Icon}
                     alt={'clos'}
                     onClick={() => {
                       close();
                     }}
                   />
-                </div>
+                </Hover>
               </Flex>
             </div>
           </Flex>

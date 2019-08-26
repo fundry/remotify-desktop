@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Dropdown } from 'react-bootstrap';
 
+import { Keys } from '../../modals';
+
 import { FiSearch, FiImage, FiUploadCloud, FiX } from 'react-icons/fi';
 import { GoFile } from 'react-icons/go';
 import { MdVideoLibrary } from 'react-icons/md';
@@ -119,7 +121,7 @@ const files = () => {
   return (
     <div>
       <Header screens="files" />
-
+      <Keys />
       <div style={{ padding: '0.7em' }}>
         <Flex justifyCenter>
           <Form>
@@ -163,15 +165,26 @@ const files = () => {
               </Browse>
             </div>
           ) : (
-            <div>
-              <p> FILES HERE </p>
+              <div>
+                
+              <div style={{ textAlign: 'center', paddingTop: '30px' }}>
+                  <p>Your storage is currently empty.</p>
+                  
+                <Flex justifyCenter >
+                  <p> Use the </p>
+                  <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+                    <FiUploadCloud style={{ fontSize: '1.5em' }} />
+                  </div>
+                  <p> button to upload files into your storage . </p>
+                </Flex>
+              </div>
             </div>
           )}
         </div>
 
         {!upload ? (
           <Upload
-            style={{ float: 'right' }}
+            style={{ textAlign: 'right' }}
             onClick={() => {
               uploading(true);
             }}

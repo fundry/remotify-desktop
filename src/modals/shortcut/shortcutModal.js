@@ -2,7 +2,6 @@ import React from 'react';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal } from 'react-bootstrap';
-import { observer, inject } from 'mobx-react';
 import ShorcutBody from './shortcuts';
 
 const Shortcut = (props) => {

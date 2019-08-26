@@ -1,34 +1,49 @@
 // this controls all modals within this software
 import { observable, decorate, action } from 'mobx';
 
+console.log('from mobx file');
+
 class ModalStore {
   TodoModal = false;
   PerformanceModal = false;
   miniMusic = false;
   musicSource = false;
-  ShortcutModal = false;
+  ShortcutModal = {
+    show: false,
+  };
   toolsModal = false;
   welcomeModal = false;
+  keysModal = false;
 
-  hideShortcut() {
-    console.log('i am hit ');
-    this.ShortcutModal = true;
-  }
+
+  count = 0
+
+  controlShortcut = () => {
+     this.count += 1 
+    console.log('meeee');
+
+    // ShortcutModal.push({
+    //   show: true,
+    // });
+  };
 }
 
-decorate(ModalStore, {
+const DecoratedModalStore = decorate(ModalStore, {
   //observables here
   TodoModal: observable,
+  count: observable,
   PerformanceModal: observable,
   miniMusic: observable,
   musicSource: observable,
   ShortcutModal: observable,
   toolsModal: observable,
   welcomeModal: observable,
+  keysModal: observable,
 
   //actions here
-  hideShortcut: action,
+  controlShortcut: action,
 });
-const store = new ModalStore();
+
+const store = new DecoratedModalStore();
 
 export default store;

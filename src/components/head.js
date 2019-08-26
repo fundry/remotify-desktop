@@ -13,6 +13,7 @@ import {
   FiX,
 } from 'react-icons/fi';
 import { IoMdVideocam, IoIosCall } from 'react-icons/io';
+import { GoKey } from 'react-icons/go';
 import { observer, inject } from 'mobx-react';
 
 const SettingNav = (props) => {
@@ -33,7 +34,7 @@ const SettingNav = (props) => {
     border  :  0px
     border-radius : 3px
   `;
- 
+
   const Div = {
     background: ' #cdd ',
     padding: '0.5em',
@@ -172,13 +173,19 @@ const SettingNav = (props) => {
           <Screen> Files </Screen>
 
           <IconBody>
-            <Flex>
-              <div style={{ paddingTop: '5px' }}>
+            <div style={{ paddingTop: '2.5px', paddingRight: '10px' }}>
+              <Flex>
+                <div style={{ paddingRight: '7px' }}>
+                  <Link to="/">
+                    <GoKey style={{ fontSize: '1.5em' }} />
+                  </Link>
+                </div>
+
                 <Link to="/settings">
                   <FiSettings style={{ fontSize: '1.5em' }} />
                 </Link>
-              </div>
-            </Flex>
+              </Flex>
+            </div>
           </IconBody>
         </Flex>
       ) : null}

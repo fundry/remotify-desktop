@@ -22,9 +22,22 @@ const renderer = merge(base, {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-    ],  
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      // for preact-react config
+      // {
+      //   resolve: {
+      //     alias: {
+      //       react: 'preact-compat',
+      //       'react-dom': 'preact-compat',
+      //     },
+      //   },
+      // },
+    ],
   },
-  plugins: [ 
+  plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       cache: true,
