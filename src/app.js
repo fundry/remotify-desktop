@@ -17,14 +17,6 @@ const ipc = electron.remote.getCurrentWindow();
 
 const Renderer = require('electron').ipcRenderer;
 
-//nav buttons functions  here
-
-// const div = document.getElementById('home');
-
-// const BarImg = new Image();
-
-// BarImg.src = Icon;
-// div.appendChild(BarImg);
 
 const Header = () => {
   const close = () => {
