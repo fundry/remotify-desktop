@@ -50,10 +50,13 @@ const SettingNav = (props) => {
 
   const IconBody = styled.div`
     border: 0.5px solid black
-    padding: 0.5em
+    padding: 0.2em
     border-radius: 2.5px
     padding-right: 5px
     margin-right : 15px
+    &:hover {
+      cursor: pointer;
+    }
   `;
 
   return (
@@ -148,7 +151,7 @@ const SettingNav = (props) => {
           <Screen> Team </Screen>
           <IconBody>
             <Flex>
-              <div style={{ paddingTop: '5px' }}>
+              <div style={{ paddingTop: '2px' }}>
                 <Link to="/settings">
                   <IoIosCall style={{ fontSize: '1.5em' }} />
                 </Link>
@@ -222,7 +225,7 @@ const SettingNav = (props) => {
                 <FiPlus style={{ fontSize: '1.5em' }} />
               </Link>
 
-              <div style={{ paddingRight: '10px' }}>
+              <div style={{ paddingRight: '10px', paddingLeft: '5px' }}>
                 <p>Add Tool </p>
               </div>
             </Flex>
