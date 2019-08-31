@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add trello
+  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-dropzone
 
 PATH: 
   C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NoteBook FanControl\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\php;C:\Go\bin;C:\Users\Iamnwani\Desktop\Cmder;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\;C:\Users\Iamnwani\AppData\Local\Microsoft\WindowsApps;C:\Users\Iamnwani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\platform-tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\emulator;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Oracle\VirtualBox;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib;C:\Users\Iamnwani\AppData\Roaming\npm;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\WebStorm 2019.1\bin;;C:\Users\Iamnwani\go\bin;C:\Program Files\heroku\bin;C:\Users\Iamnwani\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin
@@ -14,17 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.12.tgz: ESOCKETTIMEDOUT
-      at ClientRequest.<anonymous> (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129645:19)
-      at Object.onceWrapper (events.js:273:13)
-      at ClientRequest.emit (events.js:182:13)
-      at TLSSocket.emitRequestTimeout (_http_client.js:662:40)
-      at Object.onceWrapper (events.js:273:13)
-      at TLSSocket.emit (events.js:182:13)
-      at TLSSocket.Socket._onTimeout (net.js:453:8)
-      at ontimeout (timers.js:436:11)
-      at tryOnTimeout (timers.js:300:5)
-      at listOnTimeout (timers.js:263:5)
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
 
 npm manifest: 
   {
@@ -125,6 +116,7 @@ npm manifest:
   		"rxjs": "^6.5.2",
   		"styled-components": "^4.3.1",
   		"styled-flex-component": "^3.0.0",
+  		"trello": "^0.9.1",
   		"zoomus-jssdk": "^1.5.0"
   	},
   	"eslintConfig": {
@@ -5594,6 +5586,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
     integrity sha512-HJDGx5daxeIvxdBxvG2cb9g4tEvwIk3i8+nhX0yGrYmZUzbkdg8QbDevheDB8gd0//uPj4c1EQua8Q+MViT0/w==
   
+  es6-promise@~3.0.2:
+    version "3.0.2"
+    resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.0.2.tgz#010d5858423a5f118979665f46486a95c6ee2bb6"
+    integrity sha1-AQ1YWEI6XxGJeWZfRkhqlcbuK7Y=
+  
   es6-promisify@^5.0.0:
     version "5.0.0"
     resolved "https://registry.yarnpkg.com/es6-promisify/-/es6-promisify-5.0.0.tgz#5109d62f3e56ea967c4b63505aef08291c8a5203"
@@ -7184,6 +7181,11 @@ Lockfile:
     version "1.0.3"
     resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.3.tgz#097bb7fa0b8f1a9cf0bd5c734cf95899981a9b48"
     integrity sha512-EcuixamT82oplpoJ2XU4pDtKGWQ7b00CD9f1ug9IaQ3p1bkHMiKCZ9ut9QDI6qsa6cpUuB+A/I+zLtdNK4n2DQ==
+  
+  iconv-lite@0.2.11:
+    version "0.2.11"
+    resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.2.11.tgz#1ce60a3a57864a292d1321ff4609ca4bb965adc8"
+    integrity sha1-HOYKOleGSiktEyH/RgnKS7llrcg=
   
   iconv-lite@0.4, iconv-lite@0.4.24, iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
     version "0.4.24"
@@ -9805,7 +9807,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
     integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
   
-  object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+  object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1, object-assign@~4.1.0:
     version "4.1.1"
     resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
     integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -11103,6 +11105,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
     integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
   
+  qs@1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/qs/-/qs-1.2.0.tgz#ed079be28682147e6fd9a34cc2b0c1e0ec6453ee"
+    integrity sha1-7Qeb4oaCFH5v2aNMwrDB4OxkU+4=
+  
   qs@~6.4.0:
     version "6.4.0"
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
@@ -12036,6 +12043,16 @@ Lockfile:
     integrity sha512-B/dOmuoAik5bKcD6s6nXDCjzUKnaDvdkRyAk6rsmsKLipWj4797iothd7jmmUhWTfinVMU+wc56rYKsit2Qy4w==
     dependencies:
       path-parse "^1.0.6"
+  
+  restler@~3.3.0:
+    version "3.3.0"
+    resolved "https://registry.yarnpkg.com/restler/-/restler-3.3.0.tgz#f93a59b5e1bc2c5ad0c2b973f78129b2181b6076"
+    integrity sha1-+TpZteG8LFrQwrlz94EpshgbYHY=
+    dependencies:
+      iconv-lite "0.2.11"
+      qs "1.2.0"
+      xml2js "0.4.0"
+      yaml "0.2.3"
   
   restore-cursor@^1.0.1:
     version "1.0.1"
@@ -13415,6 +13432,15 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.3.9.tgz#717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9"
     integrity sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk=
   
+  trello@^0.9.1:
+    version "0.9.1"
+    resolved "https://registry.yarnpkg.com/trello/-/trello-0.9.1.tgz#108011933a64bf5247f925492806a472dd0615fd"
+    integrity sha512-Dwkzk7ugLvhkYYFFl8bmtRjpnE6ZQ+GTzwZyMHv+BkoroS+ntOAaX3raJExgxGRx2f/+WYsuS5xZzjEVRoIGuQ==
+    dependencies:
+      es6-promise "~3.0.2"
+      object-assign "~4.1.0"
+      restler "~3.3.0"
+  
   trim-newlines@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
@@ -14191,6 +14217,14 @@ Lockfile:
     dependencies:
       sax "0.4.2"
   
+  xml2js@0.4.0:
+    version "0.4.0"
+    resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.0.tgz#124fc4114b4129c810800ecb2ac86cf25462cb9a"
+    integrity sha1-Ek/EEUtBKcgQgA7LKshs8lRiy5o=
+    dependencies:
+      sax "0.5.x"
+      xmlbuilder ">=0.4.2"
+  
   xml2js@0.4.19, xml2js@^0.4.16, xml2js@^0.4.5:
     version "0.4.19"
     resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
@@ -14208,6 +14242,11 @@ Lockfile:
     version "8.2.2"
     resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-8.2.2.tgz#69248673410b4ba42e1a6136551d2922335aa773"
     integrity sha1-aSSGc0ELS6QuGmE2VR0pIjNap3M=
+  
+  xmlbuilder@>=0.4.2:
+    version "13.0.2"
+    resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-13.0.2.tgz#02ae33614b6a047d1c32b5389c1fdacb2bce47a7"
+    integrity sha512-Eux0i2QdDYKbdbA6AM6xE4m6ZTZr4G4xF9kahI2ukSEMCzwce2eX9WlTI5J3s+NU7hpasFsr8hWIONae7LluAQ==
   
   xmlbuilder@^9.0.7, xmlbuilder@~9.0.1:
     version "9.0.7"
@@ -14255,6 +14294,11 @@ Lockfile:
     version "3.0.3"
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.3.tgz#b4b049e314be545e3ce802236d6cd22cd91c3de9"
     integrity sha512-S+Zk8DEWE6oKpV+vI3qWkaK+jSbIK86pCwe2IF/xwIpQ8jEuxpw9NyaGjmp9+BoJv5FV2piqCDcoCtStppiq2A==
+  
+  yaml@0.2.3:
+    version "0.2.3"
+    resolved "https://registry.yarnpkg.com/yaml/-/yaml-0.2.3.tgz#b5450e92e76ef36b5dd24e3660091ebaeef3e5c7"
+    integrity sha1-tUUOkudu82td0k42YAkeuu7z5cc=
   
   yargs-parser@^11.1.1:
     version "11.1.1"

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { FiMoreHorizontal, FiPlus, FiEdit2 } from 'react-icons/fi';
+import trello  from 'trello'
 
 import Header from '../../components/head';
 
