@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { FiMoreHorizontal, FiPlus, FiEdit2 } from 'react-icons/fi';
-import trello  from 'trello'
+import Trello from 'trello-node-api';
 
+import THead from './Head';
 import Header from '../../components/head';
 
 const team = () => {
@@ -64,6 +65,7 @@ const team = () => {
   return (
     <div>
       <Header screens="team" />
+      <THead />
 
       <Div>
         <Cards>
