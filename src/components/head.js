@@ -27,7 +27,7 @@ const SettingNav = (props) => {
   `;
 
   const Search = styled.input`  
-    width : 23em'
+    width : 23em
     height : 4.5vh
     padding-left : 15px
     background : transparent

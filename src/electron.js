@@ -1,4 +1,4 @@
-// i need to split this file later 
+// i need to split this file later !!
 import { app, BrowserWindow, ipcMain, Tray, Menu, dialog } from 'electron';
 // import { enableLiveReload } from 'electron-compile';
 import path from 'path';

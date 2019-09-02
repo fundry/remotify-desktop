@@ -89,6 +89,14 @@ const Settings = () => {
   /*
 using local storage ================>>>>
 
+   
+using local storage ================>>>>
+*/
+
+  return (
+    <div>
+      <Head screens="setting" />
+
       <Flex>
         <input
           placeholder="name"
@@ -111,12 +119,6 @@ using local storage ================>>>>
           READ FROM STORAGE
         </button>
       </Flex>
-using local storage ================>>>>
-*/
-
-  return (
-    <div>
-      <Head screens="setting" />
 
       <Body>
         {hooks >= 700 ? (
