@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import {
@@ -7,6 +7,7 @@ import {
   FiRepeat,
   FiSkipBack,
   FiSkipForward,
+  FiPause
 } from 'react-icons/fi';
 
 const Music = styled.div``;
@@ -19,8 +20,9 @@ const Btn = styled.div`
   }
 `;
 
-
 const controls = () => {
+  const [Play, setPlay] = useState(false);
+
   return (
     <Div>
       <Flex justifyBetween>
@@ -37,8 +39,14 @@ const controls = () => {
               <FiSkipBack style={{ fontSize: '2.2em', color: 'black' }} />
             </Btn>
           </div>
-          <div style={{ paddingRight: '10px' }}>
-            <Btn>
+
+          {!Play ? (
+            <Btn
+              style={{ paddingRight: '10px' }}
+              onClick={() => {
+                setPlay(true);
+              }}
+            >
               <FiPlay
                 style={{
                   fontSize: '3.5em',
@@ -47,7 +55,23 @@ const controls = () => {
                 }}
               />
             </Btn>
-          </div>
+          ) : (
+            <Btn
+              style={{ paddingRight: '10px' }}
+              onClick={() => {
+                setPlay(false);
+              }}
+            >
+              <FiPause
+                style={{
+                  fontSize: '3.5em',
+                  color: 'black',
+                  paddingBottom: '10px',
+                }}
+              />
+            </Btn>
+          )}
+
           <div style={{ paddingLeft: '5px' }}>
             <Btn>
               <FiSkipForward style={{ fontSize: '2.2em', color: 'black' }} />

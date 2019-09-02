@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { FiMoreHorizontal, FiPlus, FiEdit2 } from 'react-icons/fi';
@@ -6,6 +6,7 @@ import Trello from 'trello-node-api';
 
 import THead from './Head';
 import Header from '../../components/head';
+import Team from './teamModal';
 
 const team = () => {
   const Div = styled.div`padding: 1em;`;
@@ -24,7 +25,7 @@ const team = () => {
 
   const Cards = styled.div({
     ...autoGrid(250, 20),
-    padding: '3em',
+    padding: '2em',
   });
 
   const Head = styled.div({
@@ -45,6 +46,10 @@ const team = () => {
     padding-top : 10px
   `;
 
+  const Hover = styled.div({
+    cursor: 'pointer',
+  });
+
   const data = [
     {
       1: {
@@ -62,18 +67,28 @@ const team = () => {
     },
   ];
 
+  const [Visible, setVisible] = useState(false);
+
   return (
     <div>
       <Header screens="team" />
       <THead />
 
       <Div>
+        <Team visible={Visible} />
         <Cards>
           <Card>
             <Head>
               <Flex justifyBetween>
                 <p> My Schedule </p>
-                <FiMoreHorizontal style={{ fontSize: '2em' }} />
+
+                <Hover
+                  onClick={() => {
+                    setVisible(true);
+                  }}
+                >
+                  <FiMoreHorizontal style={{ fontSize: '2em' }} />
+                </Hover>
               </Flex>
             </Head>
 

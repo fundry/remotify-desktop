@@ -29,17 +29,21 @@ const Button = styled.div`
 `;
 
 const Input = styled.input({
-  padding: '1em',
+  padding: '0.5em',
   paddingLeft: '2em',
-  width: '26em',
+  width: '22em',
+  height: '4vh',
   border: '0px',
+  fontSize: '0.9em',
   background: 'transparent',
+  color: '#fff',
 });
 
 const Box = styled.div({
+  padding: '0.5em',
   border: '1px solid #361f94 ',
-  borderRadius: '0px 15px 15px 0px',
-  height: '7vh',
+  borderRadius: '5px',
+  height: '5vh',
 });
 
 const Hover = styled.div({
@@ -62,7 +66,14 @@ const Head = () => {
           >
             Team
           </Button>
-          <Button>Personal</Button>
+          <Button
+            style={{ background: !selected ? ' #0e2f5a' : '#fff' }}
+            onClick={() => {
+              select(true);
+            }}
+          >
+            Personal
+          </Button>
         </Flex>
 
         <DiTrello style={{ fontSize: '2em' }} />
@@ -75,14 +86,14 @@ const Head = () => {
                   setSearch(true);
                 }}
               >
-                <FiSearch style={{ fontSize: '1.7em' }} />
+                <FiSearch style={{ fontSize: '1.4em' }} />
               </Hover>
             ) : (
               <Box>
                 <Flex>
                   <Input placeholder="Search" />
 
-                  <FiSearch style={{ fontSize: '1.7em' }} />
+                  <FiSearch style={{ fontSize: '1.4em' }} />
                 </Flex>
               </Box>
             )}
