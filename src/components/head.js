@@ -27,12 +27,13 @@ const SettingNav = (props) => {
   `;
 
   const Search = styled.input`  
-    width : 23em
-    height : 4.5vh
+    width : 22em
+    height : 4vh
     padding-left : 15px
     background : transparent
     border  :  0px
-    border-radius : 3px
+    border-radius : 5px
+    font-size : 0.9em
   `;
 
   const Div = {
@@ -43,7 +44,7 @@ const SettingNav = (props) => {
   };
 
   const Screen = styled.h5`
-  padding-top : 15px
+  padding-top : 10px
   padding-left: 15px
   ;
   `;
@@ -67,8 +68,8 @@ const SettingNav = (props) => {
           <form
             style={{
               border: '1px solid black',
-              padding: '0.2em',
-              borderRadius: '5px',
+              padding: '0.1em',
+              borderRadius: '3px',
               paddingRight: '10px',
               marginRight: '15px',
             }}
@@ -76,9 +77,9 @@ const SettingNav = (props) => {
             <Flex>
               <Search placeholder="Search Settings" />
 
-              <div style={{ paddingTop: '5px' }}>
+              <div style={{ paddingTop: '2px' }}>
                 <Link to="/settings">
-                  <FiSearch style={{ fontSize: '1.5em' }} />
+                  <FiSearch style={{ fontSize: '1.3em' }} />
                 </Link>
               </div>
             </Flex>

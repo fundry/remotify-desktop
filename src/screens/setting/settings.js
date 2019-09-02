@@ -121,51 +121,42 @@ using local storage ================>>>>
       </Flex>
 
       <Body>
-        {hooks >= 700 ? (
-          <div>
-            <List height={460} itemSize={50} itemCount={4} width="100%">
-              {() => <Setting />}
-            </List>
-          </div>
-        ) : (
-          <div>
-            <div style={{ marginLeft: '2em', marginRight: '2em' }}>
-              <Flex justifyBetween>
-                <Flex>
-                  <FiUser style={{ fontSize: '1.3em' }} />
-                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                    Account
-                  </h6>
-                </Flex>
-
-                <Flex>
-                  <FiUser style={{ fontSize: '1.3em' }} />
-                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                    Account
-                  </h6>
-                </Flex>
-
-                <Flex>
-                  <FiUser style={{ fontSize: '1.3em' }} />
-                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                    Account
-                  </h6>
-                </Flex>
-
-                <Flex>
-                  <FiUser style={{ fontSize: '1.3em' }} />
-                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                    Account
-                  </h6>
-                </Flex>
+        <div>
+          <div style={{ marginLeft: '2em', marginRight: '2em' }}>
+            <Flex justifyBetween>
+              <Flex>
+                <FiUser style={{ fontSize: '1.3em' }} />
+                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                  Accounts
+                </h6>
               </Flex>
-            </div>
-            <hr />
-            <List height={480} itemSize={60} itemCount={4} width="100%">
-              {() => <Setting />}
-            </List>
+
+              <Flex>
+                <FiUser style={{ fontSize: '1.3em' }} />
+                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                  Personalize
+                </h6>
+              </Flex>
+
+              <Flex>
+                <FiUser style={{ fontSize: '1.3em' }} />
+                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                  Files
+                </h6>
+              </Flex>
+
+              <Flex>
+                <FiUser style={{ fontSize: '1.3em' }} />
+                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Team</h6>
+              </Flex>
+            </Flex>
           </div>
-        )}
+          <hr />
+
+          <List height={510} itemSize={100} itemCount={20} width="100%">
+            {() => <Setting />}
+          </List>
+        </div>
       </Body>
     </div>
   );
