@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
   plugins: [
@@ -6,10 +6,10 @@ const config = {
       test: /\.js($|\?)/i,
       sourceMap: true,
       uglifyOptions: {
-        compress: true
-      }
-    })
-  ]
+        compress: true,
+      },
+    }),
+  ],
 };
 
 module.exports = config;

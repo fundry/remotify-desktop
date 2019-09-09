@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const base = require('./webpack.base.config');
 const buildPath = path.resolve(__dirname, './dist');
 
+const UJS = require('uglifyjs-webpack-plugin');
+
 const renderer = merge(base, {
   entry: { mainRenderer: './src/app.js', authRenderer: './src/auth.js' },
   output: {
@@ -26,7 +28,7 @@ const renderer = merge(base, {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
       },
-      // for preact-react config
+      // for preact-react config ===========>
       // {
       //   resolve: {
       //     alias: {
@@ -66,6 +68,8 @@ const renderer = merge(base, {
         removeStyleLinkTypeAttributes: true,
       },
     }),
+
+    new UJS(),
   ],
   target: 'electron-renderer',
 });

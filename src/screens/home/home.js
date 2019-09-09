@@ -16,6 +16,7 @@ import { observer } from 'mobx-react';
 import { Todo as Todos } from '../../components/index';
 import { TEST } from '../../data/queries';
 import { Welcome } from '../../modals/';
+import { Keep } from '../../extensions/';
 
 /* 
  sample  gql query 
@@ -195,6 +196,8 @@ const Home = (props) => {
               </Flex>
             </div>
           </Flex>
+
+          <Keep />
         </div>
       </div>
     </div>

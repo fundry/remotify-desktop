@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-dropzone
+  C:\Program Files\nodejs\node.exe C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add uglify-webpack-plugin
 
 PATH: 
   C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Docker\Docker\Resources\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NoteBook FanControl\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\php;C:\Go\bin;C:\Users\Iamnwani\Desktop\Cmder;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Iamnwani\AppData\Local\Programs\Python\Python37\;C:\Users\Iamnwani\AppData\Local\Microsoft\WindowsApps;C:\Users\Iamnwani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\platform-tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools;C:\Users\Iamnwani\AppData\Local\Android\Sdk\tools\bin;C:\Users\Iamnwani\AppData\Local\Android\Sdk\emulator;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Oracle\VirtualBox;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib;C:\Users\Iamnwani\AppData\Roaming\npm;C:\Users\Iamnwani\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\JetBrains\WebStorm 2019.1\bin;;C:\Users\Iamnwani\go\bin;C:\Program Files\heroku\bin;C:\Users\Iamnwani\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin
@@ -14,8 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+  Error: https://registry.yarnpkg.com/uglify-webpack-plugin: Not found
+      at Request.params.callback [as _callback] (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:65894:18)
+      at Request.self.callback (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129018:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129990:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (C:\Users\Iamnwani\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:129912:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1094:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
   {
@@ -78,6 +87,7 @@ npm manifest:
   		"apollo-link": "^1.2.12",
   		"apollo-link-error": "^1.1.11",
   		"apollo-link-http": "^1.5.15",
+  		"babel-loader": "^8.0.6",
   		"d3": "^5.10.0",
   		"dotenv": "^8.0.0",
   		"dotenv-cli": "^2.0.1",
@@ -102,6 +112,7 @@ npm manifest:
   		"react-bootstrap": "^1.0.0-beta.9",
   		"react-desktop": "^0.3.9",
   		"react-dom": "^16.8.3",
+  		"react-dropzone": "^10.1.8",
   		"react-hot-loader": "^4.11.1",
   		"react-icons": "^3.7.0",
   		"react-kawaii": "^0.14.4",
@@ -117,6 +128,8 @@ npm manifest:
   		"styled-components": "^4.3.1",
   		"styled-flex-component": "^3.0.0",
   		"trello": "^0.9.1",
+  		"trello-node-api": "^0.0.7",
+  		"uglify-js": "^3.6.0",
   		"zoomus-jssdk": "^1.5.0"
   	},
   	"eslintConfig": {
@@ -2175,6 +2188,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
     integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
   
+  attr-accept@^1.1.3:
+    version "1.1.3"
+    resolved "https://registry.yarnpkg.com/attr-accept/-/attr-accept-1.1.3.tgz#48230c79f93790ef2775fcec4f0db0f5db41ca52"
+    integrity sha512-iT40nudw8zmCweivz6j58g+RT33I4KbaIvRUhjNmDwO2WmsQUxFEZZYZ5w3vXe5x5MX9D7mfvA/XaLOZYFR9EQ==
+    dependencies:
+      core-js "^2.5.0"
+  
   author-regex@^1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/author-regex/-/author-regex-1.0.0.tgz#d08885be6b9bbf9439fe087c76287245f0a81450"
@@ -2419,6 +2439,16 @@ Lockfile:
       babel-preset-jest "^24.6.0"
       chalk "^2.4.2"
       slash "^2.0.0"
+  
+  babel-loader@^8.0.6:
+    version "8.0.6"
+    resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.6.tgz#e33bdb6f362b03f4bb141a0c21ab87c501b70dfb"
+    integrity sha512-4BmWKtBOBm13uoUwd08UwjZlaw3O9GWf456R9j+5YykFZ6LUIjIKLc0zEZf+hauxPOJs96C8k6FvYD09vWzhYw==
+    dependencies:
+      find-cache-dir "^2.0.0"
+      loader-utils "^1.0.2"
+      mkdirp "^0.5.1"
+      pify "^4.0.1"
   
   babel-messages@^6.23.0:
     version "6.23.0"
@@ -6148,6 +6178,13 @@ Lockfile:
       loader-utils "^1.2.3"
       schema-utils "^2.0.0"
   
+  file-selector@^0.1.11:
+    version "0.1.12"
+    resolved "https://registry.yarnpkg.com/file-selector/-/file-selector-0.1.12.tgz#fe726547be219a787a9dcc640575a04a032b1fd0"
+    integrity sha512-Kx7RTzxyQipHuiqyZGf+Nz4vY9R1XGxuQl/hLoJwq+J4avk/9wxxgZyHKtbyIPJmbD4A66DWGYfyykWNpcYutQ==
+    dependencies:
+      tslib "^1.9.0"
+  
   file-type@^3.1.0:
     version "3.9.0"
     resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
@@ -8714,7 +8751,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
     integrity sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw==
   
-  loader-utils@1.2.3, loader-utils@^1.0.0, loader-utils@^1.1.0, loader-utils@^1.2.3:
+  loader-utils@1.2.3, loader-utils@^1.0.0, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
     version "1.2.3"
     resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
     integrity sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
@@ -8812,6 +8849,11 @@ Lockfile:
     version "4.5.0"
     resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
     integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
+  
+  lodash.isplainobject@^4.0.6:
+    version "4.0.6"
+    resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+    integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
   
   lodash.memoize@^4.1.2:
     version "4.1.2"
@@ -11115,7 +11157,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
     integrity sha1-E+JtKK1rD/qpExLNO/cI7TUecjM=
   
-  qs@~6.5.2:
+  qs@~6.5.1, qs@~6.5.2:
     version "6.5.2"
     resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
     integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
@@ -11303,6 +11345,15 @@ Lockfile:
       object-assign "^4.1.1"
       prop-types "^15.6.2"
       scheduler "^0.13.6"
+  
+  react-dropzone@^10.1.8:
+    version "10.1.8"
+    resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-10.1.8.tgz#348895a3ee9efe7c0f6a2f19642f04704c170757"
+    integrity sha512-Lm6+TxIDf/my4i3VdYmufRcrJ4SUbSTJP3HB49V2+HNjZwLI4NKVkaNRHwwSm9CEuzMP+6SW7pT1txc1uBPfDg==
+    dependencies:
+      attr-accept "^1.1.3"
+      file-selector "^0.1.11"
+      prop-types "^15.7.2"
   
   react-fast-compare@^2.0.1:
     version "2.0.4"
@@ -13432,6 +13483,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.3.9.tgz#717b8f220cc0bb7b44e40514c22b2e8bbc70d8b9"
     integrity sha1-cXuPIgzAu3tE5AUUwisui7xw2Lk=
   
+  trello-node-api@^0.0.7:
+    version "0.0.7"
+    resolved "https://registry.yarnpkg.com/trello-node-api/-/trello-node-api-0.0.7.tgz#1990042810e05781a9da0732ade4472291c7aa4d"
+    integrity sha512-2/VlfM3q0lTV6/nzP8L2KnVYssZqnYlWtEHMMJ6KGWy+xTonbXYEy0ZOAvXoodR5NEmVGyeujgXD0L5wSo/M6w==
+    dependencies:
+      bluebird "^3.5.0"
+      debug "^4.1.0"
+      lodash.isplainobject "^4.0.6"
+      qs "~6.5.1"
+      safe-buffer "^5.1.1"
+  
   trello@^0.9.1:
     version "0.9.1"
     resolved "https://registry.yarnpkg.com/trello/-/trello-0.9.1.tgz#108011933a64bf5247f925492806a472dd0615fd"
@@ -13559,7 +13621,7 @@ Lockfile:
     optionalDependencies:
       uglify-to-browserify "~1.0.0"
   
-  uglify-js@^3.1.4, uglify-js@^3.5.12:
+  uglify-js@^3.1.4, uglify-js@^3.5.12, uglify-js@^3.6.0:
     version "3.6.0"
     resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.6.0.tgz#704681345c53a8b2079fb6cec294b05ead242ff5"
     integrity sha512-W+jrUHJr3DXKhrsS7NUVxn3zqMOFn0hL/Ei6v0anCIMoKC93TjcflTagwIHLW7SfMFfiQuktQyFVCFHGUE0+yg==
