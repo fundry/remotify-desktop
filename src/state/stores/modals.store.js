@@ -4,21 +4,20 @@ import { observable, decorate, action } from 'mobx';
 console.log('from mobx file');
 
 class ModalStore {
-  @observable TodoModal = false;
-  @observable PerformanceModal = false;
-  @observable miniMusic = false;
-  @observable musicSource = false;
-  @observable
+  TodoModal = false;
+  PerformanceModal = false;
+  miniMusic = false;
+  musicSource = false;
+
   ShortcutModal = {
     show: false,
   };
-  @observable toolsModal = false;
-  @observable welcomeModal = false;
-  @observable keysModal = false;
+  toolsModal = false;
+  welcomeModal = false;
+  keysModal = false;
 
-  @observable count = 0;
+  count = 0;
 
-  @observable
   Shortcut = () => {
     this.count += 1;
     console.log('meeee');
@@ -29,24 +28,22 @@ class ModalStore {
   };
 }
 
-// const DecoratedModalStore = decorate(ModalStore, {
-//   //observables here
-//   TodoModal: observable,
-//   count: observable,
-//   PerformanceModal: observable,
-//   miniMusic: observable,
-//   musicSource: observable,
-//   ShortcutModal: observable,
-//   toolsModal: observable,
-//   welcomeModal: observable,
-//   keysModal: observable,
+const DecoratedModalStore = decorate(ModalStore, {
+  //observables here
+  TodoModal: observable,
+  count: observable,
+  PerformanceModal: observable,
+  miniMusic: observable,
+  musicSource: observable,
+  ShortcutModal: observable,
+  toolsModal: observable,
+  welcomeModal: observable,
+  keysModal: observable,
 
-//   //actions here
-//   controlShortcut: action,
-// });
+  //actions here
+  controlShortcut: action,
+});
 
-// const store = new DecoratedModalStore();
-
-const store = new ModalStore();
+const store = new DecoratedModalStore();
 
 export default store;

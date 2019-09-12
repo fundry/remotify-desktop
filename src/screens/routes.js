@@ -107,8 +107,6 @@ const Hover = styled.div`
 
 const history = createHashHistory({});
 
-@inject('ModalStore')
-@observer
 class Routes extends Component {
   constructor(props) {
     super(props);
@@ -136,11 +134,8 @@ class Routes extends Component {
     };
 
     const modalVisibility = this.props.ModalStore.ShortcutModal.show;
-    const count = this.props.ModalStore.count;
 
     console.log('routes', modalVisibility);
-    console.log(count);
-    const Shortcut = this.props.ModalStore;
     return (
       <Router history={history}>
         <Shortcut visiblilty={modalVisibility} />
@@ -215,7 +210,6 @@ class Routes extends Component {
               <Link>
                 <Hover
                   onClick={() => {
-                    Shortcut.Shortcut;
                     console.log('clicked');
                   }}
                 >
@@ -339,20 +333,19 @@ class Routes extends Component {
   }
 }
 
-const startWithAndDelay = (message, time) =>
-  pipe(delay(time), startWith({ message }));
+// const startWithAndDelay = (message, time) =>
+//   pipe(delay(time), startWith({ message }));
 
-const message$ = of({ any: <Routes /> });
+// const message$ = of({ any: <Routes /> });
 
-const main = () => (
-  <div>
-    <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
-      {({ any }) => <div>{any}</div>}
-    </Stream>
-  </div>
-);
+// const main = () => (
+//   <div>
+//     <Stream source={message$} pipe={startWithAndDelay('.', 1000)}>
+//       {({ any }) => <div>{any}</div>}
+//     </Stream>
+//   </div>
+// );
 
 // add the main component to make this reactive when the @observer works
-// export default inject("ModalStore")(observer(Routes));
-
-export default Routes;
+export default inject('ModalStore')(observer(Routes));
+// export default Routes;
