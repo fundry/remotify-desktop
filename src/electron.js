@@ -75,7 +75,6 @@ app.on('activate', () => {
   }
 });
 
-
 // to select user files in file  component
 ipcMain.on('open-file-dialog', (event, arg) => {
   dialog.showOpenDialog(
@@ -90,6 +89,19 @@ ipcMain.on('open-file-dialog', (event, arg) => {
   );
 });
 
+// to select user files in file  component
+ipcMain.on('open-music-dialog', (event, arg) => {
+  dialog.showOpenDialog(
+    {
+      properties: ['openDirectory'],
+    },
+    (files) => {
+      if (files) {
+        event.sender.send('selected-directory', files);
+      }
+    }
+  );
+});
 
 // testing local-json-storage
 ipcMain.on('test-storage', (event, arg) => {

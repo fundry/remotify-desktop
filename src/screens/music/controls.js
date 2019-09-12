@@ -7,8 +7,9 @@ import {
   FiRepeat,
   FiSkipBack,
   FiSkipForward,
-  FiPause
+  FiPause,
 } from 'react-icons/fi';
+import { Howl, Howler } from 'howler';
 
 const Music = styled.div``;
 
@@ -22,6 +23,19 @@ const Btn = styled.div`
 
 const controls = () => {
   const [Play, setPlay] = useState(false);
+
+  const playMusic = () => {
+    setPlay(true);
+
+    const sound = new Howl({
+      src: ['sound.mp3'],
+      volume: 2,
+    });
+
+    sound.play();
+
+    console.log('play music fun');
+  };
 
   return (
     <Div>
@@ -44,7 +58,7 @@ const controls = () => {
             <Btn
               style={{ paddingRight: '10px' }}
               onClick={() => {
-                setPlay(true);
+                playMusic();
               }}
             >
               <FiPlay

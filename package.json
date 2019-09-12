@@ -71,6 +71,7 @@
 		"formik": "^1.5.8",
 		"graphql-tag": "^2.10.1",
 		"history": "^4.9.0",
+		"howler": "^2.1.2",
 		"husky": "^2.4.1",
 		"mobx": "^5.11.0",
 		"mobx-react": "^6.1.1",
