@@ -107,6 +107,8 @@ const Hover = styled.div`
 
 const history = createHashHistory({});
 
+@inject('ModalStore')
+@observer
 class Routes extends Component {
   constructor(props) {
     super(props);
@@ -138,7 +140,7 @@ class Routes extends Component {
 
     console.log('routes', modalVisibility);
     console.log(count);
-
+    const Shortcut = this.props.ModalStore;
     return (
       <Router history={history}>
         <Shortcut visiblilty={modalVisibility} />
@@ -213,7 +215,7 @@ class Routes extends Component {
               <Link>
                 <Hover
                   onClick={() => {
-                    this.props.ModalStore.controlShortcut;
+                    Shortcut.Shortcut;
                     console.log('clicked');
                   }}
                 >
@@ -351,4 +353,6 @@ const main = () => (
 );
 
 // add the main component to make this reactive when the @observer works
-export default inject("ModalStore")(observer(Routes));
+// export default inject("ModalStore")(observer(Routes));
+
+export default Routes;

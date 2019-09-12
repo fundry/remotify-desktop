@@ -8,26 +8,34 @@ const addNote = () => {
   const notes = useState({});
   const [note, setNote] = useState(false);
 
+  const Div = styled.div({
+    maxWidth: '50%',
+    padding: '0.5em',
+  });
+
   const InputBox = styled.div({
-    height: '6vh',
+    height: '6.5vh',
     width: '30em',
-    padding: '0.3em',
+    padding: '0.1em',
     background: '#fff',
     borderRadius: '10px',
   });
 
   const Input = styled.input({
-    height: '5.5vh',
+    height: '6vh',
     width: '23em',
     padding: '0.5em',
     borderWidth: '0px',
+    borderRadius: '10px',
   });
 
   const Head = styled.div`
     background : black 
-    padding : 1em
+    padding : 0.5em
     color : white
-    padding-bottom : 20px
+    padding-bottom : 20px 
+    padding-left : 15px  
+    padding-right : 15px
     height  : 10vh
     border-radius : 20px
   `;
@@ -52,11 +60,11 @@ const addNote = () => {
     `;
 
   return (
-    <div>
-      <Head>
+    <Div>
+      <Head style={{ boxShadow: '0px 2px 3px grey' }}>
         {note ? (
           <InputBox>
-            <Flex>
+            <Flex justifyBetween>
               <Input placeholder="Add Note" />
 
               <Hover
@@ -66,7 +74,7 @@ const addNote = () => {
               >
                 <FiX
                   style={{
-                    fontSize: '1.2em',
+                    fontSize: '1.4em',
                     color: '#000',
                   }}
                 />
@@ -74,26 +82,27 @@ const addNote = () => {
             </Flex>
           </InputBox>
         ) : (
-          <Flex justifyBetween>
-            <p> Google Keep </p>{' '}
-            <Hover
-              onClick={() => {
-                setNote(true);
+          <div>
+            <Flex justifyBetween>
+              <p> Google Keep </p>
+              <Hover
+                onClick={() => {
+                  setNote(true);
+                }}
+              >
+                <FiPlus style={{ fontSize: '1.7em' }} />
+              </Hover>
+            </Flex>
+            <p
+              style={{
+                textAlign: 'center',
+                color: 'white',
               }}
             >
-              <FiPlus style={{ fontSize: '1.7em' }} />
-            </Hover>
-          </Flex>
+              17 unread
+            </p>
+          </div>
         )}
-
-        <p
-          style={{
-            textAlign: 'center',
-            color: 'white',
-          }}
-        >
-          17 unread{' '}
-        </p>
       </Head>
       <br />
       <List>
@@ -109,7 +118,7 @@ const addNote = () => {
           </Flex>
         </Time>
       </List>
-    </div>
+    </Div>
   );
 };
 

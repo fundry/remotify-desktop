@@ -53,6 +53,7 @@
 		}
 	},
 	"dependencies": {
+		"@wdio/cli": "^5.12.5",
 		"apollo-cache-inmemory": "^1.6.2",
 		"apollo-client": "^2.6.3",
 		"apollo-link": "^1.2.12",
