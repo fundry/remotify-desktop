@@ -8,8 +8,10 @@ import {
   FiSkipBack,
   FiSkipForward,
   FiPause,
+  FiVolumeX,
 } from 'react-icons/fi';
 import { Howl, Howler } from 'howler';
+import { set } from 'mobx';
 
 const Music = styled.div``;
 
@@ -22,19 +24,32 @@ const Btn = styled.div`
 `;
 
 const controls = () => {
+  // music control states ========>>
   const [Play, setPlay] = useState(false);
+  const [Mute, setMute] = useState(false);
+
+  const sound = new Howl({
+    src: [require('./sound.mp3')],
+    volume: 2,
+  });
 
   const playMusic = () => {
     setPlay(true);
 
-    const sound = new Howl({
-      src: ['sound.mp3'],
-      volume: 2,
-    });
-
     sound.play();
+    // setTimeout(() => {
+    //   sound.pause();
+    // }, 5500);
+  };
 
-    console.log('play music fun');
+  const pauseMusic = () => {
+    sound.pause();
+    setPlay(false);
+  };
+
+  const muteMusic = () => {
+    setMute(false);
+    sound.mute();
   };
 
   return (
@@ -73,7 +88,7 @@ const controls = () => {
             <Btn
               style={{ paddingRight: '10px' }}
               onClick={() => {
-                setPlay(false);
+                pauseMusic();
               }}
             >
               <FiPause
@@ -101,9 +116,23 @@ const controls = () => {
               </Btn>
             </div>
             <div>
-              <Btn>
-                <FiVolume2 style={{ fontSize: '1.7em', color: 'black' }} />
-              </Btn>
+              {!Mute ? (
+                <Btn
+                  onClick={() => {
+                    setMute(true);
+                  }}
+                >
+                  <FiVolume2 style={{ fontSize: '1.7em', color: 'black' }} />
+                </Btn>
+              ) : (
+                <Btn
+                  onClick={() => {
+                    muteMusic();
+                  }}
+                >
+                  <FiVolumeX style={{ fontSize: '1.7em', color: 'black' }} />
+                </Btn>
+              )}
             </div>
           </Flex>
         </div>

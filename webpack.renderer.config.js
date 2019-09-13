@@ -25,7 +25,7 @@ const renderer = merge(base, {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|mp3|gif)$/,
         use: ['file-loader'],
       },
       // for preact-react config ===========>
