@@ -16,7 +16,7 @@ const createWindow = async () => {
     height: 810,
     minHeight: 670,
     minWidth: 670,
-    show: true,
+    show: false,
     frame: true,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
@@ -27,11 +27,12 @@ const createWindow = async () => {
 
   authWindow = new BrowserWindow({
     width: 500,
-    height: 520,
+    height: 500,
     show: true,
-    minHeight: 350,
-    minWidth: 350,
-    frame: true,
+    minHeight: 450,
+    minWidth: 450,
+    frame: false,
+    resizable: false,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
     webPreferences: {
