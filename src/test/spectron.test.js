@@ -1,31 +1,29 @@
 import { Application } from 'spectron';
 import path from 'path';
+import electron from 'electron';
 import assert from 'assert';
-import 'regenerator-runtime/runtime';
 
-const baseDir = path.join(__dirname, '..');
-const electronbinary = path.join(baseDir, 'node_modules', '.bin', 'electron');
+describe('Application launch', function() {
+  beforeEach(function() {
+    this.app = new Application({
+      path: electron,
 
-// base test block
-describe('Should Launch App ', () => {
-  const app = new Application({
-    path: electronbinary,
-    args: [baseDir],
+      args: [path.join(__dirname, '..', '..')],
+    });
+    return this.app.start();
   });
 
-  // app.start().then(function() {
-  //   // Check if the window is visible
+  afterEach(function() {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop();
+    }
+  });
 
-  //   return app.browserWindow.isVisible();
-  // });
-
-  beforeEach(() => app.start());
-
-  // afterEach(() => app.stop());
-
-  it('shows first window', async () => {
-    await app.client.waitUntilWindowLoaded();
-    const count = await app.client.getWindowCount();
-    assert.equal(count, 1);
+  it('shows an initial window', function() {
+    return this.app.client.getWindowCount().then(function(count) {
+      assert.equal(count, 1);
+      // Please note that getWindowCount() will return 2 if `dev tools` are opened.
+      // assert.equal(count, 2)
+    });
   });
 });

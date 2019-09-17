@@ -8,7 +8,9 @@ const buildPath = path.resolve(__dirname, './dist');
 const UJS = require('uglifyjs-webpack-plugin');
 
 const renderer = merge(base, {
-  entry: { mainRenderer: './src/app.js', authRenderer: './src/auth.js' },
+  entry: {
+    mainRenderer: './src/app.js',
+  },
   output: {
     filename: '[name].js',
     path: buildPath,
@@ -54,21 +56,6 @@ const renderer = merge(base, {
         removeStyleLinkTypeAttributes: true,
       },
     }),
-    new HtmlWebpackPlugin({
-      template: './src/login.html',
-      cache: true,
-      hash: true,
-      minify: {
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeTagWhitespace: true,
-        removeRedundantAttributes: true,
-        removeEmptyAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-      },
-    }),
-
     new UJS(),
   ],
   target: 'electron-renderer',

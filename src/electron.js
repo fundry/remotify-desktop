@@ -8,7 +8,6 @@ let mainWindow;
 let appIcon = null;
 let authWindow;
 // const isDevMode = process.execPath.match(/[\\/]electron/);
-
 // if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = async () => {
@@ -21,17 +20,23 @@ const createWindow = async () => {
     frame: true,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
 
   authWindow = new BrowserWindow({
-    width: 550,
-    height: 480,
-    show: false,
-    minHeight: 310,
-    minWidth: 310,
+    width: 500,
+    height: 520,
+    show: true,
+    minHeight: 350,
+    minWidth: 350,
     frame: true,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
+    webPreferences: {
+      nodeIntegration: true,
+    },
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
@@ -40,11 +45,7 @@ const createWindow = async () => {
   //   mainWindow.webContents.openDevTools();
   // }
 
-  authWindow.loadURL(`file://${__dirname}/login.html`);
-  // // Open the DevTools.
-  // // if (isDevMode) {
-  // //   mainWindow.webContents.openDevTools();
-  // // }
+  authWindow.loadURL(`file://${__dirname}/auth/index.html`);
 
   mainWindow.on('closed', () => {
     mainWindow = null;
