@@ -27,12 +27,16 @@ const bottom = (props) => {
     paddingRight: '10px',
   };
 
+  const Hover = styled.div({
+    cursor: 'pointer',
+  });
+
   return (
     <div style={Bottom}>
       <Flex justifyBetween>
-          <div style={{ paddingLeft: '10px' }}>
-            <h6> 30gb Available </h6>
-          </div>
+        <Hover style={{ paddingLeft: '5px' }}>
+          <h6> 30gb Available </h6>
+        </Hover>
 
         <Flex>
           <FiClock
@@ -46,22 +50,27 @@ const bottom = (props) => {
         </Flex>
 
         <Flex>
-          <h6>
-            {navigator.onLine ? (
-              <div>
-                <FiCloud
-                  style={{
-                    fontSize: '1.3em',
-                    paddingTop: '15px',
-                    paddingRight: '10px',
-                  }}
-                />
-                <span> Online </span>
-              </div>
-            ) : (
-              <span> offline , check your Connection </span>
-            )}
-          </h6>
+          <Hover style={{ paddingLeft: '10px' }}>
+            <h6>Reza</h6>
+          </Hover>
+          <Hover>
+            <h6>
+              {navigator.onLine ? (
+                <div>
+                  <FiCloud
+                    style={{
+                      fontSize: '1.3em',
+                      paddingTop: '15px',
+                      paddingRight: '10px',
+                    }}
+                  />
+                  <span> Online </span>
+                </div>
+              ) : (
+                <span> offline , check your Connection </span>
+              )}
+            </h6>{' '}
+          </Hover>
         </Flex>
       </Flex>
     </div>

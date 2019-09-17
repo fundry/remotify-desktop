@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 import { Modal, Dropdown } from 'react-bootstrap';
-import { FiActivity, FiX, FiFolder, FiCalendar } from 'react-icons/fi';
+import {
+  FiActivity,
+  FiX,
+  FiFolder,
+  FiCalendar,
+  FiSettings,
+} from 'react-icons/fi';
 import { IoMdAlarm, IoIosClipboard, IoMdBook } from 'react-icons/io';
 import { GoRepo } from 'react-icons/go';
 import { Query } from 'react-apollo';
@@ -13,7 +19,7 @@ import Head from '../../components/head';
 import Perf from './user/performance/performance';
 import { Music as M } from '../../state/models/';
 import { observer } from 'mobx-react';
-import { Todo as Todos } from '../../components/index';
+import { Todo as Todos, Bot } from '../../components/';
 import { TEST } from '../../data/queries';
 import { Welcome } from '../../modals/';
 import { Keep } from '../../extensions/';
@@ -86,22 +92,31 @@ const Home = (props) => {
             <Modal.Header
               style={{ padding: '1em', textAlign: 'right', float: 'right' }}
             >
-              <div
-                style={{ textAlign: 'right', float: 'right' }}
-                onClick={() => setPerfscreen(false)}
-              >
-                <FiX
-                  style={{
-                    fontSize: '2em',
-                    textAlign: 'right',
-                    position: 'relative',
-                    float: 'right',
-                  }}
-                />
-              </div>
+              <Flex>
+                <div
+                  style={{ textAlign: 'right', float: 'right' }}
+                  onClick={() => setPerfscreen(false)}
+                >
+                  <FiX
+                    style={{
+                      fontSize: '2em',
+                      textAlign: 'right',
+                      position: 'relative',
+                      float: 'right',
+                    }}
+                  />
+                </div>
+                <Link to="/settings">
+                  <FiSettings
+                    style={{
+                      fontSize: '2em',
+                    }}
+                  />
+                </Link>
+              </Flex>
             </Modal.Header>
             <Modal.Body>
-              <Perf />
+              <Bot />
             </Modal.Body>
           </Modal>
         </Flex>
@@ -170,6 +185,8 @@ const Home = (props) => {
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
           </Link>
+
+          <Button onClick={() => setPerfscreen(true)}> BOT</Button>
           <div />
 
           <Flex justifyCenter>

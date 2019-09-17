@@ -327,7 +327,7 @@ class Routes extends Component {
             </Route>
           </Switch>
         </div>
-        <Bottom width={nav.expanded ? '4.5em' : '9.7em'} />
+        <Bottom width={nav.expanded ? '4em' : '9em'} />
       </Router>
     );
   }
@@ -348,4 +348,3 @@ class Routes extends Component {
 
 // add the main component to make this reactive when the @observer works
 export default inject('ModalStore')(observer(Routes));
-// export default Routes;
