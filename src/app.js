@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, Component } from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './screens/routes';
 import styled from 'styled-components';
@@ -16,7 +16,6 @@ const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
 
 const Renderer = require('electron').ipcRenderer;
-
 
 const Header = () => {
   const close = () => {
@@ -119,21 +118,35 @@ const Header = () => {
   );
 };
 
-const App = () => {
-  return (
-    <ApolloProvider client={client}>
-      <Provider
-        TodoStore={TodoStore}
-        ModalStore={ModalStore}
-        MusicStore={MusicStore}
-      >
-        <Suspense fallback={'i am loading here '}>
-          <Routes />
-        </Suspense>
-      </Provider>
-    </ApolloProvider>
-  );
-};
+class App extends Component {
+  state = {
+    loggedIn: false,
+  };
+
+  componentDidMount() {
+    const { auth } = this.state;
+
+    {
+      !auth ? Renderer.send('authenticate-user') : null;
+    }
+  }
+
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <Provider
+          TodoStore={TodoStore}
+          ModalStore={ModalStore}
+          MusicStore={MusicStore}
+        >
+          <Suspense fallback={'i am loading here '}>
+            <Routes />
+          </Suspense>
+        </Provider>
+      </ApolloProvider>
+    );
+  }
+}
 
 ReactDOM.render(
   <div>

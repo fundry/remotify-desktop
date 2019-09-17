@@ -17,7 +17,9 @@ const Renderer = require('electron').ipcRenderer;
 const App = () => {
   // Renderer.send('create-tray');
 
-  const Validate = () => {};
+  const Validate = () => {
+    Renderer.send('authenticated');
+  };
 
   const Header = styled.div`
     background: #3a3a3a;

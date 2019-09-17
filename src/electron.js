@@ -16,7 +16,7 @@ const createWindow = async () => {
     height: 810,
     minHeight: 670,
     minWidth: 670,
-    show: false,
+    show: true,
     frame: true,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
@@ -28,7 +28,7 @@ const createWindow = async () => {
   authWindow = new BrowserWindow({
     width: 500,
     height: 500,
-    show: true,
+    show: false,
     minHeight: 450,
     minWidth: 450,
     frame: false,
@@ -127,6 +127,7 @@ ipcMain.on('retrieve-storage', () => {
   });
 });
 
+//  authentication part ===>
 ipcMain.on('authenticate-user', (event, arg) => {
   authWindow.show();
   mainWindow.hide();
