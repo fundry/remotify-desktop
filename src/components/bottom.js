@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import moment from 'moment';
 import { ipcRenderer } from 'electron';
-import { FiClock, FiCloud } from 'react-icons/fi';
+import { FiClock, FiCloud, FiSmile } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
@@ -35,7 +35,9 @@ const bottom = (props) => {
     <div style={Bottom}>
       <Flex justifyBetween>
         <Hover style={{ paddingLeft: '5px' }}>
-          <h6> 30gb Available </h6>
+          <Link to="/files">
+            <h6> 30gb Available </h6>
+          </Link>
         </Hover>
 
         <Flex>
@@ -51,7 +53,11 @@ const bottom = (props) => {
 
         <Flex>
           <Hover style={{ paddingLeft: '10px' }}>
-            <h6>Reza</h6>
+            <Flex>
+              <h6 style={{ paddingRight: '10px' }}>Reza</h6>
+
+              <FiSmile style={{ fontSize: '1.2em' }} />
+            </Flex>
           </Hover>
           <Hover>
             <h6>

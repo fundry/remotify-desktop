@@ -11,12 +11,14 @@ const main = (props) => {
   const { visible } = props;
   console.log(visible, props);
   const [Visibility, setVisibility] = useState(visible);
+  console.log(Visibility);
+
   return (
     <Flex justifyCenter>
       <Modal
         size="lg"
         show={Visibility}
-        onHide={() => setPerfscreen(false)}
+        onHide={() => setVisibility(false)}
         style={{ paddingTop: '10%', padding: '5%' }}
       >
         <Modal.Header
