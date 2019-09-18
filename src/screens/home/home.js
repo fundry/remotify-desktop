@@ -1,28 +1,18 @@
+import { observer } from 'mobx-react';
 import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
+import { FiActivity, FiCalendar, FiFolder, FiX } from 'react-icons/fi';
+import { IoIosClipboard, IoMdAlarm, IoMdBook } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { Modal, Dropdown } from 'react-bootstrap';
-import {
-  FiActivity,
-  FiX,
-  FiFolder,
-  FiCalendar,
-  FiSettings,
-} from 'react-icons/fi';
-import { IoMdAlarm, IoIosClipboard, IoMdBook } from 'react-icons/io';
-import { GoRepo } from 'react-icons/go';
-import { Query } from 'react-apollo';
+import Flex from 'styled-flex-component';
 
+import { Bot, Todo as Todos } from '../../components/';
 import Clock from '../../components/clock';
 import Head from '../../components/head';
-import Perf from './user/performance/performance';
-import { Music as M } from '../../state/models/';
-import { observer } from 'mobx-react';
-import { Todo as Todos, Bot } from '../../components/';
-import { TEST } from '../../data/queries';
-import { Welcome } from '../../modals/';
 import { Keep } from '../../extensions/';
+import { Welcome } from '../../modals/';
+import { Music as M } from '../../state/models/';
 
 /* 
  sample  gql query 
@@ -34,7 +24,6 @@ import { Keep } from '../../extensions/';
               return <p> {info} </p>;
             }}
           </Query>
-
 */
 
 const Home = (props) => {
@@ -62,19 +51,11 @@ const Home = (props) => {
     }
   `;
 
-  const closeMusic = () => {
-    m.stop();
-    console.log(m.active);
-  };
-
   // this should be controlled externally by MST later
   const [allTodo, addTodo] = useState(false);
   const [Todo, setTodo] = useState(false);
 
-  const [error, setError] = useState('');
-  // ==
-
-  const [Perfscreen, setPerfscreen] = useState(false);
+  const [Visibility, setVisibility] = useState(false);
   return (
     <div>
       <Head screens="none" />
@@ -82,44 +63,7 @@ const Home = (props) => {
       <div
         style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
       >
-        <Flex justifyCenter>
-          <Modal
-            size="lg"
-            show={Perfscreen}
-            onHide={() => setPerfscreen(false)}
-            style={{ paddingTop: '10%', padding: '5%' }}
-          >
-            <Modal.Header
-              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
-            >
-              <Flex>
-                <div
-                  style={{ textAlign: 'right', float: 'right' }}
-                  onClick={() => setPerfscreen(false)}
-                >
-                  <FiX
-                    style={{
-                      fontSize: '2em',
-                      textAlign: 'right',
-                      position: 'relative',
-                      float: 'right',
-                    }}
-                  />
-                </div>
-                <Link to="/settings">
-                  <FiSettings
-                    style={{
-                      fontSize: '2em',
-                    }}
-                  />
-                </Link>
-              </Flex>
-            </Modal.Header>
-            <Modal.Body>
-              <Bot />
-            </Modal.Body>
-          </Modal>
-        </Flex>
+        <Bot visible={Visibility} />
 
         <div>
           <Modal
@@ -186,7 +130,7 @@ const Home = (props) => {
             <FiFolder style={{ fontSize: '2em' }} />
           </Link>
 
-          <Button onClick={() => setPerfscreen(true)}> BOT</Button>
+          <Button onClick={() => setVisibility(true)}> BOT</Button>
           <div />
 
           <Flex justifyCenter>
