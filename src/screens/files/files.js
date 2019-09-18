@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import Header from '../../components/head';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Dropdown } from 'react-bootstrap';
+import { useDropzone } from 'react-dropzone';
 
 import { Keys } from '../../modals';
+import Header from '../../components/head';
 
 import { FiSearch, FiImage, FiUploadCloud, FiX } from 'react-icons/fi';
 import { GoFile } from 'react-icons/go';
 import { MdVideoLibrary } from 'react-icons/md';
-
-// import Videos from './videos';
-// import Documents from './documents';
-// import Images from './images';
 
 // electron to trigger native file path
 const Renderer = require('electron').ipcRenderer;
@@ -20,40 +17,51 @@ Renderer.on('selectred-directory', (event, path) => {
   console.log(path);
 });
 
-const files = () => {
-  const FileType = () => {
-    return (
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          All
-        </Dropdown.Toggle>
+const getColor = (props) => {
+  if (props.isDragAccept) {
+    return '#00e676';
+  }
+  if (props.isDragReject) {
+    return '#ff1744';
+  }
+  if (props.isDragActive) {
+    return '#2196f3';
+  }
+  return '#eeeeee';
+};
 
-        <Dropdown.Menu>
-          <Dropdown.Item href="/">
-            <Flex>
-              <GoFile style={{ fontSize: '1.7em' }} />
-              <p> Documents </p>
-            </Flex>
-          </Dropdown.Item>
-          <Dropdown.Item href="/">
-            <Flex>
-              <FiImage style={{ fontSize: '1.7em' }} />
-              <p> Images </p>
-            </Flex>{' '}
-          </Dropdown.Item>
-          <Dropdown.Item href="/">
-            <Flex>
-              <MdVideoLibrary style={{ fontSize: '1.7em' }} />
-              <p> Videos </p>
-            </Flex>{' '}
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    );
-  };
+const FileType = () => {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        All
+      </Dropdown.Toggle>
 
-  const Div = styled.div`padding: 0.7em;`;
+      <Dropdown.Menu>
+        <Dropdown.Item href="/">
+          <Flex>
+            <GoFile style={{ fontSize: '1.7em' }} />
+            <p> Documents </p>
+          </Flex>
+        </Dropdown.Item>
+        <Dropdown.Item href="/">
+          <Flex>
+            <FiImage style={{ fontSize: '1.7em' }} />
+            <p> Images </p>
+          </Flex>{' '}
+        </Dropdown.Item>
+        <Dropdown.Item href="/">
+          <Flex>
+            <MdVideoLibrary style={{ fontSize: '1.7em' }} />
+            <p> Videos </p>
+          </Flex>{' '}
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
 
+const File = () => {
   const Upload = styled.button`
     background: #1a1c28;
     text-align: right;
@@ -82,6 +90,24 @@ const files = () => {
       color: #0e2f5a;
       background: #fff;
     }
+  `;
+
+  const Container = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: ${(props) => getColor(props)};
+    border-style: dashed;
+    background-color: #fafafa;
+    color: #bdbdbd;
+    outline: none;
+    margin: 1em;
+    border-radius: 10px;
+    transition: border .24s ease-in-out;
   `;
 
   const Browse = styled.button`
@@ -117,7 +143,15 @@ const files = () => {
   `;
 
   const [upload, uploading] = useState(false);
-  console.log(upload);
+
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({ accept: 'image/*' });
+
   return (
     <div>
       <Header screens="files" />
@@ -137,7 +171,9 @@ const files = () => {
         </Flex>
       </div>
 
-      <Div>
+      <Container
+        {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
+      >
         <div>
           {upload ? (
             <div style={{ textAlign: 'center' }}>
@@ -165,12 +201,11 @@ const files = () => {
               </Browse>
             </div>
           ) : (
-              <div>
-                
+            <div>
               <div style={{ textAlign: 'center', paddingTop: '30px' }}>
-                  <p>Your storage is currently empty.</p>
-                  
-                <Flex justifyCenter >
+                <p>Your storage is currently empty.</p>
+
+                <Flex justifyCenter>
                   <p> Use the </p>
                   <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     <FiUploadCloud style={{ fontSize: '1.5em' }} />
@@ -181,6 +216,8 @@ const files = () => {
             </div>
           )}
         </div>
+
+        {!isDragActive ? <p> DRAG OVER ME </p> : <p> YOURE OVER ME NOW !! </p>}
 
         {!upload ? (
           <Upload
@@ -193,11 +230,9 @@ const files = () => {
             <FiUploadCloud style={{ fontSize: '1.5em' }} />
           </Upload>
         ) : null}
-      </Div>
+      </Container>
     </div>
   );
 };
 
-export default files;
-
-// export default files
+export default File;

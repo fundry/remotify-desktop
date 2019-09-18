@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import moment from 'moment';
 import { ipcRenderer } from 'electron';
-import { FiClock, FiCloud, FiSmile } from 'react-icons/fi';
+import { FiClock, FiWifi, FiSmile } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
@@ -54,28 +54,25 @@ const bottom = (props) => {
         <Flex>
           <Hover style={{ paddingLeft: '10px' }}>
             <Flex>
-              <h6 style={{ paddingRight: '10px' }}>Reza</h6>
+              <h6 style={{ paddingRight: '5px' }}>Reza</h6>
 
-              <FiSmile style={{ fontSize: '1.2em' }} />
+              <FiSmile style={{ fontSize: '1.2em', color: '#fff' }} />
             </Flex>
           </Hover>
           <Hover>
-            <h6>
-              {navigator.onLine ? (
-                <div>
-                  <FiCloud
-                    style={{
-                      fontSize: '1.3em',
-                      paddingTop: '15px',
-                      paddingRight: '10px',
-                    }}
-                  />
-                  <span> Online </span>
-                </div>
-              ) : (
-                <span> offline , check your Connection </span>
-              )}
-            </h6>{' '}
+            {navigator.onLine ? (
+              <Flex>
+                <h6 style={{ paddingRight: '10px' }}> Online </h6>
+                <FiWifi
+                  style={{
+                    fontSize: '1.2em',
+                    color: '#fff',
+                  }}
+                />
+              </Flex>
+            ) : (
+              <h6> offline , check your Connection </h6>
+            )}
           </Hover>
         </Flex>
       </Flex>
