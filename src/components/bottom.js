@@ -62,7 +62,9 @@ const bottom = (props) => {
           <Hover>
             {navigator.onLine ? (
               <Flex>
-                <h6 style={{ paddingRight: '10px' }}> Online </h6>
+                <h6 style={{ paddingRight: '5px', paddingLeft: '10px' }}>
+                  Online
+                </h6>
                 <FiWifi
                   style={{
                     fontSize: '1.2em',

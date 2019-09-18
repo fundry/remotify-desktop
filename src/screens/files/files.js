@@ -105,7 +105,7 @@ const File = () => {
     background-color: #fafafa;
     color: #bdbdbd;
     outline: none;
-    margin: 1em;
+    margin: 1.5em;
     border-radius: 10px;
     transition: border .24s ease-in-out;
   `;
@@ -174,62 +174,68 @@ const File = () => {
       <Container
         {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
       >
-        <div>
-          {upload ? (
-            <div style={{ textAlign: 'center' }}>
-              <Button
-                onClick={() => {
-                  uploading(false);
-                }}
-              >
-                <Flex>
-                  <FiX style={{ fontSize: '1.7em' }} />
-                  <p style={{ paddingLeft: '15px' }}> Cancel</p>
-                </Flex>
-              </Button>
-
-              <div>
-                <p> SELECT OR DRAG FILES TO UPLOAD </p>{' '}
-              </div>
-
-              <Browse
-                onClick={() => {
-                  Renderer.send('open-file-dialog');
-                }}
-              >
-                Browse local files
-              </Browse>
-            </div>
-          ) : (
+        {!isDragActive ? (
+          <div>
+            {' '}
             <div>
-              <div style={{ textAlign: 'center', paddingTop: '30px' }}>
-                <p>Your storage is currently empty.</p>
+              {upload ? (
+                <div style={{ textAlign: 'center' }}>
+                  <Button
+                    onClick={() => {
+                      uploading(false);
+                    }}
+                  >
+                    <Flex>
+                      <FiX style={{ fontSize: '1.7em' }} />
+                      <p style={{ paddingLeft: '15px' }}> Cancel</p>
+                    </Flex>
+                  </Button>
 
-                <Flex justifyCenter>
-                  <p> Use the </p>
-                  <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-                    <FiUploadCloud style={{ fontSize: '1.5em' }} />
+                  <div>
+                    <p> SELECT OR DRAG FILES TO UPLOAD </p>{' '}
                   </div>
-                  <p> button to upload files into your storage . </p>
-                </Flex>
-              </div>
+
+                  <Browse
+                    onClick={() => {
+                      Renderer.send('open-file-dialog');
+                    }}
+                  >
+                    Browse local files
+                  </Browse>
+                </div>
+              ) : (
+                <div style={{ textAlign: 'center', paddingTop: '30px' }}>
+                  <p>Your storage is currently empty.</p>
+
+                  <Flex justifyCenter>
+                    <p> Use the </p>
+                    <div style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+                      <FiUploadCloud style={{ fontSize: '1.5em' }} />
+                    </div>
+                    <p> button to upload files into your storage . </p>
+                  </Flex>
+
+                  <p> You can drag 'n' drop files to upload </p>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-
-        {!isDragActive ? <p> DRAG OVER ME </p> : <p> YOURE OVER ME NOW !! </p>}
-
-        {!upload ? (
-          <Upload
-            style={{ textAlign: 'right' }}
-            onClick={() => {
-              uploading(true);
-            }}
-            style={{ boxShadow: '0px 2px 5px grey' }}
-          >
-            <FiUploadCloud style={{ fontSize: '1.5em' }} />
-          </Upload>
-        ) : null}
+            <div>
+              {!upload ? (
+                <Upload
+                  style={{ textAlign: 'right' }}
+                  onClick={() => {
+                    uploading(true);
+                  }}
+                  style={{ boxShadow: '0px 2px 5px grey' }}
+                >
+                  <FiUploadCloud style={{ fontSize: '1.5em' }} />
+                </Upload>
+              ) : null}
+            </div>{' '}
+          </div>
+        ) : (
+          <p> Drop File </p>
+        )}
       </Container>
     </div>
   );
