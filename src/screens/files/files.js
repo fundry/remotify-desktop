@@ -219,22 +219,22 @@ const File = () => {
                 </div>
               )}
             </div>
-            <div>
-              {!upload ? (
-                <Upload
-                  style={{ textAlign: 'right' }}
-                  onClick={() => {
-                    uploading(true);
-                  }}
-                  style={{ boxShadow: '0px 2px 5px grey' }}
-                >
-                  <FiUploadCloud style={{ fontSize: '1.5em' }} />
-                </Upload>
-              ) : null}
-            </div>{' '}
+            {!upload ? (
+              <Upload
+                style={{ textAlign: 'center' }}
+                onClick={() => {
+                  uploading(true);
+                }}
+                style={{ boxShadow: '0px 2px 5px grey' }}
+              >
+                <FiUploadCloud style={{ fontSize: '1.5em' }} />
+              </Upload>
+            ) : null}
           </div>
         ) : (
-          <p> Drop File </p>
+          <div style={{ padding: '2em' }}>
+            <p> Drop File </p>{' '}
+          </div>
         )}
       </Container>
     </div>

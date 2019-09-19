@@ -1,7 +1,13 @@
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import { FiActivity, FiCalendar, FiFolder, FiX } from 'react-icons/fi';
+import {
+  FiActivity,
+  FiX,
+  FiFolder,
+  FiCalendar,
+  FiSettings,
+} from 'react-icons/fi';
 import { IoIosClipboard, IoMdAlarm, IoMdBook } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -63,7 +69,47 @@ const Home = (props) => {
       <div
         style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
       >
-        <Bot visible={Visibility} />
+        <Flex justifyCenter>
+          <Modal
+            size="lg"
+            show={Visibility}
+            onHide={() => setVisibility(false)}
+            style={{ paddingTop: '10%', padding: '5%' }}
+          >
+            <Modal.Header
+              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
+            >
+              <Flex justifyBetween>
+                <div
+                  style={{ textAlign: 'right', float: 'right' }}
+                  onClick={() => setVisibility(false)}
+                >
+                  <FiX
+                    style={{
+                      fontSize: '2em',
+                      textAlign: 'right',
+                      position: 'relative',
+                      float: 'right',
+                    }}
+                  />
+                </div>
+
+                <h4 style={{ fontWeight: 'normal' }}>Reza</h4>
+
+                <Link to="/settings">
+                  <FiSettings
+                    style={{
+                      fontSize: '2em',
+                    }}
+                  />
+                </Link>
+              </Flex>
+            </Modal.Header>
+            <Modal.Body>
+              <Bot />
+            </Modal.Body>
+          </Modal>
+        </Flex>
 
         <div>
           <Modal
