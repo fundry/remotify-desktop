@@ -15,7 +15,7 @@
 		"publish": "electron-forge publish",
 		"lint": "eslint --cache --color --ext .jsx,.js src",
 		"electron": "electron dist/main.js",
-		"test": "jest"
+		"test": "jest --detectOpenHandles"
 	},
 	"keywords": [],
 	"author": "Iamnwani",
@@ -139,7 +139,6 @@
 		"mocha": "^6.2.0",
 		"prettier": "1.18.2",
 		"pretty-quick": "^1.11.1",
-		"spectron": "^8.0.0",
 		"style-loader": "^0.23.1",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^4.35.3",
