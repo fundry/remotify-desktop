@@ -85,13 +85,15 @@ const Settings = () => {
 
   const hooks = useWindowWidth();
   const [text, setText] = useState('');
+  const [Message, setMessage] = useState('');
 
-  /*
-using local storage ================>>>>
-
-   
-using local storage ================>>>>
-*/
+  const Read = () => {
+    ipc.send('retrieve-storage', text);
+    ipc.on('read-storage', (event, arg) => {
+      console.log(arg);
+      setMessage(arg.name);
+    });
+  };
 
   return (
     <div>
@@ -113,11 +115,13 @@ using local storage ================>>>>
         </button>
         <button
           onClick={() => {
-            ipc.send('retrieve-storage', text);
+            Read();
           }}
         >
           READ FROM STORAGE
         </button>
+
+        <p>{Message} </p>
       </Flex>
 
       <Body>

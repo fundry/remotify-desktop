@@ -117,9 +117,10 @@ ipcMain.on('test-storage', (event, arg) => {
   });
 });
 
-ipcMain.on('retrieve-storage', () => {
+ipcMain.on('retrieve-storage', (event) => {
   storage.get('settings', function(error, data) {
     try {
+      event.sender.send('read-storage', data);
       console.log(data);
     } catch (error) {
       console.log(error);

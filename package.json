@@ -53,6 +53,7 @@
 		}
 	},
 	"dependencies": {
+		"@tensorflow/tfjs-node": "^1.2.9",
 		"@wdio/cli": "^5.12.5",
 		"apollo-cache-inmemory": "^1.6.2",
 		"apollo-client": "^2.6.3",
@@ -139,6 +140,7 @@
 		"mocha": "^6.2.0",
 		"prettier": "1.18.2",
 		"pretty-quick": "^1.11.1",
+		"spectron": "^7.0.0",
 		"style-loader": "^0.23.1",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^4.35.3",
