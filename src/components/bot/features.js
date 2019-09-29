@@ -7,7 +7,7 @@ const features = () => {
   const Text = styled.p``;
 
   const Item = styled.div`
-    padding: 0.5em
+    padding: 0.3em
     &:hover{
         cursor : pointer
          background : #eee
@@ -17,9 +17,9 @@ const features = () => {
     }
     `;
 
-  const Option = styled.h5`font-weight: normal;`;
+  const Option = styled.h6`font-weight: normal;`;
 
-  const Div = styled.div`margin: 0.3em;`;
+  const Div = styled.div`margin: 0.2em;`;
 
   return (
     <Div>

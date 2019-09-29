@@ -12,7 +12,7 @@ const About = () => {
     <div>
       <Flex justifyCenter>
         <Body>
-          <Planet mood="happy" style={{ fontSize: '1.5em' }} size="5em" />
+          <Planet mood="happy" style={{ fontSize: '2em' }} size="7em" />
         </Body>
       </Flex>
 

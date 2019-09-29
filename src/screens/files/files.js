@@ -146,7 +146,6 @@ const File = () => {
 
   const {
     getRootProps,
-    getInputProps,
     isDragActive,
     isDragAccept,
     isDragReject,
@@ -220,15 +219,17 @@ const File = () => {
               )}
             </div>
             {!upload ? (
-              <Upload
-                style={{ textAlign: 'center' }}
-                onClick={() => {
-                  uploading(true);
-                }}
-                style={{ boxShadow: '0px 2px 5px grey' }}
-              >
-                <FiUploadCloud style={{ fontSize: '1.5em' }} />
-              </Upload>
+              <Flex justifyCenter>
+                <Upload
+                  style={{ textAlign: 'center' }}
+                  onClick={() => {
+                    uploading(true);
+                  }}
+                  style={{ boxShadow: '0px 2px 5px grey' }}
+                >
+                  <FiUploadCloud style={{ fontSize: '1.5em' }} />
+                </Upload>
+              </Flex>
             ) : null}
           </div>
         ) : (

@@ -74,22 +74,14 @@ const Home = (props) => {
             size="lg"
             show={Visibility}
             onHide={() => setVisibility(false)}
-            style={{ paddingTop: '10%', padding: '5%' }}
+            style={{ paddingTop: '10%', padding: '3%' }}
           >
-            <Modal.Header
-              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
-            >
+            <Modal.Header style={{ padding: '0.5em' }}>
               <Flex justifyBetween>
-                <div
-                  style={{ textAlign: 'right', float: 'right' }}
-                  onClick={() => setVisibility(false)}
-                >
+                <div onClick={() => setVisibility(false)}>
                   <FiX
                     style={{
                       fontSize: '2em',
-                      textAlign: 'right',
-                      position: 'relative',
-                      float: 'right',
                     }}
                   />
                 </div>

@@ -95,6 +95,10 @@ const Settings = () => {
     });
   };
 
+  const Hover = styled.div({
+    cusor: 'pointer',
+  });
+
   return (
     <div>
       <Head screens="setting" />
@@ -128,31 +132,38 @@ const Settings = () => {
         <div>
           <div style={{ marginLeft: '2em', marginRight: '2em' }}>
             <Flex justifyBetween>
-              <Flex>
-                <FiUser style={{ fontSize: '1.3em' }} />
-                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                  Accounts
-                </h6>
-              </Flex>
-
-              <Flex>
-                <FiUser style={{ fontSize: '1.3em' }} />
-                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                  Personalize
-                </h6>
-              </Flex>
-
-              <Flex>
-                <FiUser style={{ fontSize: '1.3em' }} />
-                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
-                  Files
-                </h6>
-              </Flex>
-
-              <Flex>
-                <FiUser style={{ fontSize: '1.3em' }} />
-                <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Team</h6>
-              </Flex>
+              <Hover>
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Accounts
+                  </h6>
+                </Flex>
+              </Hover>
+              <Hover>
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Personalize
+                  </h6>
+                </Flex>
+              </Hover>
+              <Hover>
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Files
+                  </h6>
+                </Flex>
+              </Hover>
+              <Hover>
+                <Flex>
+                  <FiUser style={{ fontSize: '1.3em' }} />
+                  <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>
+                    Team
+                  </h6>
+                </Flex>
+              </Hover>{' '}
             </Flex>
           </div>
           <hr />
