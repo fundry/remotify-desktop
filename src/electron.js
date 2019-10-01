@@ -31,7 +31,7 @@ const createWindow = async () => {
     show: false,
     minHeight: 450,
     minWidth: 450,
-    frame: false,
+    frame: true,
     resizable: false,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',

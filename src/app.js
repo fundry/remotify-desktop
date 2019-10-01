@@ -120,16 +120,16 @@ const Header = () => {
 
 class App extends Component {
   state = {
-    loggedIn: true,
+    loggedIn: false,
   };
 
-  // componentDidMount() {
-  //   const { auth } = this.state;
+  componentDidMount() {
+    const { auth } = this.state;
 
-  //   {
-  //     !auth ? Renderer.send('authenticate-user') : null;
-  //   }
-  // }
+    {
+      !auth ? Renderer.send('authenticate-user') : null;
+    }
+  }
 
   render() {
     return (

@@ -224,6 +224,7 @@ class Routes extends Component {
                   </NavLink>
                 </Link>
               </div>
+
             </NavLinks>
           ) : (
             <NavLinks>

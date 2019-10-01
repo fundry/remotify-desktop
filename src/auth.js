@@ -1,13 +1,15 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
+import { Formik } from 'formik';
 
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider, Mutation } from 'react-apollo';
 import { Provider } from 'mobx-react';
 
 import { TodoStore } from './state/stores/index';
 import client from './data/config';
+import { Login } from './data/mutations';
 
 const electron = window.require('electron');
 const ipc = electron.remote.getCurrentWindow();
@@ -17,9 +19,7 @@ const Renderer = require('electron').ipcRenderer;
 const App = () => {
   // Renderer.send('create-tray');
 
-  const Validate = () => {
-    Renderer.send('authenticated');
-  };
+  const Validate = () => {};
 
   const Header = styled.div`
     background: #3a3a3a;
@@ -75,30 +75,89 @@ const App = () => {
 
       <Flex justifyCenter>
         <br />
-        <Body>
-          <div>
-            <Input placeholder="Enter Pin" type="pin" maxLength="10" />
-          </div>
-          <br />
-          <div>
-            <Flex justifyCenter>
-              <Button
-                onClick={() => {
-                  Validate();
-                }}
-              >
-                Login
-              </Button>
-            </Flex>
-          </div>
-          <br />
-          <Body>
-            <hr />
-            <Flex justifyBetween>
-              <p> Forgot Password </p> <p> Forgot Password </p>
-            </Flex>
-          </Body>
-        </Body>
+
+        <Mutation mutation={Login}>
+          {(loginOrganization) => (
+            <Formik
+              initialValues={{ password: '', name: '', email: '' }}
+              onSubmit={(values, { setSubmitting }) => {
+                addMail(values.email);
+              }}
+            >
+              {({ isSubmitting, handleChange, handleBlur, values, errors }) => (
+                <Body>
+                  <div>
+                    <label htmlFor="name" />
+                    <Input
+                      id="name"
+                      placeholder="Enter Name"
+                      type="text"
+                      value={values.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />
+                  </div>
+
+                  <br />
+
+                  <div>
+                    <label htmlFor="email" />
+                    <Input
+                      id="email"
+                      placeholder="Enter Email"
+                      type="text"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.email}
+                    />
+                  </div>
+
+                  <br />
+
+                  <div>
+                    <label htmlFor="password" />
+                    <Input
+                      id="password"
+                      placeholder="Enter Pin"
+                      type="password"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.password}
+                    />
+                  </div>
+
+                  <br />
+
+                  <div>
+                    <Flex justifyCenter>
+                      <Button
+                        onClick={() => {
+                          loginOrganization({
+                            variables: {
+                              name: values.name,
+                              email: values.email,
+                              password: values.password,
+                            },
+                          });
+
+                        }}
+                      >
+                        Login
+                      </Button>
+                    </Flex>
+                  </div>
+                  <br />
+                  <Body>
+                    <hr />
+                    <Flex justifyBetween>
+                      <p> Forgot Password </p> <p> Forgot Password </p>
+                    </Flex>
+                  </Body>
+                </Body>
+              )}
+            </Formik>
+          )}
+        </Mutation>
       </Flex>
     </div>
   );
