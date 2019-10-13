@@ -3,6 +3,7 @@ import Flex from 'styled-Flex-component';
 import styled from 'styled-components';
 import { DiTrello, DiSublime, DiWordpress, DiGithub } from 'react-icons/di';
 import { Link } from 'react-router-dom';
+
 import Breakpoint from './breakpoint';
 
 const workspace = () => {
@@ -10,15 +11,15 @@ const workspace = () => {
   const ContainFlat = styled.div`
   padding: 1em
    width: 80%
-   border-radius : 5px 
+   border-radius : 5px
     background  : #ffe
-    border : 1px grey 
+    border : 1px grey
   ;`;
 
   const ContainBar = styled.div`
-     border-radius : 5px 
+     border-radius : 5px
     background  : #ffe
-    border : 1px grey 
+    border : 1px grey
   ;`;
 
   const Btn = styled.div`
@@ -43,6 +44,7 @@ const workspace = () => {
               <Flex justifyCenter>
                 <ContainFlat
                   style={{
+                    paddingTop : '20px' ,
                     boxShadow: '0px 2px 5px grey',
                   }}
                 >
@@ -56,6 +58,7 @@ const workspace = () => {
                         </Btn>
                       </Link>
                     </Btn>
+
                     <Btn>
                       <div>
                         <DiTrello style={{ fontSize: '2em' }} />

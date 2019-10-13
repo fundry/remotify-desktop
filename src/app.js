@@ -123,13 +123,14 @@ class App extends Component {
     loggedIn: false,
   };
 
-  componentDidMount() {
-    const { auth } = this.state;
 
-    {
-      !auth ? Renderer.send('authenticate-user') : null;
-    }
-  }
+// componentDidMount() {
+//     const { auth } = this.state;
+//
+//     {
+//       !auth ? Renderer.send('authenticate-user') : null;
+//     }
+//   }
 
   render() {
     return (

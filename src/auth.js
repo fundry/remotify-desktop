@@ -19,7 +19,9 @@ const Renderer = require('electron').ipcRenderer;
 const App = () => {
   // Renderer.send('create-tray');
 
-  const Validate = () => {};
+  const Validate = () => {
+    Renderer.send('authenticated');
+  };
 
   const Header = styled.div`
     background: #3a3a3a;
@@ -106,7 +108,7 @@ const App = () => {
                       id="email"
                       placeholder="Enter Email"
                       type="text"
-                      onChange={handleChange}
+                      onC hange={handleChange}
                       onBlur={handleBlur}
                       value={values.email}
                     />
@@ -132,6 +134,8 @@ const App = () => {
                     <Flex justifyCenter>
                       <Button
                         onClick={() => {
+                          Validate();
+
                           loginOrganization({
                             variables: {
                               name: values.name,
@@ -139,7 +143,6 @@ const App = () => {
                               password: values.password,
                             },
                           });
-
                         }}
                       >
                         Login

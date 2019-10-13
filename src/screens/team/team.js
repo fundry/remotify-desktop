@@ -52,19 +52,17 @@ const team = () => {
 
   const data = [
     {
-      1: {
         name: 'Buy milk',
       },
-      2: {
+   {
         name: 'Wash Cloth',
       },
-      3: {
+   {
         name: 'Buy Chese',
       },
-      4: {
+    {
         name: 'Clean House',
       },
-    },
   ];
 
   const [Visible, setVisible] = useState(false);
@@ -125,7 +123,7 @@ const team = () => {
             </Head>
 
             <Body>
-              {data.map(({ name }, i) => (
+              {data.map(({i, name }) => (
                 <List>
                   <Flex justifyBetween>
                     <li key={i}> {name}</li>

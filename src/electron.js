@@ -1,5 +1,13 @@
 // i need to split this file later !!
-import { app, BrowserWindow, ipcMain, Tray, Menu, dialog } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  Tray,
+  Menu,
+  dialog,
+  session,
+} from 'electron';
 // import { enableLiveReload } from 'electron-compile';
 import path from 'path';
 import storage from 'electron-json-storage';
@@ -135,8 +143,21 @@ ipcMain.on('authenticate-user', (event, arg) => {
 });
 
 ipcMain.on('authenticated', (event, arg) => {
-  authWindow.hide();
+/*
+ session.defaultSession.cookies.set(arg).then(
+    () => {
+      // sucess
+      authWindow.hide();
+
+      console.log();
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+*/
   mainWindow.show();
+  authWindow.hide();
 });
 
 ipcMain.on('create-tray', (event) => {

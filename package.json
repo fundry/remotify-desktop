@@ -53,6 +53,7 @@
 		}
 	},
 	"dependencies": {
+		"@apollo/react-hooks": "^3.1.2",
 		"@tensorflow/tfjs-node": "^1.2.9",
 		"@wdio/cli": "^5.12.5",
 		"apollo-cache-inmemory": "^1.6.2",
