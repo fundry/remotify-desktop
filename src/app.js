@@ -37,7 +37,9 @@ const Header = () => {
     Renderer.send('create-tray');
   };
 
-  const Nav = styled.div`background: #3a3a3a;`;
+  const Nav = styled.div`
+    background: #3a3a3a;
+  `;
 
   const Hover = styled.div({
     cursor: 'pointer',
@@ -123,23 +125,18 @@ class App extends Component {
     loggedIn: false,
   };
 
-
-// componentDidMount() {
-//     const { auth } = this.state;
-//
-//     {
-//       !auth ? Renderer.send('authenticate-user') : null;
-//     }
-//   }
+  // componentDidMount() {
+  //   const { auth } = this.state;
+  //
+  //   {
+  //     !auth ? Renderer.send('authenticate-user') : null;
+  // }
+  //   }
 
   render() {
     return (
       <ApolloProvider client={client}>
-        <Provider
-          TodoStore={TodoStore}
-          ModalStore={ModalStore}
-          MusicStore={MusicStore}
-        >
+        <Provider TodoStore={TodoStore} ModalStore={ModalStore} MusicStore={MusicStore}>
           <Suspense fallback={'i am loading here '}>
             <Routes />
           </Suspense>
@@ -154,5 +151,5 @@ ReactDOM.render(
     <Header />
     <App />
   </div>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

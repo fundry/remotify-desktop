@@ -20,8 +20,8 @@ import { Keep } from '../../extensions/';
 import { Welcome } from '../../modals/';
 import { Music as M } from '../../state/models/';
 
-/* 
- sample  gql query 
+/*
+ sample  gql query
     <Query query={TEST}>
             {({ loading, error, data: { info } }) => {
               if (loading) return <p> loading </p>;
@@ -31,7 +31,7 @@ import { Music as M } from '../../state/models/';
             }}
           </Query>
 */
-
+/* test comment */
 const Home = (props) => {
   const m = M.create({ anything: 'memememem' });
   const Button = styled.button`

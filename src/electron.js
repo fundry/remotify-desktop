@@ -1,13 +1,5 @@
 // i need to split this file later !!
-import {
-  app,
-  BrowserWindow,
-  ipcMain,
-  Tray,
-  Menu,
-  dialog,
-  session,
-} from 'electron';
+import { app, BrowserWindow, ipcMain, Tray, Menu, dialog, session } from 'electron';
 // import { enableLiveReload } from 'electron-compile';
 import path from 'path';
 import storage from 'electron-json-storage';
@@ -91,11 +83,11 @@ ipcMain.on('open-file-dialog', (event, arg) => {
     {
       properties: ['openFile', 'openDirectory'],
     },
-    (files) => {
+    files => {
       if (files) {
         event.sender.send('selected-directory', files);
       }
-    }
+    },
   );
 });
 
@@ -105,11 +97,11 @@ ipcMain.on('open-music-dialog', (event, arg) => {
     {
       properties: ['openDirectory'],
     },
-    (files) => {
+    files => {
       if (files) {
         event.sender.send('selected-directory', files);
       }
-    }
+    },
   );
 });
 
@@ -117,16 +109,16 @@ ipcMain.on('open-music-dialog', (event, arg) => {
 ipcMain.on('test-storage', (event, arg) => {
   const data = arg;
 
-  console.log('data ' + data);
-  storage.set('settings', { name: data }, function(error) {
+  console.log(`data ${data}`);
+  storage.set('settings', { name: data }, error => {
     if (error) {
       console.log(error);
     }
   });
 });
 
-ipcMain.on('retrieve-storage', (event) => {
-  storage.get('settings', function(error, data) {
+ipcMain.on('retrieve-storage', event => {
+  storage.get('settings', (error, data) => {
     try {
       event.sender.send('read-storage', data);
       console.log(data);
@@ -138,12 +130,12 @@ ipcMain.on('retrieve-storage', (event) => {
 
 //  authentication part ===>
 ipcMain.on('authenticate-user', (event, arg) => {
-  authWindow.show();
   mainWindow.hide();
+  authWindow.show();
 });
 
 ipcMain.on('authenticated', (event, arg) => {
-/*
+  /*
  session.defaultSession.cookies.set(arg).then(
     () => {
       // sucess
@@ -160,7 +152,7 @@ ipcMain.on('authenticated', (event, arg) => {
   authWindow.hide();
 });
 
-ipcMain.on('create-tray', (event) => {
+ipcMain.on('create-tray', event => {
   const icon = process.platform === 'win32' ? 'win.png' : 'win.png';
   const iconPath = path.join(__dirname, icon);
   appIcon = new Tray(iconPath);
