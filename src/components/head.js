@@ -7,6 +7,7 @@ import {
   FiMenu,
   FiSettings,
   FiSearch,
+  FiUser,
   FiMusic,
   FiPlus,
   FiArrowLeft,
@@ -16,17 +17,14 @@ import { IoMdVideocam, IoIosCall } from 'react-icons/io';
 import { GoKey } from 'react-icons/go';
 import { observer, inject } from 'mobx-react';
 
-const SettingNav = (props) => {
-  console.log(props.ModalStore.MusicModal);
-  console.log(props.ModalStore.toolsModal);
-
+const SettingNav = props => {
   const Btn = styled.div`
     &:hover {
       cursor: pointer;
     }
   `;
 
-  const Search = styled.input`  
+  const Search = styled.input`
     width : 22em
     height : 4vh
     padding-left : 15px
@@ -50,7 +48,6 @@ const SettingNav = (props) => {
   `;
 
   const IconBody = styled.div`
-    border: 0.5px solid black
     padding: 0.2em
     border-radius: 2.5px
     padding-right: 5px
@@ -62,7 +59,7 @@ const SettingNav = (props) => {
 
   return (
     <div style={Div}>
-      {props.screens == 'setting' ? (
+      {props.screens === 'setting' ? (
         <Flex justifyBetween>
           <Screen> Setting</Screen>
           <form
@@ -87,7 +84,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'music' ? (
+      {props.screens === 'music' ? (
         <Flex justifyBetween>
           <div style={{ color: 'blue' }}>
             <Flex>
@@ -113,7 +110,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'musicModal' ? (
+      {props.screens === 'musicModal' ? (
         <Flex justifyBetween>
           <div>
             <Flex>
@@ -147,7 +144,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'team' ? (
+      {props.screens === 'team' ? (
         <Flex justifyBetween>
           <Screen> Team </Screen>
           <IconBody>
@@ -166,7 +163,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'files' ? (
+      {props.screens === 'files' ? (
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
             <Link to="/">
@@ -194,7 +191,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'performance' ? (
+      {props.screens === 'performance' ? (
         <Flex justifyBetween>
           <div style={{ paddingTop: '5px' }}>
             <Link to="/">
@@ -216,7 +213,7 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'office' ? (
+      {props.screens === 'office' ? (
         <Flex justifyBetween>
           <Screen>WorkSpace</Screen>
 
@@ -234,27 +231,25 @@ const SettingNav = (props) => {
         </Flex>
       ) : null}
 
-      {props.screens == 'messages' ? (
+      {props.screens === 'messages' ? (
         <Flex justifyBetween>
           <Screen> Messages </Screen>
 
-          <IconBody>
+          <IconBody style={{ paddingRight: '0.5em' }}>
             <Flex>
-              <div style={{ paddingTop: '5px' }}>
-                <Link to="/settings">
-                  <IoIosCall style={{ fontSize: '1.5em' }} />
-                </Link>
+              <Btn style={{ paddingRight: '0.5em' }}>
+                <FiUser style={{ fontSize: '1.7em' }} />{' '}
+              </Btn>
 
-                <Link to="/settings">
-                  <FiSearch style={{ fontSize: '1.5em' }} />
-                </Link>
-              </div>
+              <Link to="/settings">
+                <FiSettings style={{ fontSize: '1.7em' }} />
+              </Link>
             </Flex>
           </IconBody>
         </Flex>
       ) : null}
 
-      {props.screens == 'none' ? (
+      {props.screens === 'none' ? (
         <Flex justifyBetween>
           <div>
             <FiMenu style={{ fontSize: '1.5em' }} />

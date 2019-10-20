@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { FiSend } from 'react-icons/fi';
+import { FiSearch, FiVideo, FiList } from 'react-icons/fi';
 
 import Chat from './chatWindow';
 import Input from './inputWindow';
@@ -20,15 +20,47 @@ const Official = () => {
     width: 40em,
   `;
 
+  const IconBody = styled.div`
+    cursor : pointer
+    padding : 0.3em
+    padding-left : 1em
+  `;
+
+  const Hover = styled.div({
+    cursor: 'pointer',
+  });
+
+  const [List, setList] = useState(false);
   return (
     <div>
       <Head style={{ boxShadow: '0px 2px 3px grey' }}>
-        <p style={{ textAlign: 'center' }}> Official </p>{' '}
-      </Head>
+        <Flex justifyBetween>
+          <Hover
+            onClick={() => {
+              setList(true);
+            }}
+          >
+            <FiList style={{ fontSize: '1.5em' }} />{' '}
+          </Hover>
+          <p style={{ textAlign: 'center' }}> Official </p>{' '}
+          <IconBody>
+            <FiSearch style={{ fontSize: '1.5em' }} />
 
+            <FiVideo style={{ fontSize: '1.5em' }} />
+          </IconBody>
+        </Flex>
+      </Head>{' '}
       <Body>
-        <Chat />
-        <Input />
+        {List ? (
+          <div>
+            <Chat />
+            <Input />
+          </div>
+        ) : (
+          <div>
+            <p> LIST OF GROUP MESSAGES </p>
+          </div>
+        )}
       </Body>
     </div>
   );

@@ -12,7 +12,7 @@ import client from './data/config';
 import { Login } from './data/mutations';
 
 const electron = window.require('electron');
-const ipc = electron.remote.getCurrentWindow();
+// const ipc = electron.remote.getCurrentWindow();
 
 const Renderer = require('electron').ipcRenderer;
 
@@ -30,11 +30,9 @@ const App = () => {
     text-align: center;
   `;
 
-  const Hover = styled.div({
-    cursor: 'pointer',
-  });
-
-  const Body = styled.div`padding: 1em;`;
+  const Body = styled.div`
+    padding: 1em;
+  `;
 
   const Button = styled.button`
     background: #0e2f5a;
@@ -79,7 +77,7 @@ const App = () => {
         <br />
 
         <Mutation mutation={Login}>
-          {(loginOrganization) => (
+          {loginOrganization => (
             <Formik
               initialValues={{ password: '', name: '', email: '' }}
               onSubmit={(values, { setSubmitting }) => {
@@ -108,7 +106,8 @@ const App = () => {
                       id="email"
                       placeholder="Enter Email"
                       type="text"
-                      onC hange={handleChange}
+                      onC
+                      hange={handleChange}
                       onBlur={handleBlur}
                       value={values.email}
                     />
@@ -172,5 +171,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </ApolloProvider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

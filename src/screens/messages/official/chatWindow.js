@@ -22,12 +22,12 @@ const chatWindow = () => {
   );
 
   const Body = styled.div({
-    padding: '0.5em',
+    padding: '0.2em',
   });
 
   return (
     <Body>
-      <List height={550} itemSize={50} itemCount={20} width="40em">
+      <List height={550} itemSize={50} itemCount={20} width="35em">
         {() => <Messages />}
       </List>
     </Body>

@@ -4,24 +4,27 @@ import Flex from 'styled-flex-component';
 
 import Header from '../../components/head';
 import Official from './official/official';
-import Private from './private/private';
+import Other from './other/other';
 import Overview from './overview';
 
+import useWindowWidth from '../../styles/hook_style';
+
 const message = () => {
-  const Body = styled.div`
-    padding: 1em;
-  `;
+  const Contain = styled.div``;
+
+  const Hook = useWindowWidth();
+  console.log(Hook);
 
   return (
-    <div>
+    <Contain>
       <Header screens="messages" />
 
       <Flex>
         <Overview />
-        <Official />
-        <Private />
+        <Official screenWidth={Hook} />
+        <Other screenWidth={Hook} />
       </Flex>
-    </div>
+    </Contain>
   );
 };
 export default message;

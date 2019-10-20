@@ -1,13 +1,7 @@
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import {
-  FiActivity,
-  FiX,
-  FiFolder,
-  FiCalendar,
-  FiSettings,
-} from 'react-icons/fi';
+import { FiActivity, FiX, FiFolder, FiCalendar, FiSettings } from 'react-icons/fi';
 import { IoIosClipboard, IoMdAlarm, IoMdBook } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -32,8 +26,7 @@ import { Music as M } from '../../state/models/';
           </Query>
 */
 /* test comment */
-const Home = (props) => {
-  const m = M.create({ anything: 'memememem' });
+const Home = () => {
   const Button = styled.button`
     background: #0e2f5a;
     text-align: right;
@@ -66,9 +59,7 @@ const Home = (props) => {
     <div>
       <Head screens="none" />
 
-      <div
-        style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}
-      >
+      <div style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}>
         <Flex justifyCenter>
           <Modal
             size="lg"
@@ -111,10 +102,7 @@ const Home = (props) => {
           >
             <div style={{ padding: '1em' }}>
               <Flex justifyBetween>
-                <div
-                  style={{ textAlign: 'right', float: 'right' }}
-                  onClick={() => setTodo(false)}
-                >
+                <div style={{ textAlign: 'right', float: 'right' }} onClick={() => setTodo(false)}>
                   <FiX
                     style={{
                       fontSize: '2em',
@@ -150,9 +138,7 @@ const Home = (props) => {
               <Button>
                 <Flex>
                   <FiActivity style={{ fontSize: '1.7em' }} />
-                  <p style={{ fontSize: '1em', paddingLeft: '7px' }}>
-                    Performancae
-                  </p>
+                  <p style={{ fontSize: '1em', paddingLeft: '7px' }}>Performancae</p>
                 </Flex>
               </Button>
             </Link>

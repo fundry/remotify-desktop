@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { FiSend } from 'react-icons/fi';
+import { FiSend, FiSmile } from 'react-icons/fi';
 
 const inputWindow = () => {
   const Body = styled.div({
@@ -9,7 +9,7 @@ const inputWindow = () => {
   });
 
   const Input = styled.input({
-    width: '28em',
+    width: '25em',
     height: '40px',
     borderRadius: '3px',
     fontSize: '17px',
@@ -28,7 +28,7 @@ const inputWindow = () => {
   });
 
   const Hover = styled.div({
-    cusor: 'pointer',
+    cursor: 'pointer',
   });
 
   return (
@@ -38,9 +38,14 @@ const inputWindow = () => {
           <Flex>
             <Input placeholder="Enter Message" type="text" id="text" />
 
-            <Hover style={{ paddingLeft: '10px', paddingTop: '5px' }}>
-              <FiSend style={{ fontSize: '1.8em', color: 'grey' }} />
-            </Hover>
+            <Flex>
+              <Hover style={{ paddingRight: '5px', paddingTop: '2px' }}>
+                <FiSmile style={{ fontSize: '1.7em', color: 'grey' }} />
+              </Hover>
+              <Hover style={{ paddingLeft: '5px', paddingTop: '2px' }}>
+                <FiSend style={{ fontSize: '1.7em', color: 'grey' }} />
+              </Hover>
+            </Flex>
           </Flex>
         </Box>
       </Flex>
