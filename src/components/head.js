@@ -256,10 +256,13 @@ const SettingNav = props => {
           </div>
 
           <Flex>
-            <div style={{ paddingRight: '1em' }}>
-              <Link to="/music">
-                <FiMusic style={{ fontSize: '1.5em' }} />
-              </Link>
+            <div
+              style={{ paddingRight: '1em' }}
+              onClick={() => {
+                props.ModalStore.OpenMusic();
+              }}
+            >
+              <FiMusic style={{ fontSize: '1.5em' }} />
             </div>
 
             <div style={{ paddingRight: '1.5em' }}>

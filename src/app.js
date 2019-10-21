@@ -7,7 +7,7 @@ import Flex from 'styled-flex-component';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react';
 
-import { TodoStore, ModalStore, MusicStore } from './state/stores/index';
+import { TodoStore, ModalStore, MusicStore, MessageStore } from './state/stores/index';
 import client from './data/config';
 
 import Icon from './assets/btn-min.svg';
@@ -136,7 +136,12 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <Provider TodoStore={TodoStore} ModalStore={ModalStore} MusicStore={MusicStore}>
+        <Provider
+          TodoStore={TodoStore}
+          ModalStore={ModalStore}
+          MusicStore={MusicStore}
+          MessageStore={MessageStore}
+        >
           <Suspense fallback={'i am loading here '}>
             <Routes />
           </Suspense>

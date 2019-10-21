@@ -9,19 +9,19 @@ class MusicStore {
     isPaused: false,
   };
 
-  setPlay = (e) => {
+  setPlay = e => {
     this.music.push({
       isPlaying: true,
     });
   };
 
-  setPause = (e) => {
+  setPause = e => {
     this.music.push({
       isPaused: true,
     });
   };
 
-  setLoad = (e) => {
+  setLoad = e => {
     this.music.push({
       isLoading: true,
     });

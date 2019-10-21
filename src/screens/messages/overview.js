@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { FiUser, FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import { FiUser, FiChevronUp, FiChevronDown, FiX } from 'react-icons/fi';
 import posed from 'react-pose';
 // import { FixedSizeList as List } from 'react-window';
+import { inject, observer } from 'mobx-react';
 
-const Overview = () => {
+const Overview = props => {
   const [Drop, setDrop] = useState(false);
 
   const Content = posed.div({
@@ -21,7 +22,7 @@ const Overview = () => {
   });
 
   const Contain = styled(Content)({
-    // overflow: 'hidden',
+    overflow: 'hidden',
     fontSize: '18px',
     paddingLeft: '0.5em',
   });
@@ -55,67 +56,87 @@ const Overview = () => {
     cursor: 'pointer',
   });
 
+  const { overviewPane } = props.MessageStore;
+
   return (
     <div>
-      <Head style={{ boxShadow: '0px 2px 3px grey' }}> Official </Head>
+      {overviewPane ? (
+        <div>
+          <Head style={{ boxShadow: '0px 2px 3px grey' }}>
+            <Flex justifyBetween>
+              <p> Official </p>{' '}
+              <Hover
+                onClick={() => {
+                  props.MessageStore.CloseOverviewPane();
+                }}
+              >
+                <FiX style={{ fontSize: '1.5em' }} />
+              </Hover>
+            </Flex>
+          </Head>
+          <Body>
+            <Contain pose={Drop === 0 ? 'open' : 'closed'}>
+              <Flex column>
+                <Hover
+                  onClick={() => {
+                    setDrop(Drop === 0 ? false : 0);
+                  }}
+                >
+                  <Flex>
+                    {Drop ? (
+                      <FiChevronUp style={{ fontSize: '1.5em' }} />
+                    ) : (
+                      <FiChevronDown style={{ fontSize: '1.5em' }} />
+                    )}
+                    <Title style={{ paddingLeft: '0.75em' }}> Official </Title>{' '}
+                  </Flex>
+                </Hover>
+                <Message>
+                  <Flex>
+                    <FiUser style={{ fontSize: '1.7em' }} />
 
-      <Body>
-        <Contain pose={Drop === 0 ? 'open' : 'closed'}>
-          <Flex column>
-            <Hover
-              onClick={() => {
-                setDrop(Drop === 0 ? false : 0);
-              }}
-            >
-              <Flex>
-                {Drop ? (
-                  <FiChevronUp style={{ fontSize: '1.5em' }} />
-                ) : (
-                  <FiChevronDown style={{ fontSize: '1.5em' }} />
-                )}
-                <Title style={{ paddingLeft: '0.75em' }}> Official </Title>{' '}
+                    <Text> I want to talk to you urgently. </Text>
+                  </Flex>
+                </Message>
+
+                <Message>
+                  <Flex>
+                    <FiUser style={{ fontSize: '1.7em' }} />
+
+                    <Text> I want to talk to you urgently. </Text>
+                  </Flex>
+                </Message>
               </Flex>
-            </Hover>
-            <Message>
-              <Flex>
-                <FiUser style={{ fontSize: '1.7em' }} />
+            </Contain>
+            <br /> <br />
+            <Contain>
+              <Flex column>
+                <Title> Private </Title>
+                <Message
+                  onClick={() => {
+                    props.MessageStore.OpenDm();
+                  }}
+                >
+                  <Flex>
+                    <FiUser style={{ fontSize: '1.7em' }} />
 
-                <Text> I want to talk to you urgently. </Text>
+                    <Text> I want to talk to you urgently. </Text>
+                  </Flex>
+                </Message>{' '}
+                <Message>
+                  <Flex>
+                    <FiUser style={{ fontSize: '1.7em' }} />
+
+                    <Text> I want to talk to you urgently. </Text>
+                  </Flex>
+                </Message>
               </Flex>
-            </Message>
-
-            <Message>
-              <Flex>
-                <FiUser style={{ fontSize: '1.7em' }} />
-
-                <Text> I want to talk to you urgently. </Text>
-              </Flex>
-            </Message>
-          </Flex>
-        </Contain>
-        <br /> <br />
-        <Contain>
-          <Flex column>
-            <Title> Private </Title>
-            <Message>
-              <Flex>
-                <FiUser style={{ fontSize: '1.7em' }} />
-
-                <Text> I want to talk to you urgently. </Text>
-              </Flex>
-            </Message>{' '}
-            <Message>
-              <Flex>
-                <FiUser style={{ fontSize: '1.7em' }} />
-
-                <Text> I want to talk to you urgently. </Text>
-              </Flex>
-            </Message>
-          </Flex>
-        </Contain>
-      </Body>
+            </Contain>
+          </Body>{' '}
+        </div>
+      ) : null}
     </div>
   );
 };
 
-export default Overview;
+export default inject('MessageStore')(observer(Overview));
