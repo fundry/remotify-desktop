@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
-import { FiSearch, FiVideo, FiList } from 'react-icons/fi';
+import { FiSearch, FiVideo, FiList, FiUser } from 'react-icons/fi';
 
 import Chat from './chatWindow';
 import Input from './inputWindow';
@@ -21,7 +21,6 @@ const Official = () => {
   `;
 
   const IconBody = styled.div`
-    cursor : pointer
     padding : 0.3em
     padding-left : 1em
   `;
@@ -29,6 +28,20 @@ const Official = () => {
   const Hover = styled.div({
     cursor: 'pointer',
   });
+
+  const GroupBody = styled.div`
+    padding: 0.4em 0.7em;
+    &:hover {
+      cursor  : hover
+      border-radius : 3px
+      color : #fff
+      background : #361f94
+   }
+  `;
+
+  const ListBody = styled.div`
+    padding: 0.5em;
+  `;
 
   const [List, setList] = useState(false);
   return (
@@ -44,9 +57,14 @@ const Official = () => {
           </Hover>
           <p style={{ textAlign: 'center' }}> Official </p>{' '}
           <IconBody>
-            <FiSearch style={{ fontSize: '1.5em' }} />
-
-            <FiVideo style={{ fontSize: '1.5em' }} />
+            <Flex>
+              <Hover style={{ paddingRight: '5px' }}>
+                <FiSearch style={{ fontSize: '1.5em' }} />
+              </Hover>
+              <Hover>
+                <FiVideo style={{ fontSize: '1.5em' }} />{' '}
+              </Hover>{' '}
+            </Flex>
           </IconBody>
         </Flex>
       </Head>{' '}
@@ -57,9 +75,15 @@ const Official = () => {
             <Input />
           </div>
         ) : (
-          <div>
-            <p> LIST OF GROUP MESSAGES </p>
-          </div>
+          <ListBody>
+            <GroupBody>
+              <Flex>
+                <FiUser style={{ fontSize: '1.7em' }} />
+
+                <h5 style={{ textAlign: 'center' }}> Fundry Organization </h5>
+              </Flex>
+            </GroupBody>
+          </ListBody>
         )}
       </Body>
     </div>

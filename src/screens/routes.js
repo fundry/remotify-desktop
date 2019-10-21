@@ -1,9 +1,9 @@
 // this file is long and spaghetti . Touch with caution !!
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Stream } from 'react-streams';
-import { of, pipe } from 'rxjs';
-import { delay, startWith } from 'rxjs/operators';
+// import { Stream } from 'react-streams';
+// import { of, pipe } from 'rxjs';
+// import { delay, startWith } from 'rxjs/operators';
 import {
   FiHome,
   FiMessageSquare,
@@ -23,20 +23,10 @@ import { Auth, Nav_State } from '../state/models/';
 //   ===== seperate  components =====
 import Bottom from '../components/bottom';
 import { Todo } from '../components/index';
-import {
-  Home,
-  Files,
-  Help,
-  Message,
-  Music,
-  Setting,
-  Team,
-  Office,
-  Performance,
-} from './index';
+import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance } from './index';
 import { CodeSandbox } from '../extensions/index';
-import { Shortcut } from '../modals/';
-//=======================
+import { Shortcut, MiniMusic } from '../modals/';
+//= ======================
 
 import { Route, NavLink } from 'react-router-dom';
 import { Router, Switch } from 'react-router';
@@ -55,8 +45,8 @@ const nav = Nav_State.create({
   collapsedwidth: '0.02em',
 });
 
-const collapsed = nav.collapsedwidth;
-const expanded = nav.expandedwidth;
+// const collapsed = nav.collapsedwidth;
+// const expanded = nav.expandedwidth;
 
 // ====== styles=====
 const Sidebar = styled.div`
@@ -112,15 +102,12 @@ class Routes extends Component {
     super(props);
     this.state = {
       modal: false,
-      Shortcutmodal: false,
     };
   }
 
   componentDidMount() {
     {
-      auth.is_loggedIn
-        ? ipc.send('authenticate-user')
-        : console.log('authenticateds');
+      auth.is_loggedIn ? ipc.send('authenticate-user') : console.log('authenticateds');
     }
   }
 
@@ -133,12 +120,12 @@ class Routes extends Component {
       nav.collapse();
     };
 
-    const modalVisibility = this.props.ModalStore.ShortcutModal.show;
-
-    console.log('routes', modalVisibility);
+    const { showShortcutModal } = this.props.ModalStore;
     return (
       <Router history={history}>
-        <Shortcut visiblilty={modalVisibility} />
+        <Shortcut />
+        <MiniMusic />
+
         <Sidebar
           style={{
             boxShadow: '0px 0px 0px  1px black',
@@ -171,7 +158,7 @@ class Routes extends Component {
           {nav.expanded ? (
             <NavLinks>
               <Link>
-                <NavLink to="/" exact={true}>
+                <NavLink to="/" exact>
                   <FiHome style={{ fontSize: '1.7em' }} />
                 </NavLink>
               </Link>
@@ -210,7 +197,7 @@ class Routes extends Component {
               <Link>
                 <Hover
                   onClick={() => {
-                    console.log('clicked');
+                    this.props.ModalStore.OpenShortcut();
                   }}
                 >
                   <FiHelpCircle style={{ fontSize: '1.7em' }} />
@@ -228,7 +215,7 @@ class Routes extends Component {
           ) : (
             <NavLinks>
               <Link>
-                <NavLink to="/" exact={true}>
+                <NavLink to="/" exact>
                   Home
                 </NavLink>
               </Link>
@@ -264,29 +251,8 @@ class Routes extends Component {
           )}
         </Sidebar>
         <div style={{ paddingLeft: nav.expanded ? '3.2em' : '8.5em' }}>
-          <Modal
-            show={this.state.modal}
-            onHide={() => {
-              alert('hi');
-            }}
-            style={{ paddingTop: '10%', padding: '5%' }}
-          >
-            <Modal.Header
-              style={{ padding: '1em', textAlign: 'right', float: 'right' }}
-            >
-              <div
-                style={{ textAlign: 'right', float: 'right' }}
-                onClick={() => setPerfscreen(false)}
-              >
-                <p> close </p>
-              </div>
-            </Modal.Header>
-            <Modal.Body>
-              <p> modal here </p>
-            </Modal.Body>
-          </Modal>
           <Switch>
-            <Route path="/" exact={true}>
+            <Route path="/" exact>
               <Home state={nav.expanded} />
             </Route>
 
