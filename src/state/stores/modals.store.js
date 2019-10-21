@@ -4,7 +4,6 @@ import { observable, decorate, action } from 'mobx';
 class ModalStore {
   TodoModal = false;
   PerformanceModal = false;
-  miniMusic = false;
   musicSource = false;
   showShortcutModal = false;
 
@@ -19,14 +18,6 @@ class ModalStore {
   CloseShortcut = () => {
     this.showShortcutModal = false;
   };
-
-  OpenMusic = () => {
-    this.miniMusic = true;
-  };
-
-  CloseMusic = () => {
-    this.miniMusic = false;
-  };
 }
 
 const DecoratedModalStore = decorate(ModalStore, {
@@ -34,7 +25,6 @@ const DecoratedModalStore = decorate(ModalStore, {
   TodoModal: observable,
   count: observable,
   PerformanceModal: observable,
-  miniMusic: observable,
   musicSource: observable,
   ShortcutModal: observable,
   toolsModal: observable,

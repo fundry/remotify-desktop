@@ -15,7 +15,9 @@ import { set } from 'mobx';
 
 const Music = styled.div``;
 
-const Div = styled.div`padding: 1em;`;
+const Div = styled.div`
+  padding: 1em;
+`;
 
 const Btn = styled.div`
   &:hover {
@@ -63,11 +65,9 @@ const controls = () => {
         </Music>
 
         <Flex>
-          <div style={{ paddingRight: '20px' }}>
-            <Btn>
-              <FiSkipBack style={{ fontSize: '2.2em', color: 'black' }} />
-            </Btn>
-          </div>
+          <Btn style={{ paddingRight: '20px' }}>
+            <FiSkipBack style={{ fontSize: '2.2em', color: 'black' }} />
+          </Btn>
 
           {!Play ? (
             <Btn
@@ -101,20 +101,16 @@ const controls = () => {
             </Btn>
           )}
 
-          <div style={{ paddingLeft: '5px' }}>
-            <Btn>
-              <FiSkipForward style={{ fontSize: '2.2em', color: 'black' }} />
-            </Btn>
-          </div>
+          <Btn style={{ paddingLeft: '5px' }}>
+            <FiSkipForward style={{ fontSize: '2.2em', color: 'black' }} />
+          </Btn>
         </Flex>
 
         <div>
           <Flex>
-            <div style={{ paddingRight: '20px' }}>
-              <Btn>
-                <FiRepeat style={{ fontSize: '1.5em', color: 'black' }} />
-              </Btn>
-            </div>
+            <Btn style={{ paddingRight: '20px' }}>
+              <FiRepeat style={{ fontSize: '1.5em', color: 'black' }} />
+            </Btn>
             <div>
               {!Mute ? (
                 <Btn

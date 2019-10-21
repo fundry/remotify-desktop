@@ -3,6 +3,8 @@
 import { observable, decorate, action } from 'mobx';
 
 class MusicStore {
+  miniMusic = false;
+
   musicControl = {
     isPlaying: false,
     isLoading: false,
@@ -26,6 +28,14 @@ class MusicStore {
       isLoading: true,
     });
   };
+
+  OpenMusic = () => {
+    this.miniMusic = true;
+  };
+
+  CloseMusic = () => {
+    this.miniMusic = false;
+  };
 }
 
 decorate(MusicStore, {
@@ -33,6 +43,12 @@ decorate(MusicStore, {
   setPlay: action,
   setLoad: action,
   setPlay: action,
+
+  miniMusic: observable,
+
+  //actions here
+  OpenShortcut: action,
+  CloseShortcut: action,
 });
 const store = new MusicStore();
 

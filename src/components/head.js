@@ -57,6 +57,8 @@ const SettingNav = props => {
     }
   `;
 
+  console.log(props.MusicStore.miniMusic, ' header file');
+
   return (
     <div style={Div}>
       {props.screens === 'setting' ? (
@@ -259,7 +261,7 @@ const SettingNav = props => {
             <div
               style={{ paddingRight: '1em' }}
               onClick={() => {
-                props.ModalStore.OpenMusic();
+                props.MusicStore.OpenMusic();
               }}
             >
               <FiMusic style={{ fontSize: '1.5em' }} />
@@ -277,4 +279,4 @@ const SettingNav = props => {
   );
 };
 
-export default inject('ModalStore')(observer(SettingNav));
+export default inject('ModalStore', 'MusicStore')(observer(SettingNav));
