@@ -20,8 +20,8 @@ const Private = props => {
 
   const Body = styled.div({
     padding: ' 1em',
+    height: '650px',
     border: '0.5px solid grey',
-    height: '580px',
     width: !screenWidth >= 950 ? '30em' : '20em',
   });
 

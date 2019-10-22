@@ -10,7 +10,8 @@ const inputWindow = props => {
   });
 
   const Input = styled.input({
-    width: !screenWidth >= 950 ? '26em' : '20em',
+    // width: !screenWidth >= 950 ? '26em' : '20em',
+    width: '27em',
     height: '40px',
     borderRadius: '3px',
     fontSize: '17px',
@@ -20,7 +21,8 @@ const inputWindow = props => {
   });
 
   const Box = styled.div({
-    width: !screenWidth >= 950 ? '30em' : '24em',
+    // width: !screenWidth >= 950 ? '30em' : '27.5em',
+    width: '30em',
     height: '50px',
     border: '1px solid grey',
     padding: '0.2em',
@@ -34,22 +36,20 @@ const inputWindow = props => {
 
   return (
     <Body>
-      <Flex justifyCenter>
-        <Box>
-          <Flex>
-            <Input placeholder="Enter Message" type="text" id="text" />
+      <Box>
+        <Flex>
+          <Input placeholder="Enter Message" type="text" id="text" />
 
-            <Flex>
-              <Hover style={{ paddingRight: '5px', paddingTop: '2px' }}>
-                <FiSmile style={{ fontSize: '1.7em', color: 'grey' }} />
-              </Hover>
-              <Hover style={{ paddingLeft: '5px', paddingTop: '2px' }}>
-                <FiSend style={{ fontSize: '1.7em', color: 'grey' }} />
-              </Hover>
-            </Flex>
+          <Flex>
+            <Hover style={{ paddingRight: '5px', paddingTop: '3.5px' }}>
+              <FiSmile style={{ fontSize: '1.7em', color: 'grey' }} />
+            </Hover>
+            <Hover style={{ paddingLeft: '5px', paddingTop: '3.5px' }}>
+              <FiSend style={{ fontSize: '1.7em', color: 'black' }} />
+            </Hover>
           </Flex>
-        </Box>
-      </Flex>
+        </Flex>
+      </Box>
     </Body>
   );
 };

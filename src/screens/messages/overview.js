@@ -16,15 +16,14 @@ const Overview = props => {
 
   const Body = styled.div({
     padding: '0.5em',
-    height: '635px',
     width: '20em',
+    height: '650px',
     border: '1px solid grey',
   });
 
   const Contain = styled(Content)({
-    overflow: 'hidden',
-    fontSize: '18px',
-    paddingLeft: '0.5em',
+    // overflow: 'hidden',
+    paddingLeft: '0.1em',
   });
 
   const Head = styled.div({
@@ -45,7 +44,7 @@ const Overview = props => {
 
   const Text = styled.p`
     font-size : 1em
-    padding-left : 20px
+    padding-left : 10px
   `;
 
   const Title = styled.p`

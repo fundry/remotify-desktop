@@ -12,7 +12,7 @@ class ModalStore {
   keysModal = false;
 
   OpenShortcut = () => {
-    this.miniMusic = true;
+    this.showShortcutModal = true;
   };
 
   CloseShortcut = () => {

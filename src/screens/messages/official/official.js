@@ -16,8 +16,8 @@ const Official = () => {
   const Body = styled.div`
     padding: 1em
     border : 0.5px solid grey
-    height: 560px,
     width: 40em,
+   height:  650px
   `;
 
   const IconBody = styled.div`
@@ -30,7 +30,8 @@ const Official = () => {
   });
 
   const GroupBody = styled.div`
-    padding: 0.4em 0.7em;
+    padding: 0.55em 1em;
+    height : 35px
     &:hover {
       cursor  : hover
       border-radius : 3px
@@ -40,7 +41,7 @@ const Official = () => {
   `;
 
   const ListBody = styled.div`
-    padding: 0.5em;
+    padding: 0.2em;
   `;
 
   const [List, setList] = useState(false);
@@ -78,9 +79,10 @@ const Official = () => {
           <ListBody>
             <GroupBody>
               <Flex>
-                <FiUser style={{ fontSize: '1.7em' }} />
-
-                <h5 style={{ textAlign: 'center' }}> Fundry Organization </h5>
+                <Hover style={{ paddingRight: '7px' }}>
+                  <FiUser style={{ fontSize: '1.7em' }} />
+                </Hover>
+                <h6 style={{ textAlign: 'center' }}> Fundry Organization </h6>
               </Flex>
             </GroupBody>
           </ListBody>
