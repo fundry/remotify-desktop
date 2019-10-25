@@ -5,16 +5,13 @@ import moment from 'moment';
 import { ipcRenderer } from 'electron';
 import { FiClock, FiWifi, FiSmile } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 const updateOnlineStatus = () => {
-  ipcRenderer.send(
-    'online-status-changed',
-    navigator.onLine ? 'online' : 'offline'
-  );
+  ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline');
 };
 
-const bottom = (props) => {
+const bottom = props => {
   window.addEventListener('online', updateOnlineStatus);
   window.addEventListener('offline', updateOnlineStatus);
 
@@ -30,7 +27,7 @@ const bottom = (props) => {
   const Hover = styled.div({
     cursor: 'pointer',
   });
-
+  console.log(props.BotStore);
   return (
     <div style={Bottom}>
       <Flex justifyBetween>
@@ -52,7 +49,7 @@ const bottom = (props) => {
         </Flex>
 
         <Flex>
-          <Hover style={{ paddingLeft: '10px' }}>
+          <Hover style={{ paddingLeft: '10px' }} onClick={() => props.BotStore.openModal()}>
             <Flex>
               <h6 style={{ paddingRight: '5px' }}>Reza</h6>
 
@@ -62,9 +59,7 @@ const bottom = (props) => {
           <Hover>
             {navigator.onLine ? (
               <Flex>
-                <h6 style={{ paddingRight: '5px', paddingLeft: '10px' }}>
-                  Online
-                </h6>
+                <h6 style={{ paddingRight: '5px', paddingLeft: '10px' }}>Online</h6>
                 <FiWifi
                   style={{
                     fontSize: '1.2em',
@@ -81,4 +76,5 @@ const bottom = (props) => {
     </div>
   );
 };
-export default bottom;
+
+export default inject('BotStore')(observer(bottom));

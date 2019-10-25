@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Modal } from 'react-bootstrap';
@@ -24,20 +24,21 @@ const Button = styled.button`
   }
 `;
 
-const Body = styled.div`padding: 1em;`;
+const Body = styled.div`
+  padding: 1em;
+`;
 
 const IconRole = styled.div`
 padding-right : 25px
 padding-left : 25px
 `;
 
-const Login = () => {
-  const [Welcome, setWelcome] = useState(false);
-
+const Welcome = props => {
+  const { welcomed } = props.WelcomeStore;
   return (
     <Flex justifyCenter>
       <Modal
-        show={Welcome}
+        show={welcomed}
         style={{
           boxShadow: '0px 2px 5px grey',
           padding: '2em',
@@ -100,7 +101,7 @@ const Login = () => {
             <p> Sign in inorder to use your tools </p>
             <Button
               onClick={() => {
-                setWelcome(false);
+                props.WelcomeStore.closeModal();
               }}
             >
               <Flex justifyBetween>
@@ -118,4 +119,4 @@ const Login = () => {
   );
 };
 
-export default inject('ModalStore')(observer(Login));
+export default inject('WelcomeStore')(observer(Welcome));

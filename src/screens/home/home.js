@@ -7,25 +7,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
-import { Bot, Todo as Todos } from '../../components/';
+import { Bot } from '../../components/';
 import Clock from '../../components/clock';
 import Head from '../../components/head';
 import { Keep } from '../../extensions/';
-import { Welcome } from '../../modals/';
-import { Music as M } from '../../state/models/';
 
-/*
- sample  gql query
-    <Query query={TEST}>
-            {({ loading, error, data: { info } }) => {
-              if (loading) return <p> loading </p>;
-              if (error) return <p> error </p>;
-
-              return <p> {info} </p>;
-            }}
-          </Query>
-*/
-/* test comment */
 const Home = () => {
   const Button = styled.button`
     background: #0e2f5a;
@@ -60,72 +46,6 @@ const Home = () => {
       <Head screens="none" />
 
       <div style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}>
-        <Flex justifyCenter>
-          <Modal
-            size="lg"
-            show={Visibility}
-            onHide={() => setVisibility(false)}
-            style={{ paddingTop: '10%', padding: '3%' }}
-          >
-            <Modal.Header style={{ padding: '0.5em' }}>
-              <Flex justifyBetween>
-                <div onClick={() => setVisibility(false)}>
-                  <FiX
-                    style={{
-                      fontSize: '2em',
-                    }}
-                  />
-                </div>
-
-                <h4 style={{ fontWeight: 'normal' }}>Reza</h4>
-
-                <Link to="/settings">
-                  <FiSettings
-                    style={{
-                      fontSize: '2em',
-                    }}
-                  />
-                </Link>
-              </Flex>
-            </Modal.Header>
-            <Modal.Body>
-              <Bot />
-            </Modal.Body>
-          </Modal>
-        </Flex>
-
-        <div>
-          <Modal
-            show={Todo}
-            onHide={() => setTodo(false)}
-            style={{ paddingTop: '10%', padding: '5%' }}
-          >
-            <div style={{ padding: '1em' }}>
-              <Flex justifyBetween>
-                <div style={{ textAlign: 'right', float: 'right' }} onClick={() => setTodo(false)}>
-                  <FiX
-                    style={{
-                      fontSize: '2em',
-                      textAlign: 'right',
-                      position: 'relative',
-                      float: 'right',
-                    }}
-                  />
-                </div>
-
-                <h5> Todo </h5>
-
-                <Button onClick={() => addTodo(true)}> Add </Button>
-              </Flex>
-            </div>
-
-            <div>
-              <Todos add={allTodo} />
-            </div>
-          </Modal>
-
-          <Welcome />
-        </div>
         <br />
         <Flex justifyBetween>
           <div>

@@ -7,7 +7,14 @@ import Flex from 'styled-flex-component';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'mobx-react';
 
-import { TodoStore, ModalStore, MusicStore, MessageStore } from './state/stores/index';
+import {
+  TodoStore,
+  ModalStore,
+  MusicStore,
+  MessageStore,
+  WelcomeStore,
+  BotStore,
+} from './state/stores/index';
 import client from './data/config';
 
 import Icon from './assets/btn-min.svg';
@@ -141,6 +148,8 @@ class App extends Component {
           ModalStore={ModalStore}
           MusicStore={MusicStore}
           MessageStore={MessageStore}
+          WelcomeStore={WelcomeStore}
+          BotStore={BotStore}
         >
           <Suspense fallback={'i am loading here '}>
             <Routes />
