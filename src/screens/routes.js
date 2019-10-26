@@ -16,7 +16,6 @@ import {
 } from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
-import { Modal } from 'react-bootstrap';
 
 import { Auth, Nav_State } from '../state/models/';
 
@@ -24,7 +23,7 @@ import { Auth, Nav_State } from '../state/models/';
 import Bottom from '../components/bottom';
 import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance } from './index';
 import { CodeSandbox } from '../extensions/index';
-import { Shortcut, MiniMusic, Welcome } from '../modals/';
+import { Shortcut, MiniMusic, Welcome, Bot } from '../modals/';
 //= ======================
 
 import { Route, NavLink } from 'react-router-dom';
@@ -119,13 +118,14 @@ class Routes extends Component {
       nav.collapse();
     };
 
-    const { showShortcutModal } = this.props.ModalStore;
     return (
       <Router history={history}>
         {/*  MODALS state controlled by mobx */}
         <Shortcut />
         <MiniMusic />
         <Welcome />
+        <Bot />
+        {/*    =============== */}
 
         <Sidebar
           style={{

@@ -16,8 +16,8 @@ const Official = () => {
   const Body = styled.div`
     padding: 1em
     border : 0.5px solid grey
-    width: 40em,
-   height:  650px
+    width: 45em,
+     height:  660px
   `;
 
   const IconBody = styled.div`
@@ -31,7 +31,7 @@ const Official = () => {
 
   const GroupBody = styled.div`
     padding: 0.55em 1em;
-    height : 35px
+    height : 43px
     &:hover {
       cursor  : hover
       border-radius : 3px
@@ -79,8 +79,8 @@ const Official = () => {
           <ListBody>
             <GroupBody>
               <Flex>
-                <Hover style={{ paddingRight: '7px' }}>
-                  <FiUser style={{ fontSize: '1.7em' }} />
+                <Hover style={{ paddingRight: '5px' }}>
+                  <FiUser style={{ fontSize: '1.5em' }} />
                 </Hover>
                 <h6 style={{ textAlign: 'center' }}> Fundry Organization </h6>
               </Flex>

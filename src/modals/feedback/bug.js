@@ -3,10 +3,10 @@ import { Modal } from 'react-bootstrap';
 import Flex from 'styled-flex-component';
 import styled from 'styled-components';
 
-export const Bug = () => {
-  return (
-    <div>
-      <p> bUG HERE </p>
-    </div>
-  );
-};
+const Bug = () => (
+  <div>
+    <p> bUG HERE </p>
+  </div>
+);
+
+export default Bug;

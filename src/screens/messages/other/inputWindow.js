@@ -11,7 +11,7 @@ const inputWindow = props => {
 
   const Input = styled.input({
     // width: !screenWidth >= 950 ? '26em' : '20em',
-    width: '27em',
+    width: '23em',
     height: '40px',
     borderRadius: '3px',
     fontSize: '17px',
@@ -22,7 +22,7 @@ const inputWindow = props => {
 
   const Box = styled.div({
     // width: !screenWidth >= 950 ? '30em' : '27.5em',
-    width: '30em',
+    width: '25em',
     height: '50px',
     border: '1px solid grey',
     padding: '0.2em',

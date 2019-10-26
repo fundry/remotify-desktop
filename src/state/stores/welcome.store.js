@@ -2,7 +2,7 @@
 import { observable, decorate, action } from 'mobx';
 
 class WelcomeStore {
-  welcomed = true;
+  welcomed = false;
 
   openModal = () => {
     this.welcomed = true;

@@ -28,7 +28,7 @@ const chatWindow = () => {
 
   return (
     <Body>
-      <List height={550} itemSize={50} itemCount={20} width="24em">
+      <List height={550} itemSize={50} itemCount={20} width="27em">
         {() => <Messages />}
       </List>
     </Body>

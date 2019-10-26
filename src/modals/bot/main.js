@@ -10,7 +10,7 @@ import About from './about';
 
 const main = props => {
   const { show } = props.BotStore;
-  console.log(show, 'bot');
+
   return (
     <Flex justifyCenter>
       <Modal

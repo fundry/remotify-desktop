@@ -1,13 +1,11 @@
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
-import { Modal } from 'react-bootstrap';
-import { FiActivity, FiX, FiFolder, FiCalendar, FiSettings } from 'react-icons/fi';
+import { FiActivity, FiFolder, FiCalendar } from 'react-icons/fi';
 import { IoIosClipboard, IoMdAlarm, IoMdBook } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
-import { Bot } from '../../components/';
 import Clock from '../../components/clock';
 import Head from '../../components/head';
 import { Keep } from '../../extensions/';
@@ -37,10 +35,8 @@ const Home = () => {
   `;
 
   // this should be controlled externally by MST later
-  const [allTodo, addTodo] = useState(false);
   const [Todo, setTodo] = useState(false);
 
-  const [Visibility, setVisibility] = useState(false);
   return (
     <div>
       <Head screens="none" />
@@ -58,7 +54,7 @@ const Home = () => {
               <Button>
                 <Flex>
                   <FiActivity style={{ fontSize: '1.7em' }} />
-                  <p style={{ fontSize: '1em', paddingLeft: '7px' }}>Performancae</p>
+                  <p style={{ fontSize: '1em', paddingLeft: '7px' }}>Performance</p>
                 </Flex>
               </Button>
             </Link>
@@ -73,9 +69,6 @@ const Home = () => {
           <Link to="/files">
             <FiFolder style={{ fontSize: '2em' }} />
           </Link>
-
-          <Button onClick={() => setVisibility(true)}> BOT</Button>
-          <div />
 
           <Flex justifyCenter>
             <div style={{ padding: '2em', width: '70%' }}>

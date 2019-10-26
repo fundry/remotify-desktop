@@ -42,8 +42,9 @@ const SettingNav = props => {
   };
 
   const Screen = styled.h5`
-  padding-top : 10px
+  padding-top : 5px
   padding-left: 15px
+  font-weight: normal
   ;
   `;
 
@@ -56,8 +57,6 @@ const SettingNav = props => {
       cursor: pointer;
     }
   `;
-
-  console.log(props.MusicStore.miniMusic, ' header file');
 
   return (
     <div style={Div}>
@@ -93,7 +92,7 @@ const SettingNav = props => {
               <FiMusic
                 style={{
                   fontSize: '1.8em',
-                  paddingRight: '5px',
+                  paddingRight: '10px',
                 }}
               />
               <h6
@@ -149,18 +148,10 @@ const SettingNav = props => {
       {props.screens === 'team' ? (
         <Flex justifyBetween>
           <Screen> Team </Screen>
-          <IconBody>
-            <Flex>
-              <div style={{ paddingTop: '2px' }}>
-                <Link to="/settings">
-                  <IoIosCall style={{ fontSize: '1.5em' }} />
-                </Link>
-
-                <Link to="/settings">
-                  <IoMdVideocam style={{ fontSize: '1.5em' }} />
-                </Link>
-              </div>
-            </Flex>
+          <IconBody style={{ paddingTop: '2px' }}>
+            <Link to="/settings">
+              <FiSettings style={{ fontSize: '1.5em' }} />
+            </Link>
           </IconBody>
         </Flex>
       ) : null}

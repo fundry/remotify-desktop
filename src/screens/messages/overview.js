@@ -16,8 +16,8 @@ const Overview = props => {
 
   const Body = styled.div({
     padding: '0.5em',
-    width: '20em',
-    height: '650px',
+    width: '25em',
+    height: '660px',
     border: '1px solid grey',
   });
 

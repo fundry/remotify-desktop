@@ -6,6 +6,7 @@ class BotStore {
 
   openModal = () => {
     this.show = true;
+    console.log(this.show, 'mobx');
   };
 
   closeModal = () => {

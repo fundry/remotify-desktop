@@ -5,7 +5,6 @@ import { FiPlus, FiX, FiClock } from 'react-icons/fi';
 
 const addNote = () => {
   // some app-states
-  const notes = useState({});
   const [note, setNote] = useState(false);
 
   const Div = styled.div({
@@ -23,18 +22,18 @@ const addNote = () => {
 
   const Input = styled.input({
     height: '6vh',
-    width: '23em',
+    width: '21em',
     padding: '0.5em',
     borderWidth: '0px',
     borderRadius: '10px',
   });
 
   const Head = styled.div`
-    background : black 
+    background : black
     padding : 0.5em
     color : white
-    padding-bottom : 20px 
-    padding-left : 15px  
+    padding-bottom : 10px
+    padding-left : 15px
     padding-right : 15px
     height  : 10vh
     border-radius : 20px
@@ -46,18 +45,28 @@ const addNote = () => {
   border-radius  : 10px
   `;
 
-  const Text = styled.p``;
+  const Text = styled.p`
+    color: black;
+  `;
 
   const Hover = styled.div({
     cursor: 'pointer',
   });
 
   const Time = styled.div`
-    padding: 0.4em
+    padding: 0.2em
     text-align: right
     border : 0.5px  solid black
-    border-radius : 10px
+    border-radius : 7px
+    color : grey
+    width : 12em
     `;
+
+  const list = [
+    { name: 'Buy coffee' },
+    { name: 'Buy Eggs' },
+    { name: 'Complete Reading GCP docs' },
+  ];
 
   return (
     <Div>
@@ -106,17 +115,19 @@ const addNote = () => {
       </Head>
       <br />
       <List>
-        <Text> Buy Coffee </Text>
-
-        <Time>
-          <Flex justifyBetween>
-            <p> Tomorrow</p>
-
-            <Hover>
-              <FiClock style={{ fontSize: '1em' }} />
-            </Hover>
-          </Flex>
-        </Time>
+        {list.map(({ name }) => (
+          <div style={{ margin: '0.1em' }}>
+            <Text> {name} </Text>
+            <Time>
+              <Flex>
+                <Hover style={{ paddingRight: '5px' }}>
+                  <FiClock style={{ fontSize: '1.2em' }} />
+                </Hover>
+                <p> Tomorrow , 5:00am </p>
+              </Flex>
+            </Time>
+          </div>
+        ))}
       </List>
     </Div>
   );

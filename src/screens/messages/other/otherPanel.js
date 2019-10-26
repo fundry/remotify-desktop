@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FiInbox } from 'react-icons/fi';
 import Flex from 'styled-flex-component';
 import { inject, observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 
 import Members from './members/list';
 import Chat from './chatWindow';
@@ -20,9 +21,9 @@ const Private = props => {
 
   const Body = styled.div({
     padding: ' 1em',
-    height: '650px',
+    height: '660px',
     border: '0.5px solid grey',
-    width: !screenWidth >= 950 ? '30em' : '20em',
+    width: !screenWidth >= 950 ? '27em' : '27em',
   });
 
   const Hover = styled.div({
@@ -64,6 +65,11 @@ const Private = props => {
       </Body>
     </div>
   );
+};
+
+Private.PropTypes = {
+  screenWidth: PropTypes.number,
+  props: PropTypes.number,
 };
 
 export default inject('MessageStore')(observer(Private));
