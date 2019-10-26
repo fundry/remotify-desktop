@@ -13,14 +13,15 @@ import {
   FiHelpCircle,
   FiChevronsLeft,
   FiChevronsRight,
+  FiChevronUp,
 } from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
-
+import Flex from 'styled-flex-component';
 import { Auth, Nav_State } from '../state/models/';
 
 //   ===== seperate  components =====
-import Bottom from '../components/bottom';
+import { Bottom, Notification } from '../components/';
 import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance } from './index';
 import { CodeSandbox } from '../extensions/index';
 import { Shortcut, MiniMusic, Welcome, Bot } from '../modals/';
@@ -294,6 +295,17 @@ class Routes extends Component {
             </Route>
           </Switch>
         </div>
+
+        <Hover
+          onClick={() => {
+            this.props.NotificationStore.OpenPane();
+          }}
+        >
+          <Flex justifyCenter>
+            <FiChevronUp style={{ fontSize: '2em' }} />
+          </Flex>
+        </Hover>
+        <Notification />
         <Bottom width={nav.expanded ? '4em' : '9em'} />
       </Router>
     );
@@ -314,4 +326,4 @@ class Routes extends Component {
 // );
 
 // add the main component to make this reactive when the @observer works
-export default inject('ModalStore')(observer(Routes));
+export default inject('ModalStore', 'NotificationStore')(observer(Routes));

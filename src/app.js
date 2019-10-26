@@ -14,6 +14,7 @@ import {
   MessageStore,
   WelcomeStore,
   BotStore,
+  NotificationStore,
 } from './state/stores/index';
 import client from './data/config';
 
@@ -150,6 +151,7 @@ class App extends Component {
           MessageStore={MessageStore}
           WelcomeStore={WelcomeStore}
           BotStore={BotStore}
+          NotificationStore={NotificationStore}
         >
           <Suspense fallback={'i am loading here '}>
             <Routes />

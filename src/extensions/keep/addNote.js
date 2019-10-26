@@ -62,11 +62,7 @@ const addNote = () => {
     width : 12em
     `;
 
-  const list = [
-    { name: 'Buy coffee' },
-    { name: 'Buy Eggs' },
-    { name: 'Complete Reading GCP docs' },
-  ];
+  const list = [{ name: 'Buy coffee' }, { name: 'Complete Reading GCP docs' }];
 
   return (
     <Div>
