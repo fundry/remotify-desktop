@@ -14,10 +14,17 @@ import {
   FiChevronsLeft,
   FiChevronsRight,
   FiChevronUp,
+  FiChevronDown,
 } from 'react-icons/fi';
 import { GiTeamIdea } from 'react-icons/gi';
 import { DiGoogleDrive } from 'react-icons/di';
 import Flex from 'styled-flex-component';
+
+import { Route, NavLink } from 'react-router-dom';
+import { Router, Switch } from 'react-router';
+import { createHashHistory } from 'history';
+import { observer, inject } from 'mobx-react';
+
 import { Auth, Nav_State } from '../state/models/';
 
 //   ===== seperate  components =====
@@ -26,11 +33,6 @@ import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance }
 import { CodeSandbox } from '../extensions/index';
 import { Shortcut, MiniMusic, Welcome, Bot } from '../modals/';
 //= ======================
-
-import { Route, NavLink } from 'react-router-dom';
-import { Router, Switch } from 'react-router';
-import { createHashHistory } from 'history';
-import { observer, inject } from 'mobx-react';
 
 // electron auth logic
 const electron = window.require('electron');
@@ -43,9 +45,6 @@ const nav = Nav_State.create({
   expandedwidth: '2em',
   collapsedwidth: '0.02em',
 });
-
-// const collapsed = nav.collapsedwidth;
-// const expanded = nav.expandedwidth;
 
 // ====== styles=====
 const Sidebar = styled.div`
@@ -93,7 +92,6 @@ const Hover = styled.div`
 `;
 
 //  ==============
-
 const history = createHashHistory({});
 
 class Routes extends Component {
@@ -106,7 +104,7 @@ class Routes extends Component {
 
   componentDidMount() {
     {
-      auth.is_loggedIn ? ipc.send('authenticate-user') : console.log('authenticateds');
+      auth.is_loggedIn ? ipc.send('authenticate-user') : null;
     }
   }
 
@@ -118,6 +116,18 @@ class Routes extends Component {
     const collapse = () => {
       nav.collapse();
     };
+
+    // states destructured from various mobx stores
+    const {
+      show,
+      OpenPane,
+      ClosePane,
+      showIcon,
+      OpenIcon,
+      CloseIcon,
+    } = this.props.NotificationStore;
+
+    //=  ===============
 
     return (
       <Router history={history}>
@@ -296,15 +306,44 @@ class Routes extends Component {
           </Switch>
         </div>
 
-        <Hover
-          onClick={() => {
-            this.props.NotificationStore.OpenPane();
+        <div
+          onMouseLeave={() => {
+            CloseIcon();
+          }}
+        />
+
+        <div
+          onMouseEnter={() => {
+            OpenIcon();
           }}
         >
-          <Flex justifyCenter>
-            <FiChevronUp style={{ fontSize: '2em' }} />
-          </Flex>
-        </Hover>
+          {showIcon ? (
+            <div>
+              {!show ? (
+                <Hover
+                  onClick={() => {
+                    OpenPane();
+                  }}
+                >
+                  <Flex justifyCenter>
+                    <FiChevronUp style={{ fontSize: '2em' }} />
+                  </Flex>
+                </Hover>
+              ) : (
+                <Hover
+                  onClick={() => {
+                    ClosePane();
+                  }}
+                >
+                  <Flex justifyCenter>
+                    <FiChevronDown style={{ fontSize: '2em' }} />
+                  </Flex>
+                </Hover>
+              )}
+            </div>
+          ) : null}
+        </div>
+
         <Notification />
         <Bottom width={nav.expanded ? '4em' : '9em'} />
       </Router>

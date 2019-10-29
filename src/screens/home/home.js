@@ -1,7 +1,6 @@
-import { observer } from 'mobx-react';
-import React, { useState } from 'react';
-import { FiActivity, FiFolder, FiCalendar } from 'react-icons/fi';
-import { IoIosClipboard, IoMdAlarm, IoMdBook } from 'react-icons/io';
+import { observer, inject } from 'mobx-react';
+import React from 'react';
+import { FiActivity } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
@@ -10,7 +9,7 @@ import Clock from '../../components/clock';
 import Head from '../../components/head';
 import { Keep } from '../../extensions/';
 
-const Home = () => {
+const Home = props => {
   const Button = styled.button`
     background: #0e2f5a;
     text-align: right;
@@ -27,15 +26,6 @@ const Home = () => {
       background: #fff;
     }
   `;
-
-  const Hover = styled.div`
-    &:hover {
-      cursor: pointer;
-    }
-  `;
-
-  // this should be controlled externally by MST later
-  const [Todo, setTodo] = useState(false);
 
   return (
     <div>
@@ -65,36 +55,8 @@ const Home = () => {
             <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
           </Flex>
         </Flex>
+
         <div>
-          <Link to="/files">
-            <FiFolder style={{ fontSize: '2em' }} />
-          </Link>
-
-          <Flex justifyCenter>
-            <div style={{ padding: '2em', width: '70%' }}>
-              <Flex justifyBetween>
-                <Hover
-                  onClick={() => {
-                    setTodo(true);
-                  }}
-                >
-                  <FiCalendar style={{ fontSize: '3em' }} />
-                </Hover>
-                <Hover>
-                  <IoIosClipboard style={{ fontSize: '3em' }} />
-                </Hover>
-
-                <Hover>
-                  <IoMdAlarm style={{ fontSize: '3em' }} />
-                </Hover>
-
-                <Hover>
-                  <IoMdBook style={{ fontSize: '3em' }} />
-                </Hover>
-              </Flex>
-            </div>
-          </Flex>
-
           <Keep />
         </div>
       </div>
@@ -102,4 +64,4 @@ const Home = () => {
   );
 };
 
-export default observer(Home);
+export default inject('NotificationStore')(observer(Home));

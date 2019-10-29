@@ -56,10 +56,7 @@ const addNote = () => {
   const Time = styled.div`
     padding: 0.2em
     text-align: right
-    border : 0.5px  solid black
-    border-radius : 7px
     color : grey
-    width : 12em
     `;
 
   const list = [{ name: 'Buy coffee' }, { name: 'Complete Reading GCP docs' }];
@@ -117,7 +114,7 @@ const addNote = () => {
             <Time>
               <Flex>
                 <Hover style={{ paddingRight: '5px' }}>
-                  <FiClock style={{ fontSize: '1.2em' }} />
+                  <FiClock style={{ fontSize: '1.3em' }} />
                 </Hover>
                 <p> Tomorrow , 5:00am </p>
               </Flex>
