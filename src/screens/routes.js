@@ -127,6 +127,8 @@ class Routes extends Component {
       CloseIcon,
     } = this.props.NotificationStore;
 
+    const { openModal } = this.props.SettingStore;
+
     //=  ===============
 
     return (
@@ -136,6 +138,7 @@ class Routes extends Component {
         <MiniMusic />
         <Welcome />
         <Bot />
+        <Setting />
         {/*    =============== */}
 
         <Sidebar
@@ -216,13 +219,14 @@ class Routes extends Component {
                 </Hover>
               </Link>
 
-              <div style={{ position: 'bottom' }}>
-                <Link>
-                  <NavLink to="/settings">
-                    <FiSettings style={{ fontSize: '1.7em' }} />
-                  </NavLink>
-                </Link>
-              </div>
+              <Link
+                style={{ position: 'bottom' }}
+                onClick={() => {
+                  openModal();
+                }}
+              >
+                <FiSettings style={{ color: 'blue', fontSize: '1.7em' }} />
+              </Link>
             </NavLinks>
           ) : (
             <NavLinks>
@@ -307,14 +311,12 @@ class Routes extends Component {
         </div>
 
         <div
-          onMouseLeave={() => {
-            CloseIcon();
-          }}
-        />
-
-        <div
           onMouseEnter={() => {
             OpenIcon();
+
+            setTimeout(() => {
+              CloseIcon();
+            }, 4000);
           }}
         >
           {showIcon ? (
@@ -365,4 +367,4 @@ class Routes extends Component {
 // );
 
 // add the main component to make this reactive when the @observer works
-export default inject('ModalStore', 'NotificationStore')(observer(Routes));
+export default inject('ModalStore', 'NotificationStore', 'SettingStore')(observer(Routes));

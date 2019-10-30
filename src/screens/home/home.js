@@ -1,5 +1,5 @@
 import { observer, inject } from 'mobx-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiActivity } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -8,6 +8,9 @@ import Flex from 'styled-flex-component';
 import Clock from '../../components/clock';
 import Head from '../../components/head';
 import { Keep } from '../../extensions/';
+
+const electron = window.require('electron');
+const ipc = electron.ipcRenderer;
 
 const Home = props => {
   const Button = styled.button`
@@ -27,19 +30,34 @@ const Home = props => {
     }
   `;
 
+  const [Name, setName] = useState('');
+  const [Org, setOrg] = useState('');
+  const [Role, setRole] = useState('');
+  const [Department, setDepartment] = useState('');
+
+  useEffect(() => {
+    ipc.send('retrieve-details');
+    ipc.on('read-details', (event, arg) => {
+      setName(arg.name);
+      setOrg(arg.organization);
+      setRole(arg.role);
+      setDepartment(arg.department);
+    });
+  }, []);
+
   return (
     <div>
       <Head screens="none" />
 
       <div style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}>
-        <br />
         <Flex justifyBetween>
           <div>
             <Clock />
           </div>
 
           <Flex column>
-            <h2 style={{ textAlign: 'center' }}> Nwani Victory </h2>
+            <h2 style={{ textAlign: 'center' }}> {Name} </h2>
+            <h5 style={{ fontWeight: 'normal', textAlign: 'center' }}> {Role} </h5>
             <Link to="performance">
               <Button>
                 <Flex>
@@ -51,8 +69,8 @@ const Home = props => {
           </Flex>
 
           <Flex column>
-            <h2> Creatella </h2>
-            <h5 stle={{ textAlign: 'right' }}> FontEnd Team</h5>
+            <h2> {Org} </h2>
+            <h5 stle={{ textAlign: 'right', fontWeight: 'normal' }}> {Department} </h5>
           </Flex>
         </Flex>
 

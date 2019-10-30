@@ -5,24 +5,13 @@ import Flex from 'styled-flex-component';
 import { Formik } from 'formik';
 
 import { ApolloProvider, Mutation } from 'react-apollo';
-import { Provider } from 'mobx-react';
+import { Provider, inject, observer } from 'mobx-react';
 
-import { TodoStore } from './state/stores/index';
+import { AuthStore } from './state/stores/index';
 import client from './data/config';
 import { Login } from './data/mutations';
 
-const electron = window.require('electron');
-// const ipc = electron.remote.getCurrentWindow();
-
-const Renderer = require('electron').ipcRenderer;
-
-const App = () => {
-  // Renderer.send('create-tray');
-
-  const Validate = () => {
-    Renderer.send('authenticated');
-  };
-
+const App = props => {
   const Header = styled.div`
     background: #3a3a3a;
     color: #fff;
@@ -67,6 +56,7 @@ const App = () => {
     backgroundColor: 'transparent',
   });
 
+  const { startAuth } = props.AuthStore;
   return (
     <div>
       <Header style={{ boxShadow: '0px 2px 4px grey' }}>
@@ -133,7 +123,7 @@ const App = () => {
                     <Flex justifyCenter>
                       <Button
                         onClick={() => {
-                          Validate();
+                          startAuth();
 
                           loginOrganization({
                             variables: {
@@ -165,10 +155,12 @@ const App = () => {
   );
 };
 
+const Auth = inject('AuthStore')(observer(App));
+
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Provider TodoStore={TodoStore}>
-      <App />
+    <Provider AuthStore={AuthStore}>
+      <Auth />
     </Provider>
   </ApolloProvider>,
   document.getElementById('root'),

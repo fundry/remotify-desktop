@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
 import { ApolloProvider } from 'react-apollo';
-import { Provider } from 'mobx-react';
+import { Provider, inject, observer } from 'mobx-react';
 
 import {
   TodoStore,
@@ -15,6 +15,8 @@ import {
   WelcomeStore,
   BotStore,
   NotificationStore,
+  AuthStore,
+  SettingStore,
 } from './state/stores/index';
 import client from './data/config';
 
@@ -76,47 +78,42 @@ const Header = () => {
 
         <div style={{ paddingRight: '7px ' }}>
           <Flex>
-            <Hover style={{ paddingRight: '50px' }}>
-              <img
-                style={{ maxWidth: '1.2em' }}
-                src={Icon}
-                alt={'dock'}
-                onClick={() => {
-                  tray();
-                }}
-              />{' '}
+            <Hover
+              style={{ paddingRight: '50px' }}
+              onClick={() => {
+                tray();
+              }}
+            >
+              <img style={{ maxWidth: '1.2em' }} src={Icon} alt={'dock'} />{' '}
             </Hover>
 
             <div style={{ paddingRight: '5px' }}>
               <Flex>
-                <Hover style={{ paddingRight: '12px' }}>
-                  <img
-                    style={{ maxWidth: '1.2em' }}
-                    src={Icon}
-                    alt={'min'}
-                    onClick={() => {
-                      tray();
-                    }}
-                  />{' '}
+                <Hover
+                  onClick={() => {
+                    tray();
+                  }}
+                  style={{ paddingRight: '12px' }}
+                >
+                  <img style={{ maxWidth: '1.2em' }} src={Icon} alt={'min'} />{' '}
                 </Hover>
-                <Hover style={{ paddingRight: '12px' }}>
-                  <img
-                    style={{ maxWidth: '1.2em' }}
-                    src={Icon}
-                    alt={'max'}
-                    onClick={() => {
-                      maximize();
-                    }}
-                  />
+                <Hover
+                  onClick={() => {
+                    maximize();
+                  }}
+                  style={{ paddingRight: '12px' }}
+                >
+                  <img style={{ maxWidth: '1.2em' }} src={Icon} alt={'max'} />
                 </Hover>
-                <Hover>
+                <Hover
+                  onClick={() => {
+                    close();
+                  }}
+                >
                   <img
                     style={{ maxWidth: '1.1em', paddingRight: '10px' }}
                     src={Icon}
                     alt={'clos'}
-                    onClick={() => {
-                      close();
-                    }}
                   />
                 </Hover>
               </Flex>
@@ -129,43 +126,41 @@ const Header = () => {
 };
 
 class App extends Component {
-  state = {
-    loggedIn: false,
-  };
+  componentDidMount() {
+    const { authenticated } = this.props.AuthStore;
 
-  // componentDidMount() {
-  //   const { auth } = this.state;
-  //
-  //   {
-  //     !auth ? Renderer.send('authenticate-user') : null;
-  // }
-  //   }
+    {
+      !authenticated ? Renderer.send('authenticate-user') : null;
+    }
+  }
 
   render() {
     return (
       <ApolloProvider client={client}>
-        <Provider
-          TodoStore={TodoStore}
-          ModalStore={ModalStore}
-          MusicStore={MusicStore}
-          MessageStore={MessageStore}
-          WelcomeStore={WelcomeStore}
-          BotStore={BotStore}
-          NotificationStore={NotificationStore}
-        >
-          <Suspense fallback={'i am loading here '}>
-            <Routes />
-          </Suspense>
-        </Provider>
+        <Suspense fallback={'i am loading here '}>
+          <Header />
+          <Routes />
+        </Suspense>
       </ApolloProvider>
     );
   }
 }
 
+const Stuff = inject('AuthStore')(observer(App));
+
 ReactDOM.render(
-  <div>
-    <Header />
-    <App />
-  </div>,
+  <Provider
+    AuthStore={AuthStore}
+    TodoStore={TodoStore}
+    ModalStore={ModalStore}
+    MusicStore={MusicStore}
+    MessageStore={MessageStore}
+    WelcomeStore={WelcomeStore}
+    BotStore={BotStore}
+    NotificationStore={NotificationStore}
+    SettingStore={SettingStore}
+  >
+    <Stuff />
+  </Provider>,
   document.getElementById('root'),
 );

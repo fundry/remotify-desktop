@@ -31,7 +31,7 @@ const createWindow = async () => {
     show: false,
     minHeight: 450,
     minWidth: 450,
-    frame: true,
+    frame: false,
     resizable: false,
     backgroundColor: '#f4f4f5',
     title: 'Remotify',
@@ -105,7 +105,7 @@ ipcMain.on('open-music-dialog', (event, arg) => {
   );
 });
 
-// testing local-json-storage
+// Electron local-json-storage ========>
 ipcMain.on('test-storage', (event, arg) => {
   const data = arg;
 
@@ -121,16 +121,16 @@ ipcMain.on('retrieve-storage', event => {
   storage.get('settings', (error, data) => {
     try {
       event.sender.send('read-storage', data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   });
 });
 
-//  authentication part ===>
+//  authentication part & putting details in json ===>
 ipcMain.on('authenticate-user', (event, arg) => {
   mainWindow.hide();
+
   authWindow.show();
 });
 
@@ -148,9 +148,47 @@ ipcMain.on('authenticated', (event, arg) => {
     }
   );
 */
+
+  const data = arg;
+  mainWindow.hide();
+
+  storage.set(
+    'details',
+    {
+      name: data.name,
+      organization: data.organization,
+      role: data.role,
+      department: data.department,
+    },
+    error => {
+      if (error) {
+        console.log(error);
+      }
+    },
+  );
+
   mainWindow.show();
   authWindow.hide();
 });
+
+// retreieves stored details
+ipcMain.on('retrieve-details', event => {
+  storage.get('details', (error, data) => {
+    try {
+      event.sender.send('read-details', data);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+});
+
+ipcMain.on('clear-details', event => {
+  storage.clear(error => {
+    console.log(error);
+  });
+});
+
+//= ===========
 
 ipcMain.on('create-tray', event => {
   const icon = process.platform === 'win32' ? 'win.png' : 'win.png';

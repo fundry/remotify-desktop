@@ -58,30 +58,59 @@ const SettingNav = props => {
     }
   `;
 
+  const { openModal, closeModal, Find, startFind, stopFind } = props.SettingStore;
+
   return (
     <div style={Div}>
       {props.screens === 'setting' ? (
         <Flex justifyBetween>
-          <Screen> Setting</Screen>
-          <form
-            style={{
-              border: '1px solid black',
-              padding: '0.1em',
-              borderRadius: '3px',
-              paddingRight: '10px',
-              marginRight: '15px',
+          <Btn
+            onClick={() => {
+              closeModal();
             }}
+            style={{ paddingLeft: '10px', paddingRight: '5px' }}
           >
-            <Flex>
-              <Search placeholder="Search Settings" />
+            <FiX style={{ fontSize: '1.7em' }} />
+          </Btn>
 
-              <div style={{ paddingTop: '2px' }}>
-                <Link to="/settings">
-                  <FiSearch style={{ fontSize: '1.3em' }} />
-                </Link>
-              </div>
+          {!Find ? (
+            <Flex>
+              <Screen style={{ fontSize: '1.1em', paddingTop: '5px' }}> Settings </Screen>
+
+              <Btn
+                style={{ paddingLeft: '5px', paddingRight: '7px' }}
+                onClick={() => {
+                  startFind();
+                }}
+              >
+                ``
+                <FiSearch style={{ fontSize: '1.2em' }} />
+              </Btn>
             </Flex>
-          </form>
+          ) : (
+            <form
+              style={{
+                border: '1px solid black',
+                padding: '0.1em',
+                borderRadius: '3px',
+                paddingRight: '10px',
+                marginRight: '15px',
+              }}
+            >
+              <Flex>
+                <Search placeholder="Search Settings" />
+
+                <Btn
+                  style={{ paddingTop: '2px' }}
+                  onClick={() => {
+                    stopFind();
+                  }}
+                >
+                  <FiX style={{ fontSize: '1.3em' }} />
+                </Btn>
+              </Flex>
+            </form>
+          )}
         </Flex>
       ) : null}
 
@@ -148,10 +177,13 @@ const SettingNav = props => {
       {props.screens === 'team' ? (
         <Flex justifyBetween>
           <Screen> Team </Screen>
-          <IconBody style={{ paddingTop: '2px' }}>
-            <Link to="/settings">
-              <FiSettings style={{ fontSize: '1.5em' }} />
-            </Link>
+          <IconBody
+            style={{ paddingTop: '2px' }}
+            onClick={() => {
+              openModal();
+            }}
+          >
+            <FiSettings style={{ fontSize: '1.5em' }} />
           </IconBody>
         </Flex>
       ) : null}
@@ -175,9 +207,13 @@ const SettingNav = props => {
                   </Link>
                 </div>
 
-                <Link to="/settings">
-                  <FiSettings style={{ fontSize: '1.5em' }} />
-                </Link>
+                <Btn
+                  onClick={() => {
+                    openModal();
+                  }}
+                >
+                  <FiSettings style={{ fontSize: '1.5em' }} />{' '}
+                </Btn>
               </Flex>
             </div>
           </IconBody>
@@ -197,9 +233,13 @@ const SettingNav = props => {
           <IconBody>
             <Flex>
               <div style={{ paddingTop: '5px' }}>
-                <Link to="/settings">
-                  <FiSettings style={{ fontSize: '1.5em' }} />
-                </Link>
+                <Btn
+                  onClick={() => {
+                    openModal();
+                  }}
+                >
+                  <FiSettings style={{ fontSize: '1.5em' }} />{' '}
+                </Btn>
               </div>
             </Flex>
           </IconBody>
@@ -233,10 +273,13 @@ const SettingNav = props => {
               <Btn style={{ paddingRight: '0.5em' }}>
                 <FiUser style={{ fontSize: '1.7em' }} />{' '}
               </Btn>
-
-              <Link to="/settings">
-                <FiSettings style={{ fontSize: '1.7em' }} />
-              </Link>
+              <Btn
+                onClick={() => {
+                  openModal();
+                }}
+              >
+                <FiSettings style={{ fontSize: '1.5em' }} />{' '}
+              </Btn>
             </Flex>
           </IconBody>
         </Flex>
@@ -270,4 +313,4 @@ const SettingNav = props => {
   );
 };
 
-export default inject('ModalStore', 'MusicStore')(observer(SettingNav));
+export default inject('ModalStore', 'MusicStore', 'SettingStore')(observer(SettingNav));

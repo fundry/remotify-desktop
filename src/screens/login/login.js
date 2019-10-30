@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Stream } from 'react-streams';
 import { of, pipe } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
-import { onPatch } from 'mobx-state-tree';
 
 // import img from '../../../assets/images/worker.jpg';
 import { Auth } from '../../state/models/';
@@ -13,7 +12,9 @@ import { observer } from 'mobx-react';
 
 const Login = () => {
   const auth = Auth.create({}); // experimental to try Onptach
-  const Div = styled.div`padding: 1em;`;
+  const Div = styled.div`
+    padding: 1em;
+  `;
   // background-image: url(${img});
   const Button = styled.button`
     background: #0e2f5a;
@@ -95,18 +96,21 @@ const Login = () => {
 
       <div>
         <Flex justifyBetween>
-          <div style={{ paddingTop: '10px' , color : '#0e2f5a;' }}>
+          <div style={{ paddingTop: '10px', color: '#0e2f5a;' }}>
             <a href="/"> Troubleshoot </a>
           </div>
           <Help> Create Team </Help>
         </Flex>
-      </div>  
+      </div>
     </Div>
   );
 };
 
 const startWithAndDelay = (message, time) =>
-  pipe(delay(time), startWith({ message }));
+  pipe(
+    delay(time),
+    startWith({ message }),
+  );
 
 const message$ = of({ any: <Login /> });
 
