@@ -12,7 +12,7 @@ const Details = {
 };
 
 class AuthStore {
-  authenticated = false;
+  authenticated = true;
 
   name = '';
   organization = '';

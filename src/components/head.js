@@ -75,7 +75,7 @@ const SettingNav = props => {
 
           {!Find ? (
             <Flex>
-              <Screen style={{ fontSize: '1.1em', paddingTop: '5px' }}> Settings </Screen>
+              <Screen style={{ fontSize: '1em' }}> Settings </Screen>
 
               <Btn
                 style={{ paddingLeft: '5px', paddingRight: '7px' }}
@@ -83,7 +83,6 @@ const SettingNav = props => {
                   startFind();
                 }}
               >
-                ``
                 <FiSearch style={{ fontSize: '1.2em' }} />
               </Btn>
             </Flex>
@@ -228,7 +227,7 @@ const SettingNav = props => {
             </Link>
           </div>
 
-          <Screen> Performance | Nwani Victory </Screen>
+          <Screen style={{ fontSize: '1.2em' }}> Performance | {props.name} </Screen>
 
           <IconBody>
             <Flex>

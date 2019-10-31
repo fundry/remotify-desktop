@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import Chart from './chart';
 import Head from '../../../../components/head';
+import storage from 'electron-json-storage';
 
 const Performance = () => {
-  const Body = styled.div`padding: 1em;`;
+  const Body = styled.div`
+    padding: 1em;
+  `;
 
   const Uptime = styled.div`
   height : 11vh
@@ -14,20 +17,28 @@ const Performance = () => {
   color : #fff
   padding : 1em
   border-radius : 110px
-   border : 1px solid grey  
+   border : 1px solid grey
    padding-top : 20px
   `;
 
+  const [Data, setData] = useState('');
+
+  useEffect(() => {
+    storage.get('details', (error, data) => {
+      setData(data.name);
+    });
+  }, []);
+
   return (
     <div>
-      <Head screens="performance" />
+      <Head screens="performance" name={Data} />
 
       <Body>
         <div>
           <Flex justifyBetween>
             <Flex>
               <h5> During </h5>
-           <p> drop </p>
+              <p> drop </p>
             </Flex>
 
             <Flex column>

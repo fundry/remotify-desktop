@@ -23,6 +23,17 @@ const Settings = props => {
     cursor: 'pointer',
   });
 
+  const HoverColumn = styled.div`
+  padding: 0.7em
+  &:hover{
+    cursor : pointer
+     background : #eee
+     color : #000
+     border : 0.3px solid blue
+     border-radius : 5px
+  }
+  `;
+
   const Title = styled.h5`
     font-weight: normal;
   `;
@@ -37,6 +48,7 @@ const Settings = props => {
     margin: 0 1em;
     padding: 0.2em 1.7em;
     font-size: 1em;
+    padding-top: 7px;
     outline: none;
     &:hover {
       color: #0e2f5a;
@@ -134,30 +146,30 @@ const Settings = props => {
       <Body>
         <div style={{ marginLeft: '2em', marginRight: '2em' }}>
           <Flex justifyBetween>
-            <Hover>
+            <HoverColumn>
               <Flex>
                 <FiUser style={{ fontSize: '1.3em' }} />
                 <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Accounts</h6>
               </Flex>
-            </Hover>
-            <Hover>
+            </HoverColumn>
+            <HoverColumn>
               <Flex>
                 <FiUser style={{ fontSize: '1.3em' }} />
                 <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Personalize</h6>
               </Flex>
-            </Hover>
-            <Hover>
+            </HoverColumn>
+            <HoverColumn>
               <Flex>
                 <FiUser style={{ fontSize: '1.3em' }} />
                 <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Files</h6>
               </Flex>
-            </Hover>
-            <Hover>
+            </HoverColumn>
+            <HoverColumn>
               <Flex>
                 <FiUser style={{ fontSize: '1.3em' }} />
                 <h6 style={{ paddingTop: '2px', paddingLeft: '10px' }}>Team</h6>
               </Flex>
-            </Hover>{' '}
+            </HoverColumn>
           </Flex>
         </div>
         <hr />
@@ -182,7 +194,7 @@ const Settings = props => {
                 }}
               >
                 <Flex>
-                  <FiRefreshCcw style={{ fontSize: '1.3em' }} />
+                  <FiRefreshCcw style={{ fontSize: '1.2em' }} />
                   <p style={{ fontSize: '0.9em', paddingLeft: '7px' }}> Reset Default</p>
                 </Flex>
               </Button>

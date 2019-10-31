@@ -9,7 +9,9 @@ import Header from '../../components/head';
 import Team from './teamModal';
 
 const team = () => {
-  const Div = styled.div`padding: 1em;`;
+  const Div = styled.div`
+    padding: 1em;
+  `;
 
   const Card = styled.div({
     borderRadius: '3px',
@@ -52,17 +54,25 @@ const team = () => {
 
   const data = [
     {
-        name: 'Buy milk',
-      },
-   {
-        name: 'Wash Cloth',
-      },
-   {
-        name: 'Buy Chese',
-      },
+      name: 'Buy milk',
+    },
     {
-        name: 'Clean House',
-      },
+      name: 'Wash Cloth',
+    },
+    {
+      name: 'Buy Chese',
+    },
+    {
+      name: 'Clean House',
+    },
+  ];
+
+  const card = [
+    { name: 'My Schedule' },
+    { name: 'Frontend Schedule' },
+    { name: 'Backend Schedule' },
+    { name: 'Ui Schedule' },
+    { name: 'Ux Schedule' },
   ];
 
   const [Visible, setVisible] = useState(false);
@@ -75,172 +85,46 @@ const team = () => {
       <Div>
         <Team visible={Visible} />
         <Cards>
-          <Card>
-            <Head>
-              <Flex justifyBetween>
-                <p> My Schedule </p>
+          {card.map(({ name }) => (
+            <Card>
+              <Head>
+                <Flex justifyBetween>
+                  <p> {name} </p>
 
-                <Hover
-                  onClick={() => {
-                    setVisible(true);
-                  }}
-                >
-                  <FiMoreHorizontal style={{ fontSize: '2em' }} />
-                </Hover>
-              </Flex>
-            </Head>
-
-            <Body>
-              {data.map(({ name }, i) => (
-                <List>
-                  <Flex justifyBetween>
-                    <li key={i}> {name}</li>
-
-                    <FiEdit2 style={{ fontSize: '1. 5em' }} />
-                  </Flex>
-                </List>
-              ))}
-            </Body>
-
-            <Bottom>
-              <Flex justifyCenter>
-                <Flex>
-                  <div style={{ paddingRight: '10px' }}>
-                    <FiPlus style={{ fontSize: '1.3em' }} />
-                  </div>
-                  <p> New Card </p>
+                  <Hover
+                    onClick={() => {
+                      setVisible(true);
+                    }}
+                  >
+                    <FiMoreHorizontal style={{ fontSize: '2em' }} />
+                  </Hover>
                 </Flex>
-              </Flex>
-            </Bottom>
-          </Card>
+              </Head>
 
-          <Card>
-            <Head>
-              <Flex justifyBetween>
-                <p> My Schedule </p>
-                <FiMoreHorizontal style={{ fontSize: '2em' }} />
-              </Flex>
-            </Head>
+              <Body>
+                {data.map(({ name }, i) => (
+                  <List>
+                    <Flex justifyBetween>
+                      <li key={i}> {name}</li>
 
-            <Body>
-              {data.map(({i, name }) => (
-                <List>
-                  <Flex justifyBetween>
-                    <li key={i}> {name}</li>
+                      <FiEdit2 style={{ fontSize: '1. 5em' }} />
+                    </Flex>
+                  </List>
+                ))}
+              </Body>
 
-                    <FiEdit2 style={{ fontSize: '1. 5em' }} />
+              <Bottom>
+                <Flex justifyCenter>
+                  <Flex>
+                    <div style={{ paddingRight: '5px' }}>
+                      <FiPlus style={{ fontSize: '1.3em' }} />
+                    </div>
+                    <p> New Card </p>
                   </Flex>
-                </List>
-              ))}
-            </Body>
-
-            <Bottom>
-              <Flex justifyCenter>
-                <Flex>
-                  <div style={{ paddingRight: '10px' }}>
-                    <FiPlus style={{ fontSize: '1.3em' }} />
-                  </div>
-                  <p> New Card </p>
                 </Flex>
-              </Flex>
-            </Bottom>
-          </Card>
-
-          <Card>
-            <Head>
-              <Flex justifyBetween>
-                <p> My Schedule </p>
-                <FiMoreHorizontal style={{ fontSize: '2em' }} />
-              </Flex>
-            </Head>
-
-            <Body>
-              {data.map(({ name }, i) => (
-                <List>
-                  <Flex justifyBetween>
-                    <li key={i}> {name}</li>
-
-                    <FiEdit2 style={{ fontSize: '1. 5em' }} />
-                  </Flex>
-                </List>
-              ))}
-            </Body>
-
-            <Bottom>
-              <Flex justifyCenter>
-                <Flex>
-                  <div style={{ paddingRight: '10px' }}>
-                    <FiPlus style={{ fontSize: '1.3em' }} />
-                  </div>
-                  <p> New Card </p>
-                </Flex>
-              </Flex>
-            </Bottom>
-          </Card>
-
-          <Card>
-            <Head>
-              <Flex justifyBetween>
-                <p> My Schedule </p>
-                <FiMoreHorizontal style={{ fontSize: '2em' }} />
-              </Flex>
-            </Head>
-
-            <Body>
-              {data.map(({ name }, i) => (
-                <List>
-                  <Flex justifyBetween>
-                    <li key={i}> {name}</li>
-
-                    <FiEdit2 style={{ fontSize: '1. 5em' }} />
-                  </Flex>
-                </List>
-              ))}
-            </Body>
-
-            <Bottom>
-              <Flex justifyCenter>
-                <Flex>
-                  <div style={{ paddingRight: '10px' }}>
-                    <FiPlus style={{ fontSize: '1.3em' }} />
-                  </div>
-                  <p> New Card </p>
-                </Flex>
-              </Flex>
-            </Bottom>
-          </Card>
-
-          <Card>
-            <Head>
-              <Flex justifyBetween>
-                <p> My Schedule </p>
-                <FiMoreHorizontal style={{ fontSize: '2em' }} />
-              </Flex>
-            </Head>
-
-            <Body>
-              {data.map(({ name }, i) => (
-                <List>
-                  <Flex justifyBetween>
-                    <li key={i}> {name}</li>
-
-                    <FiEdit2 style={{ fontSize: '1. 5em' }} />
-                  </Flex>
-                </List>
-              ))}
-            </Body>
-
-            <Bottom>
-              <Flex justifyCenter>
-                <Flex>
-                  <div style={{ paddingRight: '10px' }}>
-                    <FiPlus style={{ fontSize: '1.3em' }} />
-                  </div>
-                  <p> New Card </p>
-                </Flex>
-              </Flex>
-            </Bottom>
-          </Card>
+              </Bottom>
+            </Card>
+          ))}
         </Cards>
       </Div>
     </div>
