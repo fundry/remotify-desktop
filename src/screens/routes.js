@@ -1,6 +1,7 @@
 // this file is long and spaghetti . Touch with caution !!
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 // import { Stream } from 'react-streams';
 // import { of, pipe } from 'rxjs';
 // import { delay, startWith } from 'rxjs/operators';
@@ -31,7 +32,7 @@ import { Auth, Nav_State } from '../state/models/';
 import { Bottom, Notification } from '../components/';
 import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance } from './index';
 import { CodeSandbox } from '../extensions/index';
-import { Shortcut, MiniMusic, Welcome, Bot } from '../modals/';
+import { Shortcut, MiniMusic, Keys, Welcome, Bot } from '../modals/';
 //= ======================
 
 // electron auth logic
@@ -128,7 +129,6 @@ class Routes extends Component {
     } = this.props.NotificationStore;
 
     const { openModal } = this.props.SettingStore;
-
     //=  ===============
 
     return (
@@ -139,6 +139,7 @@ class Routes extends Component {
         <Welcome />
         <Bot />
         <Setting />
+        <Keys />
         {/*    =============== */}
 
         <Sidebar
@@ -353,6 +354,9 @@ class Routes extends Component {
   }
 }
 
+Routes.propTypes = {
+  show: propTypes.bool,
+};
 // const startWithAndDelay = (message, time) =>
 //   pipe(delay(time), startWith({ message }));
 
@@ -367,4 +371,6 @@ class Routes extends Component {
 // );
 
 // add the main component to make this reactive when the @observer works
-export default inject('ModalStore', 'NotificationStore', 'SettingStore')(observer(Routes));
+export default inject('ModalStore', 'NotificationStore', 'SettingStore', 'StorageStore')(
+  observer(Routes),
+);

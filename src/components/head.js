@@ -59,6 +59,7 @@ const SettingNav = props => {
   `;
 
   const { openModal, closeModal, Find, startFind, stopFind } = props.SettingStore;
+  const { openKey } = props.StorageStore;
 
   return (
     <div style={Div}>
@@ -198,13 +199,16 @@ const SettingNav = props => {
           <Screen> Files </Screen>
 
           <IconBody>
-            <div style={{ paddingTop: '2.5px', paddingRight: '10px' }}>
+            <div style={{ paddingTop: '2.5px', paddingRight: '5px' }}>
               <Flex>
-                <div style={{ paddingRight: '7px' }}>
-                  <Link to="/">
-                    <GoKey style={{ fontSize: '1.5em' }} />
-                  </Link>
-                </div>
+                <Btn
+                  style={{ paddingRight: '7px' }}
+                  onClick={() => {
+                    openKey();
+                  }}
+                >
+                  <GoKey style={{ fontSize: '1.5em' }} />
+                </Btn>
 
                 <Btn
                   onClick={() => {
@@ -312,4 +316,6 @@ const SettingNav = props => {
   );
 };
 
-export default inject('ModalStore', 'MusicStore', 'SettingStore')(observer(SettingNav));
+export default inject('ModalStore', 'StorageStore', 'MusicStore', 'SettingStore')(
+  observer(SettingNav),
+);

@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 import { Dropdown } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
+import { observer, inject } from 'mobx-react';
 
 import { Keys } from '../../modals';
 import Header from '../../components/head';
 
-import { FiSearch, FiImage, FiUploadCloud, FiX } from 'react-icons/fi';
+import { FiSearch, FiImage, FiUploadCloud, FiX, FiBarChart } from 'react-icons/fi';
 import { GoFile } from 'react-icons/go';
 import { MdVideoLibrary } from 'react-icons/md';
 
 // electron to trigger native file path
 const Renderer = require('electron').ipcRenderer;
+
 Renderer.on('selectred-directory', (event, path) => {
   console.log(path);
 });
 
-const getColor = (props) => {
+const getColor = props => {
   if (props.isDragAccept) {
     return '#00e676';
   }
@@ -30,36 +32,34 @@ const getColor = (props) => {
   return '#eeeeee';
 };
 
-const FileType = () => {
-  return (
-    <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        All
-      </Dropdown.Toggle>
+const FileType = () => (
+  <Dropdown>
+    <Dropdown.Toggle variant="success" id="dropdown-basic">
+      All
+    </Dropdown.Toggle>
 
-      <Dropdown.Menu>
-        <Dropdown.Item href="/">
-          <Flex>
-            <GoFile style={{ fontSize: '1.7em' }} />
-            <p> Documents </p>
-          </Flex>
-        </Dropdown.Item>
-        <Dropdown.Item href="/">
-          <Flex>
-            <FiImage style={{ fontSize: '1.7em' }} />
-            <p> Images </p>
-          </Flex>{' '}
-        </Dropdown.Item>
-        <Dropdown.Item href="/">
-          <Flex>
-            <MdVideoLibrary style={{ fontSize: '1.7em' }} />
-            <p> Videos </p>
-          </Flex>{' '}
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-  );
-};
+    <Dropdown.Menu>
+      <Dropdown.Item href="/">
+        <Flex>
+          <GoFile style={{ fontSize: '1.7em' }} />
+          <p> Documents </p>
+        </Flex>
+      </Dropdown.Item>
+      <Dropdown.Item href="/">
+        <Flex>
+          <FiImage style={{ fontSize: '1.7em' }} />
+          <p> Images </p>
+        </Flex>{' '}
+      </Dropdown.Item>
+      <Dropdown.Item href="/">
+        <Flex>
+          <MdVideoLibrary style={{ fontSize: '1.7em' }} />
+          <p> Videos </p>
+        </Flex>{' '}
+      </Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
+);
 
 const File = () => {
   const Upload = styled.button`
@@ -100,14 +100,14 @@ const File = () => {
     padding: 1em;
     border-width: 2px;
     border-radius: 2px;
-    border-color: ${(props) => getColor(props)};
+    border-color: ${props => getColor(props)};
     border-style: dashed;
     background-color: #fafafa;
     color: #bdbdbd;
     outline: none;
     margin: 1.5em;
     border-radius: 10px;
-    transition: border .24s ease-in-out;
+    transition: border 0.24s ease-in-out;
   `;
 
   const Browse = styled.button`
@@ -125,31 +125,30 @@ const File = () => {
     }
   `;
 
-  const Search = styled.input`  
+  const Search = styled.input`
     width : 30em
     height : 4.5vh
     text-align : center
-    border  :  0px  
+    border  :  0px
     border-radius : 3px
   `;
 
   const Form = styled.form`
-    border : 0.7px solid grey 
+    border : 0.7px solid grey
     padding:  0.2em
     border-radius:  5px
     padding-right:  10px
     margin-right:  15px
-    width : 50em    
+    width : 50em
   `;
 
   const [upload, uploading] = useState(false);
+  const [Analytics, setAnalytics] = useState(true);
+  const [SearchTxt, setSearchTxt] = useState('');
 
-  const {
-    getRootProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-  } = useDropzone({ accept: 'image/*' });
+  const { getRootProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
+    accept: 'image/*',
+  });
 
   return (
     <div>
@@ -161,18 +160,27 @@ const File = () => {
             <Flex justifyBetween>
               <FileType />
 
-              <Search placeholder=" Search Files  " />
+              <Search
+                placeholder=" Search Files"
+                value={SearchTxt}
+                onChange={event => {
+                  setSearchTxt(event.target.value);
+                }}
+              />
+
               <div style={{ paddingTop: '5px' }}>
-                <FiSearch style={{ fontSize: '1.5em' }} />
+                {SearchTxt.length >= 1 ? (
+                  <FiBarChart style={{ fontSize: '1.5em' }} />
+                ) : (
+                  <FiSearch style={{ fontSize: '1.5em' }} />
+                )}
               </div>
             </Flex>
           </Form>
         </Flex>
       </div>
 
-      <Container
-        {...getRootProps({ isDragActive, isDragAccept, isDragReject })}
-      >
+      <Container {...getRootProps({ isDragActive, isDragAccept, isDragReject })}>
         {!isDragActive ? (
           <div>
             {' '}
@@ -242,4 +250,4 @@ const File = () => {
   );
 };
 
-export default File;
+export default inject('StorageStore')(observer(File));

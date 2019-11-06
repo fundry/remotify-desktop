@@ -8,3 +8,4 @@ export { default as BotStore } from './bot.store';
 export { default as NotificationStore } from './notif.store';
 export { default as AuthStore } from './auth.store';
 export { default as SettingStore } from './setting.store';
+export { default as StorageStore } from './storage.store';

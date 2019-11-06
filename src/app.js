@@ -17,6 +17,7 @@ import {
   NotificationStore,
   AuthStore,
   SettingStore,
+  StorageStore,
 } from './state/stores/index';
 import client from './data/config';
 
@@ -159,6 +160,7 @@ ReactDOM.render(
     BotStore={BotStore}
     NotificationStore={NotificationStore}
     SettingStore={SettingStore}
+    StorageStore={StorageStore}
   >
     <Stuff />
   </Provider>,
