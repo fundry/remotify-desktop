@@ -1,11 +1,11 @@
 import React, { Suspense, Component } from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './screens/routes';
+import { ApolloProvider } from 'react-apollo';
+import { Provider, inject, observer } from 'mobx-react';
 import styled from 'styled-components';
 import Flex from 'styled-flex-component';
 
-import { ApolloProvider } from 'react-apollo';
-import { Provider, inject, observer } from 'mobx-react';
+import Routes from './screens/routes';
 
 import {
   TodoStore,
@@ -18,6 +18,7 @@ import {
   AuthStore,
   SettingStore,
   StorageStore,
+  SchedulerStore,
 } from './state/stores/index';
 import client from './data/config';
 
@@ -161,6 +162,7 @@ ReactDOM.render(
     NotificationStore={NotificationStore}
     SettingStore={SettingStore}
     StorageStore={StorageStore}
+    SchedulerStore={SchedulerStore}
   >
     <Stuff />
   </Provider>,

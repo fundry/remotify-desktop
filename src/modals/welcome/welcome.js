@@ -34,7 +34,8 @@ padding-left : 25px
 `;
 
 const Welcome = props => {
-  const { welcomed } = props.WelcomeStore;
+  const { welcomed, closeWelcomeModal } = props.AuthStore;
+
   return (
     <Flex justifyCenter>
       <Modal
@@ -43,6 +44,9 @@ const Welcome = props => {
           boxShadow: '0px 2px 5px grey',
           padding: '2em',
           borderRadius: '5px',
+        }}
+        onHide={() => {
+          closeWelcomeModal();
         }}
       >
         <Head style={{ boxShadow: '0px 2px 5px grey' }}>
@@ -119,4 +123,4 @@ const Welcome = props => {
   );
 };
 
-export default inject('WelcomeStore')(observer(Welcome));
+export default inject('AuthStore')(observer(Welcome));

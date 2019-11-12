@@ -45,15 +45,26 @@ const Home = props => {
     });
   }, []);
 
+  const Hover = styled.div({
+    cursor: 'pointer',
+  });
+
+  const { open_modal } = props.SchedulerStore;
+
   return (
     <div>
       <Head screens="none" />
 
-      <div style={{ paddingBottom: '10px', paddingTop: '10px', padding: '1em' }}>
+      <div style={{ paddingBottom: '5px', paddingTop: '10px', padding: '1em' }}>
         <Flex justifyBetween>
-          <div>
+          <Hover
+            onClick={() => {
+              open_modal();
+              console.log('open SchedulerStore modal');
+            }}
+          >
             <Clock />
-          </div>
+          </Hover>
 
           <Flex column>
             <h2 style={{ textAlign: 'center' }}> {Name} </h2>
@@ -74,6 +85,7 @@ const Home = props => {
           </Flex>
         </Flex>
 
+        <br />
         <div>
           <Keep />
         </div>
@@ -82,4 +94,4 @@ const Home = props => {
   );
 };
 
-export default inject('NotificationStore')(observer(Home));
+export default inject('NotificationStore', 'SchedulerStore')(observer(Home));

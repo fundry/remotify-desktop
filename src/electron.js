@@ -109,7 +109,6 @@ ipcMain.on('open-music-dialog', (event, arg) => {
 ipcMain.on('test-storage', (event, arg) => {
   const data = arg;
 
-  console.log(`data ${data}`);
   storage.set('settings', { name: data }, error => {
     if (error) {
       console.log(error);
@@ -159,6 +158,7 @@ ipcMain.on('authenticated', (event, arg) => {
       organization: data.organization,
       role: data.role,
       department: data.department,
+      hours: data.hoursPerWeek,
     },
     error => {
       if (error) {

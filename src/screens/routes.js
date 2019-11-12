@@ -32,7 +32,7 @@ import { Auth, Nav_State } from '../state/models/';
 import { Bottom, Notification } from '../components/';
 import { Home, Files, Help, Message, Music, Setting, Team, Office, Performance } from './index';
 import { CodeSandbox } from '../extensions/index';
-import { Shortcut, MiniMusic, Keys, Welcome, Bot } from '../modals/';
+import { Scheduler, Shortcut, MiniMusic, Keys, Welcome, Bot } from '../modals/';
 //= ======================
 
 // electron auth logic
@@ -140,6 +140,7 @@ class Routes extends Component {
         <Bot />
         <Setting />
         <Keys />
+        <Scheduler />
         {/*    =============== */}
 
         <Sidebar

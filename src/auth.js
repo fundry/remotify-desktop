@@ -56,7 +56,7 @@ const App = props => {
     backgroundColor: 'transparent',
   });
 
-  const { startAuth } = props.AuthStore;
+  const { AuthUser } = props.AuthStore;
   return (
     <div>
       <Header style={{ boxShadow: '0px 2px 4px grey' }}>
@@ -123,7 +123,7 @@ const App = props => {
                     <Flex justifyCenter>
                       <Button
                         onClick={() => {
-                          startAuth();
+                          AuthUser();
 
                           loginOrganization({
                             variables: {
