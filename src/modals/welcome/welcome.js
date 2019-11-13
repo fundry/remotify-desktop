@@ -24,18 +24,17 @@ const Button = styled.button`
   }
 `;
 
-const Body = styled.div`
-  padding: 1em;
-`;
+const Body = styled.div`padding: 1em;`;
 
 const IconRole = styled.div`
 padding-right : 25px
 padding-left : 25px
 `;
 
-const Welcome = props => {
+const Welcome = (props) => {
   const { welcomed, closeWelcomeModal } = props.AuthStore;
 
+  console.log(welcomed, 'welcome modal');
   return (
     <Flex justifyCenter>
       <Modal
@@ -105,7 +104,7 @@ const Welcome = props => {
             <p> Sign in inorder to use your tools </p>
             <Button
               onClick={() => {
-                props.WelcomeStore.closeModal();
+                closeWelcomeModal();
               }}
             >
               <Flex justifyBetween>

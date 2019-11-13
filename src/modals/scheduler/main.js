@@ -10,12 +10,10 @@ import Schedule from './scheduler';
 const electron = window.require('electron');
 const Renderer = require('electron').ipcRenderer;
 
-const Scheduler = props => {
+const Scheduler = (props) => {
   const { showModal, close_modal, setHours, organized } = props.SchedulerStore;
 
-  const Body = styled.div`
-    padding: 1em;
-  `;
+  const Body = styled.div`padding: 1em;`;
 
   const Button = styled.button`
     background: #0e2f5a;
@@ -54,26 +52,30 @@ const Scheduler = props => {
       onHide={() => {
         close_modal();
       }}
+      style={{ marginTop: '10%' }}
     >
       <Hover
         style={{
           textAlign: 'right',
           color: 'blue',
-          marginRight: '20px',
+          marginRight: '15px',
         }}
         onClick={() => {
           close_modal();
         }}
       >
-        <Flex>
-          <p style={{ fontSize: '1.1em', paddingRight: '2px' }}> skip </p>
-          <FiChevronRight style={{ fontSize: '1.3em' }} />
-        </Flex>
+        <FiChevronRight style={{ fontSize: '2.5em' }} />
       </Hover>
 
       {!organized ? (
-        <div>
-          <p style={{ textAlign: 'center' }}> Organize and plan your {Time} hours working plan </p>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ textAlign: 'center' }}>
+            You currently have a {Time} hours per week working agreement.
+          </p>
+          <br /> <br /> <br /> <br />
+          <p style={{ textAlign: 'center' }}>
+            Organize and plan your working hours.
+          </p>
           <Flex justifyCenter>
             <Button
               onClick={() => {
@@ -86,7 +88,7 @@ const Scheduler = props => {
           <br />
         </div>
       ) : (
-        <Schedule />
+        <Schedule time={Time} />
       )}
     </Modal>
   );
