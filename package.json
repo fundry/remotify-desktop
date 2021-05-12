@@ -54,7 +54,7 @@
 	},
 	"dependencies": {
 		"@apollo/react-hooks": "^3.1.2",
-		"@grpc/grpc-js": "^0.6.11",
+		"@grpc/grpc-js": "^1.1.8",
 		"@grpc/proto-loader": "^0.5.3",
 		"@tensorflow/tfjs-node": "^1.2.9",
 		"@wdio/cli": "^5.12.5",
